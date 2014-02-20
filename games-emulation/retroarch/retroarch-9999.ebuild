@@ -16,7 +16,7 @@ EGIT_REPO_URI="git://github.com/libretro/RetroArch.git"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="alsa cg +fbo ffmpeg jack netplay openal oss pulseaudio python sdl sdl-image truetype udev xml xv zlib"
 
 RDEPEND="sdl? ( >=media-libs/libsdl-1.2.10[joystick] )
@@ -32,7 +32,8 @@ RDEPEND="sdl? ( >=media-libs/libsdl-1.2.10[joystick] )
 	xv? ( x11-libs/libXv )
 	zlib? ( sys-libs/zlib )
 	python? ( ${PYTHON_DEPS} )
-	udev? ( >=x11-libs/libxkbcommon-0.4.0 )"
+	udev? ( >=x11-libs/libxkbcommon-0.4.0
+	virtual/udev )"
 DEPEND="virtual/pkgconfig
 	${RDEPEND}"
 
