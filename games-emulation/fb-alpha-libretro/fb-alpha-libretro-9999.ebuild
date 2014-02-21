@@ -12,7 +12,7 @@ SRC_URI=""
 
 EGIT_REPO_URI="https://github.com/libretro/fba-libretro.git"
 
-LICENSE="custom:FB Alpha License"
+LICENSE="FBA"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
@@ -37,4 +37,6 @@ src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/fb_alpha_libretro.so
 	doins "${WORKDIR}"/infos/dist/info/fb_alpha_libretro.info
+	insinto /usr/share/libretro/fb_alpha_libretro
+	doins "${S}"/src/license.txt
 }

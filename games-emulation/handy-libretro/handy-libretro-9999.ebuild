@@ -12,7 +12,7 @@ SRC_URI=""
 
 EGIT_REPO_URI="https://github.com/libretro/libretro-handy.git"
 
-LICENSE="zlib"
+LICENSE="ZLIB"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""

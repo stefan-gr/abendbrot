@@ -12,7 +12,7 @@ SRC_URI=""
 
 EGIT_REPO_URI="https://github.com/libretro/nxengine-libretro.git"
 
-LICENSE="GPL"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="+cave_story"

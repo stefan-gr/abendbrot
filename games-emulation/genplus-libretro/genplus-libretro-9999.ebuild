@@ -13,7 +13,7 @@ SRC_URI=""
 
 EGIT_REPO_URI="https://github.com/libretro/Genesis-Plus-GX.git"
 
-LICENSE="custom"
+LICENSE="GPGX"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
@@ -36,4 +36,6 @@ src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/genesis_plus_gx_libretro.so
 	doins "${WORKDIR}"/infos/dist/info/genesis_plus_gx_libretro.info
+	insinto /usr/share/libretro/genesis_plus_gx_libretro
+	doins "${S}"/LICENSE.txt
 }

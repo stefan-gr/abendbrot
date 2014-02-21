@@ -12,7 +12,7 @@ SRC_URI=""
 
 EGIT_REPO_URI="https://github.com/libretro/${PN}.git"
 
-LICENSE="GPL3"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE=""

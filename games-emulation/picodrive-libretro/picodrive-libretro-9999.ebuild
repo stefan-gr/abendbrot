@@ -13,7 +13,7 @@ SRC_URI=""
 
 EGIT_REPO_URI="https://github.com/libretro/picodrive.git"
 
-LICENSE="custom"
+LICENSE="PD"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
@@ -40,4 +40,6 @@ src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/picodrive_libretro.so
 	doins "${WORKDIR}"/infos/dist/info/picodrive_libretro.info
+	instinto /usr/share/libretro/picodrive_libretro
+	doins "${S}"/COPYING
 }

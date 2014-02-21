@@ -12,7 +12,7 @@ SRC_URI=""
 
 EGIT_REPO_URI="https://github.com/libretro/imame4all-libretro.git"
 
-LICENSE="GPL"
+LICENSE="MAME-GPL"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
@@ -38,4 +38,6 @@ src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	newins "${S}"/libretro.so imame4all_libretro.so
 	doins "${WORKDIR}"/infos/dist/info/imame4all_libretro.info
+	insinto /usr/share/libretro/imame4all_libretro
+	doins "${S}"/res/Applications/iMAME4all.app/LICENSE/LICENSE_MAME.txt
 }

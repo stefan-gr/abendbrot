@@ -12,7 +12,7 @@ SRC_URI=""
 
 EGIT_REPO_URI="https://github.com/libretro/mame2013-libretro.git"
 
-LICENSE="custom:MAME License"
+LICENSE="MAME-GPL"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
@@ -35,4 +35,6 @@ src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/mame_libretro.so
 	doins "${WORKDIR}"/infos/dist/info/mame_libretro.info
+	insinto /usr/share/libretro/mame_libretro
+	doins "${S}"/docs/license.txt
 }

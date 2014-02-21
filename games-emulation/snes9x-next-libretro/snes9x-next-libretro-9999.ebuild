@@ -12,7 +12,7 @@ SRC_URI=""
 
 EGIT_REPO_URI="https://github.com/libretro/snes9x-next.git"
 
-LICENSE="custom"
+LICENSE="snes9x"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
@@ -35,4 +35,6 @@ src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/snes9x_next_libretro.so
 	doins "${WORKDIR}"/infos/dist/info/snes9x_next_libretro.info
+	insinto /usr/share/libretro/snes9x_next_libretro
+	doins "${S}"/docs/snes9x-license.txt
 }

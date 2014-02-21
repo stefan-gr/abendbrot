@@ -13,7 +13,7 @@ SRC_URI=""
 EGIT_REPO_URI="git://gitorious.org/bsnes/bsnes.git"
 EGIT_BRANCH="libretro"
 
-LICENSE="GPL3"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="profile_accuracy +profile_balanced profile_performance"
