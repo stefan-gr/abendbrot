@@ -7,10 +7,10 @@ EAPI=5
 inherit git-r3
 
 DESCRIPTION="libretro implementation of DeSmuME. (Nintendo DS)"
-HOMEPAGE="https://github.com/libretro/desmume-libretro"
+HOMEPAGE="https://github.com/libretro/desmume-future"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/${PN}.git"
+EGIT_REPO_URI="https://github.com/libretro/desmume-future.git"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -28,7 +28,7 @@ src_prepare() {
 }
 
 src_compile() {
-	emake -f Makefile.libretro DESMUME_JIT=1 || die "emake failed"
+	emake -f Makefile.libretro || die "emake failed"
 }
 
 src_install() {
