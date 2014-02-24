@@ -23,7 +23,7 @@ REQUIRED_USE="|| ( profile_accuracy profile_balanced profile_performance )"
 RDEPEND=""
 DEPEND=""
 
-src_prepare() {
+src_unpack() {
 	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD 
 	git-r3_checkout https://github.com/libretro/libretro-super.git \
 		"${WORKDIR}"/infos

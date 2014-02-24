@@ -20,7 +20,7 @@ IUSE="+cave_story"
 RDEPEND=""
 DEPEND=""
 
-src_prepare() {
+src_unpack() {
 	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD 
 	git-r3_checkout https://github.com/libretro/libretro-super.git \
 		"${WORKDIR}"/infos
