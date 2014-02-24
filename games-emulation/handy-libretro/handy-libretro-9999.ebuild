@@ -14,7 +14,7 @@ EGIT_REPO_URI="https://github.com/libretro/libretro-handy.git"
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS=""
 IUSE=""
 
 RDEPEND="sys-libs/zlib"
