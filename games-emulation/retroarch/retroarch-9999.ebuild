@@ -22,7 +22,7 @@ IUSE="alsa cg +fbo ffmpeg jack netplay openal oss pulseaudio python sdl sdl-imag
 RDEPEND="sdl? ( >=media-libs/libsdl-1.2.10[joystick] )
 	alsa? ( media-libs/alsa-lib )
 	cg? ( media-gfx/nvidia-cg-toolkit )
-	ffmpeg? ( virtual/ffmpeg )
+	ffmpeg? ( >=media-video/ffmpeg-2.1.3 )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.120.1 )
 	openal? ( media-libs/openal )
 	xml? ( dev-libs/libxml2 )
