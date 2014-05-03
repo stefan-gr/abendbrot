@@ -7,10 +7,10 @@ EAPI=5
 inherit git-r3
 
 DESCRIPTION="libretro implementation of DeSmuME. (Nintendo DS)"
-HOMEPAGE="https://github.com/libretro/desmume-future"
+HOMEPAGE="https://github.com/libretro/desmume"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/desmume-future.git"
+EGIT_REPO_URI="https://github.com/libretro/desmume.git"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -19,6 +19,8 @@ IUSE=""
 
 RDEPEND=""
 DEPEND=""
+
+S="${S}/desmume"
 
 src_unpack() {
 	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD 
