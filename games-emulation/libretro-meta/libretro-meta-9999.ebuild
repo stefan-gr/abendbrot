@@ -9,7 +9,7 @@ HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
 IUSE="bnes +bsnes +desmume +fb-alpha +fceu-next +gambatte +genplus handy imame4all \
-+mame +mednafen-gba +mednafen-ngp +mednafen-pce-fast +mednafen-psx +mednafen-snes \
++mame +mednafen-gba +mednafen-ngp mednafen-pce-fast +mednafen-psx +mednafen-snes \
 +mednafen-vb +mednafen-wswan +meteor +mupen64plus +nestopia +nxengine +pcsx-rearmed \
 +picodrive pocketsnes +prboom +quicknes +scummvm +snes9x +snes9x-next +stella +tyrquake \
 +vba-next +vbam"
