@@ -6,11 +6,11 @@ EAPI=5
 
 inherit git-r3
 
-DESCRIPTION="libretro implementation of MAME 2013 (0.152). (Arcade)"
-HOMEPAGE="https://github.com/libretro/mame2013-libretro"
+DESCRIPTION="libretro implementation of MAME 2014. (Arcade)"
+HOMEPAGE="https://github.com/libretro/libretro-mame"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/mame2013-libretro.git"
+EGIT_REPO_URI="https://github.com/libretro/libretro-mame.git"
 
 LICENSE="MAME-GPL"
 SLOT="0"
@@ -19,7 +19,7 @@ IUSE=""
 
 RDEPEND=""
 DEPEND=""
-S="${S}/0152"
+
 src_unpack() {
 	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD 
 	git-r3_checkout https://github.com/libretro/libretro-super.git \
