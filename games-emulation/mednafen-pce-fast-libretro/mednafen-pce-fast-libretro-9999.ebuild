@@ -14,7 +14,7 @@ EGIT_REPO_URI="https://github.com/libretro/beetle-pce-fast-libretro.git"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND=""

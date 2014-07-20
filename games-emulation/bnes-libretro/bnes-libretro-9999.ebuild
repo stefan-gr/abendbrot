@@ -14,7 +14,7 @@ EGIT_REPO_URI="https://github.com/libretro/${PN}.git"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND=""
@@ -34,6 +34,6 @@ src_compile() {
 
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
-	doins "${S}"/bnes_libretro.so
+	newins "${S}"/libretro.so bnes_libretro.so
 	doins "${WORKDIR}"/infos/dist/info/bnes_libretro.info
 }
