@@ -12,7 +12,7 @@ IUSE="+bnes +bsnes +desmume +fb-alpha +fceu-next +gambatte +genplus +handy imame
 +mame +mednafen-gba +mednafen-ngp +mednafen-pce-fast +mednafen-psx +mednafen-snes \
 +mednafen-vb +mednafen-wswan +meteor +mupen64plus +nestopia +nxengine +pcsx-rearmed \
 +picodrive pocketsnes +prboom +quicknes +scummvm +snes9x +snes9x-next +stella +tyrquake \
-+vba-next +vbam"
++vba-next +vbam +yabause"
 
 KEYWORDS="~amd64 ~x86"
 
@@ -48,5 +48,6 @@ RDEPEND="bnes? ( >=games-emulation/bnes-libretro-9999 )
 		stella? ( >=games-emulation/stella-libretro-9999 )
 		tyrquake? ( >=games-emulation/tyrquake-libretro-9999 )
 		vba-next? ( >=games-emulation/vba-next-libretro-9999 )
-		vbam? ( >=games-emulation/vbam-libretro-9999 )"
+		vbam? ( >=games-emulation/vbam-libretro-9999 )
+		yabause? ( >=games-emulation/yabause-libretro-9999 )"
 DEPEND=""
