@@ -7,10 +7,10 @@ EAPI=5
 inherit git-r3
 
 DESCRIPTION="libretro implementation of Mednafen VB. (Virtual Boy)"
-HOMEPAGE="https://github.com/libretro/mednafen-libretro"
+HOMEPAGE="https://github.com/libretro/beetle-vb-libretro"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/mednafen-libretro.git"
+EGIT_REPO_URI="https://github.com/libretro/beetle-vb-libretro.git"
 
 LICENSE="GPL-2"
 SLOT="0"

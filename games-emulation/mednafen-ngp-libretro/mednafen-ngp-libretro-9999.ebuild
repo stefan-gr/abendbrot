@@ -7,10 +7,10 @@ EAPI=5
 inherit git-r3
 
 DESCRIPTION="libretro implementation of Mednafen Neopop. (Neo Geo Pocket/Neo Geo Pocket Color)"
-HOMEPAGE="https://github.com/libretro/mednafen-libretro"
+HOMEPAGE="https://github.com/libretro/beetle-ngp-libretro"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/mednafen-libretro.git"
+EGIT_REPO_URI="https://github.com/libretro/beetle-ngp-libretro.git"
 
 LICENSE="GPL-2"
 SLOT="0"
