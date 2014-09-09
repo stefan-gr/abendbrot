@@ -7,9 +7,10 @@ EAPI=5
 inherit autotools rpm
 
 DESCRIPTION="Epson Inkjet Printer Driver (ESC/P-R) for Linux"
-HOMEPAGE="http://avasys.jp/eng/linux_driver/download/lsb/epson-inkjet/escpr/"
-SRC_URI="http://download2.ebz.epson.net/dsc/f/03/00/02/71/40/628a09f1d54c1e3910fd8ee1015505420a0a592a/epson-inkjet-printer-escpr-1.4.0-1lsb3.2.src.rpm"
-
+HOMEPAGE="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX"
+#SRC_URI="https://download2.ebz.epson.net/dsc/f/03/00/02/90/17/f56ca75bf934fba0fed23a99271dfbaefe363bae/${P}-1lsb3.2.src.rpm"
+SRC_URI="http://ftp.uk.debian.org/debian/pool/main/e/epson-inkjet-printer-escpr/epson-inkjet-printer-escpr_1.4.1.orig.tar.gz"
+RESTRICT="primaryuri"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
