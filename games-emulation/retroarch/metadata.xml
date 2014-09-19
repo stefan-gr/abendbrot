@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <herd>games</herd>
+  <use>
+    <flag name='alsa'>Enable ALSA support</flag>
+    <flag name='autoconfig'>Adds premade joystick autoconfiguration and changes default retroarch.cfg accordingly</flag>
+    <flag name='cg'>Enable Cg shader support</flag>
+    <flag name='cores'>Changes default retroarch.cfg to the standardpath of the libretro* ebuilds</flag>
+    <flag name='egl'>Enable EGL context support</flag>
+    <flag name='fbo'>Enable render-to-texture (FBO) support</flag>
+    <flag name='ffmpeg'>Enable FFmpeg recording support</flag>
+    <flag name='gles'>Use GLESv2 instead of OpenGL</flag>
+    <flag name='gles3'>Enable OpenGLES3 support</flag>
+    <flag name='glui'>Enable GLUI menu</flag>
+    <flag name='jack'>Enable JACK support</flag>
+    <flag name='kms'>Enable KMS context support</flag>
+    <flag name='lakka'>Enable Lakka menu</flag>
+    <flag name='netplay'>Enable netplay support</flag>
+    <flag name='openal'>Enable OpenAL support</flag>
+    <flag name='opengl'>Enable OpenGL support</flag>
+    <flag name='oss'>Enable OSS support</flag>
+    <flag name='pulseaudio'>Enable PulseAudio support</flag>
+    <flag name='python'>Enable Python 3 support for shaders</flag>
+    <flag name='sdl'>SDL support</flag>
+    <flag name='sdl2'>SDL2 support</flag>
+    <flag name='truetype'>Enable FreeType support</flag>
+    <flag name='threads'>Threading support</flag>
+    <flag name='udev'>Udev/Evdev gamepad support</flag>
+    <flag name='v4l2'>Enable video4linux2 support</flag>
+    <flag name='openvg'>Enable OpenVG support</flag>
+    <flag name='xml'>Enable libxml2 support</flag>
+    <flag name='xv'>Enable XVideo support</flag>
+    <flag name='xinerama'>Enable Xinerama support</flag>
+    <flag name='x11'>Enable x11 support</flag>
+    <flag name='zlib'>Enable zlib support (ZIP extract, PNG decoding/encoding)</flag>
+  </use>
+</pkgmetadata>
