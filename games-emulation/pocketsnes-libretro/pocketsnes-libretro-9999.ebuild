@@ -12,7 +12,7 @@ SRC_URI=""
 
 EGIT_REPO_URI="git://github.com/ToadKing/pocketsnes-libretro.git"
 
-LICENSE="custom"
+LICENSE="PS"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
