@@ -35,6 +35,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "To play a game ,like Cave Story, put the gamefiles"
+	elog "To play a game, like Cave Story, put the gamefiles"
 	elog "to your rgui_browser_directory and select the executable as game"
 }
