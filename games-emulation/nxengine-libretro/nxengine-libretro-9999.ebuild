@@ -15,7 +15,7 @@ EGIT_REPO_URI="https://github.com/libretro/nxengine-libretro.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="+cave_story"
+IUSE=""
 
 RDEPEND=""
 DEPEND=""
@@ -32,17 +32,9 @@ src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/nxengine_libretro.so
 	doins "${WORKDIR}"/infos/dist/info/nxengine_libretro.info
-	if use cave_story; then
-		insinto /usr/share/libretro/nxengine_libretro/datafiles/
-		doins "${S}"/datafiles/Doukutsu.exe
-		cp -R "${S}"/datafiles/data "${D}/usr/share/libretro/nxengine_libretro/datafiles/" || die "Install failed!"
-	fi
 }
 
 pkg_postinst() {
-	if use cave_story; then
-		elog "To play the included Cave Story game symlink"
-		elog "/usr/share/libretro/nxengine_libretro/datafiles/"
-		elog "to your rgui_browser_directory and use Doukutsu.exe as game"
-	fi
+	elog "To play a game ,like Cave Story, put the gamefiles"
+	elog "to your rgui_browser_directory and select the executable as game"
 }
