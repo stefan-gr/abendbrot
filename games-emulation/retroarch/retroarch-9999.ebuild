@@ -63,7 +63,7 @@ pkg_setup() {
 
 src_unpack() {
 	if use autoconfig; then
-		git-r3_fetch https://github.com/libretro/retroarch-joypad-autoconfig.git HEAD 
+		git-r3_fetch https://github.com/libretro/retroarch-joypad-autoconfig.git HEAD
 		git-r3_checkout https://github.com/libretro/retroarch-joypad-autoconfig.git \
 			"${WORKDIR}"/autoconfig
 	fi
@@ -73,7 +73,7 @@ src_unpack() {
 
 src_prepare() {
 	epatch "${FILESDIR}/${P}-build.patch" \
-		"${FILESDIR}/${PN}-python.patch" \
+		"${FILESDIR}/${PN}-python.patch"
 
 	if use python; then
 		sed -i qb/config.libs.sh \

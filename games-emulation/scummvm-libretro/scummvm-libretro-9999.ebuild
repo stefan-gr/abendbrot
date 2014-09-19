@@ -23,7 +23,7 @@ DEPEND=""
 S="${S}/backends/platform/libretro/build"
 
 src_unpack() {
-	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD 
+	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
 	git-r3_checkout https://github.com/libretro/libretro-super.git \
 		"${WORKDIR}"/infos
 	git-r3_fetch

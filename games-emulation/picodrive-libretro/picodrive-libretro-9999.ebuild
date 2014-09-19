@@ -7,7 +7,7 @@ EAPI=5
 inherit git-r3
 
 DESCRIPTION="libretro implementation of PicoDrive. \
-(Sega Megadrive/Genesis/Sega Master System/Sega GameGear/Sega CD/32X)"
+(Sega GameGear/Sega CD/32X)"
 HOMEPAGE="https://github.com/libretro/picodrive"
 SRC_URI=""
 
@@ -22,7 +22,7 @@ RDEPEND=""
 DEPEND=""
 
 src_unpack() {
-	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD 
+	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
 	git-r3_checkout https://github.com/libretro/libretro-super.git \
 		"${WORKDIR}"/infos
 	git-r3_fetch

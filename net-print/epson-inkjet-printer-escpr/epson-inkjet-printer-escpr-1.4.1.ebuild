@@ -21,5 +21,3 @@ RDEPEND="${DEPEND}"
 src_prepare() {
 	eautoreconf
 }
-
-

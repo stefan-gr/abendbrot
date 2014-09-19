@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer>
+    <email>stefan_dot_gert_dot_r@gmail_dot_com</email>
+    <name>stefan-gr</name>
+  </maintainer>
+  <use>
+    <flag name='bnes'>adds <pkg>games-emulation/bnes-libretro</pkg> as dependency</flag>
+    <flag name='bsnes'>adds <pkg>games-emulation/bsnes-libretro</pkg> as dependency</flag>
+    <flag name='desmume'>adds <pkg>games-emulation/desmume-libretro</pkg> as dependency</flag>
+    <flag name='fb-alpha'>adds <pkg>games-emulation/fb-alpha-libretro</pkg> as dependency</flag>
+    <flag name='fceu-next'>adds <pkg>games-emulation/fceu-next-libretro</pkg> as dependency</flag>
+    <flag name='gambatte'>adds <pkg>games-emulation/gambatte-libretro</pkg> as dependency</flag>
+    <flag name='genplus'>adds <pkg>games-emulation/genplus-libretro</pkg> as dependency</flag>
+    <flag name='handy'>adds <pkg>games-emulation/handy-libretro</pkg> as dependency</flag>
+    <flag name='imame4all'>adds <pkg>games-emulation/imame4all-libretro</pkg> as dependency</flag>
+    <flag name='mame'>adds <pkg>games-emulation/mame-libretro</pkg> as dependency</flag>
+    <flag name='mednafen-gba'>adds <pkg>games-emulation/mednafen-gba-libretro</pkg> as dependency</flag>
+    <flag name='mednafen-ngp'>adds <pkg>games-emulation/mednafen-ngp-libretro</pkg> as dependency</flag>
+    <flag name='mednafen-pce-fast'>adds <pkg>games-emulation/mednafen-pce-fast-libretro</pkg> as dependency</flag>
+    <flag name='mednafen-psx'>adds <pkg>games-emulation/mednafen-psx-libretro</pkg> as dependency</flag>
+    <flag name='mednafen-snes'>adds <pkg>games-emulation/mednafen-snes-libretro</pkg> as dependency</flag>
+    <flag name='mednafen-vb'>adds <pkg>games-emulation/mednafen-vb-libretro</pkg> as dependency</flag>
+    <flag name='mednafen-wswan'>adds <pkg>games-emulation/mednafen-wswan-libretro</pkg> as dependency</flag>
+    <flag name='meteor'>adds <pkg>games-emulation/meteor-libretro</pkg> as dependency</flag>
+    <flag name='mupen64plus'>adds <pkg>games-emulation/mupen64plus-libretro</pkg> as dependency</flag>
+    <flag name='nestopia'>adds <pkg>games-emulation/nestopia-libretro</pkg> as dependency</flag>
+    <flag name='nxengine'>adds <pkg>games-emulation/nxengine-libretro</pkg> as dependency</flag>
+    <flag name='pcsx-rearmed'>adds <pkg>games-emulation/pcsx-rearmed-libretro</pkg> as dependency</flag>
+    <flag name='picodrive'>adds <pkg>games-emulation/picodrive-libretro</pkg> as dependency</flag>
+    <flag name='pocketsnes'>adds <pkg>games-emulation/pocketsnes-libretro</pkg> as dependency</flag>
+    <flag name='prboom'>adds <pkg>games-emulation/prboom-libretro</pkg> as dependency</flag>
+    <flag name='quicknes'>adds <pkg>games-emulation/quicknes-libretro</pkg> as dependency</flag>
+    <flag name='scummvm'>adds <pkg>games-emulation/scummvm-libretro</pkg> as dependency</flag>
+    <flag name='snes9x'>adds <pkg>games-emulation/snes9x-libretro</pkg> as dependency</flag>
+    <flag name='snes9x-next'>adds <pkg>games-emulation/snes9x-next-libretro</pkg> as dependency</flag>
+    <flag name='stella'>adds <pkg>games-emulation/stella-libretro</pkg> as dependency</flag>
+    <flag name='tyrquake'>adds <pkg>games-emulation/tyrquake-libretro</pkg> as dependency</flag>
+    <flag name='vba-next'>adds <pkg>games-emulation/vba-next-libretro</pkg> as dependency</flag>
+    <flag name='vbam'>adds <pkg>games-emulation/vbam-libretro</pkg> as dependency</flag>
+    <flag name='yabause'>adds <pkg>games-emulation/yabause-libretro</pkg> as dependency</flag>
+  </use>
+</pkgmetadata>

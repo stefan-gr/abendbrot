@@ -1,0 +1,35 @@
+# This file is deprecated as per GLEP 56 in favor of metadata.xml. Please add
+# your descriptions to your package's metadata.xml ONLY.
+# * generated automatically using egencache *
+
+games-emulation/retroarch:alsa - Enable ALSA support
+games-emulation/retroarch:autoconfig - Adds premade joystick autoconfiguration and changes default retroarch.cfg accordingly
+games-emulation/retroarch:cg - Enable Cg shader support
+games-emulation/retroarch:cores - Changes default retroarch.cfg to the standardpath of the libretro* ebuilds
+games-emulation/retroarch:egl - Enable EGL context support
+games-emulation/retroarch:fbo - Enable render-to-texture (FBO) support
+games-emulation/retroarch:ffmpeg - Enable FFmpeg recording support
+games-emulation/retroarch:gles - Use GLESv2 instead of OpenGL
+games-emulation/retroarch:gles3 - Enable OpenGLES3 support
+games-emulation/retroarch:glui - Enable GLUI menu
+games-emulation/retroarch:jack - Enable JACK support
+games-emulation/retroarch:kms - Enable KMS context support
+games-emulation/retroarch:lakka - Enable Lakka menu
+games-emulation/retroarch:netplay - Enable netplay support
+games-emulation/retroarch:openal - Enable OpenAL support
+games-emulation/retroarch:opengl - Enable OpenGL support
+games-emulation/retroarch:openvg - Enable OpenVG support
+games-emulation/retroarch:oss - Enable OSS support
+games-emulation/retroarch:pulseaudio - Enable PulseAudio support
+games-emulation/retroarch:python - Enable Python 3 support for shaders
+games-emulation/retroarch:sdl - SDL support
+games-emulation/retroarch:sdl2 - SDL2 support
+games-emulation/retroarch:threads - Threading support
+games-emulation/retroarch:truetype - Enable FreeType support
+games-emulation/retroarch:udev - Udev/Evdev gamepad support
+games-emulation/retroarch:v4l2 - Enable video4linux2 support
+games-emulation/retroarch:x11 - Enable x11 support
+games-emulation/retroarch:xinerama - Enable Xinerama support
+games-emulation/retroarch:xml - Enable libxml2 support
+games-emulation/retroarch:xv - Enable XVideo support
+games-emulation/retroarch:zlib - Enable zlib support (ZIP extract, PNG decoding/encoding)
