@@ -2,6 +2,43 @@
 # your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using egencache *
 
+games-emulation/bsnes-libretro:profile_accuracy - Enable the accuracy profile
+games-emulation/bsnes-libretro:profile_balanced - Enable the balanced profile
+games-emulation/bsnes-libretro:profile_performance - Enable the performance profile
+games-emulation/libretro-meta:bnes - adds games-emulation/bnes-libretro as dependency
+games-emulation/libretro-meta:bsnes - adds games-emulation/bsnes-libretro as dependency
+games-emulation/libretro-meta:desmume - adds games-emulation/desmume-libretro as dependency
+games-emulation/libretro-meta:fb-alpha - adds games-emulation/fb-alpha-libretro as dependency
+games-emulation/libretro-meta:fceu-next - adds games-emulation/fceu-next-libretro as dependency
+games-emulation/libretro-meta:gambatte - adds games-emulation/gambatte-libretro as dependency
+games-emulation/libretro-meta:genplus - adds games-emulation/genplus-libretro as dependency
+games-emulation/libretro-meta:handy - adds games-emulation/handy-libretro as dependency
+games-emulation/libretro-meta:imame4all - adds games-emulation/imame4all-libretro as dependency
+games-emulation/libretro-meta:mame - adds games-emulation/mame-libretro as dependency
+games-emulation/libretro-meta:mednafen-gba - adds games-emulation/mednafen-gba-libretro as dependency
+games-emulation/libretro-meta:mednafen-ngp - adds games-emulation/mednafen-ngp-libretro as dependency
+games-emulation/libretro-meta:mednafen-pce-fast - adds games-emulation/mednafen-pce-fast-libretro as dependency
+games-emulation/libretro-meta:mednafen-psx - adds games-emulation/mednafen-psx-libretro as dependency
+games-emulation/libretro-meta:mednafen-snes - adds games-emulation/mednafen-snes-libretro as dependency
+games-emulation/libretro-meta:mednafen-vb - adds games-emulation/mednafen-vb-libretro as dependency
+games-emulation/libretro-meta:mednafen-wswan - adds games-emulation/mednafen-wswan-libretro as dependency
+games-emulation/libretro-meta:meteor - adds games-emulation/meteor-libretro as dependency
+games-emulation/libretro-meta:mupen64plus - adds games-emulation/mupen64plus-libretro as dependency
+games-emulation/libretro-meta:nestopia - adds games-emulation/nestopia-libretro as dependency
+games-emulation/libretro-meta:nxengine - adds games-emulation/nxengine-libretro as dependency
+games-emulation/libretro-meta:pcsx-rearmed - adds games-emulation/pcsx-rearmed-libretro as dependency
+games-emulation/libretro-meta:picodrive - adds games-emulation/picodrive-libretro as dependency
+games-emulation/libretro-meta:pocketsnes - adds games-emulation/pocketsnes-libretro as dependency
+games-emulation/libretro-meta:prboom - adds games-emulation/prboom-libretro as dependency
+games-emulation/libretro-meta:quicknes - adds games-emulation/quicknes-libretro as dependency
+games-emulation/libretro-meta:scummvm - adds games-emulation/scummvm-libretro as dependency
+games-emulation/libretro-meta:snes9x - adds games-emulation/snes9x-libretro as dependency
+games-emulation/libretro-meta:snes9x-next - adds games-emulation/snes9x-next-libretro as dependency
+games-emulation/libretro-meta:stella - adds games-emulation/stella-libretro as dependency
+games-emulation/libretro-meta:tyrquake - adds games-emulation/tyrquake-libretro as dependency
+games-emulation/libretro-meta:vba-next - adds games-emulation/vba-next-libretro as dependency
+games-emulation/libretro-meta:vbam - adds games-emulation/vbam-libretro as dependency
+games-emulation/libretro-meta:yabause - adds games-emulation/yabause-libretro as dependency
 games-emulation/retroarch:alsa - Enable ALSA support
 games-emulation/retroarch:autoconfig - Adds premade joystick autoconfiguration and changes default retroarch.cfg accordingly
 games-emulation/retroarch:cg - Enable Cg shader support
