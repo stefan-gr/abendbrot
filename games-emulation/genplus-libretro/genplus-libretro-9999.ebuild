@@ -7,7 +7,7 @@ EAPI=5
 inherit git-r3
 
 DESCRIPTION="libretro implementation of Genesis Plus GX. \
-(Sega Master System/Sega Game Gear/Sega Mega Drive/Sega Genesis/Sega CD)"
+(Sega Genesis/Sega CD)"
 HOMEPAGE="https://github.com/libretro/Genesis-Plus-GX"
 SRC_URI=""
 
@@ -22,7 +22,7 @@ RDEPEND="sys-libs/zlib"
 DEPEND=""
 
 src_unpack() {
-	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD 
+	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
 	git-r3_checkout https://github.com/libretro/libretro-super.git \
 		"${WORKDIR}"/infos
 	git-r3_fetch
