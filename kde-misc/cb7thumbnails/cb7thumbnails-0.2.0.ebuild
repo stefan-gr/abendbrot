@@ -11,7 +11,7 @@ HOMEPAGE="http://kde-apps.org/content/show.php/ComicBook+7zip+Thumbnail+Plugin?c
 SRC_URI="http://kde-apps.org/CONTENT/content-files/157716-${P}.tar.gz"
 RESTRICT="primaryuri"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
 SLOT="4"
 IUSE="debug"
