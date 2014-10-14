@@ -17,5 +17,5 @@ SLOT="4"
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdebase_dep plasma-workspace)
+	$(add_kdebase_dep kdebase-kioslaves)
 "
