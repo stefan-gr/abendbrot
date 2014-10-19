@@ -35,6 +35,7 @@ RDEPEND="alsa? ( media-libs/alsa-lib )
 	sdl? ( >=media-libs/libsdl-1.2.10[joystick] )
 	truetype? ( media-libs/freetype:2 )
 	udev? ( >=x11-libs/libxkbcommon-0.4.0
+	v4l2? ( media-libs/libv4l )
 	virtual/udev
 	x11-drivers/xf86-input-evdev )
 	x11? ( x11-base/xorg-server )
