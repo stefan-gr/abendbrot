@@ -6,7 +6,7 @@ EAPI=5
 
 inherit git-r3 cmake-utils
 
-DESCRIPTION="libretro implementation of Mednafen VB. (Virtual Boy)"
+DESCRIPTION="libretro implementation of PPSSPP. (PlayStation Portable/PSP)"
 HOMEPAGE="https://github.com/libretro/libretro-ppsspp"
 SRC_URI=""
 
