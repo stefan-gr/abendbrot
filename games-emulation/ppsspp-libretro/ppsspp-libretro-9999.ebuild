@@ -32,11 +32,6 @@ src_unpack() {
 	git-r3_checkout
 }
 
-src_prepare() {
-	epatch "${FILESDIR}"/cmake.patch
-	cmake-utils_src_prepare 
-}
-
 src_configure() {
 	local mycmakeargs=(
                 -DLIBRETRO=ON
