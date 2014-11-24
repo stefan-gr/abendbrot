@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python{3_1,3_2,3_3,3_4} )
 
-inherit games python-single-r1 git-2 flag-o-matic
+inherit games python-single-r1 git-r3 flag-o-matic
 
 DESCRIPTION="Universal frontend for libretro-based emulators"
 HOMEPAGE="http://www.libretro.com/"
