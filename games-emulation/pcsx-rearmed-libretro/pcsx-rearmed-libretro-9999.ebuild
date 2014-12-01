@@ -28,6 +28,10 @@ src_unpack() {
 	git-r3_checkout
 }
 
+src_prepare() {
+	epatch "${FILESDIR}"/include.patch
+}
+
 src_configure() {
 	./configure --platform=libretro
 }

@@ -1,0 +1,17 @@
+diff -U 3 -H -d -r -N -- a/include/psemu_plugin_defs.h b/include/psemu_plugin_defs.h
+--- a/include/psemu_plugin_defs.h	2014-12-01 15:09:49.352546643 +0100
++++ b/include/psemu_plugin_defs.h	2014-12-01 15:09:10.000000000 +0100
+@@ -1,3 +1,5 @@
++#include "stdint.h"
++
+ #ifndef _PSEMU_PLUGIN_DEFS_H
+ #define _PSEMU_PLUGIN_DEFS_H
+ 
+diff -U 3 -H -d -r -N -- a/plugins/dfinput/externals.h b/plugins/dfinput/externals.h
+--- a/plugins/dfinput/externals.h	2014-12-01 15:09:47.016577403 +0100
++++ b/plugins/dfinput/externals.h	2014-12-01 15:08:58.000000000 +0100
+@@ -1,3 +1,4 @@
++#include "stdint.h"
+ 
+ void dfinput_activate(void);
+ 
