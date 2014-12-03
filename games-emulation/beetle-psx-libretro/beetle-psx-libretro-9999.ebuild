@@ -6,11 +6,11 @@ EAPI=5
 
 inherit git-r3
 
-DESCRIPTION="libretro implementation of Mednafen PSX. (PlayStation, original fork)"
-HOMEPAGE="https://github.com/libretro/mednafen-psx-libretro"
+DESCRIPTION="libretro implementation of Mednafen PSX. (PlayStation, beetle version)"
+HOMEPAGE="https://github.com/libretro/beetle-psx-libretro"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/mednafen-psx-libretro.git"
+EGIT_REPO_URI="https://github.com/libretro/beetle-psx-libretro.git"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -34,6 +34,6 @@ src_compile() {
 
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
-	doins "${S}"/mednafen_psx_libretro.so
-	doins "${WORKDIR}"/infos/dist/info/mednafen_psx_libretro.info
+	doins "${S}"/beetle_psx_libretro.so
+	doins "${WORKDIR}"/infos/dist/info/beetle_psx_libretro.info
 }
