@@ -41,3 +41,23 @@ src_install() {
 	insinto /usr/share/libretro/genesis_plus_gx_libretro
 	doins "${S}"/LICENSE.txt
 }
+pkg_postinst() {
+	elog ""
+	elog "You need to have original Sega bios files in your 'system_directory'"
+	elog "otherwise no game will work. Please place them in the following directory:"
+	elog "~/.local/share/retroarch/system/"
+	elog ""
+	elog "Here is a list with recommended filenames:"
+	elog "bios_CD_E.bin (MegaCD EU BIOS)"
+	elog "bios_CD_U.bin (SegaCD US BIOS)"
+	elog "bios_CD_J.bin (MegaCD JP BIOS)"
+	elog "bios_E.sms (MasterSystem EU BIOS)"
+	elog "bios_U.sms (MasterSystem US BIOS)"
+	elog "bios_J.sms (MasterSystem JP BIOS)"
+	elog "bios.gg (GameGear BIOS)"
+	elog "sk.bin (Sonic & Knuckles (2 MiB) ROM)"
+	elog "s2k.bin (Sonic & Knuckles UPMEM (256 KiB) ROM) = b4e76e416b887f4e7413ba76fa735f16"
+	elog "areplay.bin (Action Replay (Pro) ROM)"
+	elog "ggenie.bin (Game Genie ROM)"
+	elog ""
+}
