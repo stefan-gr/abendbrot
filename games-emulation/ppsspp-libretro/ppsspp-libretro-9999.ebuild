@@ -48,5 +48,6 @@ src_install() {
 	cp -R "${BUILD_DIR}"/assets/* "${D}/usr/share/libretro/PPSSPP/" || die "Install failed!"
 	elog "You need to copy the \"PPSSPP\" folder from \"/usr/share/libretro\""
 	elog "into the retroarch \"system_directory\" folder of your user."
+	elog "\$ mkdir -p ~/.local/share/retroarch/system/"
 	elog "\$ cp -r /usr/share/libretro/PPSSPP/ ~/.local/share/retroarch/system/"
 }
