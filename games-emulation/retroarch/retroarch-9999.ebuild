@@ -4,7 +4,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{3_1,3_2,3_3,3_4} )
+PYTHON_COMPAT=( python{3_2,3_3,3_4} )
 
 inherit games python-single-r1 git-r3 flag-o-matic
 
@@ -17,7 +17,7 @@ EGIT_REPO_URI="git://github.com/libretro/RetroArch.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa +autoconfig +cg +cores egl +fbo ffmpeg gles gles3 glui jack kms lakka +netplay openal +opengl oss pulseaudio python sdl sdl2 +truetype +threads +udev v4l2 openvg xml xv xinerama +x11 zlib"
+IUSE="alsa +autoconfig +cg +cores egl +fbo ffmpeg gles gles3 glui jack kms lakka +netplay openal +opengl oss pulseaudio python sdl sdl2 +truetype +threads +udev v4l2 openvg xml xmb xv xinerama +x11 zlib"
 
 RDEPEND="alsa? ( media-libs/alsa-lib )
 	cg? ( media-gfx/nvidia-cg-toolkit )
@@ -128,6 +128,7 @@ src_configure() {
 		$(use_enable v4l2) \
 		$(use_enable x11) \
 		$(use_enable xinerama) \
+		$(use_enable xmb) \
 		$(use_enable xml libxml2) \
 		$(use_enable xv xvideo) \
 		$(use_enable zlib) \
@@ -140,6 +141,13 @@ src_install() {
 	emake DESTDIR="${D}" install || die
 	dodoc README.md AUTHORS
 	prepgamesdirs
+	if use autoconfig; then
+		insinto /usr/share/retroarch/retroarch-joypad-autoconfig
+		doins "${WORKDIR}"/autoconfig/udev/*.cfg
+	fi
+}
+
+pkg_postinst() {
 	if use cores; then
 		elog "Changed libretro_directory and libretro_info_path of \"/etc/retroarch.cfg\" to"
 		elog "\"/usr/lib/libretro\""
@@ -151,8 +159,6 @@ src_install() {
 		elog ""
 	fi
 	if use autoconfig; then
-		insinto /usr/share/retroarch/retroarch-joypad-autoconfig
-		doins "${WORKDIR}"/autoconfig/udev/*.cfg
 		elog "Changed joypad_autoconfig_dir of \"/etc/retroarch.cfg\" to"
 		elog "\"/usr/share/retroarch/retroarch-joypad-autoconfig\""
 		elog ""
