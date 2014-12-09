@@ -41,16 +41,19 @@ src_install() {
 	insinto /usr/share/libretro/genesis_plus_gx_libretro
 	doins "${S}"/LICENSE.txt
 }
+
 pkg_postinst() {
-	elog ""
-	elog "You need to have original Sega bios files in your 'system_directory'"
-	elog "otherwise no game will work. Please place them in the following directory:"
-	elog "~/.local/share/retroarch/system/"
-	elog ""
-	elog "Here is a list with recommended filenames:"
-	elog "bios_CD_E.bin (MegaCD EU BIOS)"
-	elog "bios_CD_U.bin (SegaCD US BIOS)"
-	elog "bios_CD_J.bin (MegaCD JP BIOS)"
+	ewarn ""
+	ewarn "You need to have original Sega bios files in your 'system_directory'"
+	ewarn "otherwise no game will work. Please place them in the following directory:"
+	ewarn "~/.local/share/retroarch/system/"
+	ewarn ""
+	ewarn "Here is a list with required files:"
+	ewarn "bios_CD_E.bin (MegaCD EU BIOS)"
+	ewarn "bios_CD_U.bin (SegaCD US BIOS)"
+	ewarn "bios_CD_J.bin (MegaCD JP BIOS)"
+	ewarn
+	elog "Here is a list with optional files:"
 	elog "bios_E.sms (MasterSystem EU BIOS)"
 	elog "bios_U.sms (MasterSystem US BIOS)"
 	elog "bios_J.sms (MasterSystem JP BIOS)"

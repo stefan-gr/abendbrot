@@ -46,8 +46,11 @@ src_install() {
 	doins "${WORKDIR}"/infos/dist/info/ppsspp_libretro.info
 	dodir /usr/share/libretro/PPSSPP/
 	cp -R "${BUILD_DIR}"/assets/* "${D}/usr/share/libretro/PPSSPP/" || die "Install failed!"
-	elog "You need to copy the \"PPSSPP\" folder from \"/usr/share/libretro\""
-	elog "into the retroarch \"system_directory\" folder of your user."
-	elog "\$ mkdir -p ~/.local/share/retroarch/system/"
-	elog "\$ cp -r /usr/share/libretro/PPSSPP/ ~/.local/share/retroarch/system/"
+}
+
+pkg_postinst() {
+	ewarn "You need to copy the \"PPSSPP\" folder from \"/usr/share/libretro\""
+	ewarn "into the retroarch \"system_directory\" folder of your user."
+	ewarn "\$ mkdir -p ~/.local/share/retroarch/system/"
+	ewarn "\$ cp -r /usr/share/libretro/PPSSPP/ ~/.local/share/retroarch/system/"
 }

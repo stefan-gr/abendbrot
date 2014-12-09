@@ -36,3 +36,10 @@ src_install() {
 	insinto /usr/share/libretro/prboom_libretro/
 	doins "${S}"/prboom.wad
 }
+
+pkg_postinst() {
+	elog "You need to copy the \"prboom.wad\" file from \"/usr/share/libretro/prboom_libretro/\""
+	elog "into the retroarch \"rgui_browser_directory\" folder of your user."
+	elog ""
+	elog "\$ cp -r /usr/share/libretro/prboom_libretro/prboom.wad ~/"
+}

@@ -36,3 +36,14 @@ src_install() {
 	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/nestopia_libretro.info
 }
+
+pkg_postinst() {
+	ewarn ""
+	ewarn "This emulator needs a bios file in your 'system_directory'"
+	ewarn "otherwise no game will not work. Please place it in the following directory:"
+	ewarn "~/.local/share/retroarch/system/"
+	ewarn ""
+	ewarn "Here is a list with required files:"
+	ewarn "disksys.rom (Famicom Disk System BIOS)"
+	ewarn ""
+}

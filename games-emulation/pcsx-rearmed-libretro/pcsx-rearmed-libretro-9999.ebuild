@@ -42,3 +42,16 @@ src_install() {
 	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/pcsx_rearmed_libretro.info
 }
+
+pkg_postinst() {
+	elog ""
+	elog "You can use the original PlayStation bios files in your 'system_directory'"
+	elog "to make it more compatible. Please place them in the following directory:"
+	elog "~/.local/share/retroarch/system/"
+	elog ""
+	elog "Here is a list with recommended filenames and md5sums:"
+	elog "scph5500.bin = 8dd7d5296a650fac7319bce665a6a53c"
+	elog "scph5501.bin = 490f666e1afb15b7362b406ed1cea246"
+	elog "scph5502.bin = 32736f17079d0b2b7024407c39bd3050"
+	elog ""
+}

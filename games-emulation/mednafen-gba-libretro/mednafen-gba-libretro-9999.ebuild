@@ -38,3 +38,14 @@ src_install() {
 	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/mednafen_gba_libretro.info
 }
+
+pkg_postinst() {
+	elog ""
+	elog "This emulator can use a bios file in your 'system_directory'"
+	elog "otherwise some games will not work. Please place it in the following directory:"
+	elog "~/.local/share/retroarch/system/"
+	elog ""
+	elog "Here is a list with optional files:"
+	elog "gba_bios.bin (GBA BIOS)"
+	elog ""
+}

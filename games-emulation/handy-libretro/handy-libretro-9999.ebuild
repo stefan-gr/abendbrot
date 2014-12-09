@@ -34,3 +34,14 @@ src_install() {
 	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/handy_libretro.info
 }
+
+pkg_postinst() {
+	elog ""
+	elog "You should use the original Lynx Boot Image file in your 'system_directory'"
+	elog "otherwise some games will not work. Please place it in the following directory:"
+	elog "~/.local/share/retroarch/system/"
+	elog ""
+	elog "Here is a list with optional files:"
+	elog "lynxboot.img (Lynx Boot Image)"
+	elog ""
+}
