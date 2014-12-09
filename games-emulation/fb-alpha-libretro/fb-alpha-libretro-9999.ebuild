@@ -37,8 +37,8 @@ src_compile() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/fb_alpha_libretro.so
-	doins "${WORKDIR}"/infos/dist/info/fb_alpha_libretro.info
 	insinto /usr/share/libretro/info/
+	doins "${WORKDIR}"/infos/dist/info/fb_alpha_libretro.info
 	insinto /usr/share/libretro/fb_alpha_libretro
 	doins "${S}"/src/license.txt
 }
