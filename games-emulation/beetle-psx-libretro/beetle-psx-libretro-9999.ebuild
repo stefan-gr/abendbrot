@@ -35,5 +35,6 @@ src_compile() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/beetle_psx_libretro.so
+	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/beetle_psx_libretro.info
 }

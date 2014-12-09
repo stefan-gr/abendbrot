@@ -35,5 +35,6 @@ src_compile() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	newins "${S}"/libretro.so bnes_libretro.so
+	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/bnes_libretro.info
 }

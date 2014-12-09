@@ -33,5 +33,6 @@ src_unpack() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/vbam_libretro.so
+	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/vbam_libretro.info
 }

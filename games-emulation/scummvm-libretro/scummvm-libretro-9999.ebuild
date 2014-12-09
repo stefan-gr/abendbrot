@@ -33,5 +33,6 @@ src_unpack() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/scummvm_libretro.so
+	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/scummvm_libretro.info
 }

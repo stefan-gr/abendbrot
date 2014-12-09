@@ -31,5 +31,6 @@ src_unpack() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/handy_libretro.so
+	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/handy_libretro.info
 }

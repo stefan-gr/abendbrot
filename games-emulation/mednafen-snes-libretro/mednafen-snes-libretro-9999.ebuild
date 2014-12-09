@@ -35,5 +35,6 @@ src_compile() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/mednafen_snes_libretro.so
+	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/mednafen_snes_libretro.info
 }

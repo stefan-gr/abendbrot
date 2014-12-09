@@ -32,5 +32,6 @@ src_unpack() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/quicknes_libretro.so
+	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/quicknes_libretro.info
 }

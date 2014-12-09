@@ -42,10 +42,11 @@ src_configure() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	newins "${BUILD_DIR}"/lib/libPPSSPPLibretro.so ppsspp_libretro.so
+	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/ppsspp_libretro.info
-	dodir /usr/share/ppsspp-libretro/PPSSPP/
-	cp -R "${BUILD_DIR}"/assets/* "${D}/usr/share/ppsspp-libretro/PPSSPP/" || die "Install failed!"
-	elog "You need to copy the \"PPSSPP\" folder from \"/usr/share/ppsspp-libretro\""
+	dodir /usr/share/libretro/PPSSPP/
+	cp -R "${BUILD_DIR}"/assets/* "${D}/usr/share/libretro/PPSSPP/" || die "Install failed!"
+	elog "You need to copy the \"PPSSPP\" folder from \"/usr/share/libretro\""
 	elog "into the retroarch \"system_directory\" folder of your user."
-	elog ""
+	elog "\$ cp -r /usr/share/libretro/PPSSPP/ ~/.local/share/retroarch/system/"
 }

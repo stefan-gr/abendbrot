@@ -8,7 +8,7 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+beetle +bnes +bsnes +desmume +fb-alpha fceu-next +gambatte +genplus +handy imame4all \
+IUSE="+beetle-psx +bnes +bsnes +desmume +fb-alpha fceu-next +gambatte +genplus +handy imame4all \
 mame mednafen-gba +mednafen-ngp +mednafen-pce-fast mednafen-psx mednafen-snes \
 +mednafen-vb +mednafen-wswan meteor +mupen64plus nestopia +nxengine pcsx-rearmed \
 picodrive pocketsnes +ppsspp +prboom quicknes +scummvm snes9x snes9x-next +stella +tyrquake \
@@ -16,7 +16,7 @@ vba-next +vbam +yabause"
 
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="beetle? ( >=games-emulation/beetle-psx-libretro-9999 )
+RDEPEND="beetle-psx? ( >=games-emulation/beetle-psx-libretro-9999 )
 		bnes? ( >=games-emulation/bnes-libretro-9999 )
 		bsnes? ( >=games-emulation/bsnes-libretro-9999 )
 		desmume? ( >=games-emulation/desmume-libretro-9999 )

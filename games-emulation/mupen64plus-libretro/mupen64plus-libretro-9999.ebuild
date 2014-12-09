@@ -38,5 +38,6 @@ src_compile() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/mupen64plus_libretro.so
+	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/mupen64plus_libretro.info
 }

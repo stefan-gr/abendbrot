@@ -31,6 +31,7 @@ src_unpack() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/prboom_libretro.so
+	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/prboom_libretro.info
 	insinto /usr/share/libretro/prboom_libretro/
 	doins "${S}"/prboom.wad

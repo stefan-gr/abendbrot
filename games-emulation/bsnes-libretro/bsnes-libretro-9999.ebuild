@@ -58,16 +58,19 @@ src_install() {
 	if use profile_balanced; then
 		insinto /usr/$(get_libdir)/libretro
 		doins "${WORKDIR}"/bsnes_balanced_libretro.so
+		insinto /usr/share/libretro/info/
 		doins "${WORKDIR}"/infos/dist/info/bsnes_balanced_libretro.info
 	fi
 	if use profile_performance; then
 		insinto /usr/$(get_libdir)/libretro
 		doins "${WORKDIR}"/bsnes_performance_libretro.so
+		insinto /usr/share/libretro/info/
 		doins "${WORKDIR}"/infos/dist/info/bsnes_performance_libretro.info
 	fi
 	if use profile_accuracy; then
 		insinto /usr/$(get_libdir)/libretro
 		doins "${WORKDIR}"/bsnes_accuracy_libretro.so
+		insinto /usr/share/libretro/info/
 		doins "${WORKDIR}"/infos/dist/info/bsnes_accuracy_libretro.info
 	fi
 }

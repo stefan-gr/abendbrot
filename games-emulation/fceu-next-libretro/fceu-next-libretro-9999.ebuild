@@ -37,5 +37,6 @@ src_compile() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/fceumm_libretro.so
+	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/fceumm_libretro.info
 }

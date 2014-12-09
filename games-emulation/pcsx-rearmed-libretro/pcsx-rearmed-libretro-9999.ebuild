@@ -39,5 +39,6 @@ src_configure() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	newins "${S}"/libretro.so pcsx_rearmed_libretro.so
+	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/pcsx_rearmed_libretro.info
 }

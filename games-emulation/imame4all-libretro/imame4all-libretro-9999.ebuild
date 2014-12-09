@@ -38,6 +38,7 @@ src_compile() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	newins "${S}"/libretro.so imame4all_libretro.so
+	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/imame4all_libretro.info
 	insinto /usr/share/libretro/imame4all_libretro
 	doins "${S}"/res/Applications/iMAME4all.app/LICENSE/LICENSE_MAME.txt

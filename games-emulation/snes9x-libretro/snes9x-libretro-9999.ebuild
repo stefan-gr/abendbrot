@@ -33,6 +33,7 @@ src_unpack() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/snes9x_libretro.so
+	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/snes9x_libretro.info
 	insinto /usr/share/libretro/snes9x_libretro
 	doins "${WORKDIR}"/${P}/docs/snes9x-license.txt

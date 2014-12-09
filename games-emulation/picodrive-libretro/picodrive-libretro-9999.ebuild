@@ -40,7 +40,8 @@ src_compile() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/picodrive_libretro.so
+	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/picodrive_libretro.info
-	instinto /usr/share/libretro/picodrive_libretro
+	insinto /usr/share/libretro/picodrive_libretro
 	doins "${S}"/COPYING
 }

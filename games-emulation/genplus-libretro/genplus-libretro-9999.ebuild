@@ -36,6 +36,7 @@ src_compile() {
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
 	doins "${S}"/genesis_plus_gx_libretro.so
+	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/genesis_plus_gx_libretro.info
 	insinto /usr/share/libretro/genesis_plus_gx_libretro
 	doins "${S}"/LICENSE.txt
