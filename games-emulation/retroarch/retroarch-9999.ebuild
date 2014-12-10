@@ -128,6 +128,9 @@ src_prepare() {
 	sed -i retroarch.cfg \
 		-e 's:# screenshot_directory =:screenshot_directory = "~/.local/share/retroarch/screenshots/":' \
 		|| die
+	sed -i retroarch.cfg \
+		-e 's:# extraction_directory =:extraction_directory = "/tmp/":' \
+		|| die
 }
 
 src_configure() {
