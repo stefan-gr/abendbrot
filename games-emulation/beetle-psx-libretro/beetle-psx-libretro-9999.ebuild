@@ -41,13 +41,9 @@ src_install() {
 
 pkg_postinst() {
 	ewarn ""
-	ewarn "You need to have original PlayStation bios files in your 'system_directory'"
-	ewarn "otherwise no game will work. Please place them in the following directory:"
-	ewarn "~/.local/share/retroarch/system/"
-	ewarn ""
-	ewarn "Here is a list with required files and md5sums:"
-	ewarn "scph5500.bin = 8dd7d5296a650fac7319bce665a6a53c"
-	ewarn "scph5501.bin = 490f666e1afb15b7362b406ed1cea246"
-	ewarn "scph5502.bin = 32736f17079d0b2b7024407c39bd3050"
+	ewarn "You need to have the following files in your 'system_directory' folder:"
+	ewarn "scph5500.bin md5sum = 8dd7d5296a650fac7319bce665a6a53c"
+	ewarn "scph5501.bin md5sum = 490f666e1afb15b7362b406ed1cea246"
+	ewarn "scph5502.bin md5sum = 32736f17079d0b2b7024407c39bd3050"
 	ewarn ""
 }

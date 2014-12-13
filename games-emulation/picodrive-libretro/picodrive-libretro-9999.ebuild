@@ -48,11 +48,7 @@ src_install() {
 
 pkg_postinst() {
 	ewarn ""
-	ewarn "You need to have original Sega bios files in your 'system_directory'"
-	ewarn "otherwise no game will work. Please place them in the following directory:"
-	ewarn "~/.local/share/retroarch/system/"
-	ewarn ""
-	ewarn "Here is a list with required files:"
+	ewarn "You need to have the following files in your 'system_directory' folder:"
 	ewarn "bios_CD_E.bin (MegaCD EU BIOS)"
 	ewarn "bios_CD_U.bin (SegaCD US BIOS)"
 	ewarn "bios_CD_J.bin (MegaCD JP BIOS)"

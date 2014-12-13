@@ -43,11 +43,7 @@ src_install() {
 
 pkg_postinst() {
 	elog ""
-	elog "You can use the original Saturn bios files in your 'system_directory'"
-	elog "to make it more compatible. Please place them in the following directory:"
-	elog "~/.local/share/retroarch/system/"
-	elog ""
-	elog "Here is a list with optional files:"
+	elog "You should put the following optional files in your 'system_directory' folder:"
 	elog "saturn_bios.bin (Saturn BIOS)"
 	elog ""
 }

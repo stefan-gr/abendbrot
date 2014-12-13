@@ -201,17 +201,10 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog ""
-	elog "Please note that this ebuild modifies the standard configuration file /etc/retroarch.cfg"
-	elog "to make it work with almost everything out of the box."
 	ewarn ""
 	ewarn "You need to make sure that all directories exist or you must modify your retroarch.cfg accordingly."
 	ewarn "To create the needed directories for your user run as \$USER (not as root!):"
 	ewarn ""
 	ewarn "\$ mkdir -p ~/.local/share/retroarch/{savestates,savefiles,screenshots,content,system}"
 	ewarn ""
-	elog "After that you can find your savefiles, screenshots etc in ~/.local/share/retroarch."
-	elog ""
-	elog "* This only works if you remove your own retroarch.cfg from ~/.config/retroarch before the first start *"
-	elog ""
 }

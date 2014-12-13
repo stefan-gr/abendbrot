@@ -77,11 +77,7 @@ src_install() {
 
 pkg_postinst() {
 	elog ""
-	elog "You should put some bios files in your 'system_directory'"
-	elog "otherwise a few games will not work. Please place them in the following directory:"
-	elog "~/.local/share/retroarch/system/"
-	elog ""
-	elog "Here is a list with recommended optional files:"
+	elog "You should put the following optional files in your 'system_directory' folder:"
 	elog "dsp1.data.rom (DSP1 DATA)"
 	elog "dsp1.program.rom (DSP1 PROGRAM)"
 	elog "dsp1b.data.rom (DSP1B DATA)"
