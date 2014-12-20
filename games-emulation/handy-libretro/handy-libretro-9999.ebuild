@@ -35,9 +35,19 @@ src_install() {
 	doins "${WORKDIR}"/infos/dist/info/handy_libretro.info
 }
 
+pkg_preinst() {
+	if ! has_version "=${CATEGORY}/${PN}-${PV}"; then
+		first_install="1"
+	fi
+}
+
 pkg_postinst() {
-	elog ""
-	elog "You should put the following optional files in your 'system_directory' folder:"
-	elog "lynxboot.img (Lynx Boot Image)"
-	elog ""
+	if [[ "${first_install}" == "1" ]]; then
+		elog ""
+		elog "You should put the following optional files in your 'system_directory' folder:"
+		elog "lynxboot.img (Lynx Boot Image)"
+		elog ""
+		ewarn "This message will only be displayed once!"
+		ewarn ""
+	fi
 }

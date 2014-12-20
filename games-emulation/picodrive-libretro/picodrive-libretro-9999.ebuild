@@ -46,11 +46,21 @@ src_install() {
 	doins "${S}"/COPYING
 }
 
+pkg_preinst() {
+	if ! has_version "=${CATEGORY}/${PN}-${PV}"; then
+		first_install="1"
+	fi
+}
+
 pkg_postinst() {
-	ewarn ""
-	ewarn "You need to have the following files in your 'system_directory' folder:"
-	ewarn "bios_CD_E.bin (MegaCD EU BIOS)"
-	ewarn "bios_CD_U.bin (SegaCD US BIOS)"
-	ewarn "bios_CD_J.bin (MegaCD JP BIOS)"
-	ewarn ""
+	if [[ "${first_install}" == "1" ]]; then
+		ewarn ""
+		ewarn "You need to have the following files in your 'system_directory' folder:"
+		ewarn "bios_CD_E.bin (MegaCD EU BIOS)"
+		ewarn "bios_CD_U.bin (SegaCD US BIOS)"
+		ewarn "bios_CD_J.bin (MegaCD JP BIOS)"
+		ewarn ""
+		ewarn "This message will only be displayed once!"
+		ewarn ""
+	fi
 }

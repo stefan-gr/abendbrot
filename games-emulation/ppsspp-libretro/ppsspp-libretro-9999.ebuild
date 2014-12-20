@@ -34,8 +34,8 @@ src_unpack() {
 
 src_configure() {
 	local mycmakeargs=(
-                -DLIBRETRO=ON
-        )
+		-DLIBRETRO=ON
+	)
 	cmake-utils_src_configure
 }
 
@@ -48,9 +48,21 @@ src_install() {
 	cp -R "${BUILD_DIR}"/assets/* "${D}/usr/share/libretro/PPSSPP/" || die "Install failed!"
 }
 
+pkg_preinst() {
+	if ! has_version "=${CATEGORY}/${PN}-${PV}"; then
+		first_install="1"
+	fi
+}
+
 pkg_postinst() {
-	ewarn "You need to copy the \"PPSSPP\" folder from \"/usr/share/libretro\""
-	ewarn "into the retroarch \"system_directory\" folder of your user."
-	ewarn "\$ mkdir -p ~/.local/share/retroarch/system/"
-	ewarn "\$ cp -r /usr/share/libretro/PPSSPP/ ~/.local/share/retroarch/system/"
+	if [[ "${first_install}" == "1" ]]; then
+		ewarn ""
+		ewarn "You need to copy the \"PPSSPP\" folder from \"/usr/share/libretro\""
+		ewarn "into the retroarch \"system_directory\" folder of your user."
+		ewarn "\$ mkdir -p ~/.local/share/retroarch/system/"
+		ewarn "\$ cp -r /usr/share/libretro/PPSSPP/ ~/.local/share/retroarch/system/"
+		ewarn ""
+		ewarn "This message will only be displayed once!"
+		ewarn ""
+	fi
 }

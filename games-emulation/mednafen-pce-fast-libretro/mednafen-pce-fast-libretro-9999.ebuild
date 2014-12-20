@@ -39,9 +39,19 @@ src_install() {
 	doins "${WORKDIR}"/infos/dist/info/mednafen_pce_fast_libretro.info
 }
 
+pkg_preinst() {
+	if ! has_version "=${CATEGORY}/${PN}-${PV}"; then
+		first_install="1"
+	fi
+}
+
 pkg_postinst() {
-	ewarn ""
-	ewarn "You need to have the following files in your 'system_directory' folder:"
-	ewarn "syscard3.pce (PCE-CD BIOS)"
-	ewarn ""
+	if [[ "${first_install}" == "1" ]]; then
+		ewarn ""
+		ewarn "You need to have the following files in your 'system_directory' folder:"
+		ewarn "syscard3.pce (PCE-CD BIOS)"
+		ewarn ""
+		ewarn "This message will only be displayed once!"
+		ewarn ""
+	fi
 }

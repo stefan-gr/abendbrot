@@ -35,7 +35,19 @@ src_install() {
 	doins "${WORKDIR}"/infos/dist/info/nxengine_libretro.info
 }
 
+pkg_preinst() {
+	if ! has_version "=${CATEGORY}/${PN}-${PV}"; then
+		first_install="1"
+	fi
+}
+
 pkg_postinst() {
-	elog "To play a game, like Cave Story, put the gamefiles"
-	elog "to your rgui_browser_directory and select the executable as game"
+	if [[ "${first_install}" == "1" ]]; then
+		elog ""
+		elog "To play a game, like Cave Story, put the gamefiles"
+		elog "to your rgui_browser_directory and select the executable as game"
+		elog ""
+		ewarn "This message will only be displayed once!"
+		ewarn ""
+	fi
 }

@@ -37,9 +37,21 @@ src_install() {
 	doins "${S}"/prboom.wad
 }
 
+pkg_preinst() {
+	if ! has_version "=${CATEGORY}/${PN}-${PV}"; then
+		first_install="1"
+	fi
+}
+
 pkg_postinst() {
-	elog "You need to copy the \"prboom.wad\" file from \"/usr/share/libretro/prboom_libretro/\""
-	elog "into the retroarch \"rgui_browser_directory\" folder of your user."
-	elog ""
-	elog "\$ cp -r /usr/share/libretro/prboom_libretro/prboom.wad ~/"
+	if [[ "${first_install}" == "1" ]]; then
+		elog ""
+		elog "You need to copy the \"prboom.wad\" file from \"/usr/share/libretro/prboom_libretro/\""
+		elog "into the retroarch \"rgui_browser_directory\" folder of your user."
+		elog ""
+		elog "\$ cp -r /usr/share/libretro/prboom_libretro/prboom.wad ~/"
+		elog ""
+		ewarn "This message will only be displayed once!"
+		ewarn ""
+	fi
 }

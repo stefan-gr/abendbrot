@@ -6,6 +6,7 @@
     <name>stefan-gr</name>
   </maintainer>
   <use>
+    <flag name='beetle-psx'>adds <pkg>games-emulation/beetle-psx-libretro</pkg> as dependency</flag>
     <flag name='bnes'>adds <pkg>games-emulation/bnes-libretro</pkg> as dependency</flag>
     <flag name='bsnes'>adds <pkg>games-emulation/bsnes-libretro</pkg> as dependency</flag>
     <flag name='desmume'>adds <pkg>games-emulation/desmume-libretro</pkg> as dependency</flag>
@@ -30,6 +31,7 @@
     <flag name='pcsx-rearmed'>adds <pkg>games-emulation/pcsx-rearmed-libretro</pkg> as dependency</flag>
     <flag name='picodrive'>adds <pkg>games-emulation/picodrive-libretro</pkg> as dependency</flag>
     <flag name='pocketsnes'>adds <pkg>games-emulation/pocketsnes-libretro</pkg> as dependency</flag>
+    <flag name='ppsspp'>adds <pkg>games-emulation/ppsspp-libretro</pkg> as dependency</flag>
     <flag name='prboom'>adds <pkg>games-emulation/prboom-libretro</pkg> as dependency</flag>
     <flag name='quicknes'>adds <pkg>games-emulation/quicknes-libretro</pkg> as dependency</flag>
     <flag name='scummvm'>adds <pkg>games-emulation/scummvm-libretro</pkg> as dependency</flag>

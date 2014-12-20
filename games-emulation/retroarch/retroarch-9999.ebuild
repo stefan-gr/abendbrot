@@ -200,11 +200,21 @@ src_install() {
 	prepgamesdirs
 }
 
+pkg_preinst() {
+	if ! has_version "=${CATEGORY}/${PN}-${PV}"; then
+		first_install="1"
+	fi
+}
+
 pkg_postinst() {
-	ewarn ""
-	ewarn "You need to make sure that all directories exist or you must modify your retroarch.cfg accordingly."
-	ewarn "To create the needed directories for your user run as \$USER (not as root!):"
-	ewarn ""
-	ewarn "\$ mkdir -p ~/.local/share/retroarch/{savestates,savefiles,screenshots,content,system}"
-	ewarn ""
+	if [[ "${first_install}" == "1" ]]; then
+		ewarn ""
+		ewarn "You need to make sure that all directories exist or you must modify your retroarch.cfg accordingly."
+		ewarn "To create the needed directories for your user run as \$USER (not as root!):"
+		ewarn ""
+		ewarn "\$ mkdir -p ~/.local/share/retroarch/{savestates,savefiles,screenshots,content,system}"
+		ewarn ""
+		ewarn "This message will only be displayed once!"
+		ewarn ""
+	fi
 }
