@@ -17,12 +17,13 @@ EGIT_REPO_URI="git://github.com/libretro/RetroArch.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa +assets +cg +cores egl +fbo ffmpeg gles gles3 glui jack +joypad_autoconfig kms +lakka +netplay openal +opengl oss pulseaudio python sdl sdl2 +shaders +truetype +threads +udev v4l2 openvg +overlays +xml +xmb xv xinerama +x11 zlib"
+IUSE="alsa +assets +cg +cores +database egl +fbo ffmpeg gles gles3 glui jack +joypad_autoconfig kms +lakka +netplay openal +opengl oss pulseaudio python sdl sdl2 +shaders +truetype +threads +udev v4l2 openvg +overlays +xml +xmb xv xinerama +x11 zlib"
 
 RDEPEND="alsa? ( media-libs/alsa-lib )
 	assets? ( games-emulation/retroarch-assets )
 	cg? ( media-gfx/nvidia-cg-toolkit )
 	cores? ( games-emulation/libretro-meta )
+	database? ( games-emulation/libretro-database )
 	egl? ( media-libs/mesa[egl] )
 	ffmpeg? ( >=media-video/ffmpeg-2.1.3 )
 	gles? ( media-libs/mesa[gles2] )
@@ -114,6 +115,12 @@ src_prepare() {
 		-e 's:# overlay_directory =:overlay_directory = "/usr/share/libretro/overlays/":' \
 		|| die
 	sed -i retroarch.cfg \
+		-e 's:# content_database_path =:content_database_path = "/usr/share/libretro/data/":' \
+		|| die
+	sed -i retroarch.cfg \
+		-e 's:# cheat_database_path =:cheat_database_path = "/usr/share/libretro/cheats/":' \
+		|| die
+	sed -i retroarch.cfg \
 		-e 's:# system_directory =:system_directory = "~/.local/share/retroarch/system/":' \
 		|| die
 	sed -i retroarch.cfg \
@@ -195,6 +202,8 @@ src_install() {
 	keepdir /usr/share/libretro/info/
 	keepdir /usr/share/libretro/shaders/
 	keepdir /usr/share/libretro/overlays/
+	keepdir /usr/share/libretro/cheats/
+	keepdir /usr/share/libretro/data/
 	keepdir /usr/share/retroarch/assets/
 	keepdir /usr/share/retroarch/autoconfig/
 	prepgamesdirs

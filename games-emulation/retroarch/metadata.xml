@@ -10,6 +10,7 @@
     <flag name='assets'>adds <pkg>games-emulation/retroarch-assets</pkg> as dependency</flag>
     <flag name='cg'>Enable Cg shader support</flag>
     <flag name='cores'>Changes default retroarch.cfg to the standardpath of the libretro* ebuilds</flag>
+    <flag name='database'>adds <pkg>games-emulation/libretro-database</pkg> as dependency</flag>
     <flag name='egl'>Enable EGL context support</flag>
     <flag name='fbo'>Enable render-to-texture (FBO) support</flag>
     <flag name='ffmpeg'>Enable FFmpeg recording support</flag>
