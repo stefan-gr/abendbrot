@@ -7,10 +7,10 @@ EAPI=5
 inherit git-r3
 
 DESCRIPTION="libretro implementation of MAME 2014. (Arcade)"
-HOMEPAGE="https://github.com/libretro/libretro-mame"
+HOMEPAGE="https://github.com/libretro/mame"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/libretro-mame.git"
+EGIT_REPO_URI="https://github.com/libretro/mame.git"
 
 LICENSE="MAME-GPL"
 SLOT="0"
