@@ -33,6 +33,7 @@
     <flag name='pocketsnes'>adds <pkg>games-emulation/pocketsnes-libretro</pkg> as dependency</flag>
     <flag name='ppsspp'>adds <pkg>games-emulation/ppsspp-libretro</pkg> as dependency</flag>
     <flag name='prboom'>adds <pkg>games-emulation/prboom-libretro</pkg> as dependency</flag>
+    <flag name='prosystem'>adds <pkg>games-emulation/prosystem-libretro</pkg> as dependency</flag>
     <flag name='quicknes'>adds <pkg>games-emulation/quicknes-libretro</pkg> as dependency</flag>
     <flag name='scummvm'>adds <pkg>games-emulation/scummvm-libretro</pkg> as dependency</flag>
     <flag name='snes9x'>adds <pkg>games-emulation/snes9x-libretro</pkg> as dependency</flag>
