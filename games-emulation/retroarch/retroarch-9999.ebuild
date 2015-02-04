@@ -130,7 +130,7 @@ src_prepare() {
 		-e 's:# savefile_directory =:savefile_directory = "~/.local/share/retroarch/savefiles/":' \
 		|| die
 	sed -i retroarch.cfg \
-		-e 's:# content_directory =:content_directory = "~/.local/share/retroarch/content/":' \
+		-e 's:# content_directory =:content_directory = "~/":' \
 		|| die
 	sed -i retroarch.cfg \
 		-e 's:# screenshot_directory =:screenshot_directory = "~/.local/share/retroarch/screenshots/":' \
@@ -221,7 +221,7 @@ pkg_postinst() {
 		ewarn "You need to make sure that all directories exist or you must modify your retroarch.cfg accordingly."
 		ewarn "To create the needed directories for your user run as \$USER (not as root!):"
 		ewarn ""
-		ewarn "\$ mkdir -p ~/.local/share/retroarch/{savestates,savefiles,screenshots,content,system}"
+		ewarn "\$ mkdir -p ~/.local/share/retroarch/{savestates,savefiles,screenshots,system}"
 		ewarn ""
 		ewarn "This message will only be displayed once!"
 		ewarn ""
