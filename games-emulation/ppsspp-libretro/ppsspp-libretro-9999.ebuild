@@ -32,19 +32,28 @@ src_unpack() {
 	git-r3_checkout
 }
 
-src_configure() {
-	local mycmakeargs=(
-		-DLIBRETRO=ON
-	)
-	cmake-utils_src_configure
+src_prepare() {
+	#fixing ARCH detection
+	sed -i libretro/Makefile \
+		-e 's:$(ARCH):$(REAL_ARCH):' \
+		|| die
+	sed -i libretro/Makefile \
+		-e 's:ARCH = $(shell uname -m):REAL_ARCH = $(shell uname -m):' \
+		|| die
+}
+
+src_compile() {
+	cd ${S}/libretro
+	emake
 }
 
 src_install() {
 	insinto /usr/$(get_libdir)/libretro
-	newins "${BUILD_DIR}"/lib/libPPSSPPLibretro.so ppsspp_libretro.so
+	doins "${S}"/libretro/ppsspp_libretro.so
 	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/ppsspp_libretro.info
 	dodir /usr/share/libretro/PPSSPP/
+	rm -r "${BUILD_DIR}"/assets/lang/.git
 	cp -R "${BUILD_DIR}"/assets/* "${D}/usr/share/libretro/PPSSPP/" || die "Install failed!"
 }
 
