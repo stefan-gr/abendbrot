@@ -17,7 +17,7 @@ EGIT_REPO_URI="git://github.com/libretro/RetroArch.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa +assets +cg +cores +database egl +fbo ffmpeg gles gles3 glui jack +joypad_autoconfig kms +lakka +netplay openal +opengl oss pulseaudio python sdl sdl2 +shaders +truetype +threads +udev v4l2 openvg +overlays +xml +xmb xv xinerama +x11 zlib"
+IUSE="alsa +assets +cg +cores +database egl +fbo ffmpeg gles gles3 glui jack +joypad_autoconfig kms +netplay openal +opengl oss pulseaudio python sdl sdl2 +shaders +truetype +threads +udev v4l2 openvg +overlays +xml +xmb xv xinerama +x11 zlib"
 
 RDEPEND="alsa? ( media-libs/alsa-lib )
 	assets? ( games-emulation/retroarch-assets )
@@ -58,7 +58,6 @@ REQUIRED_USE="|| ( alsa jack openal oss pulseaudio )
 	      egl? ( x11 )
 	      opengl? ( !gles )
 	      sdl2? ( !sdl )
-	      lakka? ( assets )
 	      xmb? ( assets )
 	      shaders? ( cg )
 	      xinerama? ( x11 )
@@ -156,7 +155,6 @@ src_configure() {
 		$(use_enable glui) \
 		$(use_enable jack) \
 		$(use_enable kms) \
-		$(use_enable lakka) \
 		$(use_enable netplay) \
 		$(use_enable openal al) \
 		$(use_enable opengl) \
