@@ -20,7 +20,6 @@
     <flag name='jack'>Enable JACK support</flag>
     <flag name='joypad_autoconfig'>adds <pkg>games-emulation/retroarch-joypad-autoconfig</pkg> as dependency</flag>
     <flag name='kms'>Enable KMS context support</flag>
-    <flag name='lakka'>Enable Lakka menu</flag>
     <flag name='netplay'>Enable netplay support</flag>
     <flag name='openal'>Enable OpenAL support</flag>
     <flag name='opengl'>Enable OpenGL support</flag>
