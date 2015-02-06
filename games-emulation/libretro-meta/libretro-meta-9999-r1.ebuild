@@ -9,10 +9,10 @@ HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
 IUSE="+4do +beetle-psx +bnes +bsnes +desmume +fb-alpha fceu-next +gambatte +genplus +handy \
-imame4all mame mednafen-gba +mednafen-ngp +mednafen-pce-fast mednafen-psx \
+imame4all mame mednafen-gba +mednafen-ngp +mednafen-pce-fast mednafen-psx mednafen-snes \
 +mednafen-vb +mednafen-wswan meteor +mupen64plus nestopia +nxengine pcsx-rearmed \
-mednafen-snes picodrive pocketsnes +ppsspp +prboom +prosystem quicknes +scummvm snes9x snes9x-next \
-+stella tgbdual +tyrquake vba-next +vbam +yabause"
++mednafen-supergrafx picodrive pocketsnes +ppsspp +prboom +prosystem quicknes +scummvm snes9x \
+snes9x-next +stella tgbdual +tyrquake vba-next +vbam +yabause"
 
 KEYWORDS="~amd64 ~x86"
 
@@ -33,6 +33,7 @@ RDEPEND="4do? ( >=games-emulation/4do-libretro-9999 )
 		mednafen-pce-fast? ( >=games-emulation/mednafen-pce-fast-libretro-9999 )
 		mednafen-psx? ( >=games-emulation/mednafen-psx-libretro-9999 )
 		mednafen-snes? ( >=games-emulation/mednafen-snes-libretro-9999 )
+		mednafen-supergrafx? ( >=games-emulation/mednafen-supergrafx-libretro-9999 )
 		mednafen-vb? ( >=games-emulation/mednafen-vb-libretro-9999 )
 		mednafen-wswan? ( >=games-emulation/mednafen-wswan-libretro-9999 )
 		meteor? ( >=games-emulation/meteor-libretro-9999 )

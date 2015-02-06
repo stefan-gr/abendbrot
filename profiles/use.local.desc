@@ -21,6 +21,7 @@ games-emulation/libretro-meta:mednafen-ngp - adds games-emulation/mednafen-ngp-l
 games-emulation/libretro-meta:mednafen-pce-fast - adds games-emulation/mednafen-pce-fast-libretro as dependency
 games-emulation/libretro-meta:mednafen-psx - adds games-emulation/mednafen-psx-libretro as dependency
 games-emulation/libretro-meta:mednafen-snes - adds games-emulation/mednafen-snes-libretro as dependency
+games-emulation/libretro-meta:mednafen-supergrafx - adds games-emulation/mednafen-supergrafx-libretro as dependency
 games-emulation/libretro-meta:mednafen-vb - adds games-emulation/mednafen-vb-libretro as dependency
 games-emulation/libretro-meta:mednafen-wswan - adds games-emulation/mednafen-wswan-libretro as dependency
 games-emulation/libretro-meta:meteor - adds games-emulation/meteor-libretro as dependency

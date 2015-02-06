@@ -23,6 +23,7 @@
     <flag name='mednafen-pce-fast'>adds <pkg>games-emulation/mednafen-pce-fast-libretro</pkg> as dependency</flag>
     <flag name='mednafen-psx'>adds <pkg>games-emulation/mednafen-psx-libretro</pkg> as dependency</flag>
     <flag name='mednafen-snes'>adds <pkg>games-emulation/mednafen-snes-libretro</pkg> as dependency</flag>
+    <flag name='mednafen-supergrafx'>adds <pkg>games-emulation/mednafen-supergrafx-libretro</pkg> as dependency</flag>
     <flag name='mednafen-vb'>adds <pkg>games-emulation/mednafen-vb-libretro</pkg> as dependency</flag>
     <flag name='mednafen-wswan'>adds <pkg>games-emulation/mednafen-wswan-libretro</pkg> as dependency</flag>
     <flag name='meteor'>adds <pkg>games-emulation/meteor-libretro</pkg> as dependency</flag>
