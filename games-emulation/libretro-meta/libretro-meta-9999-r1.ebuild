@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,15 +8,16 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+beetle-psx +bnes +bsnes +desmume +fb-alpha fceu-next +gambatte +genplus +handy imame4all \
-mame mednafen-gba +mednafen-ngp +mednafen-pce-fast mednafen-psx mednafen-snes \
+IUSE="+4do +beetle-psx +bnes +bsnes +desmume +fb-alpha fceu-next +gambatte +genplus +handy \
+imame4all mame mednafen-gba +mednafen-ngp +mednafen-pce-fast mednafen-psx \
 +mednafen-vb +mednafen-wswan meteor +mupen64plus nestopia +nxengine pcsx-rearmed \
-picodrive pocketsnes +ppsspp +prboom +prosystem quicknes +scummvm snes9x snes9x-next +stella +tyrquake \
-vba-next +vbam +yabause"
+mednafen-snes picodrive pocketsnes +ppsspp +prboom +prosystem quicknes +scummvm snes9x snes9x-next \
++stella tgbdual +tyrquake vba-next +vbam +yabause"
 
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="beetle-psx? ( >=games-emulation/beetle-psx-libretro-9999 )
+RDEPEND="4do? ( >=games-emulation/4do-libretro-9999 )
+		beetle-psx? ( >=games-emulation/beetle-psx-libretro-9999 )
 		bnes? ( >=games-emulation/bnes-libretro-9999 )
 		bsnes? ( >=games-emulation/bsnes-libretro-9999 )
 		desmume? ( >=games-emulation/desmume-libretro-9999 )
@@ -49,6 +50,7 @@ RDEPEND="beetle-psx? ( >=games-emulation/beetle-psx-libretro-9999 )
 		snes9x? ( >=games-emulation/snes9x-libretro-9999 )
 		snes9x-next? ( >=games-emulation/snes9x-next-libretro-9999 )
 		stella? ( >=games-emulation/stella-libretro-9999 )
+		tgbdual? ( >=games-emulation/tgbdual-libretro-9999 )
 		tyrquake? ( >=games-emulation/tyrquake-libretro-9999 )
 		vba-next? ( >=games-emulation/vba-next-libretro-9999 )
 		vbam? ( >=games-emulation/vbam-libretro-9999 )
