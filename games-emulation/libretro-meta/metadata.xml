@@ -6,6 +6,8 @@
     <name>stefan-gr</name>
   </maintainer>
   <use>
+    <flag name='2048'>adds <pkg>games-emulation/2048-libretro</pkg> as dependency</flag>
+    <flag name='4do'>adds <pkg>games-emulation/4do-libretro</pkg> as dependency</flag>
     <flag name='beetle-psx'>adds <pkg>games-emulation/beetle-psx-libretro</pkg> as dependency</flag>
     <flag name='bnes'>adds <pkg>games-emulation/bnes-libretro</pkg> as dependency</flag>
     <flag name='bsnes'>adds <pkg>games-emulation/bsnes-libretro</pkg> as dependency</flag>
@@ -22,6 +24,7 @@
     <flag name='mednafen-pce-fast'>adds <pkg>games-emulation/mednafen-pce-fast-libretro</pkg> as dependency</flag>
     <flag name='mednafen-psx'>adds <pkg>games-emulation/mednafen-psx-libretro</pkg> as dependency</flag>
     <flag name='mednafen-snes'>adds <pkg>games-emulation/mednafen-snes-libretro</pkg> as dependency</flag>
+    <flag name='mednafen-supergrafx'>adds <pkg>games-emulation/mednafen-supergrafx-libretro</pkg> as dependency</flag>
     <flag name='mednafen-vb'>adds <pkg>games-emulation/mednafen-vb-libretro</pkg> as dependency</flag>
     <flag name='mednafen-wswan'>adds <pkg>games-emulation/mednafen-wswan-libretro</pkg> as dependency</flag>
     <flag name='meteor'>adds <pkg>games-emulation/meteor-libretro</pkg> as dependency</flag>
@@ -39,6 +42,7 @@
     <flag name='snes9x'>adds <pkg>games-emulation/snes9x-libretro</pkg> as dependency</flag>
     <flag name='snes9x-next'>adds <pkg>games-emulation/snes9x-next-libretro</pkg> as dependency</flag>
     <flag name='stella'>adds <pkg>games-emulation/stella-libretro</pkg> as dependency</flag>
+    <flag name='tgbdual'>adds <pkg>games-emulation/tgbdual-libretro</pkg> as dependency</flag>
     <flag name='tyrquake'>adds <pkg>games-emulation/tyrquake-libretro</pkg> as dependency</flag>
     <flag name='vba-next'>adds <pkg>games-emulation/vba-next-libretro</pkg> as dependency</flag>
     <flag name='vbam'>adds <pkg>games-emulation/vbam-libretro</pkg> as dependency</flag>

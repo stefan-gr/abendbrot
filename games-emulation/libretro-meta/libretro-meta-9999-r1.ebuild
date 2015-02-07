@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,15 +8,17 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+beetle-psx +bnes +bsnes +desmume +fb-alpha fceu-next +gambatte +genplus +handy imame4all \
-mame mednafen-gba +mednafen-ngp +mednafen-pce-fast mednafen-psx mednafen-snes \
-+mednafen-vb +mednafen-wswan meteor +mupen64plus nestopia +nxengine pcsx-rearmed \
-picodrive pocketsnes +ppsspp +prboom +prosystem quicknes +scummvm snes9x snes9x-next +stella +tyrquake \
-vba-next +vbam +yabause"
+IUSE="+2048 +4do +beetle-psx +bnes +bsnes +desmume +fb-alpha fceu-next +gambatte +genplus \
++handy imame4all mame mednafen-gba +mednafen-ngp +mednafen-pce-fast mednafen-psx \
+mednafen-snes +mednafen-vb +mednafen-wswan meteor +mupen64plus nestopia +nxengine \
+pcsx-rearmed +mednafen-supergrafx picodrive pocketsnes +ppsspp +prboom +prosystem quicknes +scummvm \
+snes9x snes9x-next +stella tgbdual +tyrquake vba-next +vbam +yabause"
 
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="beetle-psx? ( >=games-emulation/beetle-psx-libretro-9999 )
+RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
+		4do? ( >=games-emulation/4do-libretro-9999 )
+		beetle-psx? ( >=games-emulation/beetle-psx-libretro-9999 )
 		bnes? ( >=games-emulation/bnes-libretro-9999 )
 		bsnes? ( >=games-emulation/bsnes-libretro-9999 )
 		desmume? ( >=games-emulation/desmume-libretro-9999 )
@@ -32,6 +34,7 @@ RDEPEND="beetle-psx? ( >=games-emulation/beetle-psx-libretro-9999 )
 		mednafen-pce-fast? ( >=games-emulation/mednafen-pce-fast-libretro-9999 )
 		mednafen-psx? ( >=games-emulation/mednafen-psx-libretro-9999 )
 		mednafen-snes? ( >=games-emulation/mednafen-snes-libretro-9999 )
+		mednafen-supergrafx? ( >=games-emulation/mednafen-supergrafx-libretro-9999 )
 		mednafen-vb? ( >=games-emulation/mednafen-vb-libretro-9999 )
 		mednafen-wswan? ( >=games-emulation/mednafen-wswan-libretro-9999 )
 		meteor? ( >=games-emulation/meteor-libretro-9999 )
@@ -49,6 +52,7 @@ RDEPEND="beetle-psx? ( >=games-emulation/beetle-psx-libretro-9999 )
 		snes9x? ( >=games-emulation/snes9x-libretro-9999 )
 		snes9x-next? ( >=games-emulation/snes9x-next-libretro-9999 )
 		stella? ( >=games-emulation/stella-libretro-9999 )
+		tgbdual? ( >=games-emulation/tgbdual-libretro-9999 )
 		tyrquake? ( >=games-emulation/tyrquake-libretro-9999 )
 		vba-next? ( >=games-emulation/vba-next-libretro-9999 )
 		vbam? ( >=games-emulation/vbam-libretro-9999 )

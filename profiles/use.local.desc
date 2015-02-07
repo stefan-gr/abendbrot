@@ -5,6 +5,8 @@
 games-emulation/bsnes-libretro:profile_accuracy - Enable the accuracy profile
 games-emulation/bsnes-libretro:profile_balanced - Enable the balanced profile
 games-emulation/bsnes-libretro:profile_performance - Enable the performance profile
+games-emulation/libretro-meta:2048 - adds games-emulation/2048-libretro as dependency
+games-emulation/libretro-meta:4do - adds games-emulation/4do-libretro as dependency
 games-emulation/libretro-meta:bnes - adds games-emulation/bnes-libretro as dependency
 games-emulation/libretro-meta:bsnes - adds games-emulation/bsnes-libretro as dependency
 games-emulation/libretro-meta:desmume - adds games-emulation/desmume-libretro as dependency
@@ -20,6 +22,7 @@ games-emulation/libretro-meta:mednafen-ngp - adds games-emulation/mednafen-ngp-l
 games-emulation/libretro-meta:mednafen-pce-fast - adds games-emulation/mednafen-pce-fast-libretro as dependency
 games-emulation/libretro-meta:mednafen-psx - adds games-emulation/mednafen-psx-libretro as dependency
 games-emulation/libretro-meta:mednafen-snes - adds games-emulation/mednafen-snes-libretro as dependency
+games-emulation/libretro-meta:mednafen-supergrafx - adds games-emulation/mednafen-supergrafx-libretro as dependency
 games-emulation/libretro-meta:mednafen-vb - adds games-emulation/mednafen-vb-libretro as dependency
 games-emulation/libretro-meta:mednafen-wswan - adds games-emulation/mednafen-wswan-libretro as dependency
 games-emulation/libretro-meta:meteor - adds games-emulation/meteor-libretro as dependency
@@ -30,11 +33,13 @@ games-emulation/libretro-meta:pcsx-rearmed - adds games-emulation/pcsx-rearmed-l
 games-emulation/libretro-meta:picodrive - adds games-emulation/picodrive-libretro as dependency
 games-emulation/libretro-meta:pocketsnes - adds games-emulation/pocketsnes-libretro as dependency
 games-emulation/libretro-meta:prboom - adds games-emulation/prboom-libretro as dependency
+games-emulation/libretro-meta:prosystem - adds games-emulation/prosystem-libretro as dependency
 games-emulation/libretro-meta:quicknes - adds games-emulation/quicknes-libretro as dependency
 games-emulation/libretro-meta:scummvm - adds games-emulation/scummvm-libretro as dependency
 games-emulation/libretro-meta:snes9x - adds games-emulation/snes9x-libretro as dependency
 games-emulation/libretro-meta:snes9x-next - adds games-emulation/snes9x-next-libretro as dependency
 games-emulation/libretro-meta:stella - adds games-emulation/stella-libretro as dependency
+games-emulation/libretro-meta:tgbdual - adds games-emulation/tgbdual-libretro as dependency
 games-emulation/libretro-meta:tyrquake - adds games-emulation/tyrquake-libretro as dependency
 games-emulation/libretro-meta:vba-next - adds games-emulation/vba-next-libretro as dependency
 games-emulation/libretro-meta:vbam - adds games-emulation/vbam-libretro as dependency
