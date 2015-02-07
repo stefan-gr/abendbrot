@@ -6,6 +6,7 @@
     <name>stefan-gr</name>
   </maintainer>
   <use>
+    <flag name='2048'>adds <pkg>games-emulation/2048-libretro</pkg> as dependency</flag>
     <flag name='4do'>adds <pkg>games-emulation/4do-libretro</pkg> as dependency</flag>
     <flag name='beetle-psx'>adds <pkg>games-emulation/beetle-psx-libretro</pkg> as dependency</flag>
     <flag name='bnes'>adds <pkg>games-emulation/bnes-libretro</pkg> as dependency</flag>

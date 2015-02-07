@@ -8,15 +8,16 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+4do +beetle-psx +bnes +bsnes +desmume +fb-alpha fceu-next +gambatte +genplus +handy \
-imame4all mame mednafen-gba +mednafen-ngp +mednafen-pce-fast mednafen-psx mednafen-snes \
-+mednafen-vb +mednafen-wswan meteor +mupen64plus nestopia +nxengine pcsx-rearmed \
-+mednafen-supergrafx picodrive pocketsnes +ppsspp +prboom +prosystem quicknes +scummvm snes9x \
-snes9x-next +stella tgbdual +tyrquake vba-next +vbam +yabause"
+IUSE="+2048 +4do +beetle-psx +bnes +bsnes +desmume +fb-alpha fceu-next +gambatte +genplus \
++handy imame4all mame mednafen-gba +mednafen-ngp +mednafen-pce-fast mednafen-psx \
+mednafen-snes +mednafen-vb +mednafen-wswan meteor +mupen64plus nestopia +nxengine \
+pcsx-rearmed +mednafen-supergrafx picodrive pocketsnes +ppsspp +prboom +prosystem quicknes +scummvm \
+snes9x snes9x-next +stella tgbdual +tyrquake vba-next +vbam +yabause"
 
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="4do? ( >=games-emulation/4do-libretro-9999 )
+RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
+		4do? ( >=games-emulation/4do-libretro-9999 )
 		beetle-psx? ( >=games-emulation/beetle-psx-libretro-9999 )
 		bnes? ( >=games-emulation/bnes-libretro-9999 )
 		bsnes? ( >=games-emulation/bsnes-libretro-9999 )

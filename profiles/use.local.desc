@@ -5,6 +5,7 @@
 games-emulation/bsnes-libretro:profile_accuracy - Enable the accuracy profile
 games-emulation/bsnes-libretro:profile_balanced - Enable the balanced profile
 games-emulation/bsnes-libretro:profile_performance - Enable the performance profile
+games-emulation/libretro-meta:2048 - adds games-emulation/2048-libretro as dependency
 games-emulation/libretro-meta:4do - adds games-emulation/4do-libretro as dependency
 games-emulation/libretro-meta:bnes - adds games-emulation/bnes-libretro as dependency
 games-emulation/libretro-meta:bsnes - adds games-emulation/bsnes-libretro as dependency
