@@ -29,12 +29,8 @@ src_unpack() {
 	git-r3_checkout
 }
 
-src_configure() {
-	./configure
-}
-
 src_compile() {
-	make -f Makefile.libretro || die "emake failed!"
+	emake -f Makefile.libretro || die "emake failed!"
 }
 
 src_install() {
