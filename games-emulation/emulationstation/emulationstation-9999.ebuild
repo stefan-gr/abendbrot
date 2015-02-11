@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="media-libs/libsdl2
 	dev-cpp/eigen
-	media-libs/freeimage
+	media-libs/freeimage[png,jpeg]
 	dev-libs/boost
 	media-libs/freetype
 	net-misc/curl
