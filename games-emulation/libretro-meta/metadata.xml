@@ -12,6 +12,7 @@
     <flag name='bnes'>adds <pkg>games-emulation/bnes-libretro</pkg> as dependency</flag>
     <flag name='bsnes'>adds <pkg>games-emulation/bsnes-libretro</pkg> as dependency</flag>
     <flag name='desmume'>adds <pkg>games-emulation/desmume-libretro</pkg> as dependency</flag>
+    <flag name='dolphin'>adds <pkg>games-emulation/dolphin-libretro</pkg> as dependency</flag>
     <flag name='fb-alpha'>adds <pkg>games-emulation/fb-alpha-libretro</pkg> as dependency</flag>
     <flag name='fceu-next'>adds <pkg>games-emulation/fceu-next-libretro</pkg> as dependency</flag>
     <flag name='gambatte'>adds <pkg>games-emulation/gambatte-libretro</pkg> as dependency</flag>
