@@ -17,7 +17,7 @@ EGIT_REPO_URI="git://github.com/libretro/RetroArch.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa +assets +cg +cores +database egl +fbo ffmpeg gles gles3 glui jack +joypad_autoconfig kms +netplay openal +opengl oss pulseaudio python sdl sdl2 +shaders +truetype +threads +udev v4l2 openvg +overlays +xml +xmb xv xinerama +x11 zlib"
+IUSE="alsa +armvfp +assets +cg +cores +database egl +fbo ffmpeg gles gles3 glui jack +joypad_autoconfig kms +netplay +neon openal +opengl oss pulseaudio python sdl sdl2 +shaders +truetype +threads +udev v4l2 openvg +overlays +xml +xmb xv xinerama +x11 zlib"
 
 RDEPEND="alsa? ( media-libs/alsa-lib )
 	assets? ( games-emulation/retroarch-assets )
@@ -147,8 +147,10 @@ src_configure() {
 		append-ldflags -L/opt/nvidia-cg-toolkit/$(get_libdir)
 		append-cflags -I/opt/nvidia-cg-toolkit/include
 	fi
+
 	egamesconf \
 		$(use_enable alsa) \
+		$(use_enable armvfp floathard) \
 		$(use_enable cg) \
 		$(use_enable egl) \
 		$(use_enable fbo) \
@@ -159,11 +161,13 @@ src_configure() {
 		$(use_enable jack) \
 		$(use_enable kms) \
 		$(use_enable netplay) \
+		$(use_enable neon) \
 		$(use_enable openal al) \
 		$(use_enable opengl) \
 		$(use_enable openvg vg) \
 		$(use_enable oss) \
 		$(use_enable pulseaudio pulse) \
+		$(use_enable python) \
 		$(use_enable python) \
 		$(use_enable sdl) \
 		$(use_enable sdl2) \
