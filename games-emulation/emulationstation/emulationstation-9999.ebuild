@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit git-2 cmake-utils
+inherit games git-2 cmake-utils
 
 DESCRIPTION="Frontend for emulators"
 HOMEPAGE="http://emulationstation.org/"
