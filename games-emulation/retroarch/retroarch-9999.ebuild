@@ -62,7 +62,6 @@ REQUIRED_USE="|| ( alsa jack openal oss pulseaudio )
 	      xmb? ( opengl )
 	      gles? ( opengl )
 	      gles3? ( gles )
-	      shaders? ( cg )
 	      xinerama? ( x11 )
 	      xv? ( x11 )"
 
