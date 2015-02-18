@@ -16,7 +16,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="media-libs/libsdl2
+RDEPEND="media-libs/libsdl2
 	dev-cpp/eigen
 	media-libs/freeimage[png,jpeg]
 	dev-libs/boost
