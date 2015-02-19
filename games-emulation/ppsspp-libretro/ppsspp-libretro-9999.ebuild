@@ -40,6 +40,12 @@ src_prepare() {
 	sed -i libretro/Makefile \
 		-e 's:ARCH = $(shell uname -m):REAL_ARCH = $(shell uname -m):' \
 		|| die
+	
+	#pretend to have sdl2 installed
+	#we only need it to make cmake install the assets in the right directory
+	sed -i CMakeLists.txt \
+                -e 's:include(FindSDL2):set(SDL2_FOUND true):' \
+                || die
 }
 
 src_compile() {
