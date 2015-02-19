@@ -14,7 +14,7 @@ EGIT_REPO_URI="https://github.com/libretro/libretro-ppsspp.git"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~x86 ~amd64 ~arm"
 IUSE=""
 
 RDEPEND="x11-libs/libICE
