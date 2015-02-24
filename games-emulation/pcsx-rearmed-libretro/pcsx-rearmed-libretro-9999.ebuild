@@ -17,8 +17,9 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
 
-RDEPEND="sys-libs/zlib"
-DEPEND=""
+RDEPEND="media-libs/libpng:0
+	sys-libs/zlib"
+DEPEND="${RDEPEND}"
 
 src_unpack() {
 	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
