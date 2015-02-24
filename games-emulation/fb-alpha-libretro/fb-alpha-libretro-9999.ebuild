@@ -10,17 +10,17 @@ DESCRIPTION="libretro implementation of Final Burn Alpha (FBA). (Arcade)"
 HOMEPAGE="https://github.com/libretro/fba-libretro"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/fba-libretro.git"
+EGIT_REPO_URI="https://github.com/libretro/libretro-fba.git"
 
 LICENSE="FBA"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
-IUSE=""
+KEYWORDS="~x86 ~amd64 ~arm"
+IUSE="+profile_accuracy profile_balanced profile_performance"
+
+REQUIRED_USE="^^ ( profile_accuracy profile_balanced profile_performance )"
 
 RDEPEND=""
 DEPEND=""
-
-S="${S}/svn-current/trunk"
 
 src_unpack() {
 	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
@@ -31,7 +31,12 @@ src_unpack() {
 }
 
 src_compile() {
-	emake -f makefile.libretro
+	myemakeargs=(
+		$(usex profile_accuracy "profile=accuracy" "")
+		$(usex profile_balanced "profile=balanced" "")
+		$(usex profile_performance "profile=performance" "")
+	)
+	emake "${myemakeargs[@]}" -f makefile.libretro || die "emake failed"
 }
 
 src_install() {
