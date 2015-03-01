@@ -14,8 +14,8 @@ EGIT_REPO_URI="https://github.com/libretro/vba-next.git"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
-IUSE=""
+KEYWORDS="~x86 ~amd64 ~arm"
+IUSE="neon +tiled_rendering"
 
 RDEPEND=""
 DEPEND=""
@@ -29,7 +29,12 @@ src_unpack() {
 }
 
 src_compile() {
-	emake -f Makefile.libretro || die "emake failed"
+	myemakeargs=(
+		$(usex arm "platform=armv" "")
+		$(usex neon "HAVE_NEON=1" "")
+		$(usex tiled_rendering "TILED_RENDERING=1" "")
+	)
+	emake "${myemakeargs[@]}" -f Makefile.libretro || die "emake failed"
 }
 
 src_install() {
