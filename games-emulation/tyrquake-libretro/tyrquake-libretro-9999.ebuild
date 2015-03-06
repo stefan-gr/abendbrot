@@ -29,7 +29,7 @@ src_unpack() {
 }
 
 src_compile() {
-	emake -f Makefile.libretro
+	emake -f Makefile
 }
 
 src_install() {
