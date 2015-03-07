@@ -15,7 +15,7 @@ EGIT_REPO_URI="https://github.com/libretro/pcsx_rearmed.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE=""
+IUSE="neon"
 
 RDEPEND="media-libs/libpng:0
 	sys-libs/zlib"
@@ -31,10 +31,18 @@ src_unpack() {
 
 src_prepare() {
 	epatch "${FILESDIR}"/include.patch
+	#don't error out with unknown options
+	sed -i configure \
+                -e 's/*) echo "ERROR: unknown option $opt"; show_help="yes"/*) echo "unknown option $opt"/' \
+                || die
+	
 }
 
 src_configure() {
-	./configure --platform=libretro
+	econf \
+		--platform=libretro \
+		$(use_enable neon ) \
+		$(use_enable arm dynarec )
 }
 
 src_install() {
