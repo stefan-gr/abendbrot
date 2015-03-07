@@ -37,7 +37,7 @@ src_configure() {
 	true
 }
 
-src_compilr() {
+src_compile() {
 	emake Makefile.libretro
 }
 
