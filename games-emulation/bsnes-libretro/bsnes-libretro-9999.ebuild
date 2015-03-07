@@ -7,11 +7,10 @@ EAPI=5
 inherit git-r3
 
 DESCRIPTION="libretro implementation of bSNES/higan. (Super Nintendo Entertainment System)"
-HOMEPAGE="http://gitorious.org/bsnes"
+HOMEPAGE="https://github.com/libretro/bsnes-libretro"
 SRC_URI=""
 
-EGIT_REPO_URI="git://gitorious.org/bsnes/bsnes.git"
-EGIT_BRANCH="libretro"
+EGIT_REPO_URI="git://github.com/libretro/bsnes-libretro.git"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -36,40 +35,37 @@ src_compile() {
 		emake profile=balanced \
 			ui=target-libretro \
 			|| die "emake failed"
-	mv "$S"/out/bsnes_libretro.so "${WORKDIR}"/bsnes_balanced_libretro.so
 	fi
 	if use profile_performance; then
 		emake clean
 		emake profile=performance \
 			ui=target-libretro \
 			|| die "emake failed"
-	mv "$S"/out/bsnes_libretro.so "${WORKDIR}"/bsnes_performance_libretro.so
 	fi
 	if use profile_accuracy; then
 		emake clean
 		emake profile=accuracy \
 			ui=target-libretro \
 			|| die "emake failed"
-	mv "$S"/out/bsnes_libretro.so "${WORKDIR}"/bsnes_accuracy_libretro.so
 	fi
 }
 
 src_install() {
 	if use profile_balanced; then
 		insinto /usr/$(get_libdir)/libretro
-		doins "${WORKDIR}"/bsnes_balanced_libretro.so
+		doins out/bsnes_balanced_libretro.so
 		insinto /usr/share/libretro/info/
 		doins "${WORKDIR}"/infos/dist/info/bsnes_balanced_libretro.info
 	fi
 	if use profile_performance; then
 		insinto /usr/$(get_libdir)/libretro
-		doins "${WORKDIR}"/bsnes_performance_libretro.so
+		doins out/bsnes_performance_libretro.so
 		insinto /usr/share/libretro/info/
 		doins "${WORKDIR}"/infos/dist/info/bsnes_performance_libretro.info
 	fi
 	if use profile_accuracy; then
 		insinto /usr/$(get_libdir)/libretro
-		doins "${WORKDIR}"/bsnes_accuracy_libretro.so
+		doins out/bsnes_accuracy_libretro.so
 		insinto /usr/share/libretro/info/
 		doins "${WORKDIR}"/infos/dist/info/bsnes_accuracy_libretro.info
 	fi
