@@ -34,7 +34,11 @@ src_prepare() {
 }
 
 src_configure() {
-	./configure --platform=libretro
+	true
+}
+
+src_compilr() {
+	emake Makefile.libretro
 }
 
 src_install() {
