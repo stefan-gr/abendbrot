@@ -36,7 +36,7 @@ src_prepare() {
 }
 
 src_compile() {
-	cd ${S}/libretro
+	cd "${S}"/libretro
 	emake
 }
 

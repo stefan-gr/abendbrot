@@ -43,7 +43,7 @@ src_prepare() {
 	sed -i libretro/Makefile.common \
                 -e 's:ifeq ($(WITH_DYNAREC), arm):ifneq (,$(findstring arm,$(WITH_DYNAREC))):' \
                 || die
-	
+
 	#pretend to have sdl2 installed
 	#we only need it to make cmake install the assets in the right directory
 	sed -i CMakeLists.txt \
@@ -52,7 +52,7 @@ src_prepare() {
 }
 
 src_compile() {
-	cd ${S}/libretro
+	cd "${S}"/libretro
 	emake
 }
 

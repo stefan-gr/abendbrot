@@ -25,17 +25,17 @@ RDEPEND="media-libs/libsdl2
 	net-misc/curl
 	dev-util/cmake"
 DEPEND="virtual/pkgconfig
-        ${RDEPEND}"
+	${RDEPEND}"
 
 src_unpack() {
-        git-r3_fetch
-        git-r3_checkout
+	git-r3_fetch
+	git-r3_checkout
 }
 
 src_configure() {
 	local mycmakeargs=(
 		"-DCMAKE_INSTALL_PREFIX=${GAMES_PREFIX}"
-        )
+	)
 	cmake-utils_src_configure
 }
 

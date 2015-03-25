@@ -32,7 +32,6 @@ RDEPEND="${DEPEND}"
 S="${S}/Kvantum"
 qt5_s="${WORKDIR}/qt5-build/Kvantum"
 
-
 src_unpack() {
 	if use qt5 ; then
 		git-r3_fetch ${EGIT_REPO_URI} HEAD

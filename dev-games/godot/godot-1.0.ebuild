@@ -11,7 +11,6 @@ HOMEPAGE="http://www.godotengine.org"
 SRC_URI="https://github.com/okamstudio/godot/archive/${PV}-stable.tar.gz"
 RESTRICT="primaryuri"
 
-
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
@@ -28,13 +27,13 @@ RDEPEND=">=media-libs/mesa-10.2.8
 S="${WORKDIR}/${PN}-${PV}-stable"
 
 src_configure() {
-        myesconsargs=(
-                platform=x11
-        )
+	myesconsargs=(
+		platform=x11
+	)
 }
 
 src_compile() {
-        escons
+	escons
 }
 
 src_install() {
@@ -43,13 +42,13 @@ src_install() {
 		make_desktop_entry godot.x11.tools.64 Godot
 		with_desktop_entry=1
 	fi
-	
+
 	#this is just a wild guess, change to your liking and open a issue at github for me, thanks.
 	if [[ "${ARCH}" == "x86" ]]; then
 		make_desktop_entry godot.x11.tools.32 Godot
 		with_desktop_entry=1
 	fi
-	
+
 	if ! [[ "${with_desktop_entry}" == "1" ]]; then
 		elog "Couldn't detect running architecture to create a desktop file."
 	fi

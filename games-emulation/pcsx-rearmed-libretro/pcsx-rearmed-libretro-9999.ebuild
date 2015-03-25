@@ -35,7 +35,6 @@ src_prepare() {
 	sed -i configure \
                 -e 's/*) echo "ERROR: unknown option $opt"; show_help="yes"/*) echo "unknown option $opt"/' \
                 || die
-	
 }
 
 src_configure() {
