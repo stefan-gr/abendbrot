@@ -18,13 +18,13 @@ KEYWORDS="~amd64 ~x86 ~arm"
 IUSE=""
 
 RDEPEND="media-libs/libsdl2
-	dev-cpp/eigen
+	dev-cpp/eigen:3
 	media-libs/freeimage[png,jpeg]
 	dev-libs/boost
 	media-libs/freetype
-	net-misc/curl
-	dev-util/cmake"
+	net-misc/curl"
 DEPEND="virtual/pkgconfig
+	dev-util/cmake
 	${RDEPEND}"
 
 src_unpack() {
