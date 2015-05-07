@@ -5,4 +5,7 @@
     <email>barbudreadmon@gmail_dot_com</email>
     <name>barbudreadmon</name>
   </maintainer>
+  <use>
+    <flag name="themes">Install themes</flag>
+  </use>
 </pkgmetadata>
