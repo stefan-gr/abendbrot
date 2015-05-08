@@ -2,10 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer>
-    <email>barbudreadmon@gmail_dot_com</email>
-    <name>barbudreadmon</name>
+    <email>stefan_dot_gert_dot_r@gmail_dot_com</email>
+    <name>stefan-gr</name>
   </maintainer>
-  <use>
-    <flag name="themes">Install themes</flag>
-  </use>
 </pkgmetadata>

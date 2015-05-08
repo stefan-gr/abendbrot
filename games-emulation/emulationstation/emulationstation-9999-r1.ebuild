@@ -15,17 +15,23 @@ EGIT_REPO_URI="git://github.com/Aloshi/EmulationStation.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
-IUSE=""
+IUSE="themes"
 
-RDEPEND="media-libs/libsdl2
+COMMON_DEPEND="
 	dev-cpp/eigen:3
-	media-libs/freeimage[png,jpeg]
 	dev-libs/boost
+	media-libs/freeimage[png,jpeg]
 	media-libs/freetype
-	net-misc/curl"
-DEPEND="virtual/pkgconfig
+	media-libs/libsdl2
+	net-misc/curl
+"
+RDEPEND="${COMMON_DEPEND}
+	themes? ( games-emulation/emulationstation-themes )
+"
+DEPEND="${COMMON_DEPEND}
 	dev-util/cmake
-	${RDEPEND}"
+	virtual/pkgconfig
+"
 
 src_unpack() {
 	git-r3_fetch

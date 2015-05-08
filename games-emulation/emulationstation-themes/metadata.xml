@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer>
+    <email>stefan_dot_gert_dot_r@gmail_dot_com</email>
+    <name>stefan-gr</name>
+  </maintainer>
+  <use>
+    <flag name="simple"     >Install default RetroPie theme</flag>
+    <flag name="simple-dark">Install dark-on-light RetroPie theme</flag>
+  </use>
+</pkgmetadata>
