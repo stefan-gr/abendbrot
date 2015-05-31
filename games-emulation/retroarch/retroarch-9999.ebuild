@@ -85,7 +85,7 @@ src_prepare() {
 			|| die
 	fi
 	#fixing a little QA error on desktop file
-	sed -i debian/retroarch.desktop \
+	sed -i dist-scripts/debian/retroarch.desktop \
 		-e 's:Categories=Game.*:Categories=Game;:' \
 		|| die
 
@@ -165,7 +165,7 @@ src_install() {
 	emake DESTDIR="${ED}" install || die
 	dodoc README.md AUTHORS
 	insinto /usr/share/applications/
-	doins "${S}"/debian/retroarch.desktop
+	doins "${S}"dist-scripts/debian/retroarch.desktop
 	insinto /usr/$(get_libdir)/retroarch/filters/video/
 	doins "${S}"/gfx/video_filters/*.so
 	doins "${S}"/gfx/video_filters/*.filt
