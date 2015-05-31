@@ -165,7 +165,7 @@ src_install() {
 	emake DESTDIR="${ED}" install || die
 	dodoc README.md AUTHORS
 	insinto /usr/share/applications/
-	doins "${S}"dist-scripts/debian/retroarch.desktop
+	doins "${S}"/dist-scripts/debian/retroarch.desktop
 	insinto /usr/$(get_libdir)/retroarch/filters/video/
 	doins "${S}"/gfx/video_filters/*.so
 	doins "${S}"/gfx/video_filters/*.filt
