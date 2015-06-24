@@ -21,7 +21,7 @@ KEYWORDS="~amd64 ~x86"
 # To avoid fatal dependency failures for users enabling the "python" USE flag, a
 # default "python_single_target_python*" USE flag *MUST* be set below to the
 # default version of Python 3 for default Portage profiles.
-IUSE="alsa +armvfp +assets +cg +cores +database egl +fbo ffmpeg gles gles3 glui jack +joypad_autoconfig kms +netplay +neon openal +opengl oss pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 openvg +overlays +xml +xmb xv xinerama +x11 zlib python +python_single_target_python3_3 python_single_target_python3_4"
+IUSE="alsa +armvfp +assets +cg +cores +database egl +fbo ffmpeg gles gles3 glui jack +joypad_autoconfig kms libusb +netplay +neon openal +opengl oss pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 openvg +overlays +xml +xmb xv xinerama +x11 zlib python +python_single_target_python3_3 python_single_target_python3_4"
 
 RDEPEND="alsa? ( media-libs/alsa-lib )
 	assets? ( games-emulation/retroarch-assets )
@@ -33,6 +33,7 @@ RDEPEND="alsa? ( media-libs/alsa-lib )
 	gles? ( media-libs/mesa[gles2] )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.120.1 )
 	joypad_autoconfig? ( games-emulation/retroarch-joypad-autoconfig )
+	libusb? ( virtual/libusb:1 )
 	openal? ( media-libs/openal )
 	opengl? ( media-libs/mesa )
 	openvg? ( media-libs/mesa[openvg] )
@@ -56,19 +57,21 @@ DEPEND="virtual/pkgconfig
 	${RDEPEND}"
 
 REQUIRED_USE="|| ( alsa jack openal oss pulseaudio )
-	      || ( opengl sdl sdl2 )
-	      alsa? ( threads )
-	      arm? ( gles? ( egl ) )
-	      cg? ( opengl )
-		  python? ( ${PYTHON_REQUIRED_USE} )
-	      sdl2? ( !sdl )
-	      kms? ( egl )
-	      xmb? ( assets )
-	      xmb? ( opengl )
-	      gles? ( opengl )
-	      gles3? ( gles )
-	      xinerama? ( x11 )
-	      xv? ( x11 )"
+		|| ( opengl sdl sdl2 )
+		alsa? ( threads )
+		arm? ( gles? ( egl ) )
+		cg? ( opengl )
+		python? ( ${PYTHON_REQUIRED_USE} )
+		sdl2? ( !sdl )
+		kms? ( egl )
+		xmb? ( assets )
+		xmb? ( opengl )
+		gles? ( opengl )
+		gles? ( !cg )
+		gles3? ( gles )
+		xinerama? ( x11 )
+		xv? ( x11 )"
+
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
@@ -130,6 +133,7 @@ src_configure() {
 		$(use_enable glui) \
 		$(use_enable jack) \
 		$(use_enable kms) \
+		$(use_enable libusb) \
 		$(use_enable netplay) \
 		$(use_enable neon) \
 		$(use_enable openal al) \
