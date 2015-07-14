@@ -56,7 +56,7 @@ pkg_postinst() {
 		ewarn "/usr/share/themes/Vertex/Chrome/Vertex.crx"
 		ewarn "Drag&Drop it in your running chrome/chromium browser window to install it."
 		ewarn ""
-		ewarn "For Firefox copy /usr/share/themes/Vertex/Firefox/chrome to your profile folder. (~/-mozilla/firefox/????????.default/)"
+		ewarn "For Firefox copy /usr/share/themes/Vertex/Firefox/chrome to your profile folder. (~/.mozilla/firefox/????????.default/)"
 		ewarn ""
 	fi
 }
