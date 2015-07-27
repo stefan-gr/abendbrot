@@ -21,7 +21,7 @@ KEYWORDS="~amd64 ~x86"
 # To avoid fatal dependency failures for users enabling the "python" USE flag, a
 # default "python_single_target_python*" USE flag *MUST* be set below to the
 # default version of Python 3 for default Portage profiles.
-IUSE="alsa +armvfp +assets +cg +cores +database egl +fbo ffmpeg gles gles3 glui jack +joypad_autoconfig kms libusb +netplay +neon openal +opengl oss pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 openvg +overlays +xml +xmb xv xinerama +x11 zlib python +python_single_target_python3_3 python_single_target_python3_4"
+IUSE="alsa +armvfp +assets +cg +cores +database egl +fbo ffmpeg gles gles3 glui jack +joypad_autoconfig kms libusb +netplay +neon openal +opengl oss pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 openvg +overlays +xml +xmb xv xinerama +x11 zlib python python_single_target_python3_3 +python_single_target_python3_4"
 
 RDEPEND="alsa? ( media-libs/alsa-lib )
 	assets? ( games-emulation/retroarch-assets )

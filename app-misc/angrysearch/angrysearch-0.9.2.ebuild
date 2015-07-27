@@ -15,7 +15,7 @@ SRC_URI="https://github.com/DoTheEvo/ANGRYsearch/archive/v${PV}.tar.gz -> ${P}.t
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+python_single_target_python3_3 python_single_target_python3_4"
+IUSE="python_single_target_python3_3 +python_single_target_python3_4"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 DEPEND="${PYTHON_DEPS}
