@@ -87,10 +87,6 @@ src_prepare() {
 			-e "s:%PYTHON_VER%:${EPYTHON/python/}:" \
 			|| die
 	fi
-	#fixing a little QA error on desktop file
-	sed -i dist-scripts/debian/retroarch.desktop \
-		-e 's:Categories=Game.*:Categories=Game;:' \
-		|| die
 
 	#changing default options to a more sensible default
 	sed -i retroarch.cfg \
@@ -168,8 +164,6 @@ src_compile() {
 src_install() {
 	emake DESTDIR="${ED}" install || die
 	dodoc README.md AUTHORS
-	insinto /usr/share/applications/
-	doins "${S}"/dist-scripts/debian/retroarch.desktop
 	insinto /usr/$(get_libdir)/retroarch/filters/video/
 	doins "${S}"/gfx/video_filters/*.so
 	doins "${S}"/gfx/video_filters/*.filt
