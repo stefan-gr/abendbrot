@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer>
+    <email>stefan_dot_gert_dot_r@gmail_dot_com</email>
+    <name>stefan-gr</name>
+  </maintainer>
+  <use>
+    <flag name='mpv'>Enable libmpv backend</flag>
+    <flag name='phonon'>Enable Phonon backend</flag>
+    <flag name='qt5'>Build GUI with Qt5 instead of Qt4</flag>
+    <flag name='vlc'>Enable VLC backend</flag>
+  </use>
+</pkgmetadata>
