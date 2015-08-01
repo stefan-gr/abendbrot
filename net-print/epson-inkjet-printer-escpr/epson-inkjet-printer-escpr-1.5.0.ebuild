@@ -8,7 +8,7 @@ inherit autotools
 
 DESCRIPTION="Epson Inkjet Printer Driver (ESC/P-R) for Linux"
 HOMEPAGE="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX"
-SRC_URI="https://download3.ebz.epson.net/dsc/f/03/00/03/29/49/36201e41f124a1f4f7b793533b1ade1202032276/${PN}-${PV}-1lsb3.2.tar.gz"
+SRC_URI="https://download3.ebz.epson.net/dsc/f/03/00/03/89/04/f14398bbe6e911a46bfe12380d9b66f27184e273/${PN}-${PV}-1lsb3.2.tar.gz"
 RESTRICT="primaryuri"
 LICENSE="GPL-2"
 SLOT="0"
