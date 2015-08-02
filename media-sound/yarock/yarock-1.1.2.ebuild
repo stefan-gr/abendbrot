@@ -37,14 +37,11 @@ DEPEND="
 		>=dev-qt/qtx11extras-5.4.2:5
 	)
 	vlc? (
-	    qt5? (
-		>=media-video/vlc-2.2.0[qt5]
-	    )
-	    !qt5? (
-		>=media-video/vlc-2.2.0[qt4]
-	    )
+	    qt5? ( >=media-video/vlc-2.2.0[qt5] )
+	    !qt5? ( >=media-video/vlc-2.2.0[qt4] )
 	)
-	media-libs/phonon
+	!qt5? ( media-libs/phonon[qt4] )
+	qt5? ( media-libs/phonon[qt5] )
 	>=dev-libs/qjson-0.8.1
 	>=media-libs/taglib-1.9.1-r2
 	mpv? ( >=media-video/mpv-0.8.3-r1[libmpv] )
