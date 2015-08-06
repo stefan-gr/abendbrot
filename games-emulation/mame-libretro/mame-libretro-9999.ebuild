@@ -38,5 +38,5 @@ src_install() {
 	insinto /usr/share/libretro/info/
 	doins "${WORKDIR}"/infos/dist/info/mame_libretro.info
 	insinto /usr/share/libretro/mame_libretro
-	doins "${S}"/docs/license.txt
+	doins "${S}"/docs/mamelicense.txt
 }
