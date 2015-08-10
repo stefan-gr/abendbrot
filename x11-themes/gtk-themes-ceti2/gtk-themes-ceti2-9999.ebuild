@@ -21,15 +21,15 @@ DEPEND=">=x11-libs/gtk+-3.14.9
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-   eautoreconf
+	eautoreconf
 }
 
 src_install() {
-    emake DESTDIR="${D}" install
-    dodoc AUTHORS ChangeLog README.md
-    #installing chrome theme
-    insinto /usr/share/themes/Ceti-2/Chrome/
-    doins extra/Chrome/Ceti-2-chrome.crx
+	emake DESTDIR="${D}" install
+	dodoc AUTHORS ChangeLog README.md
+	#installing chrome theme
+	insinto /usr/share/themes/Ceti-2/Chrome/
+	doins extra/Chrome/Ceti-2-chrome.crx
 }
 
 pkg_preinst() {

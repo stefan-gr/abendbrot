@@ -21,10 +21,10 @@ DEPEND="kde-plasma/breeze:5
 RDEPEND="${DEPEND}"
 
 src_install() {
-    insinto /usr/share/icons/
-    doins -r papirus-dark
-    doins -r papirus
-    dodoc README.md
+	insinto /usr/share/icons/
+	doins -r papirus-dark
+	doins -r papirus
+	dodoc README.md
 }
 
 pkg_preinst() { gnome2_icon_savelist; }

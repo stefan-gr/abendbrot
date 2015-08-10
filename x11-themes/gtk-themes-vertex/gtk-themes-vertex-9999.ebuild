@@ -21,24 +21,24 @@ DEPEND=">=x11-libs/gtk+-3.12.2
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-   eautoreconf
+	eautoreconf
 }
 
 src_install() {
-    emake DESTDIR="${D}" install
-    dodoc AUTHORS ChangeLog README.md
-    #installing chrome themes
-    insinto /usr/share/themes/Vertex/Chrome/
-    doins extra/Chrome/Vertex.crx
-    insinto /usr/share/themes/Vertex-Light/Chrome/
-    doins extra/Chrome/Vertex-light.crx
-    #installing Firefox themes
-    insinto /usr/share/themes/Vertex/Firefox/
-    doins -r extra/Firefox/Vertex/chrome
-    insinto /usr/share/themes/Vertex-Light/Firefox/
-    doins -r extra/Firefox/Vertex-Light/chrome
-    insinto /usr/share/themes/Vertex-Dark/Firefox/
-    doins -r extra/Firefox/Vertex-Dark/chrome
+	emake DESTDIR="${D}" install
+	dodoc AUTHORS ChangeLog README.md
+	#installing chrome themes
+	insinto /usr/share/themes/Vertex/Chrome/
+	doins extra/Chrome/Vertex.crx
+	insinto /usr/share/themes/Vertex-Light/Chrome/
+	doins extra/Chrome/Vertex-light.crx
+	#installing Firefox themes
+	insinto /usr/share/themes/Vertex/Firefox/
+	doins -r extra/Firefox/Vertex/chrome
+	insinto /usr/share/themes/Vertex-Light/Firefox/
+	doins -r extra/Firefox/Vertex-Light/chrome
+	insinto /usr/share/themes/Vertex-Dark/Firefox/
+	doins -r extra/Firefox/Vertex-Dark/chrome
 }
 
 pkg_preinst() {

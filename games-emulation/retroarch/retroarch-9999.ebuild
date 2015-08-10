@@ -72,7 +72,6 @@ REQUIRED_USE="|| ( alsa jack openal oss pulseaudio )
 		xinerama? ( x11 )
 		xv? ( x11 )"
 
-
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
 	games_pkg_setup

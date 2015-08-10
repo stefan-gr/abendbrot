@@ -21,17 +21,17 @@ DEPEND=">=x11-libs/gtk+-3.14.9
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-   eautoreconf
+	eautoreconf
 }
 
 src_install() {
-    emake DESTDIR="${D}" install
-    dodoc AUTHORS ChangeLog README.md
-    #installing chrome themes
-    insinto /usr/share/themes/Arc/Chrome/
-    doins extra/Chrome/arc-theme.crx
-    insinto /usr/share/themes/Arc-Dark/Chrome/
-    doins extra/Chrome/arc-dark-theme.crx
+	emake DESTDIR="${D}" install
+	dodoc AUTHORS ChangeLog README.md
+	#installing chrome themes
+	insinto /usr/share/themes/Arc/Chrome/
+	doins extra/Chrome/arc-theme.crx
+	insinto /usr/share/themes/Arc-Dark/Chrome/
+	doins extra/Chrome/arc-dark-theme.crx
 }
 
 pkg_preinst() {

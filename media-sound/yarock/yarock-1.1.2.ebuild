@@ -70,18 +70,16 @@ src_prepare() {
 		-e "s:/lib:/$(get_libdir):" \
 		|| die
 
-	cmake-utils_src_prepare 
+	cmake-utils_src_prepare
 }
 
 src_configure() {
-        local mycmakeargs=(
-                $(cmake-utils_use_enable mpv)
-                $(cmake-utils_use_enable qt5)
-                $(cmake-utils_use_enable phonon)
-                $(cmake-utils_use_enable vlc)
-        )
+	local mycmakeargs=(
+		$(cmake-utils_use_enable mpv)
+		$(cmake-utils_use_enable qt5)
+		$(cmake-utils_use_enable phonon)
+		$(cmake-utils_use_enable vlc)
+	)
 
-        cmake-utils_src_configure
+	cmake-utils_src_configure
 }
-
-
