@@ -1,0 +1,11 @@
+diff -Naur htmlcxx-0.85/html/tree.h htmlcxx-0.85/html/tree.h
+--- htmlcxx-0.85/html/tree.h	2011-02-13 23:24:53.000000000 +0100
++++ htmlcxx-0.85/html/tree.h	2013-04-28 14:38:17.370643634 +0200
+@@ -45,6 +45,7 @@
+ #ifndef tree_hh_
+ #define tree_hh_
+ 
++#include <cstddef>
+ #include <cassert>
+ #include <memory>
+ #include <stdexcept>
