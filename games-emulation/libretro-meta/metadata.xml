@@ -23,7 +23,6 @@
     <flag name='mednafen-gba'>adds <pkg>games-emulation/mednafen-gba-libretro</pkg> as dependency</flag>
     <flag name='mednafen-ngp'>adds <pkg>games-emulation/mednafen-ngp-libretro</pkg> as dependency</flag>
     <flag name='mednafen-pce-fast'>adds <pkg>games-emulation/mednafen-pce-fast-libretro</pkg> as dependency</flag>
-    <flag name='mednafen-psx'>adds <pkg>games-emulation/mednafen-psx-libretro</pkg> as dependency</flag>
     <flag name='mednafen-snes'>adds <pkg>games-emulation/mednafen-snes-libretro</pkg> as dependency</flag>
     <flag name='mednafen-supergrafx'>adds <pkg>games-emulation/mednafen-supergrafx-libretro</pkg> as dependency</flag>
     <flag name='mednafen-vb'>adds <pkg>games-emulation/mednafen-vb-libretro</pkg> as dependency</flag>
