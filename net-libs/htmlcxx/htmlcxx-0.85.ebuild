@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: net-libs/htmlcxx-0.85.ebuild,v 1.0 2013/04/28 10:15:41 by frostwork Exp $
+# $Id$
 
 EAPI="4"
 
