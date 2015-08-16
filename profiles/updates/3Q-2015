@@ -1,1 +1,2 @@
 move games-emulation/mednafen-psx-libretro games-emulation/beetle-psx-libretro
+move x11-themes/papirus-icon-theme x11-themes/papirus-pack-kde

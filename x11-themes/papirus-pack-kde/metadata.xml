@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer>
+    <email>stefan_dot_gert_dot_r@gmail_dot_com</email>
+    <name>stefan-gr</name>
+  </maintainer>
+    <use>
+	<flag name='color-scheme'>Install Papirus color-scheme</flag>
+	<flag name='gtk-themes'>Install Papirus gtk-themes</flag>
+	<flag name='icons'>Install Papirus icons</flag>
+	<flag name='plasma-themes'>Install Papirus plasma-themes</flag>
+    </use>
+</pkgmetadata>
