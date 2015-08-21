@@ -1,15 +1,14 @@
 diff -U 3 -H -d -r -N a/Makefile b/Makefile
---- a/Makefile	2015-07-30 13:49:23.000000000 +0200
-+++ b/Makefile	2015-07-30 13:54:21.821387075 +0200
+--- a/Makefile	2015-08-21 13:48:34.242292436 +0200
++++ b/Makefile	2015-08-21 13:51:07.860358992 +0200
 @@ -158,18 +158,18 @@
  	rm -f $(OBJDIR)/git_version.o
  	mkdir -p $(DESTDIR)$(PREFIX)/bin 2>/dev/null || /bin/true
  	mkdir -p $(DESTDIR)$(GLOBAL_CONFIG_DIR) 2>/dev/null || /bin/true
 -	mkdir -p $(DESTDIR)$(PREFIX)/share/applications 2>/dev/null || /bin/true
--	mkdir -p $(DESTDIR)$(PREFIX)/share/man/man1 2>/dev/null || /bin/true
--	mkdir -p $(DESTDIR)$(PREFIX)/share/pixmaps 2>/dev/null || /bin/true
 +	mkdir -p $(DESTDIR)/usr/share/applications 2>/dev/null || /bin/true
-+	mkdir -p $(DESTDIR)/usr/share/man/man1 2>/dev/null || /bin/true
+ 	mkdir -p $(DESTDIR)$(MAN_DIR) 2>/dev/null || /bin/true
+-	mkdir -p $(DESTDIR)$(PREFIX)/share/pixmaps 2>/dev/null || /bin/true
 +	mkdir -p $(DESTDIR)/usr/share/pixmaps 2>/dev/null || /bin/true
  	install -m755 $(TARGET) $(DESTDIR)$(PREFIX)/bin 
  	install -m755 tools/cg2glsl.py $(DESTDIR)$(PREFIX)/bin/retroarch-cg2glsl
@@ -26,8 +25,8 @@ diff -U 3 -H -d -r -N a/Makefile b/Makefile
  uninstall:
  	rm -f $(DESTDIR)$(PREFIX)/bin/retroarch
 diff -U 3 -H -d -r -N a/qb/qb.params.sh b/qb/qb.params.sh
---- a/qb/qb.params.sh	2015-06-24 15:05:01.000000000 +0200
-+++ b/qb/qb.params.sh	2015-07-30 13:55:08.260943906 +0200
+--- a/qb/qb.params.sh	2015-06-24 15:05:01.770214331 +0200
++++ b/qb/qb.params.sh	2015-08-21 13:51:59.493049010 +0200
 @@ -48,7 +48,7 @@
  opt_exists() # $opt is returned if exists in OPTS
  {	opt=$(echo "$1" | tr '[a-z]' '[A-Z]')
