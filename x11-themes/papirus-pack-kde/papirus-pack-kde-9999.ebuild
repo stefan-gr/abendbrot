@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+color-scheme gtk-themes +icons +plasma-themes"
 
 DEPEND="kde-plasma/breeze:5
-	kde-apps/oxygen-icons:5
+	kde-apps/oxygen-icons
 	gtk-themes? ( x11-themes/gtk-engines-murrine
 		    x11-libs/gtk+:3 )"
 RDEPEND="${DEPEND}"
