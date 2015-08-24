@@ -31,7 +31,7 @@ src_install() {
 	insinto /usr/share/themes/Arc/Chrome/
 	doins extra/Chrome/arc-theme.crx
 	insinto /usr/share/themes/Arc-Dark/Chrome/
-	doins extra/Chrome/arc-dark-theme.crx
+	doins extra/Chrome/arc-darker-theme.crx
 }
 
 pkg_preinst() {
