@@ -79,10 +79,7 @@ pkg_setup() {
 
 src_prepare() {
 	epatch "${FILESDIR}/${P}-build.patch" \
-		"${FILESDIR}/${PN}-python.patch" \
-
-	#Workaround for gentoo zlib fork, see: https://bugs.gentoo.org/show_bug.cgi?id=383179
-	sed -i -r 's:\<(O[FN])\>:_Z_\1:g' deps/zlib/* || die
+		"${FILESDIR}/${PN}-python.patch"
 
 	if use python; then
 		sed -i qb/config.libs.sh \
