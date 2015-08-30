@@ -79,7 +79,10 @@ pkg_setup() {
 
 src_prepare() {
 	epatch "${FILESDIR}/${P}-build.patch" \
-		"${FILESDIR}/${PN}-python.patch"
+		"${FILESDIR}/${PN}-python.patch" \
+
+	#Workaround for gentoo zlib fork, see: https://bugs.gentoo.org/show_bug.cgi?id=383179
+	sed -i -r 's:\<(O[FN])\>:_Z_\1:g' deps/zlib/* || die
 
 	if use python; then
 		sed -i qb/config.libs.sh \
@@ -162,7 +165,7 @@ src_compile() {
 
 src_install() {
 	emake DESTDIR="${ED}" install || die
-	dodoc README.md AUTHORS
+	dodoc README.md
 	insinto /usr/$(get_libdir)/retroarch/filters/video/
 	doins "${S}"/gfx/video_filters/*.so
 	doins "${S}"/gfx/video_filters/*.filt
