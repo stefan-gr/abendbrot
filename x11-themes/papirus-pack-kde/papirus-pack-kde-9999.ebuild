@@ -16,14 +16,14 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="+aurorae-themes +color-scheme gtk-themes +icons kmail-theme +konsole-colorscheme +plasma-themes +yakuake-skins"
 
-DEPEND="aurorae-themes? ( || ( kde-apps/kwin kde-base/kwin ) )
+DEPEND="aurorae-themes? ( || ( kde-plasma/kwin kde-base/kwin ) )
 	icons? ( kde-plasma/breeze:5
-		kde-apps/oxygen-icons )
+		kde-apps/oxygen-icons:* )
 	gtk-themes? ( x11-themes/gtk-engines-murrine
 		    x11-libs/gtk+:3 )
-	kmail-theme? ( || ( kde-apps/kdepim[kdepim_features_kmail] kde-base/kmail ) )
-	konsole-colorscheme? ( kde-apps/konsole )
-	yakuake-skins? ( kde-misc/yakuake )"
+	kmail-theme? ( || ( kde-apps/kdepim:5[kdepim_features_kmail] kde-base/kmail ) )
+	konsole-colorscheme? ( kde-apps/konsole:* )
+	yakuake-skins? ( kde-misc/yakuake:* )"
 RDEPEND="${DEPEND}"
 
 src_install() {
