@@ -14,13 +14,14 @@ LICENSE="CC-BY-SA-4.0 GPL-3"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+aurorae-themes +color-scheme gtk-themes +icons +konsole-colorscheme +plasma-themes +yakuake-skins"
+IUSE="+aurorae-themes +color-scheme gtk-themes +icons kmail-theme +konsole-colorscheme +plasma-themes +yakuake-skins"
 
 DEPEND="aurorae-themes? ( || ( kde-apps/kwin kde-base/kwin ) )
 	icons? ( kde-plasma/breeze:5
 		kde-apps/oxygen-icons )
 	gtk-themes? ( x11-themes/gtk-engines-murrine
 		    x11-libs/gtk+:3 )
+	kmail-theme? ( || ( kde-apps/kdepim[kdepim_features_kmail] kde-base/kmail ) )
 	konsole-colorscheme? ( kde-apps/konsole )
 	yakuake-skins? ( kde-misc/yakuake )"
 RDEPEND="${DEPEND}"
@@ -46,6 +47,11 @@ src_install() {
 		doins -r icons/papirus
 		doins -r icons/papirus-dark
 		doins -r icons/papirus-black-panel
+	fi
+	if use kmail-theme; then
+		insinto /usr/share/messageviewer/themes/
+		doins -r kmail-theme/papirus
+		doins -r kmail-theme/papirus-dark
 	fi
 	if use konsole-colorscheme; then
 		insinto /usr/share/konsole
