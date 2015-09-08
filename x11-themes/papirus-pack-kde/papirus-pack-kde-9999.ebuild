@@ -14,14 +14,15 @@ LICENSE="CC-BY-SA-4.0 GPL-3"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+aurorae-themes +color-scheme gtk-themes +icons +konsole-colorscheme +plasma-themes"
+IUSE="+aurorae-themes +color-scheme gtk-themes +icons +konsole-colorscheme +plasma-themes +yakuake-skins"
 
 DEPEND="aurorae-themes? ( || ( kde-apps/kwin kde-base/kwin ) )
 	icons? ( kde-plasma/breeze:5
 		kde-apps/oxygen-icons )
 	gtk-themes? ( x11-themes/gtk-engines-murrine
 		    x11-libs/gtk+:3 )
-	konsole-colorscheme? ( kde-apps/konsole )"
+	konsole-colorscheme? ( kde-apps/konsole )
+	yakuake-skins? ( kde-misc/yakuake )"
 RDEPEND="${DEPEND}"
 
 src_install() {
@@ -55,6 +56,11 @@ src_install() {
 		insinto /usr/share/plasma/desktoptheme/
 		doins -r plasma-themes/papirus
 		doins -r plasma-themes/papirus-dark
+	fi
+	if use yakuake-skins; then
+		insinto /usr/share/yakuake/skins/
+		doins -r yakuake-skins/papirus
+		doins -r yakuake-skins/papirus-dark
 	fi
 	if use color-scheme && use icons && use plasma-themes; then
 		insinto /usr/share/plasma/look-and-feel/
