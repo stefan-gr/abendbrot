@@ -14,14 +14,14 @@ LICENSE="CC-BY-SA-4.0 GPL-3"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+aurorae-themes +color-scheme gtk-themes +icons +konsole-colorsheme +plasma-themes"
+IUSE="+aurorae-themes +color-scheme gtk-themes +icons +konsole-colorscheme +plasma-themes"
 
 DEPEND="aurorae-themes? ( || ( kde-apps/kwin kde-base/kwin ) )
 	icons? ( kde-plasma/breeze:5
 		kde-apps/oxygen-icons )
 	gtk-themes? ( x11-themes/gtk-engines-murrine
 		    x11-libs/gtk+:3 )
-	konsole-colorsheme? ( kde-apps/konsole )"
+	konsole-colorscheme? ( kde-apps/konsole )"
 RDEPEND="${DEPEND}"
 
 src_install() {
@@ -46,7 +46,7 @@ src_install() {
 		doins -r icons/papirus-dark
 		doins -r icons/papirus-black-panel
 	fi
-	if use konsole-colorsheme; then
+	if use konsole-colorscheme; then
 		insinto /usr/share/konsole
 		doins konsole-colorschemes/Papirus.colorscheme
 		doins "konsole-colorschemes/Papirus Dark.colorscheme"
