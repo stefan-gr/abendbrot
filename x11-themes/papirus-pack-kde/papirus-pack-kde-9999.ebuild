@@ -14,15 +14,21 @@ LICENSE="CC-BY-SA-4.0 GPL-3"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+color-scheme gtk-themes +icons +plasma-themes"
+IUSE="+aurorae-themes +color-scheme gtk-themes +icons +plasma-themes"
 
-DEPEND="kde-plasma/breeze:5
-	kde-apps/oxygen-icons
+DEPEND="aurorae-themes? ( || ( kde-apps/kwin kde-base/kwin ) )
+	icons? ( kde-plasma/breeze:5
+		kde-apps/oxygen-icons )
 	gtk-themes? ( x11-themes/gtk-engines-murrine
 		    x11-libs/gtk+:3 )"
 RDEPEND="${DEPEND}"
 
 src_install() {
+	if use aurorae-themes; then
+		insinto /usr/share/aurorae/themes
+		doins -r aurorae-themes/Papirus
+		doins -r aurorae-themes/PapirusDark
+	fi
 	if use color-scheme; then
 		insinto /usr/share/color-schemes/
 		doins color-schemes/Papirus.colors
