@@ -8,7 +8,7 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+2048 +4do +beetle-psx +bnes +bsnes +desmume +dolphin +fba fceu-next +gambatte +genplus \
+IUSE="+2048 +4do +beetle-psx +bnes +bsnes +desmume dolphin +fba fceu-next +gambatte +genplus \
 +handy imame4all mame mednafen-gba +mednafen-ngp +mednafen-pce-fast \
 mednafen-snes +mednafen-vb +mednafen-wswan meteor +mupen64plus nestopia +nxengine \
 pcsx-rearmed +mednafen-supergrafx picodrive pocketsnes +ppsspp +prboom +prosystem quicknes +scummvm \
