@@ -20,7 +20,6 @@ IUSE=""
 RDEPEND=""
 DEPEND=""
 
-S="${S}/libretro"
 src_unpack() {
 	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
 	git-r3_checkout https://github.com/libretro/libretro-super.git \
