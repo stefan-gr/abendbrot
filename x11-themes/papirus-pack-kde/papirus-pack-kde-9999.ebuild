@@ -18,7 +18,7 @@ IUSE="+aurorae-themes +color-scheme gtk-themes +icons kmail-theme +konsole-color
 
 DEPEND="aurorae-themes? ( || ( kde-plasma/kwin kde-base/kwin ) )
 	icons? ( kde-plasma/breeze:5
-		kde-apps/oxygen-icons:* )
+		kde-frameworks/oxygen-icons:* )
 	gtk-themes? ( x11-themes/gtk-engines-murrine
 		    x11-libs/gtk+:3 )
 	kmail-theme? ( || ( kde-apps/kdepim:5[kdepim_features_kmail] kde-base/kmail ) )
