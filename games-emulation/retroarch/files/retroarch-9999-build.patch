@@ -1,7 +1,7 @@
 diff -U 3 -H -d -r -N a/Makefile b/Makefile
---- a/Makefile	2015-08-21 13:48:34.242292436 +0200
-+++ b/Makefile	2015-08-21 13:51:07.860358992 +0200
-@@ -158,18 +158,18 @@
+--- a/Makefile	2015-11-19 13:56:31.000000000 +0100
++++ b/Makefile	2015-11-19 13:59:16.355056822 +0100
+@@ -148,16 +148,16 @@
  	rm -f $(OBJDIR)/git_version.o
  	mkdir -p $(DESTDIR)$(PREFIX)/bin 2>/dev/null || /bin/true
  	mkdir -p $(DESTDIR)$(GLOBAL_CONFIG_DIR) 2>/dev/null || /bin/true
@@ -12,21 +12,19 @@ diff -U 3 -H -d -r -N a/Makefile b/Makefile
 +	mkdir -p $(DESTDIR)/usr/share/pixmaps 2>/dev/null || /bin/true
  	install -m755 $(TARGET) $(DESTDIR)$(PREFIX)/bin 
  	install -m755 tools/cg2glsl.py $(DESTDIR)$(PREFIX)/bin/retroarch-cg2glsl
- 	install -m755 $(JTARGET) $(DESTDIR)$(PREFIX)/bin
  	install -m644 retroarch.cfg $(DESTDIR)$(GLOBAL_CONFIG_DIR)/retroarch.cfg
 -	install -m644 retroarch.desktop $(DESTDIR)$(PREFIX)/share/applications
 +	install -m644 retroarch.desktop $(DESTDIR)/usr/share/applications
  	install -m644 docs/retroarch.1 $(DESTDIR)$(MAN_DIR)
  	install -m644 docs/retroarch-cg2glsl.1 $(DESTDIR)$(MAN_DIR)
- 	install -m644 docs/retroarch-joyconfig.1 $(DESTDIR)$(MAN_DIR)
 -	install -m644 media/retroarch.svg $(DESTDIR)$(PREFIX)/share/pixmaps
 +	install -m644 media/retroarch.svg $(DESTDIR)/usr/share/pixmaps
  
  uninstall:
  	rm -f $(DESTDIR)$(PREFIX)/bin/retroarch
 diff -U 3 -H -d -r -N a/qb/qb.params.sh b/qb/qb.params.sh
---- a/qb/qb.params.sh	2015-06-24 15:05:01.770214331 +0200
-+++ b/qb/qb.params.sh	2015-08-21 13:51:59.493049010 +0200
+--- a/qb/qb.params.sh	2015-11-19 13:56:31.000000000 +0100
++++ b/qb/qb.params.sh	2015-11-19 13:59:57.405766759 +0100
 @@ -48,7 +48,7 @@
  opt_exists() # $opt is returned if exists in OPTS
  {	opt=$(echo "$1" | tr '[a-z]' '[A-Z]')
