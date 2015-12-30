@@ -26,7 +26,7 @@ src_prepare() {
 
 src_install() {
 	emake DESTDIR="${D}" install
-	dodoc AUTHORS ChangeLog README.md
+	dodoc AUTHORS README.md
 	#installing chrome themes
 	insinto /usr/share/themes/Arc/Chrome/
 	doins extra/Chrome/arc-theme.crx
