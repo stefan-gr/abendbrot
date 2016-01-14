@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -6,71 +6,87 @@ EAPI=5
 
 PYTHON_COMPAT=( python{3_2,3_3,3_4} )
 
-inherit games python-single-r1 git-r3 flag-o-matic
+inherit flag-o-matic games python-single-r1
 
 DESCRIPTION="Universal frontend for libretro-based emulators"
 HOMEPAGE="http://www.libretro.com/"
-SRC_URI=""
-
-EGIT_REPO_URI="git://github.com/libretro/RetroArch.git"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 
 # To avoid fatal dependency failures for users enabling the "python" USE flag, a
 # default "python_single_target_python*" USE flag *MUST* be set below to the
 # default version of Python 3 for default Portage profiles.
-IUSE="alsa +armvfp +assets +cg +cores +database egl +fbo ffmpeg gles gles3 glui jack +joypad_autoconfig kms libusb +netplay +neon openal +opengl oss pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 openvg +overlays +xml +xmb xv xinerama +x11 zlib python python_single_target_python3_3 +python_single_target_python3_4"
+IUSE="alsa +armvfp +assets +cg +cores +database egl +fbo ffmpeg gles2 gles3 glui jack +joypad_autoconfig kms libusb +netplay +neon openal +opengl oss pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 +overlays +xml +xmb xv xinerama +x11 zlib python python_single_target_python3_3 +python_single_target_python3_4"
+REQUIRED_USE="
+	|| ( alsa jack openal oss pulseaudio )
+	|| ( opengl sdl sdl2 )
+	alsa? ( threads )
+	arm? ( gles2? ( egl ) )
+	cg? ( opengl )
+	egl? ( opengl )
+	gles2? ( !cg opengl )
+	gles3? ( gles2 )
+	kms? ( egl )
+	python? ( ${PYTHON_REQUIRED_USE} )
+	sdl2? ( !sdl )
+	xinerama? ( x11 )
+	xmb? ( assets )
+	xmb? ( opengl )
+	xv? ( x11 )
+"
 
-RDEPEND="alsa? ( media-libs/alsa-lib )
-	assets? ( games-emulation/retroarch-assets )
-	cg? ( media-gfx/nvidia-cg-toolkit )
-	cores? ( games-emulation/libretro-meta )
-	database? ( games-emulation/libretro-database )
-	egl? ( media-libs/mesa[egl] )
-	ffmpeg? ( >=media-video/ffmpeg-2.1.3 )
-	gles? ( media-libs/mesa[gles2] )
-	jack? ( >=media-sound/jack-audio-connection-kit-0.120.1 )
-	joypad_autoconfig? ( games-emulation/retroarch-joypad-autoconfig )
-	libusb? ( virtual/libusb:1 )
-	openal? ( media-libs/openal )
-	opengl? ( media-libs/mesa )
-	openvg? ( media-libs/mesa[openvg] )
-	pulseaudio? ( media-sound/pulseaudio )
+# This ebuild no longer accepts an "openvg" USE flag, as the underlying "mesa"
+# 11.0.x ebuilds no longer accept that flag either. Whether this a bug or
+# intentional is unclear. In either case, attempting to pass that flag to "mesa"
+# will result in Portage downgrading "mesa" with the following unreadable block:
+# 
+#     [blocks B      ] =media-libs/mesa-10.3.7-r1 ("=media-libs/mesa-10.3.7-r1" is blocking app-eselect/eselect-opengl-1.3.1-r4)
+RDEPEND="
+	alsa? ( media-libs/alsa-lib:0= )
+	assets? ( games-emulation/retroarch-assets:0= )
+	cg? ( media-gfx/nvidia-cg-toolkit:0= )
+	cores? ( games-emulation/libretro-meta:0= )
+	database? ( games-emulation/libretro-database:0= )
+	ffmpeg? ( >=media-video/ffmpeg-2.1.3:0= )
+	jack? ( >=media-sound/jack-audio-connection-kit-0.120.1:0= )
+	joypad_autoconfig? ( games-emulation/retroarch-joypad-autoconfig:0= )
+	libusb? ( virtual/libusb:1= )
+	openal? ( media-libs/openal:0= )
+	opengl? ( media-libs/mesa:0=[egl?,gles2?] )
+	pulseaudio? ( media-sound/pulseaudio:0= )
 	python? ( ${PYTHON_DEPS} )
-	sdl2? ( media-libs/libsdl2[joystick] )
-	sdl? ( >=media-libs/libsdl-1.2.10[joystick] )
-	shaders? ( games-emulation/common-shaders )
-	truetype? ( media-libs/freetype:2 )
-	udev? ( >=x11-libs/libxkbcommon-0.4.0
-	v4l2? ( media-libs/libv4l )
-	virtual/udev
-	overlays? ( games-emulation/common-overlays )
-	x11-drivers/xf86-input-evdev )
-	x11? ( x11-base/xorg-server )
-	xinerama? ( x11-libs/libXinerama )
-	xml? ( dev-libs/libxml2 )
-	xv? ( x11-libs/libXv )
-	zlib? ( sys-libs/zlib )"
+	sdl? ( >=media-libs/libsdl-1.2.10:0=[joystick] )
+	sdl2? ( media-libs/libsdl2:0=[joystick] )
+	shaders? ( games-emulation/common-shaders:0= )
+	truetype? ( media-libs/freetype:2= )
+	udev? (
+		virtual/udev:0=
+		x11-drivers/xf86-input-evdev:0=
+		>=x11-libs/libxkbcommon-0.4.0:0=
+		overlays? ( games-emulation/common-overlays:0= )
+		v4l2? ( media-libs/libv4l:0= )
+	)
+	x11? ( x11-base/xorg-server:0= )
+	xinerama? ( x11-libs/libXinerama:0= )
+	xml? ( dev-libs/libxml2:2= )
+	xv? ( x11-libs/libXv:0= )
+	zlib? ( sys-libs/zlib:0= )
+"
 DEPEND="virtual/pkgconfig
 	${RDEPEND}"
 
-REQUIRED_USE="|| ( alsa jack openal oss pulseaudio )
-		|| ( opengl sdl sdl2 )
-		alsa? ( threads )
-		arm? ( gles? ( egl ) )
-		cg? ( opengl )
-		python? ( ${PYTHON_REQUIRED_USE} )
-		sdl2? ( !sdl )
-		kms? ( egl )
-		xmb? ( assets )
-		xmb? ( opengl )
-		gles? ( opengl )
-		gles? ( !cg )
-		gles3? ( gles )
-		xinerama? ( x11 )
-		xv? ( x11 )"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+
+	EGIT_REPO_URI="git://github.com/libretro/RetroArch.git"
+	SRC_URI=""
+	KEYWORDS=""
+else
+	SRC_URI="https://github.com/libretro/RetroArch/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+	S="${WORKDIR}/RetroArch-${PV}"
+fi
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
@@ -78,8 +94,9 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}/${P}-build.patch" \
-		"${FILESDIR}/${PN}-python.patch"
+	epatch \
+		"${FILESDIR}/${P}-build.patch" \
+		"${FILESDIR}/${P}-python.patch"
 
 	if use python; then
 		sed -i qb/config.libs.sh \
@@ -116,6 +133,7 @@ src_configure() {
 		append-cflags -I"${EROOT}"opt/nvidia-cg-toolkit/include
 	fi
 
+	# Disable OpenVG support. See above.
 	egamesconf \
 		$(use_enable alsa) \
 		$(use_enable armvfp floathard) \
@@ -123,7 +141,7 @@ src_configure() {
 		$(use_enable egl) \
 		$(use_enable fbo) \
 		$(use_enable ffmpeg) \
-		$(use_enable gles) \
+		$(use_enable gles2) \
 		$(use_enable gles3) \
 		$(use_enable glui) \
 		$(use_enable jack) \
@@ -133,7 +151,6 @@ src_configure() {
 		$(use_enable neon) \
 		$(use_enable openal al) \
 		$(use_enable opengl) \
-		$(use_enable openvg vg) \
 		$(use_enable oss) \
 		$(use_enable pulseaudio pulse) \
 		$(use_enable python) \
@@ -150,6 +167,7 @@ src_configure() {
 		$(use_enable xv xvideo) \
 		$(use_enable zlib) \
 		--enable-dynamic \
+		--disable-vg \
 		--with-man_dir=${EROOT}"usr/share/man/man1" \
 		|| die
 }
