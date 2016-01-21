@@ -17,7 +17,7 @@ SLOT="0"
 # To avoid fatal dependency failures for users enabling the "python" USE flag, a
 # default "python_single_target_python*" USE flag *MUST* be set below to the
 # default version of Python 3 for default Portage profiles.
-IUSE="alsa +armvfp +assets +cg +cores +database egl +fbo ffmpeg gles2 gles3 glui jack +joypad_autoconfig kms libusb +netplay +neon openal +opengl oss pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 +overlays +xml +xmb xv xinerama +x11 zlib python python_single_target_python3_3 +python_single_target_python3_4"
+IUSE="alsa +armvfp +assets +cg +cores +database egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libusb +netplay +neon +network openal +opengl oss pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 +overlays +xml +xmb xv xinerama +x11 zlib python python_single_target_python3_3 +python_single_target_python3_4"
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
 	|| ( opengl sdl sdl2 )
@@ -28,6 +28,7 @@ REQUIRED_USE="
 	gles2? ( !cg opengl )
 	gles3? ( gles2 )
 	kms? ( egl )
+	netplay? ( network )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	sdl2? ( !sdl )
 	xinerama? ( x11 )
@@ -54,27 +55,28 @@ RDEPEND="
 	libusb? ( virtual/libusb:1= )
 	openal? ( media-libs/openal:0= )
 	opengl? ( media-libs/mesa:0=[egl?,gles2?] )
+	overlays? ( games-emulation/common-overlays:0= )
 	pulseaudio? ( media-sound/pulseaudio:0= )
 	python? ( ${PYTHON_DEPS} )
 	sdl? ( >=media-libs/libsdl-1.2.10:0=[joystick] )
 	sdl2? ( media-libs/libsdl2:0=[joystick] )
 	shaders? ( games-emulation/common-shaders:0= )
 	truetype? ( media-libs/freetype:2= )
-	udev? (
-		virtual/udev:0=
+	udev? ( virtual/udev:0= )
+	v4l2? ( media-libs/libv4l:0= )
+	x11? (
+		x11-base/xorg-server:0=
 		x11-drivers/xf86-input-evdev:0=
 		>=x11-libs/libxkbcommon-0.4.0:0=
-		overlays? ( games-emulation/common-overlays:0= )
-		v4l2? ( media-libs/libv4l:0= )
 	)
-	x11? ( x11-base/xorg-server:0= )
 	xinerama? ( x11-libs/libXinerama:0= )
 	xml? ( dev-libs/libxml2:2= )
 	xv? ( x11-libs/libXv:0= )
 	zlib? ( sys-libs/zlib:0= )
 "
-DEPEND="virtual/pkgconfig
-	${RDEPEND}"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig
+"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -88,6 +90,18 @@ else
 	S="${WORKDIR}/RetroArch-${PV}"
 fi
 
+# Absolute path of the directory containing libretro shared libraries.
+LIBRETRO_LIB_DIR=${GAMES_PREFIX}/"$(get_libdir)"/libretro
+
+# Absolute path of the directory containing retroarch shared libraries.
+RETROARCH_LIB_DIR=${GAMES_PREFIX}/"$(get_libdir)"/retroarch
+
+# Absolute path of the directory containing libretro data files.
+LIBRETRO_DATA_DIR=${GAMES_DATADIR}/libretro
+
+# Absolute path of the directory containing retroarch data files.
+RETROARCH_DATA_DIR=${GAMES_DATADIR}/retroarch
+
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
 	games_pkg_setup
@@ -98,42 +112,62 @@ src_prepare() {
 		"${FILESDIR}/${P}-build.patch" \
 		"${FILESDIR}/${P}-python.patch"
 
+	# If Python support is enabled, use the currently enabled "python" binary.
 	if use python; then
 		sed -i qb/config.libs.sh \
 			-e "s:%PYTHON_VER%:${EPYTHON/python/}:" \
-			|| die
+			|| die '"sed" failed.'
 	fi
 
-	#changing default options to a more sensible default
+	# Install application data and pixmaps to standard directories rather than
+	# under ${GAMES_PREFIX} (e.g., "/usr/games").
+	sed -i Makefile \
+		-e 's:$(DESTDIR)$(PREFIX)/share/\(applications\|pixmaps\):$(DESTDIR)/usr/share/\1:' \
+		|| die '"sed" failed.'
+
+	# Replace stock defaults with Gentoo-specific defaults.
 	sed -i retroarch.cfg \
-		-e 's:# libretro_directory =:libretro_directory = "'${EROOT}'usr/'$(get_libdir)'/libretro/":' \
-		-e 's:# libretro_info_path =:libretro_info_path = "'${EROOT}'usr/share/libretro/info/":' \
-		-e 's:# joypad_autoconfig_dir =:joypad_autoconfig_dir = "'${EROOT}'usr/share/retroarch/autoconfig/":' \
-		-e 's:# rgui_browser_directory =:rgui_browser_directory = "~/":' \
-		-e 's:# assets_directory =:assets_directory = "'${EROOT}'usr/share/retroarch/assets/":' \
-		-e 's:# rgui_config_directory =:rgui_config_directory = "~/.config/retroarch/":' \
-		-e 's:# video_shader_dir =:video_shader_dir = "'${EROOT}'usr/share/libretro/shaders/":' \
-		-e 's:# video_filter_dir =:video_filter_dir = "'${EROOT}'usr/'$(get_libdir)'/retroarch/filters/video/":' \
-		-e 's:# audio_filter_dir =:audio_filter_dir = "'${EROOT}'usr/'$(get_libdir)'/retroarch/filters/audio/":' \
-		-e 's:# overlay_directory =:overlay_directory = "'${EROOT}'usr/share/libretro/overlays/":' \
-		-e 's:# content_database_path =:content_database_path = "'${EROOT}'usr/share/libretro/data/":' \
-		-e 's:# cheat_database_path =:cheat_database_path = "'${EROOT}'usr/share/libretro/cheats/":' \
-		-e 's:# system_directory =:system_directory = "~/.local/share/retroarch/system/":' \
-		-e 's:# savestate_directory =:savestate_directory = "~/.local/share/retroarch/savestates/":' \
-		-e 's:# savefile_directory =:savefile_directory = "~/.local/share/retroarch/savefiles/":' \
-		-e 's:# content_directory =:content_directory = "~/":' \
-		-e 's:# screenshot_directory =:screenshot_directory = "~/.local/share/retroarch/screenshots/":' \
-		-e 's:# extraction_directory =:extraction_directory = "'${EROOT}'tmp/":' \
-		|| die
+		-e 's:# \(libretro_directory = \):\1"'${EROOT}${LIBRETRO_LIB_DIR}'/":' \
+		-e 's:# \(libretro_info_path = \):\1"'${EROOT}${LIBRETRO_DATA_DIR}'/info/":' \
+		-e 's:# \(joypad_autoconfig_dir = \):\1"'${EROOT}${RETROARCH_DATA_DIR}'/autoconfig/":' \
+		-e 's:# \(assets_directory = \):\1"'${EROOT}${RETROARCH_DATA_DIR}'/assets/":' \
+		-e 's:# \(rgui_config_directory = \):\1"~/.config/retroarch/":' \
+		-e 's:# \(video_shader_dir = \):\1"'${EROOT}${LIBRETRO_DATA_DIR}'/shaders/":' \
+		-e 's:# \(video_filter_dir = \):\1"'${EROOT}${RETROARCH_LIB_DIR}'/filters/video/":' \
+		-e 's:# \(audio_filter_dir = \):\1"'${EROOT}${RETROARCH_LIB_DIR}'/filters/audio/":' \
+		-e 's:# \(overlay_directory = \):\1"'${EROOT}${LIBRETRO_DATA_DIR}'/overlays/":' \
+		-e 's:# \(content_database_path = \):\1"'${EROOT}${LIBRETRO_DATA_DIR}'/data/":' \
+		-e 's:# \(cheat_database_path = \):\1"'${EROOT}${LIBRETRO_DATA_DIR}'/cheats/":' \
+		-e 's:# \(system_directory = \):\1"~/.local/share/retroarch/system/":' \
+		-e 's:# \(savestate_directory = \):\1"~/.local/share/retroarch/savestates/":' \
+		-e 's:# \(savefile_directory = \):\1"~/.local/share/retroarch/savefiles/":' \
+		-e 's:# \(screenshot_directory = \):\1"~/.local/share/retroarch/screenshots/":' \
+		-e 's:# \(extraction_directory = \):\1"'${EROOT}'tmp/":' \
+		-e 's:# \(content_directory = \):\1"~/":' \
+		-e 's:# \(rgui_browser_directory = \):\1"~/":' \
+		|| die '"sed" failed.'
 }
 
 src_configure() {
 	if use cg; then
 		append-ldflags -L"${EROOT}"opt/nvidia-cg-toolkit/$(get_libdir)
-		append-cflags -I"${EROOT}"opt/nvidia-cg-toolkit/include
+		append-cflags  -I"${EROOT}"opt/nvidia-cg-toolkit/include
 	fi
 
-	# Disable OpenVG support. See above.
+	#FIXME: Netplay is currently required, due to the following outstanding bug:
+	#    https://github.com/libretro/RetroArch/issues/2663
+	#When fixed, replace the "--enable-netplay" below with:
+	#    $(use_enable netplay) \
+
+	# Note that egamesconf() passes the following default parameters:
+	#
+	#    --prefix="${GAMES_PREFIX}" \
+	#    --libdir="$(games_get_libdir)" \
+	#    --datadir="${GAMES_DATADIR}" \
+	#    --sysconfdir="${GAMES_SYSCONFDIR}" \
+	#    --localstatedir="${GAMES_STATEDIR}" \
+	#
+	# Note that OpenVG support is hard-disabled. (See ${RDEPEND} above.)
 	egamesconf \
 		$(use_enable alsa) \
 		$(use_enable armvfp floathard) \
@@ -141,13 +175,12 @@ src_configure() {
 		$(use_enable egl) \
 		$(use_enable fbo) \
 		$(use_enable ffmpeg) \
-		$(use_enable gles2) \
+		$(use_enable gles2 gles) \
 		$(use_enable gles3) \
-		$(use_enable glui) \
 		$(use_enable jack) \
 		$(use_enable kms) \
 		$(use_enable libusb) \
-		$(use_enable netplay) \
+		$(use_enable network networking) \
 		$(use_enable neon) \
 		$(use_enable openal al) \
 		$(use_enable opengl) \
@@ -167,34 +200,45 @@ src_configure() {
 		$(use_enable xv xvideo) \
 		$(use_enable zlib) \
 		--enable-dynamic \
+		--enable-netplay \
 		--disable-vg \
-		--with-man_dir=${EROOT}"usr/share/man/man1" \
-		|| die
+		--with-man_dir=${EROOT}"usr/share/man/man1"
 }
 
 src_compile() {
-	emake
-	emake -C gfx/video_filters/
-	emake -C audio/audio_filters/
+	emake GLOBAL_CONFIG_DIR="${GAMES_SYSCONFDIR}"
+	emake GLOBAL_CONFIG_DIR="${GAMES_SYSCONFDIR}" -C gfx/video_filters/
+	emake GLOBAL_CONFIG_DIR="${GAMES_SYSCONFDIR}" -C audio/audio_filters/
 }
 
 src_install() {
-	emake DESTDIR="${ED}" install || die
+	# Install core files and directories.
+	emake DESTDIR="${ED}" GLOBAL_CONFIG_DIR="${GAMES_SYSCONFDIR}" install
+
+	# Install documentation.
 	dodoc README.md
-	insinto /usr/$(get_libdir)/retroarch/filters/video/
+
+	# Install video filters.
+	insinto ${RETROARCH_LIB_DIR}/filters/video/
 	doins "${S}"/gfx/video_filters/*.so
 	doins "${S}"/gfx/video_filters/*.filt
-	insinto /usr/$(get_libdir)/retroarch/filters/audio/
+
+	# Install audio filters.
+	insinto ${RETROARCH_LIB_DIR}/filters/audio/
 	doins "${S}"/audio/audio_filters/*.so
 	doins "${S}"/audio/audio_filters/*.dsp
-	keepdir /usr/$(get_libdir)/libretro/
-	keepdir /usr/share/libretro/info/
-	keepdir /usr/share/libretro/shaders/
-	keepdir /usr/share/libretro/overlays/
-	keepdir /usr/share/libretro/cheats/
-	keepdir /usr/share/libretro/data/
-	keepdir /usr/share/retroarch/assets/
-	keepdir /usr/share/retroarch/autoconfig/
+
+	# Preserve empty directories.
+	keepdir ${LIBRETRO_LIB_DIR}
+	keepdir ${LIBRETRO_DATA_DIR}/info/
+	keepdir ${LIBRETRO_DATA_DIR}/shaders/
+	keepdir ${LIBRETRO_DATA_DIR}/overlays/
+	keepdir ${LIBRETRO_DATA_DIR}/cheats/
+	keepdir ${LIBRETRO_DATA_DIR}/data/
+	keepdir ${RETROARCH_DATA_DIR}/assets/
+	keepdir ${RETROARCH_DATA_DIR}/autoconfig/
+
+	# Correct permissions and ownership.
 	prepgamesdirs
 }
 
