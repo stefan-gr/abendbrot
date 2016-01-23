@@ -15,13 +15,13 @@
     <flag name='egl'>Enable EGL context support</flag>
     <flag name='fbo'>Enable render-to-texture (FBO) support</flag>
     <flag name='ffmpeg'>Enable FFmpeg recording support</flag>
-    <flag name='gles'>Use GLESv2 instead of OpenGL</flag>
+    <flag name='gles2'>Use GLESv2 instead of OpenGL</flag>
     <flag name='gles3'>Enable OpenGLES3 support</flag>
-    <flag name='glui'>Enable GLUI menu</flag>
     <flag name='jack'>Enable JACK support</flag>
     <flag name='joypad_autoconfig'>adds <pkg>games-emulation/retroarch-joypad-autoconfig</pkg> as dependency</flag>
     <flag name='kms'>Enable KMS context support</flag>
     <flag name='libusb'>Enable Libusb support</flag>
+    <flag name='network'>Enable network support (recommended)</flag>
     <flag name='netplay'>Enable netplay support</flag>
     <flag name='openal'>Enable OpenAL support</flag>
     <flag name='opengl'>Enable OpenGL support</flag>
@@ -35,7 +35,6 @@
     <flag name='threads'>Threading support</flag>
     <flag name='udev'>Udev/Evdev gamepad support</flag>
     <flag name='v4l2'>Enable video4linux2 support</flag>
-    <flag name='openvg'>Enable OpenVG support</flag>
     <flag name='overlays'>adds <pkg>games-emulation/common-overlays</pkg> as dependency</flag>
     <flag name='xmb'>Enable xmb menu</flag>
     <flag name='xml'>Enable libxml2 support</flag>
