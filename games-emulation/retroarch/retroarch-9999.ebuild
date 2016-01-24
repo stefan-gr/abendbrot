@@ -79,7 +79,7 @@ DEPEND="${RDEPEND}
 "
 
 if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
+	inherit games git-r3
 
 	EGIT_REPO_URI="git://github.com/libretro/RetroArch.git"
 	SRC_URI=""

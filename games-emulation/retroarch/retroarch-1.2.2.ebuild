@@ -79,7 +79,7 @@ DEPEND="${RDEPEND}
 "
 
 if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
+	inherit games git-r3
 
 	EGIT_REPO_URI="git://github.com/libretro/RetroArch.git"
 	SRC_URI=""
@@ -91,7 +91,7 @@ else
 fi
 
 # Absolute path of the directory containing libretro shared libraries.
-LIBRETRO_LIB_DIR=${GAMES_PREFIX}/"$(get_libdir)"/libretro
+LIBRETRO_LIB_DIR=${GAMES_PREFIX}/$(get_libdir)/libretro
 
 # Absolute path of the directory containing retroarch shared libraries.
 RETROARCH_LIB_DIR=${GAMES_PREFIX}/"$(get_libdir)"/retroarch
