@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -17,8 +17,8 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
 
-RDEPEND=""
-DEPEND=""
+DEPEND="media-libs/mesa:0="
+RDEPEND="${DEPEND}"
 
 src_unpack() {
 	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
