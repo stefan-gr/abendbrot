@@ -127,24 +127,24 @@ src_prepare() {
 
 	# Replace stock defaults with Gentoo-specific defaults.
 	sed -i retroarch.cfg \
-		-e 's:# \(libretro_directory = \):\1"'${EROOT}${LIBRETRO_LIB_DIR}'/":' \
-		-e 's:# \(libretro_info_path = \):\1"'${EROOT}${LIBRETRO_DATA_DIR}'/info/":' \
-		-e 's:# \(joypad_autoconfig_dir = \):\1"'${EROOT}${RETROARCH_DATA_DIR}'/autoconfig/":' \
-		-e 's:# \(assets_directory = \):\1"'${EROOT}${RETROARCH_DATA_DIR}'/assets/":' \
-		-e 's:# \(rgui_config_directory = \):\1"~/.config/retroarch/":' \
-		-e 's:# \(video_shader_dir = \):\1"'${EROOT}${LIBRETRO_DATA_DIR}'/shaders/":' \
-		-e 's:# \(video_filter_dir = \):\1"'${EROOT}${RETROARCH_LIB_DIR}'/filters/video/":' \
-		-e 's:# \(audio_filter_dir = \):\1"'${EROOT}${RETROARCH_LIB_DIR}'/filters/audio/":' \
-		-e 's:# \(overlay_directory = \):\1"'${EROOT}${LIBRETRO_DATA_DIR}'/overlays/":' \
-		-e 's:# \(content_database_path = \):\1"'${EROOT}${LIBRETRO_DATA_DIR}'/data/":' \
-		-e 's:# \(cheat_database_path = \):\1"'${EROOT}${LIBRETRO_DATA_DIR}'/cheats/":' \
-		-e 's:# \(system_directory = \):\1"~/.local/share/retroarch/system/":' \
-		-e 's:# \(savestate_directory = \):\1"~/.local/share/retroarch/savestates/":' \
-		-e 's:# \(savefile_directory = \):\1"~/.local/share/retroarch/savefiles/":' \
-		-e 's:# \(screenshot_directory = \):\1"~/.local/share/retroarch/screenshots/":' \
-		-e 's:# \(extraction_directory = \):\1"'${EROOT}'tmp/":' \
-		-e 's:# \(content_directory = \):\1"~/":' \
-		-e 's:# \(rgui_browser_directory = \):\1"~/":' \
+		-e 's:# \(libretro_directory =\):\1 "'${EROOT}${LIBRETRO_LIB_DIR}'/":' \
+		-e 's:# \(libretro_info_path =\):\1 "'${EROOT}${LIBRETRO_DATA_DIR}'/info/":' \
+		-e 's:# \(joypad_autoconfig_dir =\):\1 "'${EROOT}${RETROARCH_DATA_DIR}'/autoconfig/":' \
+		-e 's:# \(assets_directory =\):\1 "'${EROOT}${RETROARCH_DATA_DIR}'/assets/":' \
+		-e 's:# \(rgui_config_directory =\):\1 "~/.config/retroarch/":' \
+		-e 's:# \(video_shader_dir =\):\1 "'${EROOT}${LIBRETRO_DATA_DIR}'/shaders/":' \
+		-e 's:# \(video_filter_dir =\):\1 "'${EROOT}${RETROARCH_LIB_DIR}'/filters/video/":' \
+		-e 's:# \(audio_filter_dir =\):\1 "'${EROOT}${RETROARCH_LIB_DIR}'/filters/audio/":' \
+		-e 's:# \(overlay_directory =\):\1 "'${EROOT}${LIBRETRO_DATA_DIR}'/overlays/":' \
+		-e 's:# \(content_database_path =\):\1 "'${EROOT}${LIBRETRO_DATA_DIR}'/data/":' \
+		-e 's:# \(cheat_database_path =\):\1 "'${EROOT}${LIBRETRO_DATA_DIR}'/cheats/":' \
+		-e 's:# \(system_directory =\):\1 "~/.local/share/retroarch/system/":' \
+		-e 's:# \(savestate_directory =\):\1 "~/.local/share/retroarch/savestates/":' \
+		-e 's:# \(savefile_directory =\):\1 "~/.local/share/retroarch/savefiles/":' \
+		-e 's:# \(screenshot_directory =\):\1 "~/.local/share/retroarch/screenshots/":' \
+		-e 's:# \(extraction_directory =\):\1 "'${EROOT}'tmp/":' \
+		-e 's:# \(content_directory =\):\1 "~/":' \
+		-e 's:# \(rgui_browser_directory =\):\1 "~/":' \
 		|| die '"sed" failed.'
 }
 
