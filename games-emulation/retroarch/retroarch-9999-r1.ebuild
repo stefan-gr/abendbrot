@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python{3_2,3_3,3_4} )
 
-inherit flag-o-matic games python-single-r1
+inherit flag-o-matic libretro python-single-r1
 
 DESCRIPTION="Universal frontend for libretro-based emulators"
 HOMEPAGE="http://www.libretro.com/"
@@ -89,18 +89,6 @@ else
 	KEYWORDS="~amd64 ~x86"
 	S="${WORKDIR}/RetroArch-${PV}"
 fi
-
-# Absolute path of the directory containing libretro shared libraries.
-LIBRETRO_LIB_DIR=${GAMES_PREFIX}/"$(get_libdir)"/libretro
-
-# Absolute path of the directory containing retroarch shared libraries.
-RETROARCH_LIB_DIR=${GAMES_PREFIX}/"$(get_libdir)"/retroarch
-
-# Absolute path of the directory containing libretro data files.
-LIBRETRO_DATA_DIR=${GAMES_DATADIR}/libretro
-
-# Absolute path of the directory containing retroarch data files.
-RETROARCH_DATA_DIR=${GAMES_DATADIR}/retroarch
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
@@ -202,7 +190,7 @@ src_configure() {
 		--enable-dynamic \
 		--enable-netplay \
 		--disable-vg \
-		--with-man_dir=${EROOT}"usr/share/man/man1"
+		--with-man_dir="${EROOT}"usr/share/man/man1
 }
 
 src_compile() {
