@@ -28,6 +28,7 @@
     <flag name='mednafen-vb'>adds <pkg>games-emulation/mednafen-vb-libretro</pkg> as dependency</flag>
     <flag name='mednafen-wswan'>adds <pkg>games-emulation/mednafen-wswan-libretro</pkg> as dependency</flag>
     <flag name='meteor'>adds <pkg>games-emulation/meteor-libretro</pkg> as dependency</flag>
+    <flag name='mgba'>adds <pkg>games-emulation/mgba-libretro</pkg> as dependency</flag>
     <flag name='mupen64plus'>adds <pkg>games-emulation/mupen64plus-libretro</pkg> as dependency</flag>
     <flag name='nestopia'>adds <pkg>games-emulation/nestopia-libretro</pkg> as dependency</flag>
     <flag name='nxengine'>adds <pkg>games-emulation/nxengine-libretro</pkg> as dependency</flag>

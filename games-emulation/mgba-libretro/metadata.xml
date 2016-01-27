@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer>
+    <email>stefan_dot_gert_dot_r@gmail_dot_com</email>
+    <name>stefan-gr</name>
+  </maintainer>
+  <longdescription lang="en">
+    mGBA is a new emulator for running Game Boy Advance games. It aims to be
+    faster and more accurate than many existing Game Boy Advance emulators, as
+    well as adding features that other emulators lack. This includes:
+
+    * Near full Game Boy Advance hardware support.
+    * Fast emulation. Known to run at full speed even on low end hardware, such
+      as netbooks.
+    * Qt and SDL ports for a heavy-weight and a light-weight frontend.
+    * Local (same computer) link cable support.
+    * Save type detection, even for flash memory size.
+    * Support for cartridges with motion sensors and rumble (only usable with
+      game controllers).
+    * Real-time clock support, even without configuration.
+    * A built-in BIOS implementation, and ability to load external BIOS files.
+    * Turbo/fast-forward support by holding Tab.
+    * Frameskip, configurable up to 10.
+    * Screenshot support.
+    * Cheat code support.
+    * 9 savestate slots. Savestates are also viewable as screenshots.
+    * Video and GIF recording.
+    * Remappable controls for both keyboards and gamepads.
+    * Loading from ZIP and 7z files.
+    * IPS, UPS and BPS patch support.
+    * Game debugging via a command-line interface (not available with Qt port)
+      and GDB remote support, compatible with IDA Pro.
+    * Configurable emulation rewinding.
+    * Support for loading and exporting GameShark and Action Replay snapshots.
+  </longdescription>
+  <upstream>
+    <bugs-to>https://github.com/libretro/mgba/issues</bugs-to>
+  </upstream>
+  <use>
+    <flag name='blipbuf'>Enable improved audio resampling via "blip_buf" (recommended)</flag>
+    <flag name='epoxy'>Enable managed OpenGL function pointers (requires "gles2")</flag>
+    <flag name='ffmpeg'>Support video recording</flag>
+    <flag name='gles2'>Use GLESv2 instead of OpenGL</flag>
+    <flag name='imagemagick'>Support GIF recording</flag>
+    <flag name='lto'>Enable link-time optimization</flag>
+    <flag name='opengl'>Support OpenGL</flag>
+    <flag name='pgo'>Enable profile-guided optimization</flag>
+    <flag name='pgopost'>Rebuild for profile-guided optimization after generating profiles (requires "pgo" and doubles compilation time)</flag>
+    <flag name='png'>Support screenshots and savestate-in-PNGs (requires "zlib")</flag>
+    <flag name='zip'>Support loading of zipped ROMs (recommended)</flag>
+    <flag name='zlib'>Support miscellaneous zip file handling</flag>
+  </use>
+</pkgmetadata>
