@@ -56,24 +56,6 @@ DOCS="CHANGES.md README.md"
 
 S="${WORKDIR}/${MY_P}"
 
-src_prepare() {
-	#fix library path
-	sed -i CMakeLists.txt \
-		-e "s:/lib/yarock:/$(get_libdir)/yarock:" \
-		|| die
-	sed -i src/core/player/mpv/CMakeLists.txt \
-		-e "s:/lib:/$(get_libdir):" \
-		|| die
-	sed -i src/core/player/phonon/CMakeLists.txt \
-		-e "s:/lib:/$(get_libdir):" \
-		|| die
-	sed -i src/core/player/vlc/CMakeLists.txt \
-		-e "s:/lib:/$(get_libdir):" \
-		|| die
-
-	cmake-utils_src_prepare
-}
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_enable mpv)
