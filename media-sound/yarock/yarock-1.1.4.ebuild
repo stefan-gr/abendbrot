@@ -43,7 +43,7 @@ DEPEND="
 	    !qt5? ( >=media-video/vlc-2.2.0[qt4] )
 	)
 	>=dev-libs/qjson-0.8.1
-	>=media-libs/taglib-1.9.1-r2
+	<=media-libs/taglib-1.10
 	>=net-libs/htmlcxx-0.85
 	mpv? ( >=media-video/mpv-0.8.3-r1[libmpv] )
 "
