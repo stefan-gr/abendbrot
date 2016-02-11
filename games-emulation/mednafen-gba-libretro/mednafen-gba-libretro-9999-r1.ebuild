@@ -41,7 +41,7 @@ src_install() {
 }
 
 pkg_preinst() {
-	if ! has_version "=${CATEGORY}/${P}"; then
+	if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then
 		first_install="1"
 	fi
 }
