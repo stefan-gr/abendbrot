@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit games git-r3 toolchain-funcs
 
 DESCRIPTION="libretro implementation of bNES/higan. (Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/bnes-libretro"
@@ -19,6 +19,15 @@ IUSE=""
 
 RDEPEND=""
 DEPEND=""
+
+pkg_pretend() {
+		#doesn't compile with >gcc5, see bug https://github.com/libretro/bnes-libretro/issues/7
+        if [[ ${MERGE_TYPE} != binary  && $(tc-getCC) == *gcc* ]]; then
+                if [[ $(gcc-major-version) -gt 4 ]] ; then
+                        die 'The active compiler needs to be gcc 4.9 (or older)'
+                fi
+        fi
+}
 
 src_unpack() {
 	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
