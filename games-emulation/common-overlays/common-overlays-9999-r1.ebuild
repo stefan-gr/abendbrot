@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit libretro git-r3
 
 DESCRIPTION="Collection of overlay files for use with libretro frontends."
 HOMEPAGE="https://github.com/libretro/common-overlays"
@@ -21,7 +21,8 @@ RDEPEND=""
 DEPEND="${RDEPEND}"
 
 src_install() {
-	dodir ${GAMES_DATADIR}/libretro/overlays/
-	cp -R "${S}"/* "${D}"${GAMES_DATADIR}/libretro/overlays/
+	dodir "${LIBRETRO_DATA_DIR}"/overlays
+	cp -R "${S}"/* "${D}${LIBRETRO_DATA_DIR}"/overlays
 	prepgamesdirs
 }
+

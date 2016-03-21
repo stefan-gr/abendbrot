@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit libretro-core
 
 DESCRIPTION="libretro implementation of SNES9x. (Super Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/snes9x"
@@ -18,24 +18,13 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND=""
-DEPEND=""
+DEPEND="${RDEPEND}"
 
 S="${S}/libretro"
 
-src_unpack() {
-	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
-	git-r3_checkout https://github.com/libretro/libretro-super.git \
-		"${WORKDIR}"/infos
-	git-r3_fetch
-	git-r3_checkout
+src_install() {
+	insinto "${LIBRETRO_DATA_DIR}"/snes9x_libretro
+	doins "${WORKDIR}"/${P}/docs/snes9x-license.txt
+	libretro-core_src_install
 }
 
-src_install() {
-	insinto ${GAMES_PREFIX}/$(get_libdir)/libretro
-	doins "${S}"/snes9x_libretro.so
-	insinto ${GAMES_DATADIR}/libretro/info/
-	doins "${WORKDIR}"/infos/dist/info/snes9x_libretro.info
-	insinto ${GAMES_DATADIR}/libretro/snes9x_libretro
-	doins "${WORKDIR}"/${P}/docs/snes9x-license.txt
-	prepgamesdirs
-}

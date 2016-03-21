@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit libretro-core
 
 DESCRIPTION="libretro implementation of QuickNES. (Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/QuickNES_Core"
@@ -18,20 +18,5 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND=""
-DEPEND=""
+DEPEND="${RDEPEND}"
 
-src_unpack() {
-	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
-	git-r3_checkout https://github.com/libretro/libretro-super.git \
-		"${WORKDIR}"/infos
-	git-r3_fetch
-	git-r3_checkout
-}
-
-src_install() {
-	insinto ${GAMES_PREFIX}/$(get_libdir)/libretro
-	doins "${S}"/quicknes_libretro.so
-	insinto ${GAMES_DATADIR}/libretro/info/
-	doins "${WORKDIR}"/infos/dist/info/quicknes_libretro.info
-	prepgamesdirs
-}

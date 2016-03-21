@@ -20,7 +20,7 @@ KEYWORDS="~amd64 ~x86 ~arm"
 IUSE=""
 
 RDEPEND=""
-DEPEND=""
+DEPEND="${RDEPEND}"
 
 src_install() {
 	# Install documentation.

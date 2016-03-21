@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit libretro git-r3
 
 DESCRIPTION="Collection of commonly used Cg shaders."
 HOMEPAGE="https://github.com/libretro/common-shaders"
@@ -21,7 +21,8 @@ RDEPEND=""
 DEPEND="${RDEPEND}"
 
 src_install() {
-	dodir ${GAMES_DATADIR}/libretro/shaders/
-	cp -R "${S}"/* "${D}"${GAMES_DATADIR}/libretro/shaders/
+	dodir "${LIBRETRO_DATA_DIR}"/shaders
+	cp -R "${S}"/* "${D}${LIBRETRO_DATA_DIR}"/shaders/
 	prepgamesdirs
 }
+

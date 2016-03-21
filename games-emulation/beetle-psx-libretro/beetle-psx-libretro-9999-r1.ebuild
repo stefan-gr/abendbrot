@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit libretro-core
 
 DESCRIPTION="libretro implementation of Mednafen PSX. (PlayStation, beetle version)"
 HOMEPAGE="https://github.com/libretro/beetle-psx-libretro"
@@ -18,26 +18,17 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND=""
-DEPEND=""
+DEPEND="${RDEPEND}"
 
-src_unpack() {
-	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
-	git-r3_checkout https://github.com/libretro/libretro-super.git \
-		"${WORKDIR}"/infos
-	git-r3_fetch
-	git-r3_checkout
-}
+LIBRETRO_CORE_NAME=beetle_psx
 
 src_compile() {
 	emake core=psx || die "emake failed"
 }
 
 src_install() {
-	insinto ${GAMES_PREFIX}/$(get_libdir)/libretro
-	newins "${S}"/mednafen_psx_libretro.so beetle_psx_libretro.so
-	insinto ${GAMES_DATADIR}/libretro/info/
-	newins "${WORKDIR}"/infos/dist/info/mednafen_psx_libretro.info beetle_psx_libretro.info
-	prepgamesdirs
+	mv "${S}"/mednafen_psx_libretro.so "${S}"/beetle_psx_libretro.so
+	libretro-core_src_install
 }
 
 pkg_preinst() {

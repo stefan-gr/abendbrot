@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit libretro-core
 
 DESCRIPTION="libretro implementation of Final Burn Alpha (FBA). (Arcade)"
 HOMEPAGE="https://github.com/libretro/fba-libretro"
@@ -20,15 +20,7 @@ IUSE="+profile_accuracy profile_balanced profile_performance"
 REQUIRED_USE="^^ ( profile_accuracy profile_balanced profile_performance )"
 
 RDEPEND=""
-DEPEND=""
-
-src_unpack() {
-	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
-	git-r3_checkout https://github.com/libretro/libretro-super.git \
-		"${WORKDIR}"/infos
-	git-r3_fetch
-	git-r3_checkout
-}
+DEPEND="${RDEPEND}"
 
 src_compile() {
 	myemakeargs=(
@@ -39,12 +31,3 @@ src_compile() {
 	emake "${myemakeargs[@]}" -f makefile.libretro || die "emake failed"
 }
 
-src_install() {
-	insinto ${GAMES_PREFIX}/$(get_libdir)/libretro
-	doins "${S}"/fba_libretro.so
-	insinto ${GAMES_DATADIR}/libretro/info/
-	doins "${WORKDIR}"/infos/dist/info/fba_libretro.info
-	insinto ${GAMES_DATADIR}/libretro/fba_libretro
-	doins "${S}"/src/license.txt
-	prepgamesdirs
-}

@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit libretro-core
 
 DESCRIPTION="libretro implementation of bSNES/higan. (Super Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/bsnes-libretro"
@@ -20,15 +20,10 @@ IUSE="profile_accuracy +profile_balanced profile_performance"
 REQUIRED_USE="|| ( profile_accuracy profile_balanced profile_performance )"
 
 RDEPEND=""
-DEPEND=""
+DEPEND="${RDEPEND}"
 
-src_unpack() {
-	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
-	git-r3_checkout https://github.com/libretro/libretro-super.git \
-		"${WORKDIR}"/infos
-	git-r3_fetch
-	git-r3_checkout
-}
+INFO_PATH="${WORKDIR}"/infos/dist/info
+LIBRETRO_CORE_INFO_FILE="${INFO_PATH}/${LIBRETRO_CORE_NAME}"_balanced_libretro.info
 
 src_compile() {
 	if use profile_balanced; then
@@ -52,22 +47,22 @@ src_compile() {
 
 src_install() {
 	if use profile_balanced; then
-		insinto ${GAMES_PREFIX}/$(get_libdir)/libretro
-		doins out/bsnes_balanced_libretro.so
-		insinto ${GAMES_DATADIR}/libretro/info/
-		doins "${WORKDIR}"/infos/dist/info/bsnes_balanced_libretro.info
+		insinto ${LIBRETRO_LIB_DIR}
+		doins out/"${LIBRETRO_CORE_NAME}"_balanced_libretro.so
+		insinto "${LIBRETRO_DATA_DIR}"/info
+		doins "${INFO_PATH}/${LIBRETRO_CORE_NAME}"_balanced_libretro.info
 	fi
 	if use profile_performance; then
-		insinto ${GAMES_PREFIX}/$(get_libdir)/libretro
-		doins out/bsnes_performance_libretro.so
-		insinto ${GAMES_DATADIR}/libretro/info/
-		doins "${WORKDIR}"/infos/dist/info/bsnes_performance_libretro.info
+		insinto ${LIBRETRO_LIB_DIR}
+		doins out/"${LIBRETRO_CORE_NAME}"_performance_libretro.so
+		insinto "${LIBRETRO_DATA_DIR}"/info
+		doins "${INFO_PATH}/${LIBRETRO_CORE_NAME}"_performance_libretro.info
 	fi
 	if use profile_accuracy; then
-		insinto ${GAMES_PREFIX}/$(get_libdir)/libretro
-		doins out/bsnes_accuracy_libretro.so
-		insinto ${GAMES_DATADIR}/libretro/info/
-		doins "${WORKDIR}"/infos/dist/info/bsnes_accuracy_libretro.info
+		insinto ${LIBRETRO_LIB_DIR}
+		doins out/"${LIBRETRO_CORE_NAME}"_accuracy_libretro.so
+		insinto "${LIBRETRO_DATA_DIR}"/info
+		doins "${INFO_PATH}/${LIBRETRO_CORE_NAME}"_accuracy_libretro.info
 	fi
 	prepgamesdirs
 }

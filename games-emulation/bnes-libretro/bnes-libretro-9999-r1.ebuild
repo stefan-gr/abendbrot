@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit games git-r3 toolchain-funcs
+inherit libretro-core toolchain-funcs
 
 DESCRIPTION="libretro implementation of bNES/higan. (Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/bnes-libretro"
@@ -18,7 +18,7 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND=""
-DEPEND=""
+DEPEND="${RDEPEND}"
 
 pkg_pretend() {
 		#doesn't compile with >gcc5, see bug https://github.com/libretro/bnes-libretro/issues/7
@@ -29,22 +29,6 @@ pkg_pretend() {
         fi
 }
 
-src_unpack() {
-	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
-	git-r3_checkout https://github.com/libretro/libretro-super.git \
-		"${WORKDIR}"/infos
-	git-r3_fetch
-	git-r3_checkout
-}
-
 src_compile() {
 	emake || die "emake failed"
-}
-
-src_install() {
-	insinto ${GAMES_PREFIX}/$(get_libdir)/libretro
-	doins "${S}"/bnes_libretro.so
-	insinto ${GAMES_DATADIR}/libretro/info/
-	doins "${WORKDIR}"/infos/dist/info/bnes_libretro.info
-	prepgamesdirs
 }

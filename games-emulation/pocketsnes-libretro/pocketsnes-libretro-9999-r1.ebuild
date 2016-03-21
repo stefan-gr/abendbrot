@@ -4,34 +4,19 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit libretro-core
 
 DESCRIPTION="libretro implementation of PocketSNES."
-HOMEPAGE="https://github.com/ToadKing/pocketsnes-libretro"
+HOMEPAGE="https://github.com/libretro/pocketsnes-libretro"
 SRC_URI=""
 
-EGIT_REPO_URI="git://github.com/ToadKing/pocketsnes-libretro.git"
+EGIT_REPO_URI="git://github.com/libretro/pocketsnes-libretro.git"
 
 LICENSE="PS"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND=""
-DEPEND=""
+DEPEND="${RDEPEND}"
 
-src_unpack() {
-	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
-	git-r3_checkout https://github.com/libretro/libretro-super.git \
-		"${WORKDIR}"/infos
-	git-r3_fetch
-	git-r3_checkout
-}
-
-src_install() {
-	insinto ${GAMES_PREFIX}/$(get_libdir)/libretro
-	doins "${S}"/pocketsnes_libretro.so
-	insinto ${GAMES_DATADIR}/libretro/info/
-	doins "${WORKDIR}"/infos/dist/info/pocketsnes_libretro.info
-	prepgamesdirs
-}

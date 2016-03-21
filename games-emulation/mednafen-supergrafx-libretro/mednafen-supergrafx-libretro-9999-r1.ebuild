@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit libretro-core
 
 DESCRIPTION="libretro implementation of Mednafen PCE Fast. (This one only emulates a SuperGrafx TG-16)"
 HOMEPAGE="https://github.com/libretro/beetle-supergrafx-libretro"
@@ -18,20 +18,7 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND=""
-DEPEND=""
+DEPEND="${RDEPEND}"
 
-src_unpack() {
-	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
-	git-r3_checkout https://github.com/libretro/libretro-super.git \
-		"${WORKDIR}"/infos
-	git-r3_fetch
-	git-r3_checkout
-}
+LIBRETRO_CORE_NAME=mednafen_supergrafx
 
-src_install() {
-	insinto ${GAMES_PREFIX}/$(get_libdir)/libretro
-	doins "${S}"/mednafen_supergrafx_libretro.so
-	insinto ${GAMES_DATADIR}/libretro/info/
-	doins "${WORKDIR}"/infos/dist/info/mednafen_supergrafx_libretro.info
-	prepgamesdirs
-}

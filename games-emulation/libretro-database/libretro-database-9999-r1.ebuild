@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit libretro git-r3
 
 DESCRIPTION="Repository containing cheatcode files, content data files, etc. "
 HOMEPAGE="https://github.com/libretro/libretro-database"
@@ -21,9 +21,10 @@ RDEPEND=""
 DEPEND="${RDEPEND}"
 
 src_install() {
-	dodir ${GAMES_DATADIR}/libretro/cheats/
-	cp -R "${S}"/cht/* "${D}"${GAMES_DATADIR}/libretro/cheats/
-	dodir ${GAMES_DATADIR}/libretro/data/
-	cp -R "${S}"/dat/* "${D}"${GAMES_DATADIR}/libretro/data/
+	dodir "${LIBRETRO_DATA_DIR}"/cheats/
+	cp -R "${S}"/cht/* "${D}${LIBRETRO_DATA_DIR}"/cheats/
+	dodir "${LIBRETRO_DATA_DIR}"/data/
+	cp -R "${S}"/dat/* "${D}${LIBRETRO_DATA_DIR}"/data/
 	prepgamesdirs
 }
+

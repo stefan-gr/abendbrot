@@ -4,41 +4,32 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit libretro-core
 
 DESCRIPTION="libretro implementation of mupen64plus (Nintendo64)"
-HOMEPAGE="https://github.com/libretro/mednafen-libretro"
+HOMEPAGE="https://github.com/libretro/mupen64plus-libretro"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/${PN}.git"
+EGIT_REPO_URI="git://github.com/libretro/${PN}.git"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE=""
+IUSE="gles2"
 
-DEPEND="media-libs/mesa:0="
+DEPEND="media-libs/mesa:0=
+		gles2? ( media-libs/mesa[gles2] )"
 RDEPEND="${DEPEND}"
 
-src_unpack() {
-	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
-	git-r3_checkout https://github.com/libretro/libretro-super.git \
-		"${WORKDIR}"/infos
-	git-r3_fetch
-	git-r3_checkout
-}
-
 src_compile() {
-	use amd64 && emake WITH_DYNAREC=x86_64
-	use x86 && emake WITH_DYNAREC=x86
-	use arm && emake platform=rpi WITH_DYNAREC=arm
-	use arm64 && emake platform=rpi WITH_DYNAREC=arm
+	#this one could get some love from arm owners
+	myemakeargs=(
+		$(usex amd64 "WITH_DYNAREC=x86_64" "")
+		$(usex x86 "WITH_DYNAREC=x86" "")
+		$(usex arm "platform=rpi WITH_DYNAREC=arm" "")
+		$(usex arm64 "platform=rpi WITH_DYNAREC=arm" "")
+		$(usex gles2 "GLES=1" "")
+	)
+	emake "${myemakeargs[@]}" || die "emake failed"
 }
 
-src_install() {
-	insinto ${GAMES_PREFIX}/$(get_libdir)/libretro
-	doins "${S}"/mupen64plus_libretro.so
-	insinto ${GAMES_DATADIR}/libretro/info/
-	doins "${WORKDIR}"/infos/dist/info/mupen64plus_libretro.info
-	prepgamesdirs
-}

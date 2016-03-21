@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit libretro git-r3
 
 DESCRIPTION="RetroArch joypad autoconfig files"
 HOMEPAGE="https://github.com/libretro/retroarch-joypad-autoconfig/"
@@ -21,7 +21,8 @@ RDEPEND="virtual/udev"
 DEPEND="${RDEPEND}"
 
 src_install() {
-	insinto ${GAMES_DATADIR}/retroarch/autoconfig/
+	insinto "${RETROARCH_DATA_DIR}"/autoconfig
 	doins "${S}"/udev/*.cfg
 	prepgamesdirs
 }
+

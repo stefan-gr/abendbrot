@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit libretro-core
 
 DESCRIPTION="libretro implementation of PCSX ReARMed. (PlayStation)"
 HOMEPAGE="https://github.com/libretro/pcsx_rearmed"
@@ -21,13 +21,7 @@ RDEPEND="media-libs/libpng:0
 	sys-libs/zlib"
 DEPEND="${RDEPEND}"
 
-src_unpack() {
-	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
-	git-r3_checkout https://github.com/libretro/libretro-super.git \
-		"${WORKDIR}"/infos
-	git-r3_fetch
-	git-r3_checkout
-}
+LIBRETRO_CORE_NAME=pcsx_rearmed
 
 src_prepare() {
 	epatch "${FILESDIR}"/include.patch
@@ -45,11 +39,8 @@ src_configure() {
 }
 
 src_install() {
-	insinto ${GAMES_PREFIX}/$(get_libdir)/libretro
-	newins "${S}"/libretro.so pcsx_rearmed_libretro.so
-	insinto ${GAMES_DATADIR}/libretro/info/
-	doins "${WORKDIR}"/infos/dist/info/pcsx_rearmed_libretro.info
-	prepgamesdirs
+	mv "${S}"/libretro.so "${S}"/pcsx_rearmed_libretro.so
+	libretro-core_src_install
 }
 
 pkg_preinst() {
@@ -70,3 +61,4 @@ pkg_postinst() {
 		ewarn ""
 	fi
 }
+

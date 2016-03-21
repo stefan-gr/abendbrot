@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit libretro-core
 
 DESCRIPTION="libretro implementation of PicoDrive. \
 (Sega GameGear/Sega CD/32X)"
@@ -19,18 +19,11 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND=""
-DEPEND=""
-
-src_unpack() {
-	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
-	git-r3_checkout https://github.com/libretro/libretro-super.git \
-		"${WORKDIR}"/infos
-	git-r3_fetch
-	git-r3_checkout
-}
+DEPEND="${RDEPEND}"
 
 src_configure() {
-	./configure
+	#No need for configure, libretro does its own thing
+	true
 }
 
 src_compile() {
@@ -38,13 +31,9 @@ src_compile() {
 }
 
 src_install() {
-	insinto ${GAMES_PREFIX}/$(get_libdir)/libretro
-	doins "${S}"/picodrive_libretro.so
-	insinto ${GAMES_DATADIR}/libretro/info/
-	doins "${WORKDIR}"/infos/dist/info/picodrive_libretro.info
-	insinto ${GAMES_DATADIR}/libretro/picodrive_libretro
+	insinto "${LIBRETRO_DATA_DIR}"/picodrive_libretro
 	doins "${S}"/COPYING
-	prepgamesdirs
+	libretro-core_src_install
 }
 
 pkg_preinst() {
@@ -65,3 +54,4 @@ pkg_postinst() {
 		ewarn ""
 	fi
 }
+

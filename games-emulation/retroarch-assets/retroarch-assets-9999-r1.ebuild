@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit libretro git-r3
 
 DESCRIPTION="RetroArch Assets files"
 HOMEPAGE="https://github.com/libretro/retroarch-assets"
@@ -21,7 +21,8 @@ RDEPEND=""
 DEPEND="${RDEPEND}"
 
 src_install() {
-	dodir ${GAMES_DATADIR}/retroarch/assets/
-	cp -R "${S}"/* "${D}"${GAMES_DATADIR}/retroarch/assets/
+	dodir "${RETROARCH_DATA_DIR}"/assets
+	cp -R "${S}"/* "${D}${RETROARCH_DATA_DIR}"/assets
 	prepgamesdirs
 }
+

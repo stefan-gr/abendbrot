@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit games git-r3
+inherit libretro-core
 
 DESCRIPTION="libretro implementation of PrBoom. (Doom)"
 HOMEPAGE="https://github.com/libretro/libretro-prboom"
@@ -18,24 +18,12 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND=""
-DEPEND=""
-
-src_unpack() {
-	git-r3_fetch https://github.com/libretro/libretro-super.git HEAD
-	git-r3_checkout https://github.com/libretro/libretro-super.git \
-		"${WORKDIR}"/infos
-	git-r3_fetch
-	git-r3_checkout
-}
+DEPEND="${RDEPEND}"
 
 src_install() {
-	insinto ${GAMES_PREFIX}/$(get_libdir)/libretro
-	doins "${S}"/prboom_libretro.so
-	insinto ${GAMES_DATADIR}/libretro/info/
-	doins "${WORKDIR}"/infos/dist/info/prboom_libretro.info
-	insinto ${GAMES_DATADIR}/libretro/prboom_libretro/
+	insinto "${LIBRETRO_DATA_DIR}"/prboom_libretro/
 	doins "${S}"/prboom.wad
-	prepgamesdirs
+	libretro-core_src_install
 }
 
 pkg_preinst() {
@@ -47,10 +35,10 @@ pkg_preinst() {
 pkg_postinst() {
 	if [[ "${first_install}" == "1" ]]; then
 		elog ""
-		elog "You need to copy the \"prboom.wad\" file from \"${GAMES_DATADIR}/libretro/prboom_libretro/\""
+		elog "You need to copy the \"prboom.wad\" file from \"${LIBRETRO_DATA_DIR}/prboom_libretro/\""
 		elog "into the retroarch \"rgui_browser_directory\" folder of your user."
 		elog ""
-		elog "\$ cp -r ${GAMES_DATADIR}/libretro/prboom_libretro/prboom.wad ~/"
+		elog "\$ cp -r ${LIBRETRO_DATA_DIR}/prboom_libretro/prboom.wad ~/"
 		elog ""
 		ewarn "This message will only be displayed once!"
 		ewarn ""
