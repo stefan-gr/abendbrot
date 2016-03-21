@@ -11,7 +11,7 @@ SLOT="0"
 IUSE="+2048 +4do +beetle-psx bnes +bsnes +desmume dolphin +fba fceu-next +gambatte +genplus \
 +handy imame4all mame mednafen-gba +mednafen-ngp +mednafen-pce-fast \
 mednafen-snes +mednafen-vb +mednafen-wswan meteor mgba +mupen64plus +nestopia +nxengine \
-pcsx-rearmed +mednafen-supergrafx picodrive pocketsnes +ppsspp +prboom +prosystem quicknes +scummvm \
+pcsx-rearmed +mednafen-supergrafx picodrive pocketsnes +ppsspp +prboom +prosystem psp1 quicknes +scummvm \
 snes9x snes9x-next +stella tgbdual +tyrquake vba-next +vbam +yabause"
 
 KEYWORDS="~amd64 ~x86"
@@ -48,6 +48,7 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		ppsspp? ( >=games-emulation/ppsspp-libretro-9999 )
 		prboom? ( >=games-emulation/prboom-libretro-9999 )
 		prosystem? ( >=games-emulation/prosystem-libretro-9999 )
+		psp1? ( >=games-emulation/psp1-libretro-9999 )
 		quicknes? ( >=games-emulation/quicknes-libretro-9999 )
 		scummvm? ( >=games-emulation/scummvm-libretro-9999 )
 		snes9x? ( >=games-emulation/snes9x-libretro-9999 )

@@ -5,10 +5,4 @@
     <email>stefan_dot_gert_dot_r@gmail_dot_com</email>
     <name>stefan-gr</name>
   </maintainer>
-  <upstream>
-    <bugs-to>https://github.com/libretro/libretro-ppsspp/issues</bugs-to>
-  </upstream>
-  <use>
-    <flag name='gles2'>Enable GLES2 instead of OpenGL</flag>
-  </use>
 </pkgmetadata>

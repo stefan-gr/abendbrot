@@ -6,11 +6,11 @@ EAPI=5
 
 inherit libretro-core flag-o-matic
 
-DESCRIPTION="libretro implementation of PPSSPP. (PlayStation Portable/PSP)"
-HOMEPAGE="https://github.com/libretro/libretro-ppsspp"
+DESCRIPTION="Non-shallow fork of PPSSPP for libretro exclusively."
+HOMEPAGE="https://github.com/libretro/PSP1"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/libretro-ppsspp.git"
+EGIT_REPO_URI="git://github.com/libretro/PSP1.git"
 
 LICENSE="GPL-2"
 SLOT="0"
