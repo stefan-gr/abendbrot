@@ -63,7 +63,7 @@ pkg_preinst() {
 pkg_postinst() {
 	if [[ "${first_install}" == "1" ]]; then
 		ewarn ""
-		ewarn "You need to copy the \"PPSSPP\" folder from \"${LIBRETRO_DATA_DIR}}\""
+		ewarn "You need to copy the \"PPSSPP\" folder from \"${LIBRETRO_DATA_DIR}\""
 		ewarn "into the retroarch \"system_directory\" folder of your user."
 		ewarn "\$ mkdir -p ~/.local/share/retroarch/system/"
 		ewarn "\$ cp -r ${ASSETS_DIR} ~/.local/share/retroarch/system/"
