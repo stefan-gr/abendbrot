@@ -14,7 +14,7 @@ EGIT_REPO_URI="https://github.com/libretro/mame2000-libretro.git"
 
 LICENSE="MAME-GPL"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND=""
