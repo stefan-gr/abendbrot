@@ -19,11 +19,3 @@ IUSE=""
 
 RDEPEND=""
 DEPEND="${RDEPEND}"
-
-src_compile() {
-	use amd64 && emake
-	use x86 && emake
-	use arm && emake ARM=1
-	use arm64 && emake ARM=1
-}
-

@@ -31,7 +31,7 @@ DEPEND=">=media-libs/libsfml-2.1
         x11-libs/libXrandr
         virtual/libusb:1
         virtual/opengl
-		>=dev-util/cmake-2.8.8
+	>=dev-util/cmake-2.8.8
         >=sys-devel/gcc-4.9.0
         app-arch/zip
         media-libs/freetype
@@ -48,8 +48,3 @@ src_prepare() {
 	sed -i Makefile \
 		-e 's:ARCH = $(shell uname -m):REAL_ARCH = $(shell uname -m):' || die
 }
-
-src_compile() {
-	emake
-}
-
