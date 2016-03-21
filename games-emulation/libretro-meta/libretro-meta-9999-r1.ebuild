@@ -11,7 +11,7 @@ SLOT="0"
 IUSE="+2048 +4do +beetle-psx bnes +bsnes +desmume dolphin +fba fceu-next +gambatte +genplus \
 +handy imame4all mame mednafen-gba +mednafen-ngp +mednafen-pce-fast \
 mednafen-snes +mednafen-vb +mednafen-wswan meteor mgba +mupen64plus +nestopia +nxengine \
-pcsx-rearmed +mednafen-supergrafx picodrive pocketsnes +ppsspp +prboom +prosystem psp1 quicknes +scummvm \
+pcsx-rearmed +mednafen-supergrafx picodrive pocketsnes ppsspp +prboom +prosystem +psp1 quicknes +scummvm \
 snes9x snes9x-next +stella tgbdual +tyrquake vba-next +vbam +yabause"
 
 KEYWORDS="~amd64 ~x86"
