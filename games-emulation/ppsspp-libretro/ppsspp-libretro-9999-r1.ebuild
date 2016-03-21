@@ -36,16 +36,15 @@ src_prepare() {
 		-e 's:ARCH = $(shell uname -m):REAL_ARCH = $(shell uname -m):' \
 		|| die '"sed" failed'
 	sed -i Makefile.common \
-				-e 's:ifeq ($(WITH_DYNAREC), arm):ifneq (,$(findstring arm,$(WITH_DYNAREC))):' \
-				|| die '"sed" failed'
+		-e 's:ifeq ($(WITH_DYNAREC), arm):ifneq (,$(findstring arm,$(WITH_DYNAREC))):' \
+		|| die '"sed" failed'
 }
 
 src_compile() {
 	if use gles2; then
 		append-ldflags -lEGL
-		emake platform="unix gles"
+		emake GLES=1
 	else
 		emake
 	fi
 }
-
