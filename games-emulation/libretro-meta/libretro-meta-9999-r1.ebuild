@@ -9,7 +9,7 @@ HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
 IUSE="+2048 +4do +beetle-psx bnes +bsnes +desmume dolphin +fba fceu-next +gambatte +genplus \
-+handy imame4all mame mednafen-gba +mednafen-ngp +mednafen-pce-fast \
++handy mame mame2000 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
 mednafen-snes +mednafen-vb +mednafen-wswan meteor mgba +mupen64plus +nestopia +nxengine \
 pcsx-rearmed +mednafen-supergrafx picodrive pocketsnes ppsspp +prboom +prosystem +psp1 quicknes +scummvm \
 snes9x snes9x-next +stella tgbdual +tyrquake vba-next +vbam +yabause"
@@ -28,8 +28,8 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		gambatte? ( >=games-emulation/gambatte-libretro-9999 )
 		genplus? ( >=games-emulation/genplus-libretro-9999 )
 		handy? ( >=games-emulation/handy-libretro-9999 )
-		imame4all? ( >=games-emulation/imame4all-libretro-9999 )
 		mame? ( >=games-emulation/mame-libretro-9999 )
+		mame2000? ( >=games-emulation/mame2000-libretro-9999 )
 		mednafen-gba? ( >=games-emulation/mednafen-gba-libretro-9999 )
 		mednafen-ngp? ( >=games-emulation/mednafen-ngp-libretro-9999 )
 		mednafen-pce-fast? ( >=games-emulation/mednafen-pce-fast-libretro-9999 )
