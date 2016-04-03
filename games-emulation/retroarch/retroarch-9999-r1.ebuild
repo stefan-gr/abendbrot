@@ -14,6 +14,11 @@ HOMEPAGE="http://www.libretro.com/"
 LICENSE="GPL-3"
 SLOT="0"
 
+#FIXME: Revaluate the "wayland? ( egl )" entry below. Due to unresolved upstream
+#issues, Wayland support erroneously requires EGL support. Ideally, it
+#shouldn't. When upstream resolves this, remove this entry. See also:
+#    https://github.com/stefan-gr/abendbrot/issues/7#issuecomment-204541979
+
 # To avoid fatal dependency failures for users enabling the "python" USE flag, a
 # default "python_single_target_python*" USE flag *MUST* be set below to the
 # default version of Python 3 for default Portage profiles.
@@ -21,7 +26,7 @@ IUSE="alsa +armvfp +assets +cg cheevos +cores +database egl +fbo ffmpeg gles2 gl
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
 	|| ( opengl sdl sdl2 vulkan )
-	|| ( X wayland )
+	|| ( kms X wayland )
 	alsa? ( threads )
 	arm? ( gles2? ( egl ) )
 	cg? ( opengl )
@@ -33,9 +38,9 @@ REQUIRED_USE="
 	netplay? ( network )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	sdl2? ( !sdl )
+	wayland? ( egl )
 	xinerama? ( X )
-	xmb? ( assets )
-	xmb? ( opengl )
+	xmb? ( assets opengl )
 	xv? ( X )
 "
 
