@@ -6,43 +6,44 @@
     <name>stefan-gr</name>
   </maintainer>
   <use>
-    <flag name='alsa'>Enable ALSA support</flag>
+    <flag name='alsa'>Enable ALSA audio support</flag>
     <flag name='armvfp'>Enable Vector Floating Point (VFP) instruction set support for post-ARMv5 ARM architectures</flag>
-    <flag name='assets'>adds <pkg>games-emulation/retroarch-assets</pkg> as dependency</flag>
+    <flag name='assets'>Add <pkg>games-emulation/retroarch-assets</pkg> as dependency</flag>
     <flag name='cg'>Enable Cg shader support</flag>
     <flag name='cheevos'>Enable Archievment support via http://retroachievements.org/</flag>
     <flag name='cores'>Changes default retroarch.cfg to the standardpath of the libretro* ebuilds</flag>
-    <flag name='database'>adds <pkg>games-emulation/libretro-database</pkg> as dependency</flag>
+    <flag name='database'>Add <pkg>games-emulation/libretro-database</pkg> as dependency</flag>
     <flag name='egl'>Enable EGL context support</flag>
     <flag name='fbo'>Enable render-to-texture (FBO) support</flag>
     <flag name='ffmpeg'>Enable FFmpeg recording support</flag>
     <flag name='gles2'>Use GLESv2 instead of OpenGL</flag>
     <flag name='gles3'>Enable OpenGLES3 support</flag>
-    <flag name='jack'>Enable JACK support</flag>
+    <flag name='jack'>Enable JACK audio support</flag>
     <flag name='joypad_autoconfig'>adds <pkg>games-emulation/retroarch-joypad-autoconfig</pkg> as dependency</flag>
-    <flag name='kms'>Enable KMS context support</flag>
-    <flag name='libusb'>Enable Libusb support</flag>
-    <flag name='materialui'>Enable materialui menu (named glui in driver selevtion)</flag>
+    <flag name='kms'>Enable KMS context support (for OpenGL-based execution from a virtual terminal outside of a display server)</flag>
+    <flag name='libass'>Enable libass SSA/ASS FFmpeg-based subtitle support</flag>
+    <flag name='libusb'>Enable libusb gamepad support</flag>
+    <flag name='materialui'>Enable materialui menu (named glui in driver selection)</flag>
     <flag name='network'>Enable network support (recommended)</flag>
     <flag name='netplay'>Enable netplay support</flag>
-    <flag name='openal'>Enable OpenAL support</flag>
-    <flag name='opengl'>Enable OpenGL support</flag>
-    <flag name='oss'>Enable OSS support</flag>
+    <flag name='openal'>Enable OpenAL audio support</flag>
+    <flag name='opengl'>Enable OpenGL display support</flag>
+    <flag name='oss'>Enable OSS audio support</flag>
     <flag name='pulseaudio'>Enable PulseAudio support</flag>
-    <flag name='python'>Enable Python 3 support for shaders</flag>
-    <flag name='sdl'>SDL support</flag>
-    <flag name='sdl2'>SDL2 support</flag>
-    <flag name='shaders'>adds <pkg>games-emulation/common-shaders</pkg> as dependency</flag>
+    <flag name='python'>Enable Python 3 shader support</flag>
+    <flag name='sdl'>Enable SDL display support</flag>
+    <flag name='sdl2'>Enable SDL2 display support</flag>
+    <flag name='shaders'>Add <pkg>games-emulation/common-shaders</pkg> as dependency</flag>
     <flag name='truetype'>Enable FreeType support</flag>
     <flag name='threads'>Threading support</flag>
     <flag name='udev'>Udev/Evdev gamepad support</flag>
     <flag name='v4l2'>Enable video4linux2 support</flag>
     <flag name='overlays'>adds <pkg>games-emulation/common-overlays</pkg> as dependency</flag>
+    <flag name='vulkan'>Enable Vulkan display support</flag>
     <flag name='xmb'>Enable xmb menu</flag>
     <flag name='xml'>Enable libxml2 support</flag>
     <flag name='xv'>Enable XVideo support</flag>
     <flag name='xinerama'>Enable Xinerama support</flag>
-    <flag name='x11'>Enable x11 support</flag>
     <flag name='zlib'>Enable zlib support (ZIP extract, PNG decoding/encoding)</flag>
   </use>
 </pkgmetadata>

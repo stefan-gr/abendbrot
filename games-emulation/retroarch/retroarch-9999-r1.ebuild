@@ -17,10 +17,11 @@ SLOT="0"
 # To avoid fatal dependency failures for users enabling the "python" USE flag, a
 # default "python_single_target_python*" USE flag *MUST* be set below to the
 # default version of Python 3 for default Portage profiles.
-IUSE="alsa +armvfp +assets +cg cheevos +cores +database egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libusb +materialui +netplay +neon +network openal +opengl oss pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 +overlays +xml +xmb xv xinerama +x11 zlib python python_single_target_python3_3 +python_single_target_python3_4"
+IUSE="alsa +armvfp +assets +cg cheevos +cores +database egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 vulkan wayland X xinerama +xmb +xml xv zlib python python_single_target_python3_3 +python_single_target_python3_4"
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
-	|| ( opengl sdl sdl2 )
+	|| ( opengl sdl sdl2 vulkan )
+	|| ( X wayland )
 	alsa? ( threads )
 	arm? ( gles2? ( egl ) )
 	cg? ( opengl )
@@ -28,14 +29,19 @@ REQUIRED_USE="
 	gles2? ( !cg opengl )
 	gles3? ( gles2 )
 	kms? ( egl )
+	libass? ( ffmpeg )
 	netplay? ( network )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	sdl2? ( !sdl )
-	xinerama? ( x11 )
+	xinerama? ( X )
 	xmb? ( assets )
 	xmb? ( opengl )
-	xv? ( x11 )
+	xv? ( X )
 "
+
+#FIXME: Correct the "vulkan" USE flag dependency below. Since the official Mesa
+#ebuild does *NOT* officially support Vulkan yet, a fake "mesa[vulkan?]"
+#dependency has been added as a placeholder below.
 
 # This ebuild no longer accepts an "openvg" USE flag, as the underlying "mesa"
 # 11.0.x ebuilds no longer accept that flag either. Whether this a bug or
@@ -52,6 +58,7 @@ RDEPEND="
 	ffmpeg? ( >=media-video/ffmpeg-2.1.3:0= )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.120.1:0= )
 	joypad_autoconfig? ( games-emulation/retroarch-joypad-autoconfig:0= )
+	libass? ( media-libs/libass:0= )
 	libusb? ( virtual/libusb:1= )
 	openal? ( media-libs/openal:0= )
 	opengl? ( media-libs/mesa:0=[egl?,gles2?] )
@@ -63,8 +70,10 @@ RDEPEND="
 	shaders? ( games-emulation/common-shaders:0= )
 	truetype? ( media-libs/freetype:2= )
 	udev? ( virtual/udev:0= )
+	vulkan? ( media-libs/mesa:0=[vulkan?] )
 	v4l2? ( media-libs/libv4l:0= )
-	x11? (
+	wayland? ( media-libs/mesa:0=[wayland?] )
+	X? (
 		x11-base/xorg-server:0=
 		x11-drivers/xf86-input-evdev:0=
 		>=x11-libs/libxkbcommon-0.4.0:0=
@@ -183,7 +192,9 @@ src_configure() {
 		$(use_enable truetype freetype) \
 		$(use_enable udev) \
 		$(use_enable v4l2) \
-		$(use_enable x11) \
+		$(use_enable vulkan) \
+		$(use_enable wayland) \
+		$(use_enable X x11) \
 		$(use_enable xinerama) \
 		$(use_enable xmb) \
 		$(use_enable xml libxml2) \
