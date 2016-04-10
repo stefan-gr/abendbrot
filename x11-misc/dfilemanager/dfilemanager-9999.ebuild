@@ -29,7 +29,7 @@ DEPEND="sys-apps/file
 		dev-qt/qtdbus:5
 		app-text/poppler[qt5]
 		)
-	qt5? ( kde-base/kdelibs
+	!qt5? ( kde-base/kdelibs
 		dev-qt/qtgui:4
 		app-text/poppler[qt4] )
 	"
