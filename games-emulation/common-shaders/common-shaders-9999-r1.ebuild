@@ -25,4 +25,3 @@ src_install() {
 	cp -R "${S}"/* "${D}${LIBRETRO_DATA_DIR}"/shaders/
 	prepgamesdirs
 }
-

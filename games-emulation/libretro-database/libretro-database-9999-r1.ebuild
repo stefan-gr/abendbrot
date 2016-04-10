@@ -27,4 +27,3 @@ src_install() {
 	cp -R "${S}"/dat/* "${D}${LIBRETRO_DATA_DIR}"/data/
 	prepgamesdirs
 }
-

@@ -61,4 +61,3 @@ pkg_postinst() {
 		ewarn ""
 	fi
 }
-

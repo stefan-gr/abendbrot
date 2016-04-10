@@ -25,4 +25,3 @@ LIBRETRO_CORE_NAME=mednafen_wswan
 src_compile() {
 	emake core=wswan || die "emake failed"
 }
-

@@ -32,4 +32,3 @@ src_install() {
 	doins "${S}"/docs/snes9x-license.txt
 	prepgamesdirs
 }
-

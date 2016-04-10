@@ -27,4 +27,3 @@ src_install() {
 	doins "${WORKDIR}"/${P}/docs/snes9x-license.txt
 	libretro-core_src_install
 }
-

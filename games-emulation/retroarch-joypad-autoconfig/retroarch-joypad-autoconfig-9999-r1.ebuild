@@ -25,4 +25,3 @@ src_install() {
 	doins "${S}"/udev/*.cfg
 	prepgamesdirs
 }
-

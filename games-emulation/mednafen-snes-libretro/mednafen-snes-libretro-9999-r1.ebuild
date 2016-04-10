@@ -25,4 +25,3 @@ LIBRETRO_CORE_NAME=mednafen_snes
 src_compile() {
 	emake core=snes || die "emake failed"
 }
-

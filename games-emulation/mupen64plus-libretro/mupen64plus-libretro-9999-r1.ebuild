@@ -32,4 +32,3 @@ src_compile() {
 	)
 	emake "${myemakeargs[@]}" || die "emake failed"
 }
-

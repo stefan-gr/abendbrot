@@ -21,4 +21,3 @@ RDEPEND=""
 DEPEND="${RDEPEND}"
 
 S="${S}/backends/platform/libretro/build"
-

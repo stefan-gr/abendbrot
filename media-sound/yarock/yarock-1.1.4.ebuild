@@ -8,7 +8,7 @@ inherit cmake-utils
 
 MY_PN="Yarock"
 MY_P="${MY_PN}_${PV}_source"
-DESCRIPTION="Yarock is designed to provide an easy and pretty music browser based on cover art."
+DESCRIPTION="Yarock is designed to provide an easy and pretty music browser."
 HOMEPAGE="http://seb-apps.github.io/yarock/"
 SRC_URI="https://launchpad.net/${PN}/1.x/${PV}/+download/${MY_P}.tar.gz"
 

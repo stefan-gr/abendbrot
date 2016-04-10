@@ -13,6 +13,7 @@
 	<flag name='kmail-theme'>Install kail theme</flag>
 	<flag name='konsole-colorscheme'>Install konsole colorscheme</flag>
 	<flag name='plasma-themes'>Install Papirus plasma-themes</flag>
+	<flag name='qtcurve'>Install Papirus QtCurve themes</flag>
 	<flag name='yakuake-skins'>Install Yakuake skins</flag>
     </use>
 </pkgmetadata>

@@ -19,13 +19,13 @@ KEYWORDS="~x86 ~amd64"
 IUSE="+qt5"
 
 DEPEND="!qt5? ( dev-qt/qtdbus:4
-                kde-base/kwin
-        )
-        qt5? (
-                dev-qt/qtdbus:5 
-                dev-qt/qtx11extras
-                $(add_plasma_dep kwin)
-        )"
+		kde-base/kwin
+	)
+	qt5? (
+		dev-qt/qtdbus:5
+		dev-qt/qtx11extras
+		$(add_plasma_dep kwin)
+	)"
 RDEPEND="${DEPEND}"
 
 src_configure() {

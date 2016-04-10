@@ -29,4 +29,3 @@ src_install() {
 	doins "${S}"/docs/mamelicense.txt
 	libretro-core_src_install
 }
-

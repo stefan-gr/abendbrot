@@ -5,4 +5,8 @@
     <email>stefan_dot_gert_dot_r@gmail_dot_com</email>
     <name>stefan-gr</name>
   </maintainer>
+  <use>
+    <flag name='notification'>Enable Desktop notification via <pkg>dev-python/pygobject</pkg></flag>
+    <flag name='fm_integration'>Enable Thunar integration via <pkg>x11-misc/xdotool</pkg></flag>
+  </use>
 </pkgmetadata>

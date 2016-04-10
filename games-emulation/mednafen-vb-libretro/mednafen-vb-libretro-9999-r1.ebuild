@@ -25,4 +25,3 @@ LIBRETRO_CORE_NAME=mednafen_vb
 src_compile() {
 	emake core=vb || die "emake failed"
 }
-

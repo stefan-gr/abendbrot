@@ -6,7 +6,7 @@ EAPI=5
 
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of Mednafen PCE Fast. (This one only emulates a SuperGrafx TG-16)"
+DESCRIPTION="libretro implementation of Mednafen PCE Fast. (SuperGrafx TG-16)"
 HOMEPAGE="https://github.com/libretro/beetle-supergrafx-libretro"
 SRC_URI=""
 
@@ -21,4 +21,3 @@ RDEPEND=""
 DEPEND="${RDEPEND}"
 
 LIBRETRO_CORE_NAME=mednafen_supergrafx
-

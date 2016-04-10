@@ -6,7 +6,7 @@ EAPI=5
 
 inherit libretro-core
 
-DESCRIPTION="2000 version of MAME (0.37b5) for libretro. Compatible with iMAME4All/MAME4Droid/MAME 0.37b5 romsets."
+DESCRIPTION="MAME2000 (0.37b5) for libretro."
 HOMEPAGE="https://github.com/libretro/mame2000-libretro"
 SRC_URI=""
 

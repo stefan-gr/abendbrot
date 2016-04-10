@@ -30,4 +30,3 @@ src_compile() {
 	)
 	emake "${myemakeargs[@]}" -f Makefile.libretro || die "emake failed"
 }
-

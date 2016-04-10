@@ -23,4 +23,3 @@ DEPEND="${RDEPEND}"
 src_compile() {
 	emake -f Makefile.libretro || die "emake failed"
 }
-

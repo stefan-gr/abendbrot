@@ -25,4 +25,3 @@ src_install() {
 	cp -R "${S}"/* "${D}${RETROARCH_DATA_DIR}"/assets
 	prepgamesdirs
 }
-

@@ -6,7 +6,7 @@ EAPI=5
 
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of Mednafen Neopop. (Neo Geo Pocket/Neo Geo Pocket Color)"
+DESCRIPTION="libretro implementation of Mednafen Neopop. Neo Geo Pocket/Neo Geo Pocket Color"
 HOMEPAGE="https://github.com/libretro/beetle-ngp-libretro"
 SRC_URI=""
 
@@ -25,4 +25,3 @@ LIBRETRO_CORE_NAME=mednafen_ngp
 src_compile() {
 	emake core=ngp || die "emake failed"
 }
-

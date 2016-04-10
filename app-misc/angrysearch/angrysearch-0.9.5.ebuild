@@ -40,7 +40,7 @@ src_prepare() {
 
 src_install() {
 	insinto /usr/share/${PN}
-	doins -r ${S}/*
+	doins -r "${S}"/*
 	python_fix_shebang "${ED}"usr/share/${PN}/angrysearch*.py
 	fperms 0755 /usr/share/${PN}/angrysearch.py
 	fperms 0755 /usr/share/${PN}/angrysearch_update_database.py
@@ -50,4 +50,3 @@ src_install() {
 	insinto /usr/share/pixmaps/
 	doins angrysearch.svg
 }
-

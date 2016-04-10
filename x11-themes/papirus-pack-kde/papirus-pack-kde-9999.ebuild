@@ -21,7 +21,7 @@ DEPEND="aurorae-themes? ( || ( kde-plasma/kwin kde-base/kwin ) )
 		kde-frameworks/oxygen-icons:* )
 	gtk-themes? ( x11-themes/gtk-engines-murrine
 		    x11-libs/gtk+:3 )
-	kmail-theme? ( || ( kde-apps/kdepim:5[kdepim_features_kmail] kde-base/kmail ) )
+	kmail-theme? ( || ( kde-apps/kdepim:5[kdepim_features_kmail] kde-apps/kmail ) )
 	konsole-colorscheme? ( kde-apps/konsole:* )
 	yakuake-skins? ( kde-misc/yakuake:* )
 	qtcurve? ( x11-themes/qtcurve )"
