@@ -6,8 +6,8 @@ EAPI=6
 
 inherit qmake-utils git-r3
 
-DESCRIPTION="A DSP (styleproject) settings manager"
-HOMEPAGE="Small window'o'widgets for previewing DSP settings."
+DESCRIPTION="Small window'o'widgets for previewing DSP(styleproject) settings."
+HOMEPAGE="https://github.com/magpie240/despy"
 SRC_URI=""
 EGIT_REPO_URI="git://github.com/magpie240/despy.git"
 
