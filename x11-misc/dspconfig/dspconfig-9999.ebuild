@@ -27,8 +27,7 @@ src_configure() {
 }
 
 src_install() {
-	dobin dspconfig
-	make_desktop_entry dspconfig "DSP Manager" "preferences-system" "Qt;KDE;Settings;"
+	emake INSTALL_ROOT="${ED}" DESTDIR="${ED}" install
 }
 
 pkg_preinst() {
