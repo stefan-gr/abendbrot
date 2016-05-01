@@ -74,13 +74,14 @@ RDEPEND="
 	sdl2? ( media-libs/libsdl2:0=[joystick] )
 	shaders? ( games-emulation/common-shaders:0= )
 	truetype? ( media-libs/freetype:2= )
-	udev? ( virtual/udev:0= )
+	udev? ( virtual/udev:0=
+		X? ( x11-drivers/xf86-input-evdev:0= )
+	)
 	vulkan? ( media-libs/mesa:0=[vulkan?] )
 	v4l2? ( media-libs/libv4l:0= )
 	wayland? ( media-libs/mesa:0=[wayland?] )
 	X? (
 		x11-base/xorg-server:0=
-		x11-drivers/xf86-input-evdev:0=
 		>=x11-libs/libxkbcommon-0.4.0:0=
 	)
 	xinerama? ( x11-libs/libXinerama:0= )
