@@ -13,6 +13,8 @@
 # ebuilds for Libretro-related ebuilds, including those for both low-level
 # Libretro cores and assets as well for Libretro and Retroarch themselves.
 
+#FIXME: as of ECLASS 6 the use of games.eclass is deprecated, we should
+#change this back in the future, see #574082 for more details.
 inherit games
 
 # @ECLASS-VARIABLE: LIBRETRO_LIB_DIR
