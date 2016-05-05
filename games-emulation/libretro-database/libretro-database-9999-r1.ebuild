@@ -25,5 +25,6 @@ src_install() {
 	cp -R "${S}"/cht/* "${D}${LIBRETRO_DATA_DIR}"/cheats/
 	dodir "${LIBRETRO_DATA_DIR}"/data/
 	cp -R "${S}"/dat/* "${D}${LIBRETRO_DATA_DIR}"/data/
+	cp -R "${S}"/rdb/* "${D}${LIBRETRO_DATA_DIR}"/data/
 	prepgamesdirs
 }
