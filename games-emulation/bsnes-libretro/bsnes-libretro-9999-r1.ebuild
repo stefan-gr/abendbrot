@@ -22,49 +22,36 @@ REQUIRED_USE="|| ( profile_accuracy profile_balanced profile_performance )"
 RDEPEND=""
 DEPEND="${RDEPEND}"
 
-INFO_PATH="${WORKDIR}"/infos/dist/info
-LIBRETRO_CORE_INFO_FILE="${INFO_PATH}/${LIBRETRO_CORE_NAME}"_balanced_libretro.info
-
+# We need to add the different core names to the array
+# in order to let the eclass handle the install
+LIBRETRO_CORE_NAME=()
+use profile_accuracy && LIBRETRO_CORE_NAME+=( "${PN%-libretro}"_accuracy )
+use profile_balanced && LIBRETRO_CORE_NAME+=( "${PN%-libretro}"_balanced )
+use profile_performance && LIBRETRO_CORE_NAME+=( "${PN%-libretro}"_performance )
 src_compile() {
 	if use profile_balanced; then
 		emake profile=balanced \
 			ui=target-libretro \
 			|| die "emake failed"
+	# Never forget to move the file where the ecalss expect it
+	mv out/"${PN%-libretro}"_balanced_libretro.so .
 	fi
 	if use profile_performance; then
 		emake clean
 		emake profile=performance \
 			ui=target-libretro \
 			|| die "emake failed"
+	# Never forget to move the file where the ecalss expect it
+	mv out/"${PN%-libretro}"_performance_libretro.so .
 	fi
 	if use profile_accuracy; then
 		emake clean
 		emake profile=accuracy \
 			ui=target-libretro \
 			|| die "emake failed"
+	# Never forget to move the file where the ecalss expect it
+	mv out/"${PN%-libretro}"_accuracy_libretro.so .
 	fi
-}
-
-src_install() {
-	if use profile_balanced; then
-		insinto ${LIBRETRO_LIB_DIR}
-		doins out/"${LIBRETRO_CORE_NAME}"_balanced_libretro.so
-		insinto "${LIBRETRO_DATA_DIR}"/info
-		doins "${INFO_PATH}/${LIBRETRO_CORE_NAME}"_balanced_libretro.info
-	fi
-	if use profile_performance; then
-		insinto ${LIBRETRO_LIB_DIR}
-		doins out/"${LIBRETRO_CORE_NAME}"_performance_libretro.so
-		insinto "${LIBRETRO_DATA_DIR}"/info
-		doins "${INFO_PATH}/${LIBRETRO_CORE_NAME}"_performance_libretro.info
-	fi
-	if use profile_accuracy; then
-		insinto ${LIBRETRO_LIB_DIR}
-		doins out/"${LIBRETRO_CORE_NAME}"_accuracy_libretro.so
-		insinto "${LIBRETRO_DATA_DIR}"/info
-		doins "${INFO_PATH}/${LIBRETRO_CORE_NAME}"_accuracy_libretro.info
-	fi
-	prepgamesdirs
 }
 
 pkg_preinst() {
