@@ -35,7 +35,7 @@ src_install() {
 		done
 		IFS="$OIFS"
 		"${GAMES_BINDIR}"/retroarch-cg2glsl "${S}" "${D}${LIBRETRO_DATA_DIR}"/shaders/
-		elog "Converted CG shaders to cglsl"
+		elog "Converted CG shaders to glsl"
 	fi
 	prepgamesdirs
 }

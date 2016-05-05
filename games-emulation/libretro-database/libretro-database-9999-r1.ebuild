@@ -6,7 +6,7 @@ EAPI=5
 
 inherit libretro git-r3
 
-DESCRIPTION="Repository containing cheatcode files, content data files, etc. "
+DESCRIPTION="Repository containing cheatcode files, content data files, etc."
 HOMEPAGE="https://github.com/libretro/libretro-database"
 SRC_URI=""
 
