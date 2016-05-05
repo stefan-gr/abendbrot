@@ -15,13 +15,27 @@ EGIT_REPO_URI="git://github.com/libretro/common-shaders.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="+cg"
 
-RDEPEND=""
+RDEPEND="!cg? ( games-emulation/retroarch[-cg] )"
 DEPEND="${RDEPEND}"
 
 src_install() {
 	dodir "${LIBRETRO_DATA_DIR}"/shaders
-	cp -R "${S}"/* "${D}${LIBRETRO_DATA_DIR}"/shaders/
+	# Remove unnecessary git files
+	rm -r .git
+	# Install plain CG shaders
+	use cg && cp -R "${S}"/* "${D}${LIBRETRO_DATA_DIR}"/shaders/
+	if ! use cg; then
+		# Copy misc files not covered by the converter script
+		OIFS="$IFS"
+		IFS=$'\n'
+		for f in $(find . -type f ! -iname "*.cg*") ; do
+			cp --parents "${f}" "${D}${LIBRETRO_DATA_DIR}"/shaders/
+		done
+		IFS="$OIFS"
+		"${GAMES_BINDIR}"/retroarch-cg2glsl "${S}" "${D}${LIBRETRO_DATA_DIR}"/shaders/
+		elog "Converted CG shaders to cglsl"
+	fi
 	prepgamesdirs
 }
