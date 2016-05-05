@@ -72,7 +72,6 @@ RDEPEND="
 	python? ( ${PYTHON_DEPS} )
 	sdl? ( >=media-libs/libsdl-1.2.10:0=[joystick] )
 	sdl2? ( media-libs/libsdl2:0=[joystick] )
-	shaders? ( games-emulation/common-shaders:0= )
 	truetype? ( media-libs/freetype:2= )
 	udev? ( virtual/udev:0=
 		X? ( x11-drivers/xf86-input-evdev:0= )
@@ -93,6 +92,9 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 
+PDEPEND="shaders? ( !cg? ( games-emulation/common-shaders:0=[-cg] )
+		cg? ( games-emulation/common-shaders:0=[cg] ) )
+"
 if [[ ${PV} == 9999 ]]; then
 	inherit games git-r3
 
