@@ -17,8 +17,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="+cg"
 
-RDEPEND="!cg? ( games-emulation/retroarch[-cg] )"
-DEPEND="${RDEPEND}"
+RDEPEND=""
+DEPEND="${RDEPEND}
+		!cg? ( games-emulation/retroarch[-cg]
+				media-gfx/nvidia-cg-toolkit )"
 
 src_install() {
 	dodir "${LIBRETRO_DATA_DIR}"/shaders
