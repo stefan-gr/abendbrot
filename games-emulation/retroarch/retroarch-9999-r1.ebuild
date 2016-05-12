@@ -22,7 +22,7 @@ SLOT="0"
 # To avoid fatal dependency failures for users enabling the "python" USE flag, a
 # default "python_single_target_python*" USE flag *MUST* be set below to the
 # default version of Python 3 for default Portage profiles.
-IUSE="alsa +armvfp +assets +cg cheevos +cores +database egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 vulkan wayland X xinerama +xmb +xml xv zlib python python_single_target_python3_3 +python_single_target_python3_4"
+IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 vulkan wayland X xinerama +xmb +xml xv zlib python python_single_target_python3_3 +python_single_target_python3_4"
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
 	|| ( opengl sdl sdl2 vulkan )
@@ -174,6 +174,7 @@ src_configure() {
 	#
 	# Note that OpenVG support is hard-disabled. (See ${RDEPEND} above.)
 	egamesconf \
+        $(use_enable 7zip) \
 		$(use_enable alsa) \
 		$(use_enable armvfp floathard) \
 		$(use_enable cheevos) \

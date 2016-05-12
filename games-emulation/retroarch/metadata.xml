@@ -6,6 +6,7 @@
     <name>stefan-gr</name>
   </maintainer>
   <use>
+    <flag name='7zip'>Enable 7z support</flag>
     <flag name='alsa'>Enable ALSA audio support</flag>
     <flag name='armvfp'>Enable Vector Floating Point (VFP) instruction set support for post-ARMv5 ARM architectures</flag>
     <flag name='assets'>Add <pkg>games-emulation/retroarch-assets</pkg> as dependency</flag>
