@@ -175,7 +175,7 @@ src_configure() {
 	#
 	# Note that OpenVG support is hard-disabled. (See ${RDEPEND} above.)
 	egamesconf \
-        $(use_enable 7zip) \
+		$(use_enable 7zip) \
 		$(use_enable alsa) \
 		$(use_enable armvfp floathard) \
 		$(use_enable cheevos) \
