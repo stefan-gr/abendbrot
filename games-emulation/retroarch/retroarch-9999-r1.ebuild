@@ -185,6 +185,7 @@ src_configure() {
 		$(use_enable gles3) \
 		$(use_enable jack) \
 		$(use_enable kms) \
+		$(use_enable libass ssa) \
 		$(use_enable libusb) \
 		$(use_enable materialui) \
 		$(use_enable network networking) \
