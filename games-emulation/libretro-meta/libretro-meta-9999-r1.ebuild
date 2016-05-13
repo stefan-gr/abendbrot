@@ -10,9 +10,9 @@ LICENSE="metapackage"
 SLOT="0"
 IUSE="+2048 +4do +beetle-psx bnes +bsnes +desmume dolphin +fba fceu-next +gambatte +genplus \
 +handy mame mame2000 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
-mednafen-snes +mednafen-vb +mednafen-wswan meteor mgba +mupen64plus +nestopia +nxengine \
+mednafen-snes +mednafen-vb +mednafen-wswan meteor +mgba +mupen64plus +nestopia +nxengine \
 pcsx-rearmed +mednafen-supergrafx picodrive pocketsnes ppsspp +prboom +prosystem +psp1 quicknes +scummvm \
-snes9x snes9x-next +stella tgbdual +tyrquake vba-next +vbam +yabause"
+snes9x snes9x-next +stella tgbdual +tyrquake vba-next vbam +yabause"
 
 KEYWORDS="~amd64 ~x86"
 
