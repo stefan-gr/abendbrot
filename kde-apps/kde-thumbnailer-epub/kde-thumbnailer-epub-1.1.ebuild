@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-inherit kde4-base
+inherit kde5
 
 DESCRIPTION="A KDE thumbnail generator for the ePub file format."
 HOMEPAGE="http://kde-apps.org/content/show.php/KDE+ePub+Thumbnailer?content=151210"
@@ -13,9 +13,10 @@ RESTRICT="primaryuri"
 
 LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
-SLOT="4"
+SLOT="5"
 IUSE="debug"
 
 RDEPEND="
-	$(add_kdeapps_dep kdebase-kioslaves)
+	$(add_frameworks_dep kio)
+	$(add_frameworks_dep karchive)
 "
