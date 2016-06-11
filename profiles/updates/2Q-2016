@@ -1,1 +1,2 @@
 move kde-misc/kde-thumbnailer-epub kde-apps/kde-thumbnailer-epub
+move x11-themes/papirus-pack-kde x11-themes/papirus-pack-kde-meta
