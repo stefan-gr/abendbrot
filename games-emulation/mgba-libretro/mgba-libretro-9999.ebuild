@@ -51,7 +51,7 @@ CMAKE_WARN_UNUSED_CLI=1
 inherit libretro-core cmake-utils
 
 DESCRIPTION="libretro implementation of mGBA. (Game Boy Advance)"
-HOMEPAGE="https://github.com/libretro/mgba"
+HOMEPAGE="https://github.com/mgba-emu/mgba"
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/mgba-emu/mgba.git"
 
