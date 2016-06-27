@@ -22,12 +22,17 @@ REQUIRED_USE="|| ( profile_accuracy profile_balanced profile_performance )"
 RDEPEND=""
 DEPEND="${RDEPEND}"
 
-# We need to add the different core names to the array
-# in order to let the eclass handle the install
 LIBRETRO_CORE_NAME=()
-use profile_accuracy && LIBRETRO_CORE_NAME+=( "${PN%-libretro}"_accuracy )
-use profile_balanced && LIBRETRO_CORE_NAME+=( "${PN%-libretro}"_balanced )
-use profile_performance && LIBRETRO_CORE_NAME+=( "${PN%-libretro}"_performance )
+
+src_unpack() {
+	# We need to add the different core names to the array
+	# in order to let the eclass handle the install
+	use profile_accuracy && LIBRETRO_CORE_NAME+=( "${PN%-libretro}"_accuracy )
+	use profile_balanced && LIBRETRO_CORE_NAME+=( "${PN%-libretro}"_balanced )
+	use profile_performance && LIBRETRO_CORE_NAME+=( "${PN%-libretro}"_performance )
+	libretro-core_src_unpack
+}
+
 src_compile() {
 	if use profile_balanced; then
 		emake profile=balanced \
