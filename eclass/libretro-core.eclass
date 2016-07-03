@@ -12,7 +12,12 @@
 # The libretro eclass is designed to streamline the construction of
 # ebuilds for low-level Libretro core ebuilds.
 
-inherit git-r3 libretro
+# Workaround for ppsspp
+if [[ ! ${PV} == "1.0_pre"* ]] || [[ ${PN} == "psp1-libretro" ]] || [[ ${PN} == "ppsspp-libretro" ]]; then
+	inherit git-r3 libretro
+else
+	inherit libretro
+fi
 
 # @ECLASS-VARIABLE: LIBRETRO_CORE_NAME
 # @DESCRIPTION:
@@ -83,7 +88,8 @@ libretro-core_src_unpack() {
 	done
 
 	# If this is a live ebuild, retrieve this core's remote repository.
-	if [[ ${PV} == "1.0_pre"* ]] || [[ ${PV} -ge 9999 ]]; then
+	# Workaround for ppsspp
+	if [[ ! ${PV} == "1.0_pre"* ]] || [[ ${PN} == "psp1-libretro" ]] || [[ ${PN} == "ppsspp-libretro" ]]; then
 		git-r3_src_unpack
 	# Else, unpack this core's local tarball.
 	else
