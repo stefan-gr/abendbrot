@@ -4,6 +4,9 @@
 # Please note: this API has a rate limit of at least 60 requests per hour.
 # It should be enough for this.
 
+# TODO: Download libretro-super and place info files into ${FILESDIR}
+# TODO: Clean this up.
+
 # Make sure we have the needed commands
 command -v curl >/dev/null 2>&1 || { echo >&2 "Please install curl. Aborting."; exit 1; }
 
@@ -31,34 +34,47 @@ core_update() {
 	# Assign repo uri for later use
 	local `grep EGIT_REPO_URI= "${@}"`
 	# Do some crude string expansion to get github abi uri.
-	local EGIT_REPO_URI="${EGIT_REPO_URI:1:${#EGIT_REPO_URI}-2}"
-	local EGIT_REPO_URI="${EGIT_REPO_URI/git:\/\//https:\/\/}"
-	local EGIT_REPO_URI="${EGIT_REPO_URI/https:\/\/github.com/https:\/\/api.github.com\/repos}"
-	local EGIT_REPO_URI="${EGIT_REPO_URI%.git}"
-	# Do some crude string expansion to get latest commit date through github abi.
-	local LATEST_COMMIT=$(curl -i "${EGIT_REPO_URI}" | grep pushed_at | head -1)
-	if [[ -z "${LATEST_COMMIT}" ]]
+	local EGIT_URI="${EGIT_REPO_URI:1:${#EGIT_REPO_URI}-2}"
+	local EGIT_URI="${EGIT_URI/git:\/\//https:\/\/}"
+	local EGIT_COMMITS_URI="${EGIT_URI/https:\/\/github.com/https:\/\/api.github.com\/repos}"
+	local EGIT_COMMITS_URI="${EGIT_COMMITS_URI%.git}/commits"
+	# Do some crude string expansion to get latest commit date and sha sum through github abi.
+	local LATEST_COMMIT_CURL=$(curl -i "${EGIT_COMMITS_URI}")
+	local LATEST_COMMIT_DATE=$(echo "${LATEST_COMMIT_CURL}" | grep date | head -1)
+	local LATEST_COMMIT_SHA=$(echo "${LATEST_COMMIT_CURL}" | grep sha | head -1)
+	# Strip the variables of junk
+	local LATEST_COMMIT_DATE="${LATEST_COMMIT_DATE##* }"
+	local LATEST_COMMIT_DATE="${LATEST_COMMIT_DATE:1:10}"
+	local LATEST_COMMIT_SHA="${LATEST_COMMIT_SHA##* }"
+	local LATEST_COMMIT_SHA="${LATEST_COMMIT_SHA:1:40}"
+	# Check if the variables are empty or not
+	if [[ -z "${LATEST_COMMIT_DATE}" ]] && [[ -z "${LATEST_COMMIT_SHA}" ]]
 	then
 		echo -e "\e[31mFetching repo information failed. Rate limit probably exceeded, wait 1 hour\e[0m"
-		echo -e "\e[31mTry 'curl -i \"${EGIT_REPO_URI}\"'\e[0m"
+		echo -e "\e[31mTry 'curl -i \"${EGIT_COMMITS_URI}\"'\e[0m"
 		echo -e "\e[31mTo see what problem it is.\e[0m"
 		exit 1
 	fi
-	local LATEST_COMMIT="${LATEST_COMMIT##* }"
-	local LATEST_COMMIT="${LATEST_COMMIT:1:10}"
-	# Need to add a day because git-r3 only fetches the previous day
-	LC_ALL=C local LATEST_COMMIT=$(date --date="${LATEST_COMMIT} + next day" +%Y-%m-%d)
-	# This is the latest version name
-	local LATEST_COMMIT_VERSION="${LATEST_COMMIT:0:4}${LATEST_COMMIT:5:2}${LATEST_COMMIT:8:2}"
-	local NEW_EBUILD="${CORE_DIR}/${CORE_NAME%%-9*}-1.0_pre${LATEST_COMMIT_VERSION}.ebuild"
+	# Prepare ebuild name and path
+	local LATEST_COMMIT_DATE_VERSION="${LATEST_COMMIT_DATE:0:4}${LATEST_COMMIT_DATE:5:2}${LATEST_COMMIT_DATE:8:2}"
+	local MY_P="${CORE_NAME%%-9*}-1.0_pre${LATEST_COMMIT_DATE_VERSION}"
+	local NEW_EBUILD="${CORE_DIR}/${MY_P}.ebuild"
 	if [ -f "${NEW_EBUILD}" ]
 	then
-		echo -e "\e[92m\"${NEW_EBUILD}\" already up-to-date.\e[0m"
+		echo -e "\e[33m\"${NEW_EBUILD}\" already up-to-date.\e[0m"
 		return
 	else
 		echo -e "\e[92mCreating \"${NEW_EBUILD}\"\e[0m"
 		cd "${CORE_DIR}"
-		ln -s "${CORE_NAME}" "${NEW_EBUILD##*/}"
+		sudo cp "${CORE_NAME}" "${NEW_EBUILD##*/}"
+		# Replace ${SRC_URI} with proper commit download
+		local SRC_URI="${EGIT_URI%.git}/archive/${LATEST_COMMIT_SHA}.tar.gz -> \${P}.tar.gz"
+		# Generate proper S for the github zip
+		local MY_S="${EGIT_COMMITS_URI%/commits}-${LATEST_COMMIT_SHA}"
+		local MY_S="$(basename ${MY_S})"
+		sudo sed -i 's,SRC_URI="",SRC_URI="'"${SRC_URI}"'"\nRESTRICT="primaryuri"\n\nS="${WORKDIR}/'"${MY_S}"'",g' "${NEW_EBUILD##*/}" || exit 1
+		# Never forget the manifest
+		sudo ebuild --force "${NEW_EBUILD##*/}" manifest
 	fi
 }
 
@@ -67,8 +83,18 @@ for core in "${SCRIPT_DIR}/../games-emulation/"*libretro*/*-9999*
 do
 	# Skip libretro-meta package
 	[[ $core == *"libretro-meta"* ]] && continue
+	[[ $core == *"psp1-libretro"* ]] && continue
+	[[ $core == *"ppsspp-libretro"* ]] && continue
 	core_update "${core}"
 done
 # Didn't catch them above
 core_update "${SCRIPT_DIR}/../games-emulation/retroarch-assets/retroarch-assets-9999-r1.ebuild"
 core_update "${SCRIPT_DIR}/../games-emulation/retroarch-joypad-autoconfig/retroarch-joypad-autoconfig-9999-r1.ebuild"
+core_update "${SCRIPT_DIR}/../games-emulation/common-overlays/common-overlays-9999-r1.ebuild"
+core_update "${SCRIPT_DIR}/../games-emulation/common-shaders/common-shaders-9999-r1.ebuild"
+
+echo "The following ebuilds must be done manually:"
+echo "games-emulation/ppsspp-libretro"
+echo "games-emulation/psp1-libretro"
+echo "Reason:"
+echo "The github download doesn't include submodules"
