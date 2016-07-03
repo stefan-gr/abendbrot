@@ -18,7 +18,7 @@ that *other* [disreputable fellow](http://paludis.exherbo.org)):
   overlay manager.
 
         $ emerge --ask layman
-        * For <app-portage/layman-2.2.0-r7
+        * For <=app-portage/layman-2.2.0-r7
         $ echo 'source /var/lib/layman/make.conf' >> /etc/portage/make.conf
         * For >=app-portage/layman-2.3.0-r1[sync-plugin-portage]
         $ Nothing
