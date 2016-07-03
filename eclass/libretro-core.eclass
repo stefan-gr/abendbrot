@@ -83,7 +83,7 @@ libretro-core_src_unpack() {
 	done
 
 	# If this is a live ebuild, retrieve this core's remote repository.
-	if [[ ${PV} == 9999 ]]; then
+	if [[ ${PV} -ge 9999 ]]; then
 		git-r3_src_unpack
 	# Else, unpack this core's local tarball.
 	else
