@@ -10,12 +10,16 @@ DESCRIPTION="libretro implementation of Gambatte. (Game Boy/Game Boy Color)"
 HOMEPAGE="https://github.com/libretro/gambatte-libretro"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/${PN}.git"
+EGIT_REPO_URI="https://github.com/libretro/gambatte-libretro.git"
+if [[ ${PV} == 9999 ]]; then
+	KEYWORDS=""
+else
+	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
+	KEYWORDS="amd64 x86"
+fi
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
-IUSE=""
 
 RDEPEND=""
 DEPEND="${RDEPEND}"

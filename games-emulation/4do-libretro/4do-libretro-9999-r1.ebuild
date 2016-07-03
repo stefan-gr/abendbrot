@@ -9,13 +9,16 @@ inherit libretro-core
 DESCRIPTION="libretro implementation of 4DO/libfreedo. (Panasonic 3DO)"
 HOMEPAGE="https://github.com/libretro/4do-libretro"
 SRC_URI=""
-
-EGIT_REPO_URI="https://github.com/libretro/${PN}.git"
+EGIT_REPO_URI="https://github.com/libretro/4do-libretro.git"
+if [[ ${PV} == 9999 ]]; then
+	KEYWORDS=""
+else
+	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
+	KEYWORDS="amd64 x86"
+fi
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
-IUSE=""
 
 RDEPEND=""
 DEPEND="${RDEPEND}"

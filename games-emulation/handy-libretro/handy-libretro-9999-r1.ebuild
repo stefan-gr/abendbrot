@@ -11,11 +11,15 @@ HOMEPAGE="https://github.com/libretro/libretro-handy"
 SRC_URI=""
 
 EGIT_REPO_URI="https://github.com/libretro/libretro-handy.git"
+if [[ ${PV} == 9999 ]]; then
+	KEYWORDS=""
+else
+	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
+	KEYWORDS="amd64 x86"
+fi
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 RDEPEND="sys-libs/zlib"
 DEPEND=""

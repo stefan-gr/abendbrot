@@ -12,11 +12,15 @@ HOMEPAGE="https://github.com/libretro/Genesis-Plus-GX"
 SRC_URI=""
 
 EGIT_REPO_URI="https://github.com/libretro/Genesis-Plus-GX.git"
+if [[ ${PV} == 9999 ]]; then
+	KEYWORDS=""
+else
+	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
+	KEYWORDS="amd64 x86"
+fi
 
 LICENSE="GPGX"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
-IUSE=""
 
 RDEPEND="sys-libs/zlib"
 DEPEND="${RDEPEND}"

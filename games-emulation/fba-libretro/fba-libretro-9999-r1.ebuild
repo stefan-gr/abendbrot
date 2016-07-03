@@ -11,10 +11,15 @@ HOMEPAGE="https://github.com/libretro/fba-libretro"
 SRC_URI=""
 
 EGIT_REPO_URI="https://github.com/libretro/libretro-fba.git"
+if [[ ${PV} == 9999 ]]; then
+	KEYWORDS=""
+else
+	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
+	KEYWORDS="amd64 x86 arm"
+fi
 
 LICENSE="FBA"
 SLOT="0"
-KEYWORDS="~x86 ~amd64 ~arm"
 IUSE="+profile_accuracy profile_balanced profile_performance"
 
 REQUIRED_USE="^^ ( profile_accuracy profile_balanced profile_performance )"

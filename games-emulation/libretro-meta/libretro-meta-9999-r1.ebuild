@@ -14,7 +14,7 @@ mednafen-snes +mednafen-vb +mednafen-wswan meteor +mgba +mupen64plus +nestopia +
 pcsx-rearmed +mednafen-supergrafx picodrive pocketsnes ppsspp +prboom +prosystem +psp1 quicknes +scummvm \
 snes9x snes9x-next +stella tgbdual +tyrquake vba-next vbam +yabause"
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 
 RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		4do? ( >=games-emulation/4do-libretro-9999 )

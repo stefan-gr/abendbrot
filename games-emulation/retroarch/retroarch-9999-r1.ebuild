@@ -104,7 +104,7 @@ if [[ ${PV} == 9999 ]]; then
 	KEYWORDS=""
 else
 	SRC_URI="https://github.com/libretro/RetroArch/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 x86"
 	S="${WORKDIR}/RetroArch-${PV}"
 fi
 

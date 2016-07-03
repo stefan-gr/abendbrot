@@ -11,10 +11,15 @@ HOMEPAGE="https://github.com/libretro/vba-next"
 SRC_URI=""
 
 EGIT_REPO_URI="https://github.com/libretro/vba-next.git"
+if [[ ${PV} == 9999 ]]; then
+	KEYWORDS=""
+else
+	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
+	KEYWORDS="amd64 x86 arm"
+fi
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64 ~arm"
 IUSE="neon +tiled_rendering"
 
 RDEPEND=""

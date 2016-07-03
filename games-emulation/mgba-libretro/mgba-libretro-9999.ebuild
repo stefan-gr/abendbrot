@@ -54,10 +54,15 @@ DESCRIPTION="libretro implementation of mGBA. (Game Boy Advance)"
 HOMEPAGE="https://github.com/mgba-emu/mgba"
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/mgba-emu/mgba.git"
+if [[ ${PV} == 9999 ]]; then
+	KEYWORDS=""
+else
+	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
+	KEYWORDS="amd64 x86 arm"
+fi
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="~x86 ~amd64 ~arm"
 IUSE="+blipbuf epoxy ffmpeg gles2 imagemagick lto lzma +opengl pgo pgopost png +zip zlib"
 REQUIRED_USE="
 	epoxy? ( gles2 )

@@ -10,11 +10,16 @@ DESCRIPTION="libretro implementation of mupen64plus (Nintendo64)"
 HOMEPAGE="https://github.com/libretro/mupen64plus-libretro"
 SRC_URI=""
 
-EGIT_REPO_URI="git://github.com/libretro/${PN}.git"
+EGIT_REPO_URI="git://github.com/libretro/mupen64plus-libretro.git"
+if [[ ${PV} == 9999 ]]; then
+	KEYWORDS=""
+else
+	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
+	KEYWORDS="amd64 x86"
+fi
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
 IUSE="gles2"
 
 DEPEND="media-libs/mesa:0=
