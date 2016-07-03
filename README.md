@@ -97,6 +97,9 @@ RetroArch and LibRetro are beasts. Let `abendbrot` tame these beasts for you:
         games-emulation/*libretro* **
         games-emulation/retroarch **
 
+        To update the *9999 ebuilds only when their repo updated:
+          $ emerge -a app-portage/smart-live-rebuild
+
 ## Issues
 
 Please report ebuild issues, feature requests, and other pressing concerns at
