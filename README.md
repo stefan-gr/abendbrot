@@ -18,7 +18,10 @@ that *other* [disreputable fellow](http://paludis.exherbo.org)):
   overlay manager.
 
         $ emerge --ask layman
+        * For <app-portage/layman-2.2.0-r7
         $ echo 'source /var/lib/layman/make.conf' >> /etc/portage/make.conf
+        * For >=app-portage/layman-2.3.0-r1[sync-plugin-portage]
+        $ Nothing
 
 * Add the `abendbrot` overlay.
 
@@ -50,52 +53,24 @@ Cores exist for most popular open-source emulators (e.g.,
 
 RetroArch and LibRetro are beasts. Let `abendbrot` tame these beasts for you:
 
-1. **Unmask recommended runtime dependencies.** While technically optional,
-   these dependencies are strongly recommended for all sane RetroArch
-   installations. Add the following lines to
-   `/etc/portage/package.accept_keywords`:
-
-        ~games-emulation/libretro-database-9999
-        ~games-emulation/libretro-meta-9999
-        ~games-emulation/retroarch-assets-9999
-        ~games-emulation/retroarch-joypad-autoconfig-9999
-
-1. **Unmask desired LibRetro cores.** While technically optional, RetroArch is
-   functionally useless without one or more LibRetro cores. For a list of all
-   cores installable by this overlay, see [this
-   directory](https://github.com/stefan-gr/abendbrot/tree/master/games-emulation)
-   for all subdirectory names ending in `-libretro`. Each subdirectory is
-   an installable LibRetro core (e.g.,
-   [`games-emulation/dolphin-libretro`](https://github.com/stefan-gr/abendbrot/tree/master/games-emulation/dolphin-libretro),
-   installing the [Dolphin](https://dolphin-emu.org) LibRetro core). For example,
-   to unmask the LibRetro cores for the popular
-   [Nestopia](https://en.wikipedia.org/wiki/Nestopia) and
-   [mGBA](https://mgba.io) emulators, add the following lines to
-   `/etc/portage/package.accept_keywords`:
-
-        ~games-emulation/mgba-libretro-9999
-        ~games-emulation/nestopia-libretro-9999
-
 1. **Unmask [RetroArch](http://www.libretro.com/index.php/retroarch-2),** the
    official LibRetro frontend. While [alternative
    frontends](http://wiki.libretro.com/index.php?title=Frontends) exist, you
    almost certainly want RetroArch for your first forays into LibRetro Land™.
    This overlay provides both:
-   1. _(Recommended)_ **Stable RetroArch releases,** unmasked by adding the
-      following line to `/etc/portage/package.accept_keywords`:
-
-            >=games-emulation/retroarch-1.2.2
+   1. _(Recommended)_ **Stable RetroArch releases,**
+      No unmasking required.
 
    1. _(Not recommended)_ The **unstable live RetroArch repository,** unmasked
       by adding the following line to `/etc/portage/package.accept_keywords`:
 
             ~games-emulation/retroarch-9999 **
 
-1. **Set LibRetro core USE flags.** For each core unmasked above, enable the
+1. **Set LibRetro core USE flags.** For each core , enable the
    [corresponding USE flag](https://github.com/stefan-gr/abendbrot/blob/master/games-emulation/libretro-meta/metadata.xml)
-   provided by the `games-emulation/libretro-meta` ebuild unmasked above. To
+   provided by the `games-emulation/libretro-meta` ebuild. To
    prevent this ebuild from attempting to install other undesired LibRetro
-   cores _not_ unmasked above, disable all other USE flags provided by this
+   cores, disable all other USE flags provided by this
    ebuild. For example, to enable only the Nestopia and mGBA LibRetro cores,
    add the following line to `/etc/portage/package.use`:
 
@@ -113,6 +88,14 @@ RetroArch and LibRetro are beasts. Let `abendbrot` tame these beasts for you:
 1. **Install RetroArch:**
 
         $ emerge --ask retroarch
+
+1. **Live on the bleeding edge.** The stable cores provided by this overlay
+    are updated quite often. But, if you want to experience retroarch completely
+    on the edge then add these lines to
+   `/etc/portage/package.accept_keywords`:
+
+        games-emulation/*libretro* **
+        games-emulation/retroarch **
 
 ## Issues
 
