@@ -1,0 +1,3 @@
+# Ignore dynamic md5-cache
+metadata/md5-cache/
+
