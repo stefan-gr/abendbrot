@@ -4,17 +4,17 @@
 
 EAPI=5
 
-inherit libretro git-r3
+inherit libretro
 
 DESCRIPTION="RetroArch Assets files"
 HOMEPAGE="https://github.com/libretro/retroarch-assets"
 SRC_URI=""
 
-EGIT_REPO_URI="git://github.com/libretro/retroarch-assets.git"
 if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="git://github.com/libretro/retroarch-assets.git"
 	KEYWORDS=""
 else
-	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
 	KEYWORDS="amd64 x86"
 fi
 

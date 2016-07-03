@@ -4,17 +4,16 @@
 
 EAPI=5
 
-inherit libretro git-r3
+inherit libretro
 
 DESCRIPTION="Collection of commonly used Cg shaders."
 HOMEPAGE="https://github.com/libretro/common-shaders"
 SRC_URI=""
 
-EGIT_REPO_URI="git://github.com/libretro/common-shaders.git"
 if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="git://github.com/libretro/common-shaders.git"
 	KEYWORDS=""
 else
-	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
 	KEYWORDS="amd64 x86"
 fi
 

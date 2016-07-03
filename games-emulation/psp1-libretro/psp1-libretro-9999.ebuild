@@ -4,13 +4,13 @@
 
 EAPI=5
 
-inherit libretro-core flag-o-matic
+inherit git-r3 libretro-core flag-o-matic
 
 DESCRIPTION="Non-shallow fork of PPSSPP for libretro exclusively."
 HOMEPAGE="https://github.com/libretro/PSP1"
 SRC_URI=""
-
 EGIT_REPO_URI="git://github.com/libretro/PSP1.git"
+
 if [[ ${PV} == 9999 ]]; then
 	KEYWORDS=""
 else
@@ -32,7 +32,7 @@ RDEPEND="x11-libs/libICE
 	games-emulation/psp-assets"
 DEPEND="${RDEPEND}"
 
-S=${WORKDIR}/${P}/libretro
+S=${S}/libretro
 
 src_prepare() {
 	#fixing ARCH detection

@@ -4,17 +4,17 @@
 
 EAPI=5
 
-inherit libretro git-r3
+inherit libretro
 
 DESCRIPTION="Repository containing cheatcode files, content data files, etc."
 HOMEPAGE="https://github.com/libretro/libretro-database"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/libretro-database.git"
 if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/libretro/libretro-database.git"
 	KEYWORDS=""
 else
-	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
 	KEYWORDS="amd64 x86"
 fi
 

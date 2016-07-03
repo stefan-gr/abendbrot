@@ -10,11 +10,10 @@ DESCRIPTION="libretro implementation of MAME 2015. (Arcade)"
 HOMEPAGE="https://github.com/libretro/mame"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/mame.git"
 if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="https://github.com/libretro/mame.git"
 	KEYWORDS=""
 else
-	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
 	KEYWORDS="amd64 x86"
 fi
 

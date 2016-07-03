@@ -9,8 +9,8 @@ inherit libretro-core flag-o-matic
 DESCRIPTION="libretro implementation of PPSSPP. (PlayStation Portable/PSP)"
 HOMEPAGE="https://github.com/libretro/libretro-ppsspp"
 SRC_URI=""
-
 EGIT_REPO_URI="https://github.com/libretro/libretro-ppsspp.git"
+
 if [[ ${PV} == 9999 ]]; then
 	KEYWORDS=""
 else
@@ -32,7 +32,7 @@ RDEPEND="x11-libs/libICE
 	games-emulation/psp-assets"
 DEPEND="${RDEPEND}"
 
-S=${WORKDIR}/${P}/libretro
+S=${S}/libretro
 
 src_prepare() {
 	#fixing ARCH detection

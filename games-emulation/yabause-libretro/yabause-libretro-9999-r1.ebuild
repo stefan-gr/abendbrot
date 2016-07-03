@@ -10,11 +10,10 @@ DESCRIPTION="libretro implementation of Yabause. (Sega Saturn)"
 HOMEPAGE="https://github.com/libretro/yabause"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/yabause.git"
 if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="https://github.com/libretro/yabause.git"
 	KEYWORDS=""
 else
-	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
 	KEYWORDS="amd64 x86"
 fi
 

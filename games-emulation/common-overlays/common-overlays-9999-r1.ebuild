@@ -4,17 +4,16 @@
 
 EAPI=5
 
-inherit libretro git-r3
+inherit libretro
 
 DESCRIPTION="Collection of overlay files for use with libretro frontends."
 HOMEPAGE="https://github.com/libretro/common-overlays"
 SRC_URI=""
 
-EGIT_REPO_URI="git://github.com/libretro/common-overlays.git"
 if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="git://github.com/libretro/common-overlays.git"
 	KEYWORDS=""
 else
-	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
 	KEYWORDS="amd64 x86"
 fi
 

@@ -10,11 +10,10 @@ DESCRIPTION="libretro implementation of 2048. (Puzzle game)"
 HOMEPAGE="https://github.com/libretro/libretro-2048"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/libretro-2048.git"
 if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="https://github.com/libretro/libretro-2048.git"
 	KEYWORDS=""
 else
-	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
 	KEYWORDS="amd64 x86"
 fi
 

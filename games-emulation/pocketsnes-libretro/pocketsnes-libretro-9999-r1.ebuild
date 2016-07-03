@@ -10,11 +10,10 @@ DESCRIPTION="libretro implementation of PocketSNES."
 HOMEPAGE="https://github.com/libretro/pocketsnes-libretro"
 SRC_URI=""
 
-EGIT_REPO_URI="git://github.com/libretro/pocketsnes-libretro.git"
 if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="git://github.com/libretro/pocketsnes-libretro.git"
 	KEYWORDS=""
 else
-	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
 	KEYWORDS="amd64 x86"
 fi
 

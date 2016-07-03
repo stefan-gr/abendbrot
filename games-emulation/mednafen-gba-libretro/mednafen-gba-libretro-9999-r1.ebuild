@@ -10,11 +10,10 @@ DESCRIPTION="libretro implementation of Mednafen VBA/GBA. (Game Boy Advance)"
 HOMEPAGE="https://github.com/libretro/beetle-gba-libretro"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/beetle-gba-libretro.git"
 if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="https://github.com/libretro/beetle-gba-libretro.git"
 	KEYWORDS=""
 else
-	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
 	KEYWORDS="amd64 x86"
 fi
 

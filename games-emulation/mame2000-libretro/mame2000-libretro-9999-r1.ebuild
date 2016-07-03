@@ -10,11 +10,10 @@ DESCRIPTION="MAME2000 (0.37b5) for libretro."
 HOMEPAGE="https://github.com/libretro/mame2000-libretro"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/libretro/mame2000-libretro.git"
 if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="https://github.com/libretro/mame2000-libretro.git"
 	KEYWORDS=""
 else
-	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
 	KEYWORDS="amd64 x86"
 fi
 
