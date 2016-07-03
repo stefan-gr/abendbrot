@@ -1,0 +1,29 @@
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
+EAPI=5
+
+inherit libretro-core
+
+DESCRIPTION="libretro implementation of ScummVM"
+HOMEPAGE="https://github.com/libretro/scummvm"
+SRC_URI="https://github.com/libretro/scummvm/archive/39b2afb0697fb0365862c21767f229fac240326a.tar.gz -> ${P}.tar.gz"
+RESTRICT="primaryuri"
+
+S="${WORKDIR}/scummvm-39b2afb0697fb0365862c21767f229fac240326a"
+
+if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="https://github.com/libretro/scummvm.git"
+	KEYWORDS=""
+else
+	KEYWORDS="amd64 x86"
+fi
+
+LICENSE="GPL-2"
+SLOT="0"
+
+RDEPEND=""
+DEPEND="${RDEPEND}"
+
+S="${S}/backends/platform/libretro/build"
