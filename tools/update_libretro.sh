@@ -8,7 +8,8 @@
 # TODO: Clean this up.
 
 # Make sure we have the needed commands
-command -v curl >/dev/null 2>&1 || { echo >&2 "Please install curl. Aborting."; exit 1; }
+command -v curl >/dev/null 2>&1 || { echo >&2 "Please install net-misc/curl. Aborting."; exit 1; }
+command -v sudo >/dev/null 2>&1 || { echo >&2 "Please install app-admin/sudo and add your user to it. Aborting."; exit 1; }
 
 # Setting $SCRIPT_DIR variable to script directory.
 SOURCE="${BASH_SOURCE[0]}"
