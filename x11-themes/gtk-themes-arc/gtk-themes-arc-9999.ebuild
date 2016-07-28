@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit git-r3 autotools
 
@@ -22,6 +22,7 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	eautoreconf
+	default_src_prepare
 }
 
 src_install() {

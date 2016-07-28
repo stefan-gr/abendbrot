@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-inherit qt4-r2 git-r3 qmake-utils
+inherit git-r3 qmake-utils
 
 DESCRIPTION="A SVG-based theme engine for Qt4/Qt5 and KDE"
 HOMEPAGE="http://kde-look.org/content/show.php/Kvantum?content=166241"
@@ -55,6 +55,7 @@ src_prepare() {
 			-e 's:/share/kde4/apps/color-schemes:/share/apps/color-schemes/:' \
 			|| die
 	fi
+	default_src_prepare
 }
 
 src_configure() {
