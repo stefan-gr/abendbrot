@@ -13,26 +13,12 @@
 # ebuilds for Libretro-related ebuilds, including those for both low-level
 # Libretro cores and assets as well for Libretro and Retroarch themselves.
 
-#FIXME: as of ECLASS 6 the use of games.eclass is deprecated, we should
-#change this back in the future, see #574082 for more details.
-inherit games
-
-# @ECLASS-VARIABLE: LIBRETRO_LIB_DIR
-# @DESCRIPTION:
-# Absolute path of the directory containing Libretro shared libraries.
-LIBRETRO_LIB_DIR=${GAMES_PREFIX}/"$(get_libdir)"/libretro
-
-# @ECLASS-VARIABLE: RETROARCH_LIB_DIR
-# @DESCRIPTION:
-# Absolute path of the directory containing Retroarch shared libraries.
-RETROARCH_LIB_DIR=${GAMES_PREFIX}/"$(get_libdir)"/retroarch
-
 # @ECLASS-VARIABLE: LIBRETRO_DATA_DIR
 # @DESCRIPTION:
 # Absolute path of the directory containing Libretro data files.
-LIBRETRO_DATA_DIR=${GAMES_DATADIR}/libretro
+LIBRETRO_DATA_DIR="${EROOT}usr/share/libretro"
 
 # @ECLASS-VARIABLE: RETROARCH_DATA_DIR
 # @DESCRIPTION:
 # Absolute path of the directory containing Retroarch data files.
-RETROARCH_DATA_DIR=${GAMES_DATADIR}/retroarch
+RETROARCH_DATA_DIR="${EROOT}usr/share/retroarch"
