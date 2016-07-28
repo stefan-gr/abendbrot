@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-inherit git-r3 cmake-utils games
+inherit git-r3 cmake-utils
 
 DESCRIPTION="Frontend for emulators"
 HOMEPAGE="http://emulationstation.org/"
@@ -40,7 +40,7 @@ src_unpack() {
 
 src_configure() {
 	local mycmakeargs=(
-		"-DCMAKE_INSTALL_PREFIX=${GAMES_PREFIX}"
+		"-DCMAKE_INSTALL_PREFIX=${PREFIX}"
 	)
 	cmake-utils_src_configure
 }
@@ -51,5 +51,4 @@ src_compile() {
 
 src_install() {
 	cmake-utils_src_install
-	prepgamesdirs
 }

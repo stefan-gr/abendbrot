@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 # This is a placeholder ebuild simplifying installation of EmulationStation
 # themes by abusing USE flags. Needless to say, this won't be hitting the
