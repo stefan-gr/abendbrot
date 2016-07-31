@@ -99,6 +99,7 @@ src_prepare() {
 				-e "s:#include <phonon/effectparameter.h>:#include <phonon4qt4/phonon/effectparameter.h>:" \
 				|| die '"sed" failed.'
 		fi
+	fi
 
 	cmake-utils_src_prepare
 }
