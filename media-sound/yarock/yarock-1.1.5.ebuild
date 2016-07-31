@@ -58,10 +58,10 @@ S="${WORKDIR}/${MY_P}"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_enable mpv)
-		$(cmake-utils_use_enable qt5)
-		$(cmake-utils_use_enable phonon)
-		$(cmake-utils_use_enable vlc)
+		-DUSE_MPV=$(usex mpv)
+		-DUSE_QT5=$(usex qt5)
+		-DUSE_PHONON=$(usex phonon)
+		-DUSE_VLC=$(usex vlc)
 	)
 
 	cmake-utils_src_configure
