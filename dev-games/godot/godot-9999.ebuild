@@ -24,7 +24,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="+freetype icon llvm +openssl +png pulseaudio theora udev +vorbis +xml"
+IUSE="+freetype llvm +openssl +png pulseaudio theora udev +vorbis +xml"
 
 DEPEND="
 		>=app-arch/bzip2-1.0.6-r6
@@ -50,7 +50,6 @@ DEPEND="
 		>=x11-libs/libXcursor-1.1.14
 		>=x11-libs/libXinerama-1.1.3
 		freetype? ( >=media-libs/freetype-2.5.3-r1:2 )
-		icon? ( media-gfx/imagemagick )
 		llvm? ( >=sys-devel/llvm-3.6.0[clang] )
 		openssl? ( >=dev-libs/openssl-1.0.1j:0 )
 		png? ( >=media-libs/libpng-1.6.16:0= )
@@ -86,12 +85,7 @@ src_compile() {
 }
 
 src_install() {
-	if use icon ; then
-		APPICON=godot
-		convert logo.png -gravity East -chop 118x0 -scale 64x64 ${APPICON}.png
-		doicon --size 64 ${APPICON}.png
-	fi
-
+	newicon icon.svg ${PN}.svg
 	dobin bin/godot.*
 	if [[ "${ARCH}" == "amd64" ]]; then
 		if use llvm; then
