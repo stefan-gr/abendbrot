@@ -8,7 +8,7 @@ inherit eutils scons-utils
 
 DESCRIPTION="A advanced, feature packed, multi-platform 2D and 3D game engine."
 HOMEPAGE="http://www.godotengine.org"
-SRC_URI="https://github.com/okamstudio/godot/archive/${PV}-stable.tar.gz"
+SRC_URI="https://github.com/godotengine/godot/archive/${PV}-stable.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
 LICENSE="MIT"
@@ -28,20 +28,17 @@ RDEPEND="
 
 S="${WORKDIR}/${PN}-${PV}-stable"
 
-USE_SCONS_TRUE=yes
-USE_SCONS_FALSE=no
-
 src_configure() {
-	myesconsargs=(
+	MYSCONS=(
 		CC="$(tc-getCC)"
 		platform=x11
-		$(use_scons freetype)
-		$(use_scons openssl)
+		freetype=$(usex freetype)
+		openssl=$(usex openssl)
 	)
 }
 
 src_compile() {
-	escons
+	escons "${MYSCONS[@]}"
 }
 
 src_install() {

@@ -1,14 +1,14 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=5
+EAPI=6
 
 inherit eutils scons-utils
 
 DESCRIPTION="A advanced, feature packed, multi-platform 2D and 3D game engine."
 HOMEPAGE="http://www.godotengine.org"
-SRC_URI="https://github.com/okamstudio/godot/archive/${PV}-stable.tar.gz"
+SRC_URI="https://github.com/godotengine/godot/archive/${PV}-stable.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
 LICENSE="MIT"
@@ -67,27 +67,24 @@ RDEPEND="
 
 S="${WORKDIR}/${PN}-${PV}-stable"
 
-USE_SCONS_TRUE=yes
-USE_SCONS_FALSE=no
-
 src_configure() {
-	myesconsargs=(
+	MYSCONS=(
 		CC="$(tc-getCC)"
 		builtin_zlib=no
 		colored=yes
 		platform=x11
-		$(use_scons freetype)
-		$(use_scons llvm use_llvm)
-		$(use_scons openssl)
-		$(use_scons png)
-		$(use_scons pulseaudio)
-		$(use_scons vorbis)
-		$(use_scons xml)
+		freetype=$(usex freetype)
+		use_llvm=$(usex llvm)
+		openssl=$(usex openssl)
+		png=$(usex png)
+		pulseaudio=$(usex pulseaudio)
+		vorbis=$(usex vorbis)
+		xml=$(usex xml)
 	)
 }
 
 src_compile() {
-	escons
+	escons "${MYSCONS[@]}"
 }
 
 src_install() {

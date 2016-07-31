@@ -4,20 +4,30 @@
 
 EAPI=6
 
-inherit eutils scons-utils git-r3
+inherit eutils scons-utils
 
 DESCRIPTION="A advanced, feature packed, multi-platform 2D and 3D game engine."
 HOMEPAGE="http://www.godotengine.org"
-SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/okamstudio/godot.git"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+
+	EGIT_REPO_URI="git://github.com/godotengine/godot.git"
+	SRC_URI=""
+	KEYWORDS=""
+else
+	SRC_URI="https://github.com/godotengine/godot/archive/${PV}-stable.tar.gz -> ${P}.tar.gz"
+	RESTRICT="primaryuri"
+	KEYWORDS="~amd64 ~x86"
+	S="${WORKDIR}/${PN}-${PV}-stable"
+fi
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
-IUSE="+freetype llvm +openssl +png pulseaudio +vorbis +xml"
+IUSE="+freetype icon llvm +openssl +png pulseaudio +vorbis +xml"
 
-DEPEND=">=dev-util/scons-2.3.0"
+DEPEND=">=dev-util/scons-2.3.0
+       icon? ( media-gfx/imagemagick )"
 
 RDEPEND="
 	>=app-arch/bzip2-1.0.6-r6
@@ -65,30 +75,33 @@ RDEPEND="
 	>=x11-libs/libxshmfence-1.2
 	"
 
-USE_SCONS_TRUE=yes
-USE_SCONS_FALSE=no
-
 src_configure() {
-	myesconsargs=(
+	MYSCONS=(
 		CC="$(tc-getCC)"
 		builtin_zlib=no
 		colored=yes
 		platform=x11
-		$(use_scons freetype)
-		$(use_scons llvm use_llvm)
-		$(use_scons openssl)
-		$(use_scons png)
-		$(use_scons pulseaudio)
-		$(use_scons vorbis)
-		$(use_scons xml)
+		freetype=$(usex freetype)
+		use_llvm=$(usex llvm)
+		openssl=$(usex openssl)
+		png=$(usex png)
+		pulseaudio=$(usex pulseaudio)
+		vorbis=$(usex vorbis)
+		xml=$(usex xml)
 	)
 }
 
 src_compile() {
-	escons
+	escons "${MYSCONS[@]}"
 }
 
 src_install() {
+	if use icon ; then
+		APPICON=godot
+		convert logo.png -gravity East -chop 118x0 -scale 64x64 ${APPICON}.png
+		doicon --size 64 ${APPICON}.png
+	fi
+
 	dobin bin/godot.*
 	if [[ "${ARCH}" == "amd64" ]]; then
 		if use llvm; then
