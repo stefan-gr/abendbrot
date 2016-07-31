@@ -15,7 +15,7 @@ SRC_URI="https://launchpad.net/${PN}/1.x/${PV}/+download/${MY_P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="mpv +phonon +qt5 vlc"
+IUSE="mpv phonon +qt5 +vlc"
 
 DEPEND="
 	!qt5? (
@@ -38,10 +38,7 @@ DEPEND="
 		>=dev-qt/qtx11extras-5.4.2:5
 		media-libs/phonon[qt5]
 	)
-	vlc? (
-	    qt5? ( >=media-video/vlc-2.2.0[qt5] )
-	    !qt5? ( >=media-video/vlc-2.2.0[qt4] )
-	)
+	vlc? ( >=media-video/vlc-2.2.0 )
 	>=dev-libs/qjson-0.8.1
 	>=media-libs/taglib-1.9.1-r2
 	>=net-libs/htmlcxx-0.85
@@ -56,12 +53,48 @@ DOCS="CHANGES.md README.md"
 
 S="${WORKDIR}/${MY_P}"
 
+src_prepare(){
+	if use phonon; then
+		# Workaround for phonon includes, they changed a while ago.
+		if use qt5; then
+			sed -i src/core/player/phonon/engine_phonon.h \
+				-e "s:#include <phonon/mediasource.h>:#include <phonon4qt5/phonon/mediasource.h>:" \
+				-e "s:#include <phonon/mediaobject.h>:#include <phonon4qt5/phonon/mediaobject.h>:" \
+				-e "s:#include <phonon/audiooutput.h>:#include <phonon4qt5/phonon/audiooutput.h>:" \
+				-e "s:#include <phonon/path.h>:#include <phonon4qt5/phonon/path.h>:" \
+				-e "s:#include <phonon/effect.h>:#include <phonon4qt5/phonon/effect.h>:" \
+				-e "s:#include <phonon/volumefadereffect.h>:#include <phonon4qt5/phonon/volumefadereffect.h>:" \
+				|| die '"sed" failed.'
+			sed -i src/core/player/phonon/engine_phonon.cpp \
+				-e "s:#include <phonon/backendcapabilities.h>:#include <phonon4qt5/phonon/backendcapabilities.h>:" \
+				-e "s:#include <phonon/effect.h>:#include <phonon4qt5/phonon/effect.h>:" \
+				-e "s:#include <phonon/effectparameter.h>:#include <phonon4qt5/phonon/effectparameter.h>:" \
+				|| die '"sed" failed.'
+		else
+			sed -i src/core/player/phonon/engine_phonon.h \
+				-e "s:#include <phonon/mediasource.h>:#include <phonon4qt4/phonon/mediasource.h>:" \
+				-e "s:#include <phonon/mediaobject.h>:#include <phonon4qt4/phonon/mediaobject.h>:" \
+				-e "s:#include <phonon/audiooutput.h>:#include <phonon4qt4/phonon/audiooutput.h>:" \
+				-e "s:#include <phonon/path.h>:#include <phonon4qt4/phonon/path.h>:" \
+				-e "s:#include <phonon/effect.h>:#include <phonon4qt4/phonon/effect.h>:" \
+				-e "s:#include <phonon/volumefadereffect.h>:#include <phonon4qt4/phonon/volumefadereffect.h>:" \
+				|| die '"sed" failed.'
+			sed -i src/core/player/phonon/engine_phonon.cpp \
+				-e "s:#include <phonon/backendcapabilities.h>:#include <phonon4qt4/phonon/backendcapabilities.h>:" \
+				-e "s:#include <phonon/effect.h>:#include <phonon4qt4/phonon/effect.h>:" \
+				-e "s:#include <phonon/effectparameter.h>:#include <phonon4qt4/phonon/effectparameter.h>:" \
+				|| die '"sed" failed.'
+		fi
+	fi
+	cmake-utils_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
-		-DUSE_MPV=$(usex mpv)
-		-DUSE_QT5=$(usex qt5)
-		-DUSE_PHONON=$(usex phonon)
-		-DUSE_VLC=$(usex vlc)
+		-DENABLE_MPV=$(usex mpv ON OFF)
+		-DENABLE_QT5=$(usex qt5 ON OFF)
+		-DENABLE_PHONON=$(usex phonon ON OFF)
+		-DENABLE_VLC=$(usex vlc ON OFF)
 	)
 
 	cmake-utils_src_configure
