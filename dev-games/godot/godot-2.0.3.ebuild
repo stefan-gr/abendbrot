@@ -17,7 +17,7 @@ KEYWORDS="~x86 ~amd64"
 IUSE="+freetype llvm +openssl +png pulseaudio +vorbis +xml icon"
 
 DEPEND=">=dev-util/scons-2.3.0
-       icon? ( media-gfx/imagemagick )"
+		icon? ( media-gfx/imagemagick )"
 
 RDEPEND="
 	>=app-arch/bzip2-1.0.6-r6
