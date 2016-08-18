@@ -6,12 +6,12 @@ EAPI=6
 
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of PocketSNES."
-HOMEPAGE="https://github.com/libretro/pocketsnes-libretro"
+DESCRIPTION="Snes9x 2002. Port of SNES9x 1.39 for libretro (previously PocketSNES)"
+HOMEPAGE="https://github.com/libretro/snes9x2002"
 SRC_URI=""
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="git://github.com/libretro/pocketsnes-libretro.git"
+	EGIT_REPO_URI="git://github.com/libretro/snes9x2002.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86"

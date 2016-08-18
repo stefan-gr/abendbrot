@@ -23,7 +23,7 @@ done
 export SCRIPT_DIR="$( cd -P "$( dirname "${SOURCE}" )" && pwd )"
 
 # Check for proper file structure.
-if [ ! -f "${SCRIPT_DIR}/../games-emulation/4do-libretro/4do-libretro-9999-r1.ebuild" ]
+if [ ! -f "${SCRIPT_DIR}/../games-emulation/fbalpha2012-libretro/fbalpha2012-libretro-9999-r2.ebuild" ]
 then
 	echo "Wrong directory, plese put this script in \${REPO_NAME}/tools"
 	exit 1
@@ -80,19 +80,19 @@ core_update() {
 }
 
 # Collect all needed files and send them to core_update
-for core in "${SCRIPT_DIR}/../games-emulation/"*libretro*/*-9999*
-do
-	# Skip libretro-meta package
-	[[ $core == *"libretro-meta"* ]] && continue
-	[[ $core == *"psp1-libretro"* ]] && continue
-	[[ $core == *"ppsspp-libretro"* ]] && continue
-	core_update "${core}"
-done
+#for core in "${SCRIPT_DIR}/../games-emulation/"*libretro*/*-9999*
+#do
+#	# Skip libretro-meta package
+#	[[ $core == *"libretro-meta"* ]] && continue
+#	[[ $core == *"psp1-libretro"* ]] && continue
+#	[[ $core == *"ppsspp-libretro"* ]] && continue
+#	core_update "${core}"
+#done
 # Didn't catch them above
-core_update "${SCRIPT_DIR}/../games-emulation/retroarch-assets/retroarch-assets-9999-r1.ebuild"
-core_update "${SCRIPT_DIR}/../games-emulation/retroarch-joypad-autoconfig/retroarch-joypad-autoconfig-9999-r1.ebuild"
-core_update "${SCRIPT_DIR}/../games-emulation/common-overlays/common-overlays-9999-r1.ebuild"
-core_update "${SCRIPT_DIR}/../games-emulation/common-shaders/common-shaders-9999-r1.ebuild"
+core_update "${SCRIPT_DIR}/../games-emulation/retroarch-assets/retroarch-assets-9999-r2.ebuild"
+core_update "${SCRIPT_DIR}/../games-emulation/retroarch-joypad-autoconfig/retroarch-joypad-autoconfig-9999-r2.ebuild"
+core_update "${SCRIPT_DIR}/../games-emulation/common-overlays/common-overlays-9999-r2.ebuild"
+core_update "${SCRIPT_DIR}/../games-emulation/common-shaders/common-shaders-9999-r2.ebuild"
 
 echo "The following ebuilds must be done manually:"
 echo "games-emulation/ppsspp-libretro"

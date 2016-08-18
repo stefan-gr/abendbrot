@@ -6,15 +6,15 @@ EAPI=6
 
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of Final Burn Alpha (FBA). (Arcade)"
-HOMEPAGE="https://github.com/libretro/fba-libretro"
-SRC_URI="https://github.com/libretro/libretro-fba/archive/e7f7e1cd8d9a1f8edbf63f684be3351a92dfdb45.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="Final Burn Alpha 2012. Port of Final Burn Alpha to Libretro (0.2.97.24)"
+HOMEPAGE="https://github.com/libretro/fbalpha2012"
+SRC_URI="https://github.com/libretro/fbalpha2012/archive/d52f92d595df3478334e28c82bd8f9dc0f06c5cb.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/libretro-fba-e7f7e1cd8d9a1f8edbf63f684be3351a92dfdb45"
+S="${WORKDIR}/fbalpha2012-d52f92d595df3478334e28c82bd8f9dc0f06c5cb/svn-current/trunk"
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/libretro-fba.git"
+	EGIT_REPO_URI="https://github.com/libretro/fbalpha2012.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86 arm"

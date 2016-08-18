@@ -1,0 +1,3 @@
+move games-emulation/fba-libretro games-emulation/fbalpha2012-libretro
+move games-emulation/pocketsnes-libretro games-emulation/snes9x2002-libretro
+move games-emulation/snes9x-next-libretro games-emulation/snes9x2010-libretro

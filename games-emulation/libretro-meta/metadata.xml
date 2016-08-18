@@ -13,7 +13,7 @@
     <flag name='bsnes'>adds <pkg>games-emulation/bsnes-libretro</pkg> as dependency</flag>
     <flag name='desmume'>adds <pkg>games-emulation/desmume-libretro</pkg> as dependency</flag>
     <flag name='dolphin'>adds <pkg>games-emulation/dolphin-libretro</pkg> as dependency</flag>
-    <flag name='fba'>adds <pkg>games-emulation/fba-libretro</pkg> as dependency</flag>
+    <flag name='fbalpha2012'>adds <pkg>games-emulation/fbalpha2012-libretro</pkg> as dependency</flag>
     <flag name='fceu-next'>adds <pkg>games-emulation/fceu-next-libretro</pkg> as dependency</flag>
     <flag name='gambatte'>adds <pkg>games-emulation/gambatte-libretro</pkg> as dependency</flag>
     <flag name='genplus'>adds <pkg>games-emulation/genplus-libretro</pkg> as dependency</flag>
@@ -34,7 +34,6 @@
     <flag name='nxengine'>adds <pkg>games-emulation/nxengine-libretro</pkg> as dependency</flag>
     <flag name='pcsx-rearmed'>adds <pkg>games-emulation/pcsx-rearmed-libretro</pkg> as dependency</flag>
     <flag name='picodrive'>adds <pkg>games-emulation/picodrive-libretro</pkg> as dependency</flag>
-    <flag name='pocketsnes'>adds <pkg>games-emulation/pocketsnes-libretro</pkg> as dependency</flag>
     <flag name='ppsspp'>adds <pkg>games-emulation/ppsspp-libretro</pkg> as dependency</flag>
     <flag name='prboom'>adds <pkg>games-emulation/prboom-libretro</pkg> as dependency</flag>
     <flag name='prosystem'>adds <pkg>games-emulation/prosystem-libretro</pkg> as dependency</flag>
@@ -42,7 +41,8 @@
     <flag name='quicknes'>adds <pkg>games-emulation/quicknes-libretro</pkg> as dependency</flag>
     <flag name='scummvm'>adds <pkg>games-emulation/scummvm-libretro</pkg> as dependency</flag>
     <flag name='snes9x'>adds <pkg>games-emulation/snes9x-libretro</pkg> as dependency</flag>
-    <flag name='snes9x-next'>adds <pkg>games-emulation/snes9x-next-libretro</pkg> as dependency</flag>
+    <flag name='snes9x2002'>adds <pkg>games-emulation/snes9x2002-libretro</pkg> as dependency</flag>
+    <flag name='snes9x2010'>adds <pkg>games-emulation/snes9x2010-libretro</pkg> as dependency</flag>
     <flag name='stella'>adds <pkg>games-emulation/stella-libretro</pkg> as dependency</flag>
     <flag name='tgbdual'>adds <pkg>games-emulation/tgbdual-libretro</pkg> as dependency</flag>
     <flag name='tyrquake'>adds <pkg>games-emulation/tyrquake-libretro</pkg> as dependency</flag>
