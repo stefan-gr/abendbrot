@@ -10,6 +10,8 @@ DESCRIPTION="Final Burn Alpha 2012. Port of Final Burn Alpha to Libretro (0.2.97
 HOMEPAGE="https://github.com/libretro/fbalpha2012"
 SRC_URI=""
 
+S="${S}/svn-current/trunk"
+
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/libretro/fbalpha2012.git"
 	KEYWORDS=""
