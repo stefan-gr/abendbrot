@@ -80,14 +80,14 @@ core_update() {
 }
 
 # Collect all needed files and send them to core_update
-#for core in "${SCRIPT_DIR}/../games-emulation/"*libretro*/*-9999*
-#do
-#	# Skip libretro-meta package
-#	[[ $core == *"libretro-meta"* ]] && continue
-#	[[ $core == *"psp1-libretro"* ]] && continue
-#	[[ $core == *"ppsspp-libretro"* ]] && continue
-#	core_update "${core}"
-#done
+for core in "${SCRIPT_DIR}/../games-emulation/"*libretro*/*-9999*
+do
+	# Skip libretro-meta package
+	[[ $core == *"libretro-meta"* ]] && continue
+	[[ $core == *"psp1-libretro"* ]] && continue
+	[[ $core == *"ppsspp-libretro"* ]] && continue
+	core_update "${core}"
+done
 # Didn't catch them above
 core_update "${SCRIPT_DIR}/../games-emulation/retroarch-assets/retroarch-assets-9999-r2.ebuild"
 core_update "${SCRIPT_DIR}/../games-emulation/retroarch-joypad-autoconfig/retroarch-joypad-autoconfig-9999-r2.ebuild"
