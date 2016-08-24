@@ -8,7 +8,7 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+2048 +4do +beetle-psx bnes +bsnes +desmume dolphin +fbalpha2012 fceu-next +gambatte +genplus \
+IUSE="+2048 +4do +beetle-psx bnes +bsnes +desmume dolphin +fbalpha fbalpha2012 fceu-next +gambatte +genplus \
 +handy mame mame2000 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
 mednafen-snes +mednafen-vb +mednafen-wswan meteor +mgba +mupen64plus +nestopia +nxengine \
 pcsx-rearmed +mednafen-supergrafx picodrive ppsspp +prboom +prosystem +psp1 quicknes +scummvm \
@@ -23,6 +23,7 @@ RDEPEND="2048? ( games-emulation/2048-libretro )
 		bsnes? ( games-emulation/bsnes-libretro )
 		desmume? ( games-emulation/desmume-libretro )
 		dolphin? ( games-emulation/dolphin-libretro )
+		fbalpha? ( games-emulation/fbalpha-libretro )
 		fbalpha2012? ( games-emulation/fbalpha2012-libretro )
 		fceu-next? ( games-emulation/fceu-next-libretro )
 		gambatte? ( games-emulation/gambatte-libretro )
