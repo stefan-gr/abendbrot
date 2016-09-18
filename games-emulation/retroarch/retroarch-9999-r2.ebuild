@@ -45,16 +45,6 @@ REQUIRED_USE="
 	xv? ( X )
 "
 
-#FIXME: Correct the "vulkan" USE flag dependency below. Since the official Mesa
-#ebuild does *NOT* officially support Vulkan yet, a fake "mesa[vulkan?]"
-#dependency has been added as a placeholder below.
-
-# This ebuild no longer accepts an "openvg" USE flag, as the underlying "mesa"
-# 11.0.x ebuilds no longer accept that flag either. Whether this a bug or
-# intentional is unclear. In either case, attempting to pass that flag to "mesa"
-# will result in Portage downgrading "mesa" with the following unreadable block:
-# 
-#     [blocks B      ] =media-libs/mesa-10.3.7-r1 ("=media-libs/mesa-10.3.7-r1" is blocking app-eselect/eselect-opengl-1.3.1-r4)
 RDEPEND="
 	alsa? ( media-libs/alsa-lib:0= )
 	assets? ( games-emulation/retroarch-assets:0= )
@@ -77,7 +67,7 @@ RDEPEND="
 	udev? ( virtual/udev:0=
 		X? ( x11-drivers/xf86-input-evdev:0= )
 	)
-	vulkan? ( media-libs/mesa:0=[vulkan?] )
+	vulkan? ( media-libs/vulkan-base:0= )
 	v4l2? ( media-libs/libv4l:0= )
 	wayland? ( media-libs/mesa:0=[wayland?] )
 	X? (

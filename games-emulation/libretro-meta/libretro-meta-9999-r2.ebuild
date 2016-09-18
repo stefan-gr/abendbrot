@@ -11,7 +11,7 @@ SLOT="0"
 IUSE="+2048 +4do +beetle-psx bnes +bsnes +desmume dolphin +fbalpha fbalpha2012 fceu-next +gambatte +genplus \
 +handy mame mame2000 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
 mednafen-snes +mednafen-vb +mednafen-wswan meteor +mgba +mupen64plus +nestopia +nxengine \
-pcsx-rearmed +mednafen-supergrafx picodrive ppsspp +prboom +prosystem +psp1 quicknes +scummvm \
+pcsx-rearmed +mednafen-supergrafx parallel picodrive ppsspp +prboom +prosystem +psp1 quicknes +scummvm \
 snes9x snes9x2002 snes9x2010 +stella tgbdual +tyrquake vba-next vbam +yabause"
 
 KEYWORDS=""
@@ -43,6 +43,7 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		mupen64plus? ( >=games-emulation/mupen64plus-libretro-9999 )
 		nestopia? ( >=games-emulation/nestopia-libretro-9999 )
 		nxengine? ( >=games-emulation/nxengine-libretro-9999 )
+		parallel? ( >=games-emulation/parallel-libretro-9999 )
 		pcsx-rearmed? ( >=games-emulation/pcsx-rearmed-libretro-9999 )
 		picodrive? ( >=games-emulation/picodrive-libretro-9999 )
 		snes9x2002? ( >=games-emulation/snes9x2002-libretro-9999 )

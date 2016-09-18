@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>stefan.gert.r@gmail.com</email>
+    <name>stefan-gr</name>
+  </maintainer>
+  <use>
+    <flag name='headers'>Install C header files</flag>
+    <flag name='layers'>Build and install the Vulkan validation layers</flag>
+    <flag name='tools'>Build and install the vulkaninfo tool</flag>
+  </use>
+  <upstream>
+	  <bugs-to>https://bugs.gentoo.org/show_bug.cgi?id=574886</bugs-to>
+  </upstream>
+</pkgmetadata>
