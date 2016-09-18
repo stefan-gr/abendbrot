@@ -11,6 +11,8 @@ HOMEPAGE="https://github.com/libretro/common-shaders"
 SRC_URI=""
 
 if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+
 	EGIT_REPO_URI="git://github.com/libretro/common-shaders.git"
 	KEYWORDS=""
 else
