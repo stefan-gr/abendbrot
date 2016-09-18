@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>stefan.gert.r@gmail.com</email>
+    <name>stefan-gr</name>
+  </maintainer>
+  <use>
+    <flag name='cg'>Install shaders in cg format, otherwise convert them to glsl</flag>
+  </use>
+</pkgmetadata>
