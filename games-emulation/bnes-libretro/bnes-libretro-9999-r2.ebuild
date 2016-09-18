@@ -4,7 +4,7 @@
 
 EAPI=6
 
-inherit libretro-core toolchain-funcs
+inherit libretro-core
 
 DESCRIPTION="libretro implementation of bNES/higan. (Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/bnes-libretro"
@@ -23,12 +23,3 @@ SLOT="0"
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
-
-pkg_pretend() {
-	#doesn't compile with >gcc5, see bug https://github.com/libretro/bnes-libretro/issues/7
-	if [[ ${MERGE_TYPE} != binary  && $(tc-getCC) == *gcc* ]]; then
-		if [[ $(gcc-major-version) -gt 4 ]] ; then
-			die 'The active compiler needs to be gcc 4.9 (or older)'
-		fi
-	fi
-}
