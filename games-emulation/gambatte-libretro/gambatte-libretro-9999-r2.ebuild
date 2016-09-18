@@ -24,8 +24,6 @@ DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
-S="${S}/libgambatte"
-
 src_compile() {
 	emake -f Makefile.libretro || die "emake failed"
 }
