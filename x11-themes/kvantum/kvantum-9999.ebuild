@@ -7,7 +7,7 @@ EAPI=6
 inherit git-r3 qmake-utils
 
 DESCRIPTION="A SVG-based theme engine for Qt4/Qt5 and KDE"
-HOMEPAGE="http://kde-look.org/content/show.php/Kvantum?content=166241"
+HOMEPAGE="https://store.kde.org/content/show.php/Kvantum?content=166241"
 SRC_URI=""
 
 EGIT_REPO_URI="git://github.com/tsujan/Kvantum.git"

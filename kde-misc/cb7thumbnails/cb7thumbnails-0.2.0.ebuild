@@ -7,8 +7,8 @@ EAPI=6
 inherit kde4-base
 
 DESCRIPTION="A Thumbnail creator for KDE 4 that enables previewing cb7 files"
-HOMEPAGE="http://kde-apps.org/content/show.php/ComicBook+7zip+Thumbnail+Plugin?content=157716"
-SRC_URI="http://kde-apps.org/CONTENT/content-files/157716-${P}.tar.gz"
+HOMEPAGE="https://www.linux-apps.com/content/show.php/ComicBook+7zip+Thumbnail+Plugin?content=157716"
+SRC_URI="https://dl.opendesktop.org/api/files/download/id/1460971390/157716-${P}.tar.gz"
 RESTRICT="primaryuri"
 
 LICENSE="GPL-3"

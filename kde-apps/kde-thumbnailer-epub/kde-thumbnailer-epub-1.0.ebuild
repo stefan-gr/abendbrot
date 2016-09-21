@@ -7,8 +7,8 @@ EAPI=6
 inherit kde4-base
 
 DESCRIPTION="A KDE thumbnail generator for the ePub file format."
-HOMEPAGE="http://kde-apps.org/content/show.php/KDE+ePub+Thumbnailer?content=151210"
-SRC_URI="http://kde-apps.org/CONTENT/content-files/151210-${P}.tar.gz"
+HOMEPAGE="https://www.linux-apps.com/content/show.php/KDE+ePub+Thumbnailer?content=151210"
+SRC_URI="https://github.com/Caig/kde-thumbnailer-epub/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
 LICENSE="GPL-3"

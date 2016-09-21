@@ -9,7 +9,7 @@ inherit kde5
 MY_P="PlayBar2-${PV}"
 
 DESCRIPTION="Client MPRIS2, allows you to control your favorite media player"
-HOMEPAGE="http://kde-look.org/content/show.php/PlayBar2?content=168944"
+HOMEPAGE="https://store.kde.org/content/show.php/PlayBar2?content=168944"
 SRC_URI="https://github.com/audoban/PlayBar2/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
