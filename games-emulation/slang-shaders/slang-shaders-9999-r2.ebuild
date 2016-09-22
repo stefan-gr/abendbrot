@@ -6,7 +6,7 @@ EAPI=6
 
 inherit libretro
 
-DESCRIPTION="Collection of slang shaders."
+DESCRIPTION="Collection of slang shaders for vulkan backends."
 HOMEPAGE="https://github.com/libretro/slang-shaders"
 SRC_URI=""
 

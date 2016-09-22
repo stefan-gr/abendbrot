@@ -63,6 +63,7 @@ RDEPEND="
 	python? ( ${PYTHON_DEPS} )
 	sdl? ( >=media-libs/libsdl-1.2.10:0=[joystick] )
 	sdl2? ( media-libs/libsdl2:0=[joystick] )
+	shaders? ( vulkan? ( games-emulation/slang-shaders ) )
 	truetype? ( media-libs/freetype:2= )
 	udev? ( virtual/udev:0=
 		X? ( x11-drivers/xf86-input-evdev:0= )
@@ -83,8 +84,8 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 
-PDEPEND="shaders? ( !cg? ( games-emulation/common-shaders:0=[-cg] )
-		cg? ( games-emulation/common-shaders:0=[cg] ) )
+PDEPEND="!vulkan? ( shaders? ( !cg? ( games-emulation/common-shaders:0=[-cg] ) )
+		!vulkan? ( cg? ( games-emulation/common-shaders:0=[cg] ) ) )
 "
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -132,7 +133,6 @@ src_prepare() {
 		-e 's:# \(joypad_autoconfig_dir =\):\1 "'${RETROARCH_DATA_DIR}'/autoconfig/":' \
 		-e 's:# \(assets_directory =\):\1 "'${RETROARCH_DATA_DIR}'/assets/":' \
 		-e 's:# \(rgui_config_directory =\):\1 "~/.config/retroarch/":' \
-		-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/shaders/":' \
 		-e 's:# \(video_filter_dir =\):\1 "'${RETROARCH_LIB_DIR}'/filters/video/":' \
 		-e 's:# \(audio_filter_dir =\):\1 "'${RETROARCH_LIB_DIR}'/filters/audio/":' \
 		-e 's:# \(overlay_directory =\):\1 "'${LIBRETRO_DATA_DIR}'/overlays/":' \
@@ -146,6 +146,17 @@ src_prepare() {
 		-e 's:# \(content_directory =\):\1 "~/":' \
 		-e 's:# \(rgui_browser_directory =\):\1 "~/":' \
 		|| die '"sed" failed.'
+
+	if use vulkan; then
+		sed -i retroarch.cfg \
+			-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/slang-shaders/":' \
+			|| die '"sed failed.'
+	else
+		sed -i retroarch.cfg \
+			-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/shaders/":' \
+			|| die '"sed failed.'
+	fi
+
 	default_src_prepare
 }
 
@@ -231,7 +242,8 @@ src_install() {
 	# Preserve empty directories.
 	keepdir ${LIBRETRO_LIB_DIR}
 	keepdir ${LIBRETRO_DATA_DIR}/info/
-	keepdir ${LIBRETRO_DATA_DIR}/shaders/
+	use vulkan || keepdir ${LIBRETRO_DATA_DIR}/shaders/
+	use vulkan && keepdir ${LIBRETRO_DATA_DIR}/slang-shaders/
 	keepdir ${LIBRETRO_DATA_DIR}/overlays/
 	keepdir ${LIBRETRO_DATA_DIR}/cheats/
 	keepdir ${LIBRETRO_DATA_DIR}/data/
