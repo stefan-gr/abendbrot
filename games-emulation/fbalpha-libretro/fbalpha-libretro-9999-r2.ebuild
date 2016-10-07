@@ -19,9 +19,7 @@ fi
 
 LICENSE="FBA"
 SLOT="0"
-IUSE="+profile_accuracy profile_balanced profile_performance"
-
-REQUIRED_USE="^^ ( profile_accuracy profile_balanced profile_performance )"
+IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -29,9 +27,7 @@ RDEPEND="${DEPEND}
 
 src_compile() {
 	myemakeargs=(
-		$(usex profile_accuracy "profile=accuracy" "")
-		$(usex profile_balanced "profile=balanced" "")
-		$(usex profile_performance "profile=performance" "")
+		$(usex debug "DEBUG=1" "")
 	)
 	emake "${myemakeargs[@]}" -f makefile.libretro || die "emake failed"
 }
