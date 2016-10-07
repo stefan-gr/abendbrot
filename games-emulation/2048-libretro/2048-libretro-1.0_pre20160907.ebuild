@@ -22,11 +22,12 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
+IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 src_compile() {
-	emake -f Makefile.libretro || die "emake failed"
+	emake $(usex debug "DEBUG=1" "") -f Makefile.libretro || die "emake failed"
 }

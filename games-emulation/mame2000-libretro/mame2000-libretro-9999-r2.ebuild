@@ -19,7 +19,12 @@ fi
 
 LICENSE="MAME-GPL"
 SLOT="0"
+IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
+
+src_compile() {
+	emake $(usex debug "DEBUG=1" "") || die "emake failed"
+}

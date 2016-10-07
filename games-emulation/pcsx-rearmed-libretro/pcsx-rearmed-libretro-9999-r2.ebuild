@@ -19,7 +19,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="neon"
+IUSE="debug neon"
 
 DEPEND="media-libs/libpng:0
 	sys-libs/zlib"
@@ -42,6 +42,10 @@ src_configure() {
 		--platform=libretro \
 		$(use_enable neon ) \
 		$(use_enable arm dynarec )
+}
+
+src_compile() {
+	emake $(usex debug "DEBUG=1" "") || die "emake failed"
 }
 
 src_install() {

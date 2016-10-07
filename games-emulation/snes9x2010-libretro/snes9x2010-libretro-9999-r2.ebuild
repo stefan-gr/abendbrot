@@ -19,13 +19,14 @@ fi
 
 LICENSE="snes9x"
 SLOT="0"
+IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 src_compile() {
-	emake -f Makefile.libretro
+	emake $(usex debug "DEBUG=1" "") -f Makefile.libretro
 }
 
 src_install() {

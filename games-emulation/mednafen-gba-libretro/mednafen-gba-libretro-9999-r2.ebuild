@@ -19,6 +19,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
+IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -27,7 +28,7 @@ RDEPEND="${DEPEND}
 LIBRETRO_CORE_NAME=mednafen_gba
 
 src_compile() {
-	emake core=gba || die "emake failed"
+	emake $(usex debug "DEBUG=1" "") core=gba || die "emake failed"
 }
 
 pkg_preinst() {

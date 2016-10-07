@@ -19,10 +19,15 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
+IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
+
+src_compile() {
+	emake $(usex debug "DEBUG=1" "") || die "emake failed"
+}
 
 pkg_preinst() {
 	if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then

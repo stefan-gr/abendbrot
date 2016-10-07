@@ -19,6 +19,7 @@ fi
 
 LICENSE="snes9x"
 SLOT="0"
+IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -26,6 +27,10 @@ RDEPEND="${DEPEND}
 
 MY_S="${S}"
 S="${S}/libretro"
+
+src_compile() {
+	emake $(usex debug "DEBUG=1" "") || die "emake failed"
+}
 
 src_install() {
 	insinto "${LIBRETRO_DATA_DIR}"/snes9x_libretro

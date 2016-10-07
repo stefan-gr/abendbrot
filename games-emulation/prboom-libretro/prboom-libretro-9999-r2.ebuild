@@ -19,10 +19,15 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
+IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
+
+src_compile() {
+	emake $(usex debug "DEBUG=1" "") || die "emake failed"
+}
 
 src_install() {
 	insinto "${LIBRETRO_DATA_DIR}"/prboom_libretro/

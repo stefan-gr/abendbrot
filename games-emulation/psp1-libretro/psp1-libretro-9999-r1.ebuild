@@ -20,7 +20,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="gles2"
+IUSE="debug gles2"
 
 DEPEND="x11-libs/libICE
 	sys-libs/zlib
@@ -50,8 +50,7 @@ src_prepare() {
 src_compile() {
 	if use gles2; then
 		append-ldflags -lEGL
-		emake GLES=1
-	else
-		emake
 	fi
+
+	emake $(usex debug "DEBUG=1" "") $(usex gles2 "GLES=1" "")
 }

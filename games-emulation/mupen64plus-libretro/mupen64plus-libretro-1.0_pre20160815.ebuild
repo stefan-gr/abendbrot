@@ -22,7 +22,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="gles2"
+IUSE="debug gles2"
 
 DEPEND="media-libs/mesa:0=
 		gles2? ( media-libs/mesa[gles2] )"
@@ -36,6 +36,7 @@ src_compile() {
 		$(usex x86 "WITH_DYNAREC=x86" "")
 		$(usex arm "platform=rpi WITH_DYNAREC=arm" "")
 		$(usex arm64 "platform=rpi WITH_DYNAREC=arm" "")
+		$(usex debug "DEBUG=1" "")
 		$(usex gles2 "GLES=1" "")
 	)
 	emake "${myemakeargs[@]}" || die "emake failed"

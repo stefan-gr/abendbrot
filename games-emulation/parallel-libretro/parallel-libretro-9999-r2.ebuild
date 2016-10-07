@@ -19,7 +19,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE=""
+IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -32,6 +32,7 @@ src_compile() {
 		$(usex x86 "WITH_DYNAREC=x86" "")
 		$(usex arm "platform=rpi WITH_DYNAREC=arm" "")
 		$(usex arm64 "platform=rpi WITH_DYNAREC=arm" "")
+		$(usex debug "DEBUG=1" "")
 		"HAVE_VULKAN=1"
 	)
 	emake "${myemakeargs[@]}" || die "emake failed"

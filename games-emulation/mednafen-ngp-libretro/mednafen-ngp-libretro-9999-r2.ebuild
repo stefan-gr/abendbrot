@@ -19,6 +19,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
+IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -27,5 +28,5 @@ RDEPEND="${DEPEND}
 LIBRETRO_CORE_NAME=mednafen_ngp
 
 src_compile() {
-	emake core=ngp || die "emake failed"
+	emake $(usex debug "DEBUG=1" "") core=ngp || die "emake failed"
 }

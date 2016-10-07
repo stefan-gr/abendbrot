@@ -19,10 +19,15 @@ fi
 
 LICENSE="ZLIB"
 SLOT="0"
+IUSE="debug"
 
 DEPEND="sys-libs/zlib"
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
+
+src_compile() {
+	emake $(usex debug "DEBUG=1" "") || die "emake failed"
+}
 
 pkg_preinst() {
 	if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then

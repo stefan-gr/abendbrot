@@ -20,6 +20,7 @@ fi
 
 LICENSE="GPGX"
 SLOT="0"
+IUSE="debug"
 
 DEPEND="sys-libs/zlib"
 RDEPEND="${DEPEND}
@@ -28,7 +29,7 @@ RDEPEND="${DEPEND}
 LIBRETRO_CORE_NAME=genesis_plus_gx
 
 src_compile() {
-	emake -f Makefile.libretro || die "emake failed"
+	emake $(usex debug "DEBUG=1" "") -f Makefile.libretro || die "emake failed"
 }
 
 pkg_preinst() {
