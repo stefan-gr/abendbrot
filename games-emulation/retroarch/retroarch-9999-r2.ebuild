@@ -51,7 +51,7 @@ RDEPEND="
 	cg? ( media-gfx/nvidia-cg-toolkit:0= )
 	cores? ( games-emulation/libretro-meta:0= )
 	database? ( games-emulation/libretro-database:0= )
-	dispmanx? ( media-libs/raspberrypi-userland:0= media-libs/raspberrypi-userland-bin:0= )
+	dispmanx? ( || ( media-libs/raspberrypi-userland:0= media-libs/raspberrypi-userland-bin:0= ) )
 	ffmpeg? ( >=media-video/ffmpeg-2.1.3:0= )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.120.1:0= )
 	joypad_autoconfig? ( games-emulation/retroarch-joypad-autoconfig:0= )
