@@ -14,6 +14,7 @@
     <flag name='cheevos'>Enable Archievment support via http://retroachievements.org/</flag>
     <flag name='cores'>Changes default retroarch.cfg to the standardpath of the libretro* ebuilds</flag>
     <flag name='database'>Add <pkg>games-emulation/libretro-database</pkg> as dependency</flag>
+	<flag name='dispmanx'>Enable Dispmanx video support</flag>
     <flag name='egl'>Enable EGL context support</flag>
     <flag name='fbo'>Enable render-to-texture (FBO) support</flag>
     <flag name='ffmpeg'>Enable FFmpeg recording support</flag>

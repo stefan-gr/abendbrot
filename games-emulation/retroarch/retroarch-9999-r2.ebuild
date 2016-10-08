@@ -22,12 +22,12 @@ SLOT="0"
 # To avoid fatal dependency failures for users enabling the "python" USE flag, a
 # default "python_single_target_python*" USE flag *MUST* be set below to the
 # default version of Python 3 for default Portage profiles.
-IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl osmesa oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python python_single_target_python3_3 +python_single_target_python3_4 python_single_target_python3_5"
+IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug dispmanx egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl osmesa oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python python_single_target_python3_3 +python_single_target_python3_4 python_single_target_python3_5"
 
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
 	|| ( opengl sdl sdl2 vulkan )
-	|| ( kms X wayland )
+	|| ( kms X wayland dispmanx )
 	alsa? ( threads )
 	arm? ( gles2? ( egl ) )
 	cg? ( opengl )
@@ -51,6 +51,7 @@ RDEPEND="
 	cg? ( media-gfx/nvidia-cg-toolkit:0= )
 	cores? ( games-emulation/libretro-meta:0= )
 	database? ( games-emulation/libretro-database:0= )
+	dispmanx? ( media-libs/raspberrypi-userland:0= media-libs/raspberrypi-userland-bin:0= )
 	ffmpeg? ( >=media-video/ffmpeg-2.1.3:0= )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.120.1:0= )
 	joypad_autoconfig? ( games-emulation/retroarch-joypad-autoconfig:0= )
@@ -166,6 +167,10 @@ src_configure() {
 		append-ldflags -L"${EROOT}"opt/nvidia-cg-toolkit/$(get_libdir)
 		append-cflags  -I"${EROOT}"opt/nvidia-cg-toolkit/include
 	fi
+	if use dispmanx; then
+		append-ldflags -L"${EROOT}"opt/vc/lib
+		append-cflags  -I"${EROOT}"opt/vc/include
+	fi
 
 	# Note that OpenVG support is hard-disabled. (See ${RDEPEND} above.)
 	econf \
@@ -175,6 +180,7 @@ src_configure() {
 		$(use_enable cheevos) \
 		$(use_enable cg) \
 		$(use_enable cpu_flags_x86_sse2 sse) \
+		$(use_enable dispmanx) \
 		$(use_enable egl) \
 		$(use_enable fbo) \
 		$(use_enable ffmpeg) \
