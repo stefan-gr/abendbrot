@@ -22,15 +22,16 @@ SLOT="0"
 # To avoid fatal dependency failures for users enabling the "python" USE flag, a
 # default "python_single_target_python*" USE flag *MUST* be set below to the
 # default version of Python 3 for default Portage profiles.
-IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug dispmanx egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl osmesa oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python python_single_target_python3_3 +python_single_target_python3_4 python_single_target_python3_5"
+IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug dispmanx egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl osmesa oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python python_single_target_python3_3 +python_single_target_python3_4 python_single_target_python3_5"
 
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
-	|| ( opengl sdl sdl2 vulkan )
-	|| ( kms X wayland dispmanx )
+	|| ( opengl sdl sdl2 vulkan dispmanx )
+	|| ( kms X wayland videocore )
 	alsa? ( threads )
 	arm? ( gles2? ( egl ) )
 	cg? ( opengl )
+	dispmanx? ( videocore )
 	egl? ( opengl )
 	gles2? ( !cg opengl )
 	gles3? ( gles2 )
@@ -167,9 +168,13 @@ src_configure() {
 		append-ldflags -L"${EROOT}"opt/nvidia-cg-toolkit/$(get_libdir)
 		append-cflags  -I"${EROOT}"opt/nvidia-cg-toolkit/include
 	fi
-	if use dispmanx; then
-		append-ldflags -L"${EROOT}"opt/vc/lib
-		append-cflags  -I"${EROOT}"opt/vc/include
+
+	if use videocore; then
+		export HAVE_VIDEOCORE="yes"
+	else
+		export HAVE_VIDEOCORE="no"
+		sed -i qb/config.libs.sh \
+			-e 's:\[ -d /opt/vc/lib \] && add_library_dirs /opt/vc/lib && add_library_dirs /opt/vc/lib/GL::' || die 'sed failed'
 	fi
 
 	# Note that OpenVG support is hard-disabled. (See ${RDEPEND} above.)
