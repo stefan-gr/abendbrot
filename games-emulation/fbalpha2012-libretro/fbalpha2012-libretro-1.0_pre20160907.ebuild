@@ -4,7 +4,7 @@
 
 EAPI=6
 
-inherit libretro-core
+inherit flag-o-matic libretro-core
 
 DESCRIPTION="Final Burn Alpha 2012. Port of Final Burn Alpha to Libretro (0.2.97.24)"
 HOMEPAGE="https://github.com/libretro/fbalpha2012"
@@ -31,8 +31,8 @@ RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 src_compile() {
-	myemakeargs=(
-		$(usex debug "DEBUG=1" "")
-	)
-	emake "${myemakeargs[@]}" -f makefile.libretro || die "emake failed"
+	# Doesn't work properly with -O3 and sets its own depending on need.
+	# https://github.com/stefan-gr/abendbrot/issues/42
+	filter-flags -O*
+	emake $(usex debug "DEBUG=1" "") -f makefile.libretro || die "emake failed"
 }
