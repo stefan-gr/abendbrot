@@ -14,7 +14,7 @@
     <flag name='cheevos'>Enable Archievment support via http://retroachievements.org/</flag>
     <flag name='cores'>Changes default retroarch.cfg to the standardpath of the libretro* ebuilds</flag>
     <flag name='database'>Add <pkg>games-emulation/libretro-database</pkg> as dependency</flag>
-    <flag name='dispmanx'>Enable Dispmanx video support</flag>
+    <flag name='dispmanx'>Enable Dispmanx video support, for arm only</flag>
     <flag name='egl'>Enable EGL context support</flag>
     <flag name='fbo'>Enable render-to-texture (FBO) support</flag>
     <flag name='ffmpeg'>Enable FFmpeg recording support</flag>
@@ -42,6 +42,7 @@
     <flag name='udev'>Udev/Evdev gamepad support</flag>
     <flag name='v4l2'>Enable video4linux2 support</flag>
     <flag name='overlays'>adds <pkg>games-emulation/common-overlays</pkg> as dependency</flag>
+    <flag name='videocore'>Enables videocore context, for arm only</flag>
     <flag name='vulkan'>Enable Vulkan display support</flag>
     <flag name='xmb'>Enable xmb menu</flag>
     <flag name='xml'>Enable libxml2 support</flag>

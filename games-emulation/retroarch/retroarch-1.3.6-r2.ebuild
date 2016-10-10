@@ -22,15 +22,16 @@ SLOT="0"
 # To avoid fatal dependency failures for users enabling the "python" USE flag, a
 # default "python_single_target_python*" USE flag *MUST* be set below to the
 # default version of Python 3 for default Portage profiles.
-IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python python_single_target_python3_3 +python_single_target_python3_4 python_single_target_python3_5"
+IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug dispmanx egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python python_single_target_python3_3 +python_single_target_python3_4 python_single_target_python3_5"
 
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
-	|| ( opengl sdl sdl2 vulkan )
-	|| ( kms X wayland )
+	|| ( opengl sdl sdl2 vulkan dispmanx )
+	|| ( kms X wayland videocore )
 	alsa? ( threads )
 	arm? ( gles2? ( egl ) )
 	cg? ( opengl )
+	dispmanx? ( videocore || ( arm arm64 ) )
 	egl? ( opengl )
 	gles2? ( !cg opengl )
 	gles3? ( gles2 )
@@ -39,6 +40,7 @@ REQUIRED_USE="
 	netplay? ( network )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	sdl2? ( !sdl )
+	videocore? ( || ( arm arm64 ) )
 	wayland? ( egl )
 	xinerama? ( X )
 	xmb? ( assets opengl )
@@ -51,6 +53,7 @@ RDEPEND="
 	cg? ( media-gfx/nvidia-cg-toolkit:0= )
 	cores? ( games-emulation/libretro-meta:0= )
 	database? ( games-emulation/libretro-database:0= )
+	dispmanx? ( || ( media-libs/raspberrypi-userland:0= media-libs/raspberrypi-userland-bin:0= ) )
 	ffmpeg? ( >=media-video/ffmpeg-2.1.3:0= )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.120.1:0= )
 	joypad_autoconfig? ( games-emulation/retroarch-joypad-autoconfig:0= )
@@ -160,6 +163,14 @@ src_configure() {
 		append-cflags  -I"${EROOT}"opt/nvidia-cg-toolkit/include
 	fi
 
+	if use videocore; then
+		export HAVE_VIDEOCORE="yes"
+	else
+		export HAVE_VIDEOCORE="no"
+		sed -i qb/config.libs.sh \
+			-e 's:\[ -d /opt/vc/lib \] && add_library_dirs /opt/vc/lib && add_library_dirs /opt/vc/lib/GL::' || die 'sed failed'
+	fi
+
 	#FIXME: Netplay is currently required, due to the following outstanding bug:
 	#    https://github.com/libretro/RetroArch/issues/2663
 	#When fixed, replace the "--enable-netplay" below with:
@@ -173,6 +184,7 @@ src_configure() {
 		$(use_enable cheevos) \
 		$(use_enable cg) \
 		$(use_enable cpu_flags_x86_sse2 sse) \
+		$(use_enable dispmanx) \
 		$(use_enable egl) \
 		$(use_enable fbo) \
 		$(use_enable ffmpeg) \
