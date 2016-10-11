@@ -4,7 +4,7 @@
 
 EAPI=6
 
-inherit flag-o-matic libretro-core
+inherit libretro-core
 
 DESCRIPTION="Final Burn Alpha 2012. Port of Final Burn Alpha to Libretro (0.2.97.24)"
 HOMEPAGE="https://github.com/libretro/fbalpha2012"

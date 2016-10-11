@@ -28,6 +28,7 @@ RDEPEND="${DEPEND}
 LIBRETRO_CORE_NAME=beetle_psx
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") core=psx || die "emake failed"
 }
 

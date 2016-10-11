@@ -29,6 +29,7 @@ RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") -f Makefile.libretro || die "emake failed"
 }
 

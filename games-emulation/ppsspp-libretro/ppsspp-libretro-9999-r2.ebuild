@@ -4,7 +4,7 @@
 
 EAPI=6
 
-inherit libretro-core flag-o-matic
+inherit libretro-core
 
 DESCRIPTION="libretro implementation of PPSSPP. (PlayStation Portable/PSP)"
 HOMEPAGE="https://github.com/libretro/libretro-ppsspp"
@@ -51,6 +51,6 @@ src_compile() {
 	if use gles2; then
 		append-ldflags -lEGL
 	fi
-
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") $(usex gles2 "GLES=1" "")
 }

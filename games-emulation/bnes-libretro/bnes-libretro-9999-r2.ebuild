@@ -23,3 +23,8 @@ SLOT="0"
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
+
+src_compile() {
+	filter-flags -O*
+	default_src_compile
+}

@@ -28,6 +28,7 @@ RDEPEND="${DEPEND}
 LIBRETRO_CORE_NAME=mednafen_pce_fast
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") core=pce-fast || die "emake failed"
 }
 

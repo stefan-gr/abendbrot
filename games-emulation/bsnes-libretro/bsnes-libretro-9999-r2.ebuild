@@ -39,6 +39,7 @@ src_unpack() {
 }
 
 src_compile() {
+	filter-flags -O*
 	if use profile_balanced; then
 		emake profile=balanced \
 			ui=target-libretro \

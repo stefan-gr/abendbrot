@@ -34,5 +34,6 @@ src_compile() {
 		$(usex debug "DEBUG=1" "")
 		$(usex tiled_rendering "TILED_RENDERING=1" "")
 	)
+	filter-flags -O*
 	emake "${myemakeargs[@]}" -f Makefile.libretro || die "emake failed"
 }

@@ -32,6 +32,7 @@ S="${S}/fceumm-code"
 LIBRETRO_CORE_NAME=fceumm
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") -f Makefile.libretro
 }
 

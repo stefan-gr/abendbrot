@@ -28,5 +28,6 @@ RDEPEND="${DEPEND}
 LIBRETRO_CORE_NAME=mednafen_vb
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") core=vb || die "emake failed"
 }

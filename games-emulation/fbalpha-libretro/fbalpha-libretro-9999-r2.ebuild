@@ -4,7 +4,7 @@
 
 EAPI=6
 
-inherit flag-o-matic libretro-core
+inherit libretro-core
 
 DESCRIPTION="Port of Final Burn Alpha to Libretro"
 HOMEPAGE="https://github.com/libretro/fbalpha"

@@ -32,6 +32,7 @@ RDEPEND="${DEPEND}
 LIBRETRO_CORE_NAME=genesis_plus_gx
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") -f Makefile.libretro || die "emake failed"
 }
 

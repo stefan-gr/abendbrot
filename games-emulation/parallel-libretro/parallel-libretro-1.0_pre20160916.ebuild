@@ -30,6 +30,7 @@ RDEPEND="${DEPEND}
 
 src_compile() {
 	#this one could get some love from arm owners
+	filter-flags -O*
 	myemakeargs=(
 		$(usex amd64 "WITH_DYNAREC=x86_64" "")
 		$(usex x86 "WITH_DYNAREC=x86" "")

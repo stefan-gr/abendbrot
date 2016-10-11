@@ -51,6 +51,6 @@ src_compile() {
 	if use gles2; then
 		append-ldflags -lEGL
 	fi
-
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") $(usex gles2 "GLES=1" "")
 }

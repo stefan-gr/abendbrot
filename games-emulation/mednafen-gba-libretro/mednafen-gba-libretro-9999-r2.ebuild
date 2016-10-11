@@ -28,6 +28,7 @@ RDEPEND="${DEPEND}
 LIBRETRO_CORE_NAME=mednafen_gba
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") core=gba || die "emake failed"
 }
 

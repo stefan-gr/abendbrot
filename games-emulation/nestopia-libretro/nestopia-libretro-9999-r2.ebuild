@@ -28,6 +28,7 @@ RDEPEND="${DEPEND}
 S="${S}/libretro"
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") || die "emake failed"
 }
 

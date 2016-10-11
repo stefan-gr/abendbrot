@@ -14,9 +14,9 @@
 
 # Workaround for ppsspp
 if [[ ! ${PV} == "1.0_pre"* ]] || [[ ${PN} == "psp1-libretro" ]] || [[ ${PN} == "ppsspp-libretro" ]]; then
-	inherit git-r3 libretro
+	inherit flag-o-matic git-r3 libretro
 else
-	inherit libretro
+	inherit flag-o-matic libretro
 fi
 
 # @ECLASS-VARIABLE: LIBRETRO_CORE_NAME
