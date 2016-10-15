@@ -38,7 +38,6 @@
     <bugs-to>https://github.com/libretro/mgba/issues</bugs-to>
   </upstream>
   <use>
-    <flag name='blipbuf'>Enable improved audio resampling via "blip_buf" (recommended)</flag>
     <flag name='epoxy'>Enable managed OpenGL function pointers (requires "gles2")</flag>
     <flag name='ffmpeg'>Support video recording</flag>
     <flag name='gles2'>Use GLESv2 instead of OpenGL</flag>
