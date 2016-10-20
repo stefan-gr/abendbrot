@@ -19,7 +19,7 @@ fi
 
 LICENSE="MPL-2.0"
 SLOT="0"
-IUSE="debug"
+IUSE="debug neon"
 
 DEPEND="!games-emulation/mgba-libretro"
 RDEPEND="${DEPEND}
@@ -29,5 +29,5 @@ LIBRETRO_CORE_NAME=${PN%-libretro-cheevo}
 
 src_compile() {
 	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "") || die "emake failed"
+	emake $(usex debug "DEBUG=1" "") $(usex neon "HAVE_NEON=1" "") || die "emake failed"
 }
