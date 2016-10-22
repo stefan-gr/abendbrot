@@ -9,10 +9,10 @@ inherit libretro-core
 DESCRIPTION="libretro implementation of PicoDrive. \
 (Sega GameGear/Sega CD/32X)"
 HOMEPAGE="https://github.com/libretro/picodrive"
-SRC_URI="https://github.com/libretro/picodrive/archive/7832385631e44008e07bef75933d084ddf278b97.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/libretro/picodrive/archive/0d87bd6a48493afbaeefa67cb229a16cb6d60b25.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/picodrive-7832385631e44008e07bef75933d084ddf278b97"
+S="${WORKDIR}/picodrive-0d87bd6a48493afbaeefa67cb229a16cb6d60b25"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/libretro/picodrive.git"

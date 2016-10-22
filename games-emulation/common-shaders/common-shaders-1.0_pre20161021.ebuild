@@ -8,12 +8,14 @@ inherit libretro
 
 DESCRIPTION="Collection of commonly used Cg shaders."
 HOMEPAGE="https://github.com/libretro/common-shaders"
-SRC_URI="https://github.com/libretro/common-shaders/archive/8b696479ee8f56917f3c54acee027f7e8a3a3b68.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/libretro/common-shaders/archive/cce52857af84d1b7b35ea8505c218b40eaf045b3.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/common-shaders-8b696479ee8f56917f3c54acee027f7e8a3a3b68"
+S="${WORKDIR}/common-shaders-cce52857af84d1b7b35ea8505c218b40eaf045b3"
 
 if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+
 	EGIT_REPO_URI="git://github.com/libretro/common-shaders.git"
 	KEYWORDS=""
 else

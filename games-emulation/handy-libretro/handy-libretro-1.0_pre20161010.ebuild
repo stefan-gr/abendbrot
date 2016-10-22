@@ -6,29 +6,30 @@ EAPI=6
 
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of prosystem. (Atari 7800)"
-HOMEPAGE="https://github.com/libretro/prosystem-libretro"
-SRC_URI="https://github.com/libretro/prosystem-libretro/archive/bf6c752ddbbf1c3f7f3acee735459e75b1799e40.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="libretro implementation of Handy. (Atari Lynx)"
+HOMEPAGE="https://github.com/libretro/libretro-handy"
+SRC_URI="https://github.com/libretro/libretro-handy/archive/dda69e5ba38c9944a4cbb7fb320088d80c102813.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/prosystem-libretro-bf6c752ddbbf1c3f7f3acee735459e75b1799e40"
+S="${WORKDIR}/libretro-handy-dda69e5ba38c9944a4cbb7fb320088d80c102813"
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/prosystem-libretro.git"
+	EGIT_REPO_URI="https://github.com/libretro/libretro-handy.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86"
 fi
 
-LICENSE="GPL-2"
+LICENSE="ZLIB"
 SLOT="0"
 IUSE="debug"
 
-DEPEND=""
+DEPEND="sys-libs/zlib"
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") || die "emake failed"
 }
 
@@ -40,11 +41,10 @@ pkg_preinst() {
 
 pkg_postinst() {
 	if [[ "${first_install}" == "1" ]]; then
-		ewarn ""
-		ewarn "You need to have the following files in your 'system_directory' folder:"
-		ewarn "ProSystem.dat (Atari 7800 Database)"
-		ewarn "7800 BIOS (U).rom (Atari 7800 BIOS)"
-		ewarn ""
+		elog ""
+		elog "You should put the following optional files in your 'system_directory' folder:"
+		elog "lynxboot.img (Lynx Boot Image)"
+		elog ""
 		ewarn "This message will only be displayed once!"
 		ewarn ""
 	fi

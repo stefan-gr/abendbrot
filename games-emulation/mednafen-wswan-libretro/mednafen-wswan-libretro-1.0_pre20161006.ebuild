@@ -8,10 +8,10 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of Mednafen Cygne. (WonderSwan/WonderSwan Color)"
 HOMEPAGE="https://github.com/libretro/beetle-wswan-libretro"
-SRC_URI="https://github.com/libretro/beetle-wswan-libretro/archive/bfb908cf56c552aca50ce606e3e88944870158d2.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/libretro/beetle-wswan-libretro/archive/7d5a52a9d1f6ae8688342558ed62cba2358ffec5.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/beetle-wswan-libretro-bfb908cf56c552aca50ce606e3e88944870158d2"
+S="${WORKDIR}/beetle-wswan-libretro-7d5a52a9d1f6ae8688342558ed62cba2358ffec5"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/libretro/beetle-wswan-libretro.git"
@@ -31,5 +31,6 @@ RDEPEND="${DEPEND}
 LIBRETRO_CORE_NAME=mednafen_wswan
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") core=wswan || die "emake failed"
 }

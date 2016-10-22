@@ -6,15 +6,15 @@ EAPI=6
 
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of NEStopia. (Nintendo Entertainment System)"
-HOMEPAGE="https://github.com/libretro/nestopia"
-SRC_URI="https://github.com/libretro/nestopia/archive/d433516c2058c3d73333292aa616d35ce5bd65fb.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="libretro implementation of FCEUmm/FCEUX. (Nintendo Entertainment System)"
+HOMEPAGE="https://github.com/libretro/fceu-next"
+SRC_URI="https://github.com/libretro/fceu-next/archive/ebd46a592c23a8091abd72e74cf0d9f4517769e1.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/nestopia-d433516c2058c3d73333292aa616d35ce5bd65fb"
+S="${WORKDIR}/fceu-next-ebd46a592c23a8091abd72e74cf0d9f4517769e1"
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/nestopia.git"
+	EGIT_REPO_URI="https://github.com/libretro/fceu-next.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86"
@@ -28,10 +28,12 @@ DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
-S="${S}/libretro"
+S="${S}/fceumm-code"
+LIBRETRO_CORE_NAME=fceumm
 
 src_compile() {
-	emake $(usex debug "DEBUG=1" "") || die "emake failed"
+	filter-flags -O*
+	emake $(usex debug "DEBUG=1" "") -f Makefile.libretro
 }
 
 pkg_preinst() {

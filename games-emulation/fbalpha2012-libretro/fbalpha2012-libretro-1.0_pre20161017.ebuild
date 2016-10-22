@@ -8,10 +8,12 @@ inherit libretro-core
 
 DESCRIPTION="Final Burn Alpha 2012. Port of Final Burn Alpha to Libretro (0.2.97.24)"
 HOMEPAGE="https://github.com/libretro/fbalpha2012"
-SRC_URI="https://github.com/libretro/fbalpha2012/archive/d52f92d595df3478334e28c82bd8f9dc0f06c5cb.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/libretro/fbalpha2012/archive/c035c3966887f7e2bd4df6b2870265315939390f.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/fbalpha2012-d52f92d595df3478334e28c82bd8f9dc0f06c5cb/svn-current/trunk"
+S="${WORKDIR}/fbalpha2012-c035c3966887f7e2bd4df6b2870265315939390f"
+
+S="${S}/svn-current/trunk"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/libretro/fbalpha2012.git"
@@ -29,8 +31,8 @@ RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 src_compile() {
-	myemakeargs=(
-		$(usex debug "DEBUG=1" "")
-	)
-	emake "${myemakeargs[@]}" -f makefile.libretro || die "emake failed"
+	# Doesn't work properly with -O3 and sets its own depending on need.
+	# https://github.com/stefan-gr/abendbrot/issues/42
+	filter-flags -O*
+	emake $(usex debug "DEBUG=1" "") -f makefile.libretro || die "emake failed"
 }

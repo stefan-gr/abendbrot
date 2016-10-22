@@ -8,10 +8,10 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of Mednafen PSX. (PlayStation, beetle version)"
 HOMEPAGE="https://github.com/libretro/beetle-psx-libretro"
-SRC_URI="https://github.com/libretro/beetle-psx-libretro/archive/f0ac0ddd09e4b3d4641a3ed29e1438647119d9b8.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/libretro/beetle-psx-libretro/archive/73f52b3398bdf168628400f264b30c4d920ed423.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/beetle-psx-libretro-f0ac0ddd09e4b3d4641a3ed29e1438647119d9b8"
+S="${WORKDIR}/beetle-psx-libretro-73f52b3398bdf168628400f264b30c4d920ed423"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/libretro/beetle-psx-libretro.git"
@@ -31,6 +31,7 @@ RDEPEND="${DEPEND}
 LIBRETRO_CORE_NAME=beetle_psx
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") core=psx || die "emake failed"
 }
 

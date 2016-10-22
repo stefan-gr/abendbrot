@@ -8,10 +8,10 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of 2048. (Puzzle game)"
 HOMEPAGE="https://github.com/libretro/libretro-2048"
-SRC_URI="https://github.com/libretro/libretro-2048/archive/937e3de2c34d326b27d5414882e5a9b2991186b0.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/libretro/libretro-2048/archive/142fbf4803a52d921a67f97583172b6dbb19d274.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/libretro-2048-937e3de2c34d326b27d5414882e5a9b2991186b0"
+S="${WORKDIR}/libretro-2048-142fbf4803a52d921a67f97583172b6dbb19d274"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/libretro/libretro-2048.git"
@@ -29,5 +29,6 @@ RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") -f Makefile.libretro || die "emake failed"
 }

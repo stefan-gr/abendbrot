@@ -8,10 +8,10 @@ inherit libretro-core
 
 DESCRIPTION="Snes9x 2002. Port of SNES9x 1.39 for libretro (previously PocketSNES)"
 HOMEPAGE="https://github.com/libretro/snes9x2002"
-SRC_URI="https://github.com/libretro/snes9x2002/archive/fd7b58a53c5bae84075642f75c74e51ed5d9a22e.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/libretro/snes9x2002/archive/32cfef97a6f652c6f23c35db0a00eb1cd2d8b320.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/snes9x2002-fd7b58a53c5bae84075642f75c74e51ed5d9a22e"
+S="${WORKDIR}/snes9x2002-32cfef97a6f652c6f23c35db0a00eb1cd2d8b320"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="git://github.com/libretro/snes9x2002.git"
@@ -29,5 +29,6 @@ RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") || die "emake failed"
 }

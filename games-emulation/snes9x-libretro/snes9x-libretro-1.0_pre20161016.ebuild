@@ -8,10 +8,10 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of SNES9x. (Super Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/snes9x"
-SRC_URI="https://github.com/libretro/snes9x/archive/dc471a43fa558e1a5b7c763b8da95688900d6b83.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/libretro/snes9x/archive/b826cb9437bb981a2f1846414e47b75f25efb19d.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/snes9x-dc471a43fa558e1a5b7c763b8da95688900d6b83"
+S="${WORKDIR}/snes9x-b826cb9437bb981a2f1846414e47b75f25efb19d"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/libretro/snes9x.git"
@@ -32,6 +32,7 @@ MY_S="${S}"
 S="${S}/libretro"
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") || die "emake failed"
 }
 

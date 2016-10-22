@@ -6,12 +6,12 @@ EAPI=6
 
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of mupen64plus (Nintendo64)"
+DESCRIPTION="libretro implementation of mupen64plus with vulkan support (Nintendo 64 (ParaLLEl))"
 HOMEPAGE="https://github.com/libretro/mupen64plus-libretro"
-SRC_URI="https://github.com/libretro/mupen64plus-libretro/archive/1fb74f9961e81b7d8ae6b3d6c8040b4b9e0102a7.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/libretro/mupen64plus-libretro/archive/cb5f983eeed8a82c4e48cbda07cdb929b9a1f74c.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/mupen64plus-libretro-1fb74f9961e81b7d8ae6b3d6c8040b4b9e0102a7"
+S="${WORKDIR}/mupen64plus-libretro-cb5f983eeed8a82c4e48cbda07cdb929b9a1f74c"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="git://github.com/libretro/mupen64plus-libretro.git"
@@ -22,22 +22,22 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug gles2"
+IUSE="debug"
 
-DEPEND="media-libs/mesa:0=
-		gles2? ( media-libs/mesa[gles2] )"
+DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 src_compile() {
 	#this one could get some love from arm owners
+	filter-flags -O*
 	myemakeargs=(
 		$(usex amd64 "WITH_DYNAREC=x86_64" "")
 		$(usex x86 "WITH_DYNAREC=x86" "")
 		$(usex arm "platform=rpi WITH_DYNAREC=arm" "")
 		$(usex arm64 "platform=rpi WITH_DYNAREC=arm" "")
 		$(usex debug "DEBUG=1" "")
-		$(usex gles2 "GLES=1" "")
+		"HAVE_VULKAN=1"
 	)
 	emake "${myemakeargs[@]}" || die "emake failed"
 }

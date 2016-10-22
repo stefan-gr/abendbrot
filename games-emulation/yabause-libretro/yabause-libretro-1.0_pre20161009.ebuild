@@ -6,29 +6,32 @@ EAPI=6
 
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of Handy. (Atari Lynx)"
-HOMEPAGE="https://github.com/libretro/libretro-handy"
-SRC_URI="https://github.com/libretro/libretro-handy/archive/e92f1bd3505c1a914924bf8ef3c741eba93c403c.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="libretro implementation of Yabause. (Sega Saturn)"
+HOMEPAGE="https://github.com/libretro/yabause"
+SRC_URI="https://github.com/libretro/yabause/archive/dac3c5ad67c48f032a99f5109bf718673357bb39.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/libretro-handy-e92f1bd3505c1a914924bf8ef3c741eba93c403c"
+S="${WORKDIR}/yabause-dac3c5ad67c48f032a99f5109bf718673357bb39"
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/libretro-handy.git"
+	EGIT_REPO_URI="https://github.com/libretro/yabause.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86"
 fi
 
-LICENSE="ZLIB"
+LICENSE="GPL-2"
 SLOT="0"
 IUSE="debug"
 
-DEPEND="sys-libs/zlib"
+DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
+S="${S}/libretro"
+
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") || die "emake failed"
 }
 
@@ -42,7 +45,7 @@ pkg_postinst() {
 	if [[ "${first_install}" == "1" ]]; then
 		elog ""
 		elog "You should put the following optional files in your 'system_directory' folder:"
-		elog "lynxboot.img (Lynx Boot Image)"
+		elog "saturn_bios.bin (Saturn BIOS)"
 		elog ""
 		ewarn "This message will only be displayed once!"
 		ewarn ""

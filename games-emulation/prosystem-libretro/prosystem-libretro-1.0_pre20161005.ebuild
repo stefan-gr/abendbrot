@@ -6,15 +6,15 @@ EAPI=6
 
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of Yabause. (Sega Saturn)"
-HOMEPAGE="https://github.com/libretro/yabause"
-SRC_URI="https://github.com/libretro/yabause/archive/9bf7ce52219b7a4bdbebe8f5fc7a0b25fc9989f8.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="libretro implementation of prosystem. (Atari 7800)"
+HOMEPAGE="https://github.com/libretro/prosystem-libretro"
+SRC_URI="https://github.com/libretro/prosystem-libretro/archive/5430fbd8026544eb817398268d29f8806257a5a2.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/yabause-9bf7ce52219b7a4bdbebe8f5fc7a0b25fc9989f8"
+S="${WORKDIR}/prosystem-libretro-5430fbd8026544eb817398268d29f8806257a5a2"
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/yabause.git"
+	EGIT_REPO_URI="https://github.com/libretro/prosystem-libretro.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86"
@@ -28,9 +28,8 @@ DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
-S="${S}/libretro"
-
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") || die "emake failed"
 }
 
@@ -42,10 +41,11 @@ pkg_preinst() {
 
 pkg_postinst() {
 	if [[ "${first_install}" == "1" ]]; then
-		elog ""
-		elog "You should put the following optional files in your 'system_directory' folder:"
-		elog "saturn_bios.bin (Saturn BIOS)"
-		elog ""
+		ewarn ""
+		ewarn "You need to have the following files in your 'system_directory' folder:"
+		ewarn "ProSystem.dat (Atari 7800 Database)"
+		ewarn "7800 BIOS (U).rom (Atari 7800 BIOS)"
+		ewarn ""
 		ewarn "This message will only be displayed once!"
 		ewarn ""
 	fi

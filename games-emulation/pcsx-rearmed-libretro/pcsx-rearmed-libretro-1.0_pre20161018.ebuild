@@ -8,10 +8,10 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of PCSX ReARMed. (PlayStation)"
 HOMEPAGE="https://github.com/libretro/pcsx_rearmed"
-SRC_URI="https://github.com/libretro/pcsx_rearmed/archive/1cc8c854f8161cd0251a9b92929ad01584031ed3.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/libretro/pcsx_rearmed/archive/1aa232fb3eb8fdf2242d251bfd2770e4de1b2c37.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/pcsx_rearmed-1cc8c854f8161cd0251a9b92929ad01584031ed3"
+S="${WORKDIR}/pcsx_rearmed-1aa232fb3eb8fdf2242d251bfd2770e4de1b2c37"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/libretro/pcsx_rearmed.git"
@@ -48,6 +48,7 @@ src_configure() {
 }
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") || die "emake failed"
 }
 

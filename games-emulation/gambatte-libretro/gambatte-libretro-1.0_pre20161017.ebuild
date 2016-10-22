@@ -6,15 +6,15 @@ EAPI=6
 
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of DeSmuME. (Nintendo DS)"
-HOMEPAGE="https://github.com/libretro/desmume"
-SRC_URI="https://github.com/libretro/desmume/archive/13086eb35d660dc5addd23d3c6b214fec72cd8d9.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="libretro implementation of Gambatte. (Game Boy/Game Boy Color)"
+HOMEPAGE="https://github.com/libretro/gambatte-libretro"
+SRC_URI="https://github.com/libretro/gambatte-libretro/archive/3e8d200624e6153455317d6d2d29b3fe2c088b82.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/desmume-13086eb35d660dc5addd23d3c6b214fec72cd8d9"
+S="${WORKDIR}/gambatte-libretro-3e8d200624e6153455317d6d2d29b3fe2c088b82"
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/desmume.git"
+	EGIT_REPO_URI="https://github.com/libretro/gambatte-libretro.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86"
@@ -28,8 +28,7 @@ DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
-S="${S}/desmume"
-
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") -f Makefile.libretro || die "emake failed"
 }

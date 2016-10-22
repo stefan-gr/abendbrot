@@ -8,10 +8,10 @@ inherit libretro
 
 DESCRIPTION="Repository containing cheatcode files, content data files, etc."
 HOMEPAGE="https://github.com/libretro/libretro-database"
-SRC_URI="https://github.com/libretro/libretro-database/archive/bfad2689494f3fbc8a1d82feb957dbea5f386034.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/libretro/libretro-database/archive/873c05b1bae8f1b914b9316877c6feb7d8b31b58.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/libretro-database-bfad2689494f3fbc8a1d82feb957dbea5f386034"
+S="${WORKDIR}/libretro-database-873c05b1bae8f1b914b9316877c6feb7d8b31b58"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3

@@ -8,10 +8,10 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of VBA Next. (Game Boy Advance)"
 HOMEPAGE="https://github.com/libretro/vba-next"
-SRC_URI="https://github.com/libretro/vba-next/archive/6b74dbeafa23390c5aaa66d9519c093f88afde40.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/libretro/vba-next/archive/344f7ca10cd8c867bf6e898bf5c8164157567525.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/vba-next-6b74dbeafa23390c5aaa66d9519c093f88afde40"
+S="${WORKDIR}/vba-next-344f7ca10cd8c867bf6e898bf5c8164157567525"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/libretro/vba-next.git"
@@ -37,5 +37,6 @@ src_compile() {
 		$(usex debug "DEBUG=1" "")
 		$(usex tiled_rendering "TILED_RENDERING=1" "")
 	)
+	filter-flags -O*
 	emake "${myemakeargs[@]}" -f Makefile.libretro || die "emake failed"
 }

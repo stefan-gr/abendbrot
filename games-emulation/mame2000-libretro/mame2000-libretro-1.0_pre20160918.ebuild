@@ -8,10 +8,10 @@ inherit libretro-core
 
 DESCRIPTION="MAME2000 (0.37b5) for libretro."
 HOMEPAGE="https://github.com/libretro/mame2000-libretro"
-SRC_URI="https://github.com/libretro/mame2000-libretro/archive/c8b4bbfe572bcd8da1329898e7dfc0c13371fd2c.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/libretro/mame2000-libretro/archive/0941ae01b206f012d4be0d12b768a1050ef7b7ea.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/mame2000-libretro-c8b4bbfe572bcd8da1329898e7dfc0c13371fd2c"
+S="${WORKDIR}/mame2000-libretro-0941ae01b206f012d4be0d12b768a1050ef7b7ea"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/libretro/mame2000-libretro.git"
@@ -29,5 +29,6 @@ RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") || die "emake failed"
 }

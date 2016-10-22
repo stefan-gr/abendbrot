@@ -8,10 +8,10 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of 4DO/libfreedo. (Panasonic 3DO)"
 HOMEPAGE="https://github.com/libretro/4do-libretro"
-SRC_URI="https://github.com/libretro/4do-libretro/archive/cbd700e2bb95f08f241ca24330fa732aa6af8018.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/libretro/4do-libretro/archive/f4333015cc9ca055c7a3f8188f703c2874bf1dd2.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/4do-libretro-cbd700e2bb95f08f241ca24330fa732aa6af8018"
+S="${WORKDIR}/4do-libretro-f4333015cc9ca055c7a3f8188f703c2874bf1dd2"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/libretro/4do-libretro.git"
@@ -29,6 +29,7 @@ RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") || die "emake failed"
 }
 

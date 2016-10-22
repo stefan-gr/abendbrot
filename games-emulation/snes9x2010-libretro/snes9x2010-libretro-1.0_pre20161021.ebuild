@@ -8,10 +8,10 @@ inherit libretro-core
 
 DESCRIPTION="Snes9x 2010. Port of Snes9x 1.52+ to Libretro (previously called SNES9x Next)"
 HOMEPAGE="https://github.com/libretro/snes9x2010"
-SRC_URI="https://github.com/libretro/snes9x2010/archive/906065d939e1c9b2e5d1e52311d4c6f4f6420db5.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/libretro/snes9x2010/archive/ac2c080d2107af1dbd55c60438b983fc4f23d224.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/snes9x2010-906065d939e1c9b2e5d1e52311d4c6f4f6420db5"
+S="${WORKDIR}/snes9x2010-ac2c080d2107af1dbd55c60438b983fc4f23d224"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/libretro/snes9x2010.git"
@@ -29,6 +29,7 @@ RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") -f Makefile.libretro
 }
 

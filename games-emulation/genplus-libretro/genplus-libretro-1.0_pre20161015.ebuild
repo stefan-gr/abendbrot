@@ -9,10 +9,10 @@ inherit libretro-core
 DESCRIPTION="libretro implementation of Genesis Plus GX. \
 (Sega Genesis/Sega CD)"
 HOMEPAGE="https://github.com/libretro/Genesis-Plus-GX"
-SRC_URI="https://github.com/libretro/Genesis-Plus-GX/archive/0bcf4ced215f497efb0b1bb9e2088207a128388b.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/libretro/Genesis-Plus-GX/archive/257bb97ce9ff3f2b7f66a9408dd39c3c1f84e7b9.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/Genesis-Plus-GX-0bcf4ced215f497efb0b1bb9e2088207a128388b"
+S="${WORKDIR}/Genesis-Plus-GX-257bb97ce9ff3f2b7f66a9408dd39c3c1f84e7b9"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/libretro/Genesis-Plus-GX.git"
@@ -32,6 +32,7 @@ RDEPEND="${DEPEND}
 LIBRETRO_CORE_NAME=genesis_plus_gx
 
 src_compile() {
+	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "") -f Makefile.libretro || die "emake failed"
 }
 

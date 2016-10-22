@@ -52,10 +52,10 @@ inherit libretro-core cmake-utils
 
 DESCRIPTION="libretro implementation of mGBA. (Game Boy Advance)"
 HOMEPAGE="https://github.com/mgba-emu/mgba"
-SRC_URI="https://github.com/mgba-emu/mgba/archive/57c127589067d0b6e94083043134c2e5ac732449.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/mgba-emu/mgba/archive/8561c80a1c43392523ca3be614f2ae8d72b3a469.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/mgba-57c127589067d0b6e94083043134c2e5ac732449"
+S="${WORKDIR}/mgba-8561c80a1c43392523ca3be614f2ae8d72b3a469"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/mgba-emu/mgba.git"
@@ -66,7 +66,7 @@ fi
 
 LICENSE="MPL-2.0"
 SLOT="0"
-IUSE="+blipbuf epoxy ffmpeg gles2 imagemagick lto lzma +opengl pgo pgopost png +zip zlib"
+IUSE="epoxy ffmpeg gles2 imagemagick lto lzma +opengl pgo pgopost png +zip zlib"
 REQUIRED_USE="
 	epoxy? ( gles2 )
 	gles2? ( opengl )
@@ -104,7 +104,7 @@ src_configure() {
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}${PREFIX}"
 		-DCMAKE_INSTALL_DOCDIR="${EPREFIX}${PREFIX}"/share/doc
 		-DCMAKE_INSTALL_MANDIR="${EPREFIX}${PREFIX}"/share/man/man1
-		-DLIBDIR="$(get_libdir)"/libretro
+		-DCMAKE_INSTALL_LIBDIR="${EPREFIX}${PREFIX}/$(get_libdir)"/libretro
 		-DPGO_DIR="${T}"/pgo
 
 		# Enable only mGBA's Libretro core as a statically linked library.
@@ -120,7 +120,6 @@ src_configure() {
 		-DUSE_GDB_STUB=OFF
 
 		# Set USE flag-dependent options.
-		-DUSE_BLIP=$(usex blipbuf ON OFF)
 		-DUSE_EPOXY=$(usex epoxy ON OFF)
 		-DUSE_FFMPEG=$(usex ffmpeg ON OFF)
 		-DBUILD_GLES2=$(usex gles2 ON OFF)
@@ -128,7 +127,7 @@ src_configure() {
 		-DBUILD_LTO=$(usex lto ON OFF)
 		-DBUILD_GL=$(usex opengl ON OFF)
 		-DBUILD_PGO=$(usex pgo ON OFF)
-		-DUSE_PGO_STAGE_2=$(usex pgopost ON OFF)
+		-DPGO_STAGE_2=$(usex pgopost ON OFF)
 		-DUSE_PNG=$(usex png ON OFF)
 		-DUSE_LIBZIP=$(usex zip ON OFF)
 		-DUSE_ZLIB=$(usex zlib ON OFF)

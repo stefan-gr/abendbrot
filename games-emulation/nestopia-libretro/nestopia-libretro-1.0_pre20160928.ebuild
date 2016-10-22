@@ -6,15 +6,15 @@ EAPI=6
 
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of Mednafen PCE Fast. (PC Engine/TurboGrafx-16)"
-HOMEPAGE="https://github.com/libretro/beetle-pce-fast-libretro"
-SRC_URI="https://github.com/libretro/beetle-pce-fast-libretro/archive/8ed1278514634ab2128d2da7c721f8e01ddb294b.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="libretro implementation of NEStopia. (Nintendo Entertainment System)"
+HOMEPAGE="https://github.com/libretro/nestopia"
+SRC_URI="https://github.com/libretro/nestopia/archive/52f9fdba67bdca0205e89a7fa67e2e4d52cbf7f5.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"
 
-S="${WORKDIR}/beetle-pce-fast-libretro-8ed1278514634ab2128d2da7c721f8e01ddb294b"
+S="${WORKDIR}/nestopia-52f9fdba67bdca0205e89a7fa67e2e4d52cbf7f5"
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/beetle-pce-fast-libretro.git"
+	EGIT_REPO_URI="https://github.com/libretro/nestopia.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86"
@@ -28,10 +28,11 @@ DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
-LIBRETRO_CORE_NAME=mednafen_pce_fast
+S="${S}/libretro"
 
 src_compile() {
-	emake $(usex debug "DEBUG=1" "") core=pce-fast || die "emake failed"
+	filter-flags -O*
+	emake $(usex debug "DEBUG=1" "") || die "emake failed"
 }
 
 pkg_preinst() {
@@ -44,7 +45,7 @@ pkg_postinst() {
 	if [[ "${first_install}" == "1" ]]; then
 		ewarn ""
 		ewarn "You need to have the following files in your 'system_directory' folder:"
-		ewarn "syscard3.pce (PCE-CD BIOS)"
+		ewarn "disksys.rom (Famicom Disk System BIOS)"
 		ewarn ""
 		ewarn "This message will only be displayed once!"
 		ewarn ""

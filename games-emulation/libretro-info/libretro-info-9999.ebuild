@@ -24,16 +24,6 @@ SLOT="0"
 DEPEND=""
 RDEPEND="${DEPEND}"
 
-pkg_pretend() {
-	if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then
-		elog ""
-		elog "If this ebuild complains about file collisions, then emerge again with:"
-		elog "FEATURES=\"-collision-detect -protect-owned\""
-		elog "This is caused by the info file move from individual ebuilds to this one."
-		elog ""
-	fi
-}
-
 src_compile() {
 	:
 }
