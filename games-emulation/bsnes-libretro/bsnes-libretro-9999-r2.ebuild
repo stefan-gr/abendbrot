@@ -99,7 +99,6 @@ pkg_postinst() {
 		elog "DSP4 games: Top Gear 3000"
 		elog "Cx4 games: Mega Man X2 / Mega Man X3"
 		elog ""
-		ewarn "This message will only be displayed once!"
 		ewarn ""
 	fi
 }

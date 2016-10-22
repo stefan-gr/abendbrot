@@ -57,7 +57,6 @@ pkg_postinst() {
 		ewarn "bios_CD_U.bin (SegaCD US BIOS)"
 		ewarn "bios_CD_J.bin (MegaCD JP BIOS)"
 		ewarn ""
-		ewarn "This message will only be displayed once!"
 		ewarn ""
 	fi
 }

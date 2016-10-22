@@ -58,7 +58,6 @@ pkg_postinst() {
 		elog "areplay.bin (Action Replay (Pro) ROM)"
 		elog "ggenie.bin (Game Genie ROM)"
 		elog ""
-		ewarn "This message will only be displayed once!"
 		ewarn ""
 	fi
 }

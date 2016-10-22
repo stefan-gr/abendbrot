@@ -47,7 +47,6 @@ pkg_postinst() {
 		ewarn "You need to have the following files in your 'system_directory' folder:"
 		ewarn "disksys.rom (Famicom Disk System BIOS)"
 		ewarn ""
-		ewarn "This message will only be displayed once!"
 		ewarn ""
 	fi
 }

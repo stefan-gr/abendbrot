@@ -54,7 +54,6 @@ pkg_postinst() {
 		ewarn "scph5501.bin md5sum = 490f666e1afb15b7362b406ed1cea246"
 		ewarn "scph5502.bin md5sum = 32736f17079d0b2b7024407c39bd3050"
 		ewarn ""
-		ewarn "This message will only be displayed once!"
 		ewarn ""
 	fi
 }

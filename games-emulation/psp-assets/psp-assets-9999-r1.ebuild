@@ -68,7 +68,6 @@ pkg_postinst() {
 		ewarn "\$ mkdir -p ~/.local/share/retroarch/system/"
 		ewarn "\$ cp -r ${ASSETS_DIR} ~/.local/share/retroarch/system/"
 		ewarn ""
-		ewarn "This message will only be displayed once!"
 		ewarn ""
 	fi
 }

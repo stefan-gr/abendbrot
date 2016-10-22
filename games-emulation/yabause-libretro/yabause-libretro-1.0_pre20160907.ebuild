@@ -47,7 +47,6 @@ pkg_postinst() {
 		elog "You should put the following optional files in your 'system_directory' folder:"
 		elog "saturn_bios.bin (Saturn BIOS)"
 		elog ""
-		ewarn "This message will only be displayed once!"
 		ewarn ""
 	fi
 }

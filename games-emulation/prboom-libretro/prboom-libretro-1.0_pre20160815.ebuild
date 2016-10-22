@@ -52,7 +52,6 @@ pkg_postinst() {
 		elog ""
 		elog "\$ cp -r ${LIBRETRO_DATA_DIR}/prboom_libretro/prboom.wad ~/"
 		elog ""
-		ewarn "This message will only be displayed once!"
 		ewarn ""
 	fi
 }

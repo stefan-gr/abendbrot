@@ -45,7 +45,6 @@ pkg_postinst() {
 		ewarn "You need to have the following file in your 'system_directory' folder:"
 		ewarn "panafz10.bin (Panasonic FZ-10 BIOS)"
 		ewarn ""
-		ewarn "This message will only be displayed once!"
 		ewarn ""
 	fi
 }

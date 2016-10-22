@@ -45,7 +45,6 @@ pkg_postinst() {
 		elog "You should put the following optional files in your 'system_directory' folder:"
 		elog "lynxboot.img (Lynx Boot Image)"
 		elog ""
-		ewarn "This message will only be displayed once!"
 		ewarn ""
 	fi
 }
