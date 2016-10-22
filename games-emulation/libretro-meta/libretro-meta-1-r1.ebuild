@@ -8,10 +8,10 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+2048 +4do +beetle-psx bnes +bsnes +desmume dolphin +fbalpha fbalpha2012 fceu-next +gambatte +genplus \
+IUSE="+2048 +4do +beetle-psx bnes +bsnes craft +desmume dolphin +fbalpha fbalpha2012 fceu-next +gambatte +genplus \
 +handy mame mame2000 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
 mednafen-snes +mednafen-vb +mednafen-wswan meteor +mgba +mupen64plus +nestopia +nxengine \
-pcsx-rearmed +mednafen-supergrafx parallel picodrive ppsspp +prboom +prosystem +psp1 quicknes +scummvm \
+pcsx-rearmed +mednafen-supergrafx parallel picodrive ppsspp +prboom +prosystem +psp1 quicknes +reicast +scummvm \
 snes9x snes9x2002 snes9x2010 +stella tgbdual +tyrquake vba-next vbam +yabause"
 
 KEYWORDS="amd64 x86"
@@ -21,6 +21,7 @@ RDEPEND="2048? ( games-emulation/2048-libretro )
 		beetle-psx? ( games-emulation/beetle-psx-libretro )
 		bnes? ( games-emulation/bnes-libretro )
 		bsnes? ( games-emulation/bsnes-libretro )
+		craft? ( games-emulation/craft-libretro )
 		desmume? ( games-emulation/desmume-libretro )
 		dolphin? ( games-emulation/dolphin-libretro )
 		fbalpha? ( games-emulation/fbalpha-libretro )
@@ -51,6 +52,7 @@ RDEPEND="2048? ( games-emulation/2048-libretro )
 		prosystem? ( games-emulation/prosystem-libretro )
 		psp1? ( games-emulation/psp1-libretro )
 		quicknes? ( games-emulation/quicknes-libretro )
+		reicast? ( games-emulation/reicast-libretro )
 		scummvm? ( games-emulation/scummvm-libretro )
 		snes9x2002? ( games-emulation/snes9x2002-libretro )
 		snes9x2010? ( games-emulation/snes9x2010-libretro )
