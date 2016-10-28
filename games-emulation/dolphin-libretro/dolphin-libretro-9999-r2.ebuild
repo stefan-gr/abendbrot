@@ -45,6 +45,7 @@ RDEPEND="${DEPEND}
 S="${S}"/libretro
 
 src_prepare() {
+	default_src_prepare
 	#fixing ARCH detection
 	sed -i Makefile \
 		-e 's:$(ARCH):$(REAL_ARCH):' || die
