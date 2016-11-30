@@ -24,7 +24,7 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="debug"
 
-DEPEND=""
+DEPEND="!games-emulation/fceumm-libretro"
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 

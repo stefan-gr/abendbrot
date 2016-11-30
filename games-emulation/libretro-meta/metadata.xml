@@ -15,7 +15,7 @@
     <flag name='dolphin'>adds <pkg>games-emulation/dolphin-libretro</pkg> as dependency</flag>
     <flag name='fbalpha'>adds <pkg>games-emulation/fbalpha-libretro</pkg> as dependency</flag>
     <flag name='fbalpha2012'>adds <pkg>games-emulation/fbalpha2012-libretro</pkg> as dependency</flag>
-    <flag name='fceu-next'>adds <pkg>games-emulation/fceu-next-libretro</pkg> as dependency</flag>
+    <flag name='fceum'>adds <pkg>games-emulation/fceumm-libretro</pkg> or <pkg>games-emulation/fceu-next-libretro</pkg> as dependency</flag>
     <flag name='gambatte'>adds <pkg>games-emulation/gambatte-libretro</pkg> as dependency</flag>
     <flag name='genplus'>adds <pkg>games-emulation/genplus-libretro</pkg> as dependency</flag>
     <flag name='handy'>adds <pkg>games-emulation/handy-libretro</pkg> as dependency</flag>

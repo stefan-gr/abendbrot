@@ -6,12 +6,12 @@ EAPI=6
 
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of FCEUmm/FCEUX. (Nintendo Entertainment System)"
-HOMEPAGE="https://github.com/libretro/fceu-next"
+DESCRIPTION=" FCEUmm libretro port.  (Nintendo Entertainment System)"
+HOMEPAGE="https://github.com/libretro/libretro-fceumm"
 SRC_URI=""
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/fceu-next.git"
+	EGIT_REPO_URI="https://github.com/libretro/libretro-fceumm.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86"
@@ -21,12 +21,9 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="debug"
 
-DEPEND="!games-emulation/fceumm-libretro"
+DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
-
-S="${S}/fceumm-code"
-LIBRETRO_CORE_NAME=fceumm
 
 src_compile() {
 	filter-flags -O*
