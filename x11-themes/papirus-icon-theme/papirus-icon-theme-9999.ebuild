@@ -20,6 +20,6 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 
 src_install() {
-	insinto /usr/share
+	insinto /usr/share/icons
 	doins -r Papirus Papirus-Dark
 }
