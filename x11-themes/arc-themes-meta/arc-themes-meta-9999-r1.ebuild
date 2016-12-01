@@ -14,5 +14,5 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+gtk +plasma"
 
 DEPEND="gtk? ( x11-themes/gtk-themes-arc )
-		plasma? ( x11-themes/arc-kde x11-themes/arc-dark-kde )"
+		plasma? ( x11-themes/arc-kde )"
 RDEPEND="${DEPEND}"
