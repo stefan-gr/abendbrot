@@ -26,6 +26,7 @@
     <flag name='libass'>Enable libass SSA/ASS FFmpeg-based subtitle support</flag>
     <flag name='libusb'>Enable libusb gamepad support</flag>
     <flag name='materialui'>Enable materialui menu (named glui in driver selection)</flag>
+    <flag name='miniupnpc'>Enable  Mini UPnP client library (for NAT traversal)</flag>
     <flag name='network'>Enable network support (recommended)</flag>
     <flag name='netplay'>Enable netplay support</flag>
     <flag name='openal'>Enable OpenAL audio support</flag>

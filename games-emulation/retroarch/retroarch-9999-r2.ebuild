@@ -22,7 +22,7 @@ SLOT="0"
 # To avoid fatal dependency failures for users enabling the "python" USE flag, a
 # default "python_single_target_python*" USE flag *MUST* be set below to the
 # default version of Python 3 for default Portage profiles.
-IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug dispmanx egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl osmesa oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python python_single_target_python3_3 +python_single_target_python3_4 python_single_target_python3_5"
+IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug dispmanx egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui miniupnpc +netplay +neon +network openal +opengl osmesa oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python python_single_target_python3_3 +python_single_target_python3_4 python_single_target_python3_5"
 
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
@@ -59,6 +59,7 @@ RDEPEND="
 	joypad_autoconfig? ( games-emulation/retroarch-joypad-autoconfig:0= )
 	libass? ( media-libs/libass:0= )
 	libusb? ( virtual/libusb:1= )
+	miniupnpc? ( <net-libs/miniupnpc-1.9.0:0= )
 	openal? ( media-libs/openal:0= )
 	opengl? ( media-libs/mesa:0=[egl?,gles2?] )
 	osmesa? ( media-libs/mesa:0=[osmesa?] )
@@ -197,6 +198,7 @@ src_configure() {
 		$(use_enable libass ssa) \
 		$(use_enable libusb) \
 		$(use_enable materialui) \
+		$(use_enable miniupnpc) \
 		$(use_enable network networking) \
 		$(use_enable neon) \
 		$(use_enable openal al) \
