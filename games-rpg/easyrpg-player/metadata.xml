@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+	<email>stefan.gert.r@gmail.com</email>
+	<description>Primary maintainer</description>
+</maintainer>
+<longdescription>RPG Maker 2000/2003 and EasyRPG games interpreter https://easyrpg.org/player/ </longdescription>
+</pkgmetadata>
