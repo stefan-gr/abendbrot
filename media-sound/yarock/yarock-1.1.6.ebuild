@@ -14,8 +14,8 @@ SRC_URI="https://launchpad.net/${PN}/1.x/${PV}/+download/${MY_P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE="mpv +phonon +qt5 vlc"
+KEYWORDS="~amd64 ~x86"
+IUSE="mpv phonon +qt5 +vlc"
 
 DEPEND="
 	!qt5? (
@@ -40,7 +40,7 @@ DEPEND="
 	)
 	vlc? ( >=media-video/vlc-2.2.0 )
 	>=dev-libs/qjson-0.8.1
-	<media-libs/taglib-1.10
+	>=media-libs/taglib-1.9.1-r2
 	>=net-libs/htmlcxx-0.85
 	mpv? ( >=media-video/mpv-0.8.3-r1[libmpv] )
 "
@@ -49,25 +49,11 @@ RDEPEND="${DEPEND}"
 
 REQUIRED_USE="|| ( mpv phonon vlc )"
 
-DOCS="CHANGES README"
+DOCS="CHANGES.md README.md"
 
 S="${WORKDIR}/${MY_P}"
 
-src_prepare() {
-	#fix library path
-	sed -i CMakeLists.txt \
-		-e "s:/lib/yarock:/$(get_libdir)/yarock:" \
-		|| die
-	sed -i src/core/player/mpv/CMakeLists.txt \
-		-e "s:/lib:/$(get_libdir):" \
-		|| die
-	sed -i src/core/player/phonon/CMakeLists.txt \
-		-e "s:/lib:/$(get_libdir):" \
-		|| die
-	sed -i src/core/player/vlc/CMakeLists.txt \
-		-e "s:/lib:/$(get_libdir):" \
-		|| die
-
+src_prepare(){
 	if use phonon; then
 		# Workaround for phonon includes, they changed a while ago.
 		if use qt5; then
@@ -100,7 +86,6 @@ src_prepare() {
 				|| die '"sed" failed.'
 		fi
 	fi
-
 	cmake-utils_src_prepare
 }
 
