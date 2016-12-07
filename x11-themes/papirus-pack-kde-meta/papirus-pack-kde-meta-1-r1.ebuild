@@ -7,7 +7,7 @@ EAPI=6
 DESCRIPTION="Papirus customization for KDE distros"
 HOMEPAGE="https://github.com/PapirusDevelopmentTeam"
 SRC_URI=""
-LICENSE=""
+LICENSE="metapackage"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
