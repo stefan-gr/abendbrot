@@ -5,4 +5,7 @@
     <email>stefan.gert.r@gmail.com</email>
     <name>stefan-gr</name>
   </maintainer>
+  <use>
+    <flag name='gles2'>Use GLESv2 instead of OpenGL</flag>
+  </use>
 </pkgmetadata>
