@@ -6,7 +6,7 @@ EAPI=6
 
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of mupen64plus with vulkan support (Nintendo 64 (ParaLLEl))"
+DESCRIPTION="libretro implementation of mupen64plus with vulkan support (Nintendo 64)"
 HOMEPAGE="https://github.com/libretro/mupen64plus-libretro"
 SRC_URI=""
 
