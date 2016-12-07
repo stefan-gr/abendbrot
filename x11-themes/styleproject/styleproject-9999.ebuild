@@ -11,7 +11,7 @@ HOMEPAGE="http://sourceforge.net/p/styleproject"
 SRC_URI=""
 EGIT_REPO_URI="git://git.code.sf.net/p/styleproject/code.git"
 
-LICENSE=""
+LICENSE="GPL-2"
 
 SLOT="0"
 
@@ -19,7 +19,7 @@ KEYWORDS="~x86 ~amd64"
 IUSE="+qt5"
 
 DEPEND="!qt5? ( dev-qt/qtdbus:4
-		kde-base/kwin
+		kde-plasma/kwin:4=
 	)
 	qt5? (
 		dev-qt/qtdbus:5
