@@ -11,7 +11,7 @@ HOMEPAGE="http://dfilemanager.sourceforge.net/"
 SRC_URI=""
 EGIT_REPO_URI="git://git.code.sf.net/p/dfilemanager/code"
 
-LICENSE=""
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="qt5"
