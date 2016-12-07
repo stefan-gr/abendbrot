@@ -6,6 +6,7 @@
     <name>stefan-gr</name>
   </maintainer>
   <use>
+    <flag name='gles2'>Use GLESv2 instead of OpenGL</flag>
     <flag name="naomi">Additionally build NAOMI enabled core</flag>
   </use>
 </pkgmetadata>
