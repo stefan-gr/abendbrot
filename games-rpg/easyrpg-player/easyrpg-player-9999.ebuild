@@ -21,7 +21,7 @@ else
 	S="${WORKDIR}/Player-${PV}"
 fi
 
-LICENSE=""
+LICENSE="GPL-3"
 SLOT="0"
 
 DEPEND="dev-libs/liblcf:0=
