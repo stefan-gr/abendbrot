@@ -4,7 +4,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{3_2,3_3,3_4,3_5} )
+PYTHON_COMPAT=( python{3_4,3_5} )
 
 inherit flag-o-matic libretro python-single-r1
 
@@ -22,7 +22,7 @@ SLOT="0"
 # To avoid fatal dependency failures for users enabling the "python" USE flag, a
 # default "python_single_target_python*" USE flag *MUST* be set below to the
 # default version of Python 3 for default Portage profiles.
-IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python python_single_target_python3_3 +python_single_target_python3_4 python_single_target_python3_5"
+IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python +python_single_target_python3_4 python_single_target_python3_5"
 
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
@@ -39,6 +39,7 @@ REQUIRED_USE="
 	netplay? ( network )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	sdl2? ( !sdl )
+	vulkan? ( amd64 )
 	wayland? ( egl )
 	xinerama? ( X )
 	xmb? ( assets opengl )
@@ -68,7 +69,7 @@ RDEPEND="
 	udev? ( virtual/udev:0=
 		X? ( x11-drivers/xf86-input-evdev:0= )
 	)
-	vulkan? ( media-libs/vulkan-loader:0= )
+	amd64? ( vulkan? ( media-libs/vulkan-loader:0= ) )
 	v4l2? ( media-libs/libv4l:0= )
 	wayland? ( media-libs/mesa:0=[wayland?] )
 	X? (
@@ -95,7 +96,7 @@ if [[ ${PV} == 9999 ]]; then
 	KEYWORDS=""
 else
 	SRC_URI="https://github.com/libretro/RetroArch/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 	S="${WORKDIR}/RetroArch-${PV}"
 fi
 

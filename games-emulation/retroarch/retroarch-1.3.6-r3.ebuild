@@ -4,7 +4,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{3_2,3_3,3_4,3_5} )
+PYTHON_COMPAT=( python{3_4,3_5} )
 
 inherit flag-o-matic libretro python-single-r1 git-r3
 
@@ -22,7 +22,7 @@ SLOT="0"
 # To avoid fatal dependency failures for users enabling the "python" USE flag, a
 # default "python_single_target_python*" USE flag *MUST* be set below to the
 # default version of Python 3 for default Portage profiles.
-IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug dispmanx egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python python_single_target_python3_3 +python_single_target_python3_4 python_single_target_python3_5"
+IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug dispmanx egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python +python_single_target_python3_4 python_single_target_python3_5"
 
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
@@ -41,6 +41,7 @@ REQUIRED_USE="
 	python? ( ${PYTHON_REQUIRED_USE} )
 	sdl2? ( !sdl )
 	videocore? ( arm )
+	vulkan? ( amd64 )
 	wayland? ( egl )
 	xinerama? ( X )
 	xmb? ( assets opengl )
@@ -53,7 +54,7 @@ RDEPEND="
 	cg? ( media-gfx/nvidia-cg-toolkit:0= )
 	cores? ( games-emulation/libretro-meta:0= )
 	database? ( games-emulation/libretro-database:0= )
-	dispmanx? ( || ( media-libs/raspberrypi-userland:0= media-libs/raspberrypi-userland-bin:0= ) )
+	arm? ( dispmanx? ( || ( media-libs/raspberrypi-userland:0 media-libs/raspberrypi-userland-bin:0 ) ) )
 	ffmpeg? ( >=media-video/ffmpeg-2.1.3:0= )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.120.1:0= )
 	joypad_autoconfig? ( games-emulation/retroarch-joypad-autoconfig:0= )
@@ -71,7 +72,7 @@ RDEPEND="
 	udev? ( virtual/udev:0=
 		X? ( x11-drivers/xf86-input-evdev:0= )
 	)
-	vulkan? ( media-libs/vulkan-loader:0= )
+	amd64? ( vulkan? ( media-libs/vulkan-loader:0= ) )
 	v4l2? ( media-libs/libv4l:0= )
 	wayland? ( media-libs/mesa:0=[wayland?] )
 	X? (
@@ -94,7 +95,7 @@ PDEPEND="!vulkan? ( shaders? ( !cg? ( games-emulation/common-shaders:0=[-cg] ) )
 EGIT_COMMIT="218d6f52620d6cbf76bf503f1d417644a83372a3"
 EGIT_REPO_URI="git://github.com/libretro/RetroArch.git"
 SRC_URI=""
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
