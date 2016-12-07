@@ -7,7 +7,7 @@ EAPI=6
 DESCRIPTION="Meta ebuild for all relevant arc themes"
 HOMEPAGE="https://github.com/horst3180/Arc-theme"
 SRC_URI=""
-LICENSE=""
+LICENSE="metapackage"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
