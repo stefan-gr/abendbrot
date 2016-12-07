@@ -14,16 +14,16 @@ SRC_URI="https://launchpad.net/${PN}/1.x/${PV}/+download/${MY_P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 ~x86"
 IUSE="mpv phonon +qt5 +vlc"
 
 DEPEND="
 	!qt5? (
-		>=dev-qt/qtcore-4.8.7:4
-		>=dev-qt/qtgui-4.8.7:4
-		>=dev-qt/qtxmlpatterns-4.8.7:4
-		>=dev-qt/qtsql-4.8.7:4[sqlite]
-		>=dev-qt/qtdbus-4.8.7:4
+		>=dev-qt/qtcore-4.8.6:4
+		>=dev-qt/qtgui-4.8.6:4
+		>=dev-qt/qtxmlpatterns-4.8.6:4
+		>=dev-qt/qtsql-4.8.6:4[sqlite]
+		>=dev-qt/qtdbus-4.8.6:4
 		media-libs/phonon[qt4]
 	)
 	qt5? (
@@ -42,7 +42,7 @@ DEPEND="
 	>=dev-libs/qjson-0.8.1
 	>=media-libs/taglib-1.9.1-r2
 	>=net-libs/htmlcxx-0.85
-	mpv? ( >=media-video/mpv-0.8.3-r1[libmpv] )
+	mpv? ( media-video/mpv[libmpv] )
 "
 
 RDEPEND="${DEPEND}"
