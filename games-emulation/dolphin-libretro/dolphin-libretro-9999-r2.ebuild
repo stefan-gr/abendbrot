@@ -21,7 +21,7 @@ LICENSE="GPL-2"
 SLOT="0"
 
 DEPEND=">=media-libs/libsfml-2.1
-	>net-libs/enet-1.3.7
+	>=net-libs/enet-1.3.7
 	>=net-libs/mbedtls-2.1.1
 	dev-libs/lzo
 	media-libs/libpng:=
@@ -33,12 +33,10 @@ DEPEND=">=media-libs/libsfml-2.1
 	x11-libs/libXrandr
 	virtual/libusb:1
 	virtual/opengl
-	>=dev-util/cmake-2.8.8
-	>=sys-devel/gcc-4.9.3
+	>=sys-devel/gcc-4.9.3:*
 	app-arch/zip
 	media-libs/freetype
-	sys-devel/gettext
-	virtual/pkgconfig"
+	sys-devel/gettext"
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
