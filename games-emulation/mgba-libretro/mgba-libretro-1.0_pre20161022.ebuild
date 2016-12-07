@@ -61,7 +61,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/mgba-emu/mgba.git"
 	KEYWORDS=""
 else
-	KEYWORDS="amd64 x86 arm"
+	KEYWORDS="amd64 x86 ~arm"
 fi
 
 LICENSE="MPL-2.0"
