@@ -16,3 +16,4 @@ move x11-themes/papirus-sddm-theme x11-themes/papirus-archive
 move x11-themes/papirus-vlc-theme x11-themes/papirus-archive
 move x11-themes/papirus-wallpapers x11-themes/papirus-archive
 move x11-themes/papirus-yakuake-theme x11-themes/papirus-archive
+move games-rpg/easyrpg-player games-engines/easyrpg-player
