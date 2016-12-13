@@ -5,4 +5,7 @@
     <email>stefan.gert.r@gmail.com</email>
     <name>stefan-gr</name>
   </maintainer>
+  <use>
+    <flag name='vulkan'>Enable Vulkan renderer</flag>
+  </use>
 </pkgmetadata>

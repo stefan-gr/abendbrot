@@ -8,13 +8,16 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of Mednafen PSX. (PlayStation, beetle version)"
 HOMEPAGE="https://github.com/libretro/beetle-psx-libretro"
-SRC_URI=""
+SRC_URI="https://github.com/libretro/beetle-psx-libretro/archive/f12cc2ff3674d95d7e0fa1dd9f6398b0eaf57ca7.tar.gz -> ${P}.tar.gz"
+RESTRICT="primaryuri"
+
+S="${WORKDIR}/beetle-psx-libretro-f12cc2ff3674d95d7e0fa1dd9f6398b0eaf57ca7"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/libretro/beetle-psx-libretro.git"
 	KEYWORDS=""
 else
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2"
