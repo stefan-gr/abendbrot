@@ -19,6 +19,8 @@ else
 	inherit flag-o-matic libretro
 fi
 
+IUSE+="custom-cflags"
+
 # @ECLASS-VARIABLE: LIBRETRO_CORE_NAME
 # @DESCRIPTION:
 # Name of this Libretro core. The libretro-core_src_install() phase function
@@ -33,7 +35,7 @@ fi
 # "${S}/${LIBRETRO_CORE_NAME}_libretro.so".
 LIBRETRO_CORE_LIB_FILE=
 
-EXPORT_FUNCTIONS src_unpack src_install
+EXPORT_FUNCTIONS src_unpack src_prepare src_install
 
 # @FUNCTION: libretro-core_src_unpack
 # @DESCRIPTION:
@@ -58,6 +60,38 @@ libretro-core_src_unpack() {
 	else
 		default_src_unpack
 	fi
+}
+
+# @FUNCTION: libretro-core_src_prepare
+# @DESCRIPTION:
+# The libretro-core src_prepare function which is exported.
+#
+# This function prepares the source by making custom modifications.
+libretro-core_src_prepare() {
+	if use custom-cflags; then
+		local flags_modified=0
+		ebegin "Attempting to hack Makefiles to use custom-cflags"
+		if [ -f "${S}"/Makefile ]; then
+			# Expand *FLAGS to prevent potential self-references
+			sed \
+				-e "s/-O[[:digit:]]/${CFLAGS}/g" \
+				-e "s/-Wl,.*-no-undefined/-Wl,--no-undefined ${LDFLAGS} ${LIBS}/g" \
+				-i $(find ${S} -type f -name 'Makefile*') \
+				&> /dev/null && flags_modified=1
+		fi
+		if [ -f "${S}"/target-libretro/Makefile ]; then
+			sed \
+				-e "s/-O[[:digit:]]/${CFLAGS}/g" \
+				-e "s/-Wl,.*-no-undefined/-Wl,--no-undefined ${LDFLAGS} ${LIBS}/g" \
+				-i $(find ${S}/target-libretro -type f -name 'Makefile*') \
+				&> /dev/null && flags_modified=1
+		fi
+		[[ ${flags_modified} == 1 ]] && true || false
+		eend $?
+		export OPTFLAGS="${CFLAGS}"
+	fi
+
+	default_src_prepare
 }
 
 # @FUNCTION: libretro-core_src_install
