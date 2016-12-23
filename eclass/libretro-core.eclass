@@ -76,14 +76,14 @@ libretro-core_src_prepare() {
 			sed \
 				-e "s/-O[[:digit:]]/${CFLAGS}/g" \
 				-e "s/-Wl,.*-no-undefined/-Wl,--no-undefined ${LDFLAGS} ${LIBS}/g" \
-				-i $(find ${S} -type f -name 'Makefile*') \
+				-i "${S}"/Makefile* \
 				&> /dev/null && flags_modified=1
 		fi
 		if [ -f "${S}"/target-libretro/Makefile ]; then
 			sed \
 				-e "s/-O[[:digit:]]/${CFLAGS}/g" \
 				-e "s/-Wl,.*-no-undefined/-Wl,--no-undefined ${LDFLAGS} ${LIBS}/g" \
-				-i $(find ${S}/target-libretro -type f -name 'Makefile*') \
+				-i "${S}"/target-libretro/Makefile* \
 				&> /dev/null && flags_modified=1
 		fi
 		[[ ${flags_modified} == 1 ]] && true || false
