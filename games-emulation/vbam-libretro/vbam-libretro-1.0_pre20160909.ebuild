@@ -1,24 +1,15 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="ae4068d4eff0ef99ba5d955670f8a8c0e6e4dbf4"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of VBA-M. (Game Boy Advance)"
 HOMEPAGE="https://github.com/libretro/vbam-libretro"
-SRC_URI="https://github.com/libretro/vbam-libretro/archive/ae4068d4eff0ef99ba5d955670f8a8c0e6e4dbf4.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/vbam-libretro-ae4068d4eff0ef99ba5d955670f8a8c0e6e4dbf4"
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/vbam-libretro.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"

@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -8,18 +8,11 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of mupen64plus (Nintendo64)"
 HOMEPAGE="https://github.com/libretro/mupen64plus-libretro"
-SRC_URI=""
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/mupen64plus-libretro.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug gles2"
+IUSE="debug gles2 vulkan"
 
 DEPEND="media-libs/mesa:0=
 		gles2? ( media-libs/mesa[gles2] )"
@@ -34,8 +27,9 @@ src_compile() {
 		$(usex x86 "WITH_DYNAREC=x86" "")
 		$(usex arm "platform=rpi WITH_DYNAREC=arm" "")
 		$(usex arm64 "platform=rpi WITH_DYNAREC=arm" "")
-		$(usex debug "DEBUG=1" "")
-		$(usex gles2 "GLES=1" "")
+		$(usex debug "DEBUG=1" "DEBUG=0")
+		$(usex gles2 "FORCE_GLES=1" "FORCE_GLES=0")
+		$(usex vulkan "HAVE_PARALLEL=1" "HAVE_PARALLEL=0")
 	)
 	emake "${myemakeargs[@]}" || die "emake failed"
 }

@@ -1,22 +1,15 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_REPO_NAME="libretro/libretro-${PN//-libretro}"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of PPSSPP. (PlayStation Portable/PSP)"
 HOMEPAGE="https://github.com/libretro/libretro-ppsspp"
-SRC_URI=""
-EGIT_REPO_URI="https://github.com/libretro/libretro-ppsspp.git"
-
-if [[ ${PV} == 9999 ]]; then
-	KEYWORDS=""
-else
-	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
-	KEYWORDS="amd64 x86 arm"
-fi
+KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"

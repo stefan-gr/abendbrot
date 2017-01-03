@@ -33,12 +33,12 @@ core_update() {
 	local CORE_DIR="${@%/*}"
 	local CORE_NAME="${@##*/}"
 	# Assign repo uri for later use
-	local `grep EGIT_REPO_URI= "${@}"`
+	local `grep HOMEPAGE= "${@}"`
 	# Do some crude string expansion to get github abi uri.
-	local EGIT_URI="${EGIT_REPO_URI:1:${#EGIT_REPO_URI}-2}"
+	local EGIT_URI="${HOMEPAGE:1:${#HOMEPAGE}-2}"
 	local EGIT_URI="${EGIT_URI/git:\/\//https:\/\/}"
 	local EGIT_COMMITS_URI="${EGIT_URI/https:\/\/github.com/https:\/\/api.github.com\/repos}"
-	local EGIT_COMMITS_URI="${EGIT_COMMITS_URI%.git}/commits"
+	local EGIT_COMMITS_URI="${EGIT_COMMITS_URI}/commits"
 	# Do some crude string expansion to get latest commit date and sha sum through github abi.
 	local LATEST_COMMIT_CURL=$(curl -i "${EGIT_COMMITS_URI}")
 	local LATEST_COMMIT_DATE=$(echo "${LATEST_COMMIT_CURL}" | grep date | head -1)
@@ -68,12 +68,8 @@ core_update() {
 		echo -e "\e[92mCreating \"${NEW_EBUILD}\"\e[0m"
 		cd "${CORE_DIR}"
 		sudo cp "${CORE_NAME}" "${NEW_EBUILD##*/}"
-		# Replace ${SRC_URI} with proper commit download
-		local SRC_URI="${EGIT_URI%.git}/archive/${LATEST_COMMIT_SHA}.tar.gz -> \${P}.tar.gz"
-		# Generate proper S for the github zip
-		local MY_S="${EGIT_COMMITS_URI%/commits}-${LATEST_COMMIT_SHA}"
-		local MY_S="$(basename ${MY_S})"
-		sudo sed -i 's,SRC_URI="",SRC_URI="'"${SRC_URI}"'"\nRESTRICT="primaryuri"\n\nS="${WORKDIR}/'"${MY_S}"'",g' "${NEW_EBUILD##*/}" || exit 1
+		sudo sed -i 's,^inherit,LIBRETRO_COMMIT_SHA="'${LATEST_COMMIT_SHA}'"\ninherit,g' "${NEW_EBUILD##*/}" || exit 1
+		sudo sed -i 's,^KEYWORDS="",KEYWORDS="~amd64 ~x86",g' "${NEW_EBUILD##*/}" || exit 1
 		# Never forget the manifest
 		sudo ebuild --force "${NEW_EBUILD##*/}" manifest
 	fi
@@ -84,8 +80,6 @@ for core in "${SCRIPT_DIR}/../games-emulation/"*libretro*/*-9999*
 do
 	# Skip libretro-meta package
 	[[ $core == *"libretro-meta"* ]] && continue
-	[[ $core == *"psp1-libretro"* ]] && continue
-	[[ $core == *"ppsspp-libretro"* ]] && continue
 	core_update "${core}"
 done
 # Didn't catch them above
@@ -93,9 +87,4 @@ core_update "${SCRIPT_DIR}/../games-emulation/retroarch-assets/retroarch-assets-
 core_update "${SCRIPT_DIR}/../games-emulation/retroarch-joypad-autoconfig/retroarch-joypad-autoconfig-9999-r2.ebuild"
 core_update "${SCRIPT_DIR}/../games-emulation/common-overlays/common-overlays-9999-r2.ebuild"
 core_update "${SCRIPT_DIR}/../games-emulation/common-shaders/common-shaders-9999-r2.ebuild"
-
-echo "The following ebuilds must be done manually:"
-echo "games-emulation/ppsspp-libretro"
-echo "games-emulation/psp1-libretro"
-echo "Reason:"
-echo "The github download doesn't include submodules"
+#core_update "${@}"

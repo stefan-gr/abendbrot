@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -8,18 +8,11 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of bSNES/higan. (Super Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/bsnes-libretro"
-SRC_URI=""
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/bsnes-libretro.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS=""
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="profile_accuracy +profile_balanced profile_performance"
+IUSE="debug profile_accuracy +profile_balanced profile_performance"
 
 REQUIRED_USE="|| ( profile_accuracy profile_balanced profile_performance )"
 
@@ -43,6 +36,7 @@ src_compile() {
 	if use profile_balanced; then
 		emake profile=balanced \
 			ui=target-libretro \
+			$(usex debug "DEBUG=1" "DEBUG=0") \
 			|| die "emake failed"
 	# Never forget to move the file where the ecalss expect it
 	mv out/"${PN%-libretro}"_balanced_libretro.so .
@@ -51,6 +45,7 @@ src_compile() {
 		emake clean
 		emake profile=performance \
 			ui=target-libretro \
+			$(usex debug "DEBUG=1" "DEBUG=0") \
 			|| die "emake failed"
 	# Never forget to move the file where the ecalss expect it
 	mv out/"${PN%-libretro}"_performance_libretro.so .
@@ -59,6 +54,7 @@ src_compile() {
 		emake clean
 		emake profile=accuracy \
 			ui=target-libretro \
+			$(usex debug "DEBUG=1" "DEBUG=0") \
 			|| die "emake failed"
 	# Never forget to move the file where the ecalss expect it
 	mv out/"${PN%-libretro}"_accuracy_libretro.so .

@@ -1,21 +1,15 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of VBA Next. (Game Boy Advance)"
 HOMEPAGE="https://github.com/libretro/vba-next"
-SRC_URI=""
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/vba-next.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86 arm"
-fi
+KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"

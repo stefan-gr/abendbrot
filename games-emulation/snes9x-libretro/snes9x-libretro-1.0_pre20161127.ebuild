@@ -1,24 +1,16 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="4ca6b6851740969397e6449f544350a61d9fd42d"
+LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of SNES9x. (Super Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/snes9x"
-SRC_URI="https://github.com/libretro/snes9x/archive/4ca6b6851740969397e6449f544350a61d9fd42d.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/snes9x-4ca6b6851740969397e6449f544350a61d9fd42d"
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/snes9x.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS="amd64 x86"
 
 LICENSE="snes9x"
 SLOT="0"

@@ -1,24 +1,16 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="ab1bd5a1de0ca329ff26b894b818f553ff8ebba6"
+LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of DeSmuME. (Nintendo DS)"
 HOMEPAGE="https://github.com/libretro/desmume"
-SRC_URI="https://github.com/libretro/desmume/archive/ab1bd5a1de0ca329ff26b894b818f553ff8ebba6.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/desmume-ab1bd5a1de0ca329ff26b894b818f553ff8ebba6"
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/desmume.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"

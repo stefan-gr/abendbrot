@@ -1,24 +1,16 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="6a0ea0daa46d27def21f39fcae216a7e8f2abdf3"
+LIBRETRO_REPO_NAME="libretro/pcsx_rearmed"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of PCSX ReARMed. (PlayStation)"
 HOMEPAGE="https://github.com/libretro/pcsx_rearmed"
-SRC_URI="https://github.com/libretro/pcsx_rearmed/archive/6a0ea0daa46d27def21f39fcae216a7e8f2abdf3.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/pcsx_rearmed-6a0ea0daa46d27def21f39fcae216a7e8f2abdf3"
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/pcsx_rearmed.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86 arm"
-fi
+KEYWORDS="amd64 x86 arm"
 
 LICENSE="GPL-2"
 SLOT="0"

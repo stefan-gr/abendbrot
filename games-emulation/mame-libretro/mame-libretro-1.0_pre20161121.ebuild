@@ -1,24 +1,16 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="bb55b3b7a96b1a51a46931e0246294cef41cedfc"
+LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
 inherit flag-o-matic check-reqs libretro-core
 
 DESCRIPTION="libretro implementation of MAME 2015. (Arcade)"
 HOMEPAGE="https://github.com/libretro/mame"
-SRC_URI="https://github.com/libretro/mame/archive/bb55b3b7a96b1a51a46931e0246294cef41cedfc.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/mame-bb55b3b7a96b1a51a46931e0246294cef41cedfc"
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/mame.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2+"
 SLOT="0"

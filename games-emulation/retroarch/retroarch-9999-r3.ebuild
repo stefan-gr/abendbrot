@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -6,10 +6,12 @@ EAPI=6
 
 PYTHON_COMPAT=( python{3_4,3_5} )
 
+LIBRETRO_REPO_NAME="libretro/RetroArch"
 inherit flag-o-matic libretro python-single-r1
 
 DESCRIPTION="Universal frontend for libretro-based emulators"
 HOMEPAGE="http://www.libretro.com/"
+KEYWORDS=""
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -93,17 +95,6 @@ DEPEND="${RDEPEND}
 PDEPEND="!vulkan? ( shaders? ( !cg? ( games-emulation/common-shaders:0=[-cg] ) )
 		!vulkan? ( cg? ( games-emulation/common-shaders:0=[cg] ) ) )
 "
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-
-	EGIT_REPO_URI="https://github.com/libretro/RetroArch.git"
-	SRC_URI=""
-	KEYWORDS=""
-else
-	SRC_URI="https://github.com/libretro/RetroArch/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-	S="${WORKDIR}/RetroArch-${PV}"
-fi
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup

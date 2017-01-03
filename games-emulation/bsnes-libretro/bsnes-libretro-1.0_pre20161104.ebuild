@@ -1,24 +1,15 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="365c5c1575c2094100321c4f79dce4d6007829e9"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of bSNES/higan. (Super Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/bsnes-libretro"
-SRC_URI="https://github.com/libretro/bsnes-libretro/archive/365c5c1575c2094100321c4f79dce4d6007829e9.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/bsnes-libretro-365c5c1575c2094100321c4f79dce4d6007829e9"
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/bsnes-libretro.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-3"
 SLOT="0"

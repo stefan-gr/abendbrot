@@ -1,24 +1,15 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="b675fdf454af896fd76acc7d2433c015917a9c59"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of prosystem. (Atari 7800)"
 HOMEPAGE="https://github.com/libretro/prosystem-libretro"
-SRC_URI="https://github.com/libretro/prosystem-libretro/archive/b675fdf454af896fd76acc7d2433c015917a9c59.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/prosystem-libretro-b675fdf454af896fd76acc7d2433c015917a9c59"
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/prosystem-libretro.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"

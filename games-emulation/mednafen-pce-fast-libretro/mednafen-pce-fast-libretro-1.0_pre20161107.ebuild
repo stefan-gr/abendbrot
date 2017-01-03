@@ -1,24 +1,16 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="8daf99e71121e71e48d11dd3de6b395b909df2a0"
+LIBRETRO_REPO_NAME="libretro/${PN/mednafen/beetle}"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of Mednafen PCE Fast. (PC Engine/TurboGrafx-16)"
 HOMEPAGE="https://github.com/libretro/beetle-pce-fast-libretro"
-SRC_URI="https://github.com/libretro/beetle-pce-fast-libretro/archive/8daf99e71121e71e48d11dd3de6b395b909df2a0.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/beetle-pce-fast-libretro-8daf99e71121e71e48d11dd3de6b395b909df2a0"
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/beetle-pce-fast-libretro.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"

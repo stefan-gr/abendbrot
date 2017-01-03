@@ -1,24 +1,15 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="f12cc2ff3674d95d7e0fa1dd9f6398b0eaf57ca7"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of Mednafen PSX. (PlayStation, beetle version)"
 HOMEPAGE="https://github.com/libretro/beetle-psx-libretro"
-SRC_URI="https://github.com/libretro/beetle-psx-libretro/archive/f12cc2ff3674d95d7e0fa1dd9f6398b0eaf57ca7.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/beetle-psx-libretro-f12cc2ff3674d95d7e0fa1dd9f6398b0eaf57ca7"
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/beetle-psx-libretro.git"
-	KEYWORDS=""
-else
-	KEYWORDS="~amd64 ~x86"
-fi
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
 SLOT="0"

@@ -1,26 +1,15 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="1f0a6cac74c34160e2d83c64167b745569ea7c17"
 inherit libretro
 
 DESCRIPTION="Collection of commonly used Cg shaders."
 HOMEPAGE="https://github.com/libretro/common-shaders"
-SRC_URI="https://github.com/libretro/common-shaders/archive/1f0a6cac74c34160e2d83c64167b745569ea7c17.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/common-shaders-1f0a6cac74c34160e2d83c64167b745569ea7c17"
-
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-
-	EGIT_REPO_URI="https://github.com/libretro/common-shaders.git"
-	KEYWORDS=""
-else
-	KEYWORDS="~amd64 ~x86"
-fi
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -34,7 +23,7 @@ DEPEND="${RDEPEND}
 src_install() {
 	dodir "${LIBRETRO_DATA_DIR}"/shaders
 	# Remove unnecessary git files
-	rm -r .git
+	[[ ! ${PV} == "1.0_pre"* ]] && rm -r .git
 	# Install plain CG shaders
 	use cg && cp -R "${S}"/* "${D}${LIBRETRO_DATA_DIR}"/shaders/
 	if ! use cg; then

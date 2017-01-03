@@ -1,24 +1,16 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="091f5a5889c51c1d0dc7c433a79d4f318420fef3"
+LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of NEStopia. (Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/nestopia"
-SRC_URI="https://github.com/libretro/nestopia/archive/091f5a5889c51c1d0dc7c433a79d4f318420fef3.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/nestopia-091f5a5889c51c1d0dc7c433a79d4f318420fef3"
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/nestopia.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"

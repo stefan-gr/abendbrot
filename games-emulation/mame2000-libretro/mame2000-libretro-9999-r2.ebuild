@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -8,14 +8,7 @@ inherit libretro-core
 
 DESCRIPTION="MAME2000 (0.37b5) for libretro."
 HOMEPAGE="https://github.com/libretro/mame2000-libretro"
-SRC_URI=""
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/mame2000-libretro.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS=""
 
 LICENSE="MAME-GPL"
 SLOT="0"

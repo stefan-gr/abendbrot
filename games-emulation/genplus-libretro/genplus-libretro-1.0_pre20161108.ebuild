@@ -1,25 +1,17 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="40c978223b86ec642214691dc8493fbcd9d9fd3c"
+LIBRETRO_REPO_NAME="libretro/Genesis-Plus-GX"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of Genesis Plus GX. \
 (Sega Genesis/Sega CD)"
 HOMEPAGE="https://github.com/libretro/Genesis-Plus-GX"
-SRC_URI="https://github.com/libretro/Genesis-Plus-GX/archive/40c978223b86ec642214691dc8493fbcd9d9fd3c.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/Genesis-Plus-GX-40c978223b86ec642214691dc8493fbcd9d9fd3c"
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/Genesis-Plus-GX.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS="amd64 x86"
 
 LICENSE="GPGX"
 SLOT="0"

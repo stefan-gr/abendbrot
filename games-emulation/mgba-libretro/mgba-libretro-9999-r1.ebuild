@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -48,18 +48,14 @@ CMAKE_WARN_UNUSED_CLI=1
 # archlinux PKGBUILD for the mGBA Libretro core has made a similar choice:
 #
 #     https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=libretro-mgba-git
+
+LIBRETRO_REPO_NAME="mgba-emu/mgba"
+
 inherit libretro-core cmake-utils
 
 DESCRIPTION="libretro implementation of mGBA. (Game Boy Advance)"
 HOMEPAGE="https://github.com/mgba-emu/mgba"
-SRC_URI=""
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/mgba-emu/mgba.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86 ~arm"
-fi
+KEYWORDS=""
 
 LICENSE="MPL-2.0"
 SLOT="0"

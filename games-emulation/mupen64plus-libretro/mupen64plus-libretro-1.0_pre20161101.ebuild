@@ -1,24 +1,15 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="a29227b0de2cfa9860ecc2bcd9b948623fe695f2"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of mupen64plus (Nintendo64)"
 HOMEPAGE="https://github.com/libretro/mupen64plus-libretro"
-SRC_URI="https://github.com/libretro/mupen64plus-libretro/archive/a29227b0de2cfa9860ecc2bcd9b948623fe695f2.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/mupen64plus-libretro-a29227b0de2cfa9860ecc2bcd9b948623fe695f2"
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/mupen64plus-libretro.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"

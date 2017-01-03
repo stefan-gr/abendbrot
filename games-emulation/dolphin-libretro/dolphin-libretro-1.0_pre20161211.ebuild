@@ -1,0 +1,47 @@
+# Copyright 1999-2017 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
+EAPI=6
+
+LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
+LIBRETRO_COMMIT_SHA="051e02d9f6883603fbe60d9683d524de60e9fc84"
+inherit libretro-core
+
+DESCRIPTION="libretro implementation of Dolphin. (Nintendo GC/Wii)"
+HOMEPAGE="https://github.com/libretro/dolphin"
+KEYWORDS="~amd64 ~x86"
+
+LICENSE="GPL-2"
+SLOT="0"
+
+DEPEND=">=media-libs/libsfml-2.1
+	>=net-libs/enet-1.3.7
+	>=net-libs/mbedtls-2.1.1
+	dev-libs/lzo
+	media-libs/libpng:=
+	sys-libs/glibc
+	sys-libs/readline:=
+	sys-libs/zlib
+	x11-libs/libXext
+	x11-libs/libXi
+	x11-libs/libXrandr
+	virtual/libusb:1
+	virtual/opengl
+	>=sys-devel/gcc-4.9.3:*
+	app-arch/zip
+	media-libs/freetype
+	sys-devel/gettext"
+RDEPEND="${DEPEND}
+		games-emulation/libretro-info"
+
+S="${S}"/libretro
+
+src_prepare() {
+	default_src_prepare
+	#fixing ARCH detection
+	sed -i Makefile \
+		-e 's:$(ARCH):$(REAL_ARCH):' || die
+	sed -i Makefile \
+		-e 's:ARCH = $(shell uname -m):REAL_ARCH = $(shell uname -m):' || die
+}

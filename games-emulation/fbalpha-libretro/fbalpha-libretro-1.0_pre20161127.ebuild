@@ -1,24 +1,16 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="780115493f894e367d1fac774eb2fbf03ccbe672"
+LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
 inherit libretro-core
 
 DESCRIPTION="Port of Final Burn Alpha to Libretro"
 HOMEPAGE="https://github.com/libretro/fbalpha"
-SRC_URI="https://github.com/libretro/fbalpha/archive/780115493f894e367d1fac774eb2fbf03ccbe672.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/fbalpha-780115493f894e367d1fac774eb2fbf03ccbe672"
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/fbalpha.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86 arm"
-fi
+KEYWORDS="amd64 x86 arm"
 
 LICENSE="FBA"
 SLOT="0"

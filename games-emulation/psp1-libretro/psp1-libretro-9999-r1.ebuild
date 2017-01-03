@@ -1,22 +1,15 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
-inherit git-r3 libretro-core flag-o-matic
+LIBRETRO_REPO_NAME="libretro/PSP1"
+inherit libretro-core
 
 DESCRIPTION="Non-shallow fork of PPSSPP for libretro exclusively."
 HOMEPAGE="https://github.com/libretro/PSP1"
-SRC_URI=""
-EGIT_REPO_URI="https://github.com/libretro/PSP1.git"
-
-if [[ ${PV} == 9999 ]]; then
-	KEYWORDS=""
-else
-	EGIT_COMMIT_DATE="${PV:7:4}-${PV:11:2}-${PV:13:2}"
-	KEYWORDS="amd64 x86 arm"
-fi
+KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"

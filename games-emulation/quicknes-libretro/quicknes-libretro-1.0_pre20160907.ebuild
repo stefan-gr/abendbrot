@@ -1,24 +1,16 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="c6ccc310867a31e4f05201a48b28636e22739ddc"
+LIBRETRO_REPO_NAME="libretro/QuickNES_Core"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of QuickNES. (Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/QuickNES_Core"
-SRC_URI="https://github.com/libretro/QuickNES_Core/archive/c6ccc310867a31e4f05201a48b28636e22739ddc.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/QuickNES_Core-c6ccc310867a31e4f05201a48b28636e22739ddc"
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/QuickNES_Core.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"

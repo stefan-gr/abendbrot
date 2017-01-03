@@ -1,24 +1,16 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="d1479f09b911098b454e500dfe7e7897d531810e"
+LIBRETRO_REPO_NAME="libretro/libretro-${PN//-libretro}"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of PrBoom. (Doom)"
 HOMEPAGE="https://github.com/libretro/libretro-prboom"
-SRC_URI="https://github.com/libretro/libretro-prboom/archive/d1479f09b911098b454e500dfe7e7897d531810e.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/libretro-prboom-d1479f09b911098b454e500dfe7e7897d531810e"
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/libretro-prboom.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"

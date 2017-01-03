@@ -1,24 +1,16 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="dc6ae44e5ec24af162b7b98f24c14eedeb5ec2f9"
+LIBRETRO_REPO_NAME="libretro/Craft"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of Craft. (Minecraft clone)"
 HOMEPAGE="https://github.com/libretro/Craft"
-SRC_URI="https://github.com/libretro/Craft/archive/dc6ae44e5ec24af162b7b98f24c14eedeb5ec2f9.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/Craft-dc6ae44e5ec24af162b7b98f24c14eedeb5ec2f9"
-
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/libretro/Craft.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS="amd64 x86"
 
 LICENSE="Craft"
 SLOT="0"

@@ -1,25 +1,15 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="6de305c6079896553777759a3a0493ba98a7e001"
 inherit libretro
 
 DESCRIPTION="Repository containing cheatcode files, content data files, etc."
 HOMEPAGE="https://github.com/libretro/libretro-database"
-SRC_URI="https://github.com/libretro/libretro-database/archive/6de305c6079896553777759a3a0493ba98a7e001.tar.gz -> ${P}.tar.gz"
-RESTRICT="primaryuri"
-
-S="${WORKDIR}/libretro-database-6de305c6079896553777759a3a0493ba98a7e001"
-
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/libretro/libretro-database.git"
-	KEYWORDS=""
-else
-	KEYWORDS="amd64 x86"
-fi
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-3"
 SLOT="0"
