@@ -9,7 +9,7 @@ inherit git-r3 libretro-core flag-o-matic
 DESCRIPTION="Non-shallow fork of PPSSPP for libretro exclusively."
 HOMEPAGE="https://github.com/libretro/PSP1"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/libretro/PSP1.git"
+EGIT_REPO_URI="https://github.com/libretro/PSP1.git"
 
 if [[ ${PV} == 9999 ]]; then
 	KEYWORDS=""

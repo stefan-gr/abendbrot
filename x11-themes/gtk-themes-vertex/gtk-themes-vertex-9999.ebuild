@@ -9,7 +9,7 @@ inherit git-r3 autotools
 DESCRIPTION="Vertex is a theme for GTK 3, GTK 2, Gnome-Shell, Cinnamon and xfce4"
 HOMEPAGE="https://github.com/horst3180/Vertex-theme"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/horst3180/Vertex-theme.git"
+EGIT_REPO_URI="https://github.com/horst3180/Vertex-theme.git"
 LICENSE="GPL-3"
 
 SLOT="0"

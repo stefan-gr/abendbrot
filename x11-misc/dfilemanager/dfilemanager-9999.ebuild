@@ -9,7 +9,7 @@ inherit git-r3 cmake-utils
 DESCRIPTION="A QT based crossplatform File browser"
 HOMEPAGE="http://dfilemanager.sourceforge.net/"
 SRC_URI=""
-EGIT_REPO_URI="git://git.code.sf.net/p/dfilemanager/code"
+EGIT_REPO_URI="https://git.code.sf.net/p/dfilemanager/code"
 
 LICENSE="GPL-2"
 SLOT="0"

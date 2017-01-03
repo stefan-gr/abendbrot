@@ -15,7 +15,7 @@ S="${WORKDIR}/retroarch-assets-c8f7c0b0103cccff7dc501f30e004e09859d797a"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="git://github.com/libretro/retroarch-assets.git"
+	EGIT_REPO_URI="https://github.com/libretro/retroarch-assets.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86"

@@ -11,7 +11,7 @@ inherit git-r3
 DESCRIPTION="Default RetroPie EmulationStation theme"
 HOMEPAGE="https://github.com/nilsbyte/simple"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/nilsbyte/simple.git"
+EGIT_REPO_URI="https://github.com/nilsbyte/simple.git"
 
 LICENSE="CC-BY-NC-SA-4.0"
 SLOT="0"

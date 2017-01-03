@@ -12,7 +12,7 @@ SRC_URI=""
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="git://github.com/libretro/libretro-super.git"
+	EGIT_REPO_URI="https://github.com/libretro/libretro-super.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86 arm"

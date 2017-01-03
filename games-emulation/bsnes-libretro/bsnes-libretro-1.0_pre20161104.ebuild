@@ -14,7 +14,7 @@ RESTRICT="primaryuri"
 S="${WORKDIR}/bsnes-libretro-365c5c1575c2094100321c4f79dce4d6007829e9"
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="git://github.com/libretro/bsnes-libretro.git"
+	EGIT_REPO_URI="https://github.com/libretro/bsnes-libretro.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86"

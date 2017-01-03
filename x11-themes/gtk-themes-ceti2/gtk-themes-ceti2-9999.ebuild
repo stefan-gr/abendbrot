@@ -9,7 +9,7 @@ inherit git-r3 autotools
 DESCRIPTION="Official continuation of Ceti for Gnome 3.14 and 3.16"
 HOMEPAGE="https://github.com/horst3180/Ceti-2-theme"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/horst3180/Ceti-2-theme.git"
+EGIT_REPO_URI="https://github.com/horst3180/Ceti-2-theme.git"
 LICENSE="GPL-3"
 
 SLOT="0"

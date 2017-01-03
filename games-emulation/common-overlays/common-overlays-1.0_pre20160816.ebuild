@@ -14,7 +14,7 @@ RESTRICT="primaryuri"
 S="${WORKDIR}/common-overlays-ee11805170246fffad38cb01618c3df9779d9032"
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="git://github.com/libretro/common-overlays.git"
+	EGIT_REPO_URI="https://github.com/libretro/common-overlays.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86"

@@ -9,7 +9,7 @@ inherit git-r3
 DESCRIPTION="Discontinued papirus projects"
 HOMEPAGE="https://github.com/PapirusDevelopmentTeam/ARCHIVE"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/PapirusDevelopmentTeam/ARCHIVE.git"
+EGIT_REPO_URI="https://github.com/PapirusDevelopmentTeam/ARCHIVE.git"
 LICENSE="CC-BY-SA-4.0"
 
 SLOT="0"

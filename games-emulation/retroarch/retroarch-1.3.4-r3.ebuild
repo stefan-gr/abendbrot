@@ -91,7 +91,7 @@ PDEPEND="!vulkan? ( shaders? ( !cg? ( games-emulation/common-shaders:0=[-cg] ) )
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 
-	EGIT_REPO_URI="git://github.com/libretro/RetroArch.git"
+	EGIT_REPO_URI="https://github.com/libretro/RetroArch.git"
 	SRC_URI=""
 	KEYWORDS=""
 else

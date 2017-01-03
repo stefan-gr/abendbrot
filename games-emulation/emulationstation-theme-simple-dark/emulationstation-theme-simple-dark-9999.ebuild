@@ -12,7 +12,7 @@ inherit git-r3
 DESCRIPTION="Dark-on-light RetroPie EmulationStation theme"
 HOMEPAGE="https://github.com/nolageek/simple-dark"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/nolageek/simple-dark.git"
+EGIT_REPO_URI="https://github.com/nolageek/simple-dark.git"
 
 LICENSE="CC-BY-NC-SA-4.0"
 SLOT="0"

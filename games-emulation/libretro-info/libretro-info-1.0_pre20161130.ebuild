@@ -15,7 +15,7 @@ S="${WORKDIR}/libretro-super-c2ed7c4251f592e29a1374d4ba38c436c6e55c06"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="git://github.com/libretro/libretro-super.git"
+	EGIT_REPO_URI="https://github.com/libretro/libretro-super.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86 arm"

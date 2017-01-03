@@ -9,7 +9,7 @@ inherit git-r3
 DESCRIPTION="Arc cusomization for Plasma 5 "
 HOMEPAGE="https://github.com/PapirusDevelopmentTeam/arc-kde"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/PapirusDevelopmentTeam/arc-kde.git"
+EGIT_REPO_URI="https://github.com/PapirusDevelopmentTeam/arc-kde.git"
 LICENSE="GPL-3"
 
 SLOT="0"

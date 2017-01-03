@@ -15,7 +15,7 @@ S="${WORKDIR}/retroarch-joypad-autoconfig-f1b99b1ede14e5a79c559115cbb2cb4674c038
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="git://github.com/libretro/retroarch-joypad-autoconfig.git"
+	EGIT_REPO_URI="https://github.com/libretro/retroarch-joypad-autoconfig.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86"

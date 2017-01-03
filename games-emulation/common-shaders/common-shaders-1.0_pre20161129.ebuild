@@ -16,7 +16,7 @@ S="${WORKDIR}/common-shaders-1f0a6cac74c34160e2d83c64167b745569ea7c17"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 
-	EGIT_REPO_URI="git://github.com/libretro/common-shaders.git"
+	EGIT_REPO_URI="https://github.com/libretro/common-shaders.git"
 	KEYWORDS=""
 else
 	KEYWORDS="~amd64 ~x86"

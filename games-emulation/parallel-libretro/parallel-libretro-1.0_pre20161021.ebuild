@@ -14,7 +14,7 @@ RESTRICT="primaryuri"
 S="${WORKDIR}/mupen64plus-libretro-cb5f983eeed8a82c4e48cbda07cdb929b9a1f74c"
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="git://github.com/libretro/mupen64plus-libretro.git"
+	EGIT_REPO_URI="https://github.com/libretro/mupen64plus-libretro.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86"

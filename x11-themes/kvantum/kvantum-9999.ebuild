@@ -17,7 +17,7 @@ IUSE="qt4"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 
-	EGIT_REPO_URI="git://github.com/tsujan/Kvantum.git"
+	EGIT_REPO_URI="https://github.com/tsujan/Kvantum.git"
 	SRC_URI=""
 	KEYWORDS=""
 	S="${S}/Kvantum"

@@ -16,7 +16,7 @@ S="${WORKDIR}/common-overlays-5954c95a3209ece0619820fc11f4b6fb43f5a161"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 
-	EGIT_REPO_URI="git://github.com/libretro/common-overlays.git"
+	EGIT_REPO_URI="https://github.com/libretro/common-overlays.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86"

@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/cmdrkotori/mpc-qt"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 
-	EGIT_REPO_URI="git://github.com/cmdrkotori/mpc-qt.git"
+	EGIT_REPO_URI="https://github.com/cmdrkotori/mpc-qt.git"
 	SRC_URI=""
 	KEYWORDS=""
 else

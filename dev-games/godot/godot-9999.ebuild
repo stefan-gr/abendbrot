@@ -12,7 +12,7 @@ HOMEPAGE="http://www.godotengine.org"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 
-	EGIT_REPO_URI="git://github.com/godotengine/godot.git"
+	EGIT_REPO_URI="https://github.com/godotengine/godot.git"
 	SRC_URI=""
 	KEYWORDS=""
 else

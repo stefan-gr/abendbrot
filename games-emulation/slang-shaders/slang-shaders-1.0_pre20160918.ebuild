@@ -16,7 +16,7 @@ S="${WORKDIR}/slang-shaders-1a571177de163e12ab022c178b50d76f2d33d5c2"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 
-	EGIT_REPO_URI="git://github.com/libretro/slang-shaders.git"
+	EGIT_REPO_URI="https://github.com/libretro/slang-shaders.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86"

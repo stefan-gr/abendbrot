@@ -10,7 +10,7 @@ DESCRIPTION="Frontend for emulators"
 HOMEPAGE="http://emulationstation.org/"
 SRC_URI=""
 
-EGIT_REPO_URI="git://github.com/Aloshi/EmulationStation.git"
+EGIT_REPO_URI="https://github.com/Aloshi/EmulationStation.git"
 
 LICENSE="GPL-3"
 SLOT="0"

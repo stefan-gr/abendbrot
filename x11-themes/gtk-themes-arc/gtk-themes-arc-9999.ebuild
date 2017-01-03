@@ -9,7 +9,7 @@ inherit git-r3 autotools
 DESCRIPTION="A flat theme with transparent elements for GTK+2, GTK+3, gnome-shell and xfce4"
 HOMEPAGE="https://github.com/horst3180/Arc-theme"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/horst3180/Arc-theme.git"
+EGIT_REPO_URI="https://github.com/horst3180/Arc-theme.git"
 LICENSE="GPL-3"
 
 SLOT="0"

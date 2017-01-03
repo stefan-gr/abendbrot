@@ -14,7 +14,7 @@ RESTRICT="primaryuri"
 S="${WORKDIR}/snes9x2002-3c15d69b06ceb6d3c1baf925a063c1108ddba1b7"
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="git://github.com/libretro/snes9x2002.git"
+	EGIT_REPO_URI="https://github.com/libretro/snes9x2002.git"
 	KEYWORDS=""
 else
 	KEYWORDS="amd64 x86"

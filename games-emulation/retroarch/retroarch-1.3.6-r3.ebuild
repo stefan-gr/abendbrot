@@ -93,7 +93,7 @@ PDEPEND="!vulkan? ( shaders? ( !cg? ( games-emulation/common-shaders:0=[-cg] ) )
 "
 
 EGIT_COMMIT="218d6f52620d6cbf76bf503f1d417644a83372a3"
-EGIT_REPO_URI="git://github.com/libretro/RetroArch.git"
+EGIT_REPO_URI="https://github.com/libretro/RetroArch.git"
 SRC_URI=""
 KEYWORDS="~amd64 ~x86"
 
