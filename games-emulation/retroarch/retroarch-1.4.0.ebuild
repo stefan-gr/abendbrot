@@ -225,7 +225,8 @@ src_compile() {
 	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "")
 	emake $(usex debug "build=debug" "build=release") -C gfx/video_filters/
-	emake $(usex debug "build=debug" "build=release") -C audio/audio_filters/
+	# Directory No longer exists
+	# emake $(usex debug "build=debug" "build=release") -C audio/dsp_filters/
 }
 
 src_install() {
@@ -240,10 +241,10 @@ src_install() {
 	doins "${S}"/gfx/video_filters/*.so
 	doins "${S}"/gfx/video_filters/*.filt
 
-	# Install audio filters.
-	insinto ${RETROARCH_LIB_DIR}/filters/audio/
-	doins "${S}"/audio/audio_filters/*.so
-	doins "${S}"/audio/audio_filters/*.dsp
+	# Install audio filters. No longer exists in 1.4.0
+	#insinto ${RETROARCH_LIB_DIR}/filters/audio/
+	#doins "${S}"/audio/audio_filters/*.so
+	#doins "${S}"/audio/audio_filters/*.dsp
 
 	# Preserve empty directories.
 	keepdir ${LIBRETRO_LIB_DIR}
