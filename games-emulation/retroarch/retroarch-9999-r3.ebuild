@@ -224,7 +224,7 @@ src_compile() {
 	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "")
 	emake $(usex debug "build=debug" "build=release") -C gfx/video_filters/
-#	emake $(usex debug "build=debug" "build=release") -C audio/audio_filters/
+	emake $(usex debug "build=debug" "build=release") -C libretro-common/audio/dsp_filters/
 }
 
 src_install() {
@@ -240,9 +240,9 @@ src_install() {
 	doins "${S}"/gfx/video_filters/*.filt
 
 	# Install audio filters.
-	#insinto ${RETROARCH_LIB_DIR}/filters/audio/
+	insinto ${RETROARCH_LIB_DIR}/filters/audio/
 	#doins "${S}"/audio/audio_filters/*.so
-	#doins "${S}"/audio/audio_filters/*.dsp
+	doins "${S}"/libretro-common/audio/dsp_filters/*.dsp
 
 	# Preserve empty directories.
 	keepdir ${LIBRETRO_LIB_DIR}

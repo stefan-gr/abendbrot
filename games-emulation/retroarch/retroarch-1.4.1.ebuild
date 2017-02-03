@@ -225,8 +225,7 @@ src_compile() {
 	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "")
 	emake $(usex debug "build=debug" "build=release") -C gfx/video_filters/
-	# Directory No longer exists
-	# emake $(usex debug "build=debug" "build=release") -C audio/dsp_filters/
+	emake $(usex debug "build=debug" "build=release") -C libretro-common/audio/dsp_filters/
 }
 
 src_install() {
