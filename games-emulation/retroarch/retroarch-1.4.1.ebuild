@@ -6,7 +6,7 @@ EAPI=6
 
 PYTHON_COMPAT=( python{3_4,3_5} )
 
-LIBRETRO_COMMIT_SHA="be617c530b5c0a0cf03557b5af188a10ba0d3ec4"
+LIBRETRO_COMMIT_SHA="d8855caae9fe3e249a2aab358480e2fe16c4ef0e"
 LIBRETRO_REPO_NAME="libretro/RetroArch"
 inherit flag-o-matic libretro python-single-r1 git-r3
 

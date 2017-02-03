@@ -224,7 +224,7 @@ src_compile() {
 	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "")
 	emake $(usex debug "build=debug" "build=release") -C gfx/video_filters/
-	#emake $(usex debug "build=debug" "build=release") -C audio/audio_filters/
+#	emake $(usex debug "build=debug" "build=release") -C audio/audio_filters/
 }
 
 src_install() {

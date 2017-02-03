@@ -4,19 +4,19 @@
 
 EAPI=6
 
-LIBRETRO_COMMIT_SHA="bb55b3b7a96b1a51a46931e0246294cef41cedfc"
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
+LIBRETRO_COMMIT_SHA="1bab14161bc79cb1f778a949b646cef001e588e7"
 inherit flag-o-matic check-reqs libretro-core
 
 DESCRIPTION="libretro implementation of MAME 2015. (Arcade)"
 HOMEPAGE="https://github.com/libretro/mame"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2+"
 SLOT="0"
 IUSE="debug"
 
-DEPEND=">=sys-devel/gcc-5.0"
+DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
