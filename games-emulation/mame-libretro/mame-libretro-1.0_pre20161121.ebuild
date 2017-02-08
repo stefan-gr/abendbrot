@@ -16,7 +16,7 @@ LICENSE="GPL-2+"
 SLOT="0"
 IUSE="debug"
 
-DEPEND=""
+DEPEND=">=sys-devel/gcc-5.0"
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 

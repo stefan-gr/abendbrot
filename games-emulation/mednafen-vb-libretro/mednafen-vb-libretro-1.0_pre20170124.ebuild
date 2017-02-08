@@ -1,0 +1,28 @@
+# Copyright 1999-2017 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
+EAPI=6
+
+LIBRETRO_REPO_NAME="libretro/${PN/mednafen/beetle}"
+LIBRETRO_COMMIT_SHA="1809ea74891a7158e6717d19d48260c22b2f682d"
+inherit libretro-core
+
+DESCRIPTION="libretro implementation of Mednafen VB. (Virtual Boy)"
+HOMEPAGE="https://github.com/libretro/beetle-vb-libretro"
+KEYWORDS="~amd64 ~x86"
+
+LICENSE="GPL-2"
+SLOT="0"
+IUSE="debug"
+
+DEPEND=""
+RDEPEND="${DEPEND}
+		games-emulation/libretro-info"
+
+LIBRETRO_CORE_NAME=mednafen_vb
+
+src_compile() {
+	filter-flags -O*
+	emake $(usex debug "DEBUG=1" "") core=vb || die "emake failed"
+}
