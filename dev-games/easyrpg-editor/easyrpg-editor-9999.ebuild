@@ -24,11 +24,11 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-DEPEND="dev-libs/liblcf:0=
-	dev-qt/qtmultimedia:5=
-	dev-qt/qtcore:5=
-	dev-qt/qtwidgets:5=
-	dev-qt/qtgui:5="
+DEPEND="dev-libs/liblcf:0
+	dev-qt/qtmultimedia:5
+	dev-qt/qtcore:5
+	dev-qt/qtwidgets:5
+	dev-qt/qtgui:5"
 RDEPEND="${DEPEND}"
 
 src_configure() {

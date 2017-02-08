@@ -23,12 +23,12 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 
-DEPEND=">=media-video/mpv-0.18.0:0=[libmpv]
-		dev-qt/qtx11extras:5=
-		dev-qt/qtcore:5=
-		dev-qt/qtgui:5=
-		dev-qt/qtnetwork:5=
-		dev-qt/qtwidgets:5="
+DEPEND=">=media-video/mpv-0.18.0:0[libmpv]
+		dev-qt/qtx11extras:5
+		dev-qt/qtcore:5
+		dev-qt/qtgui:5
+		dev-qt/qtnetwork:5
+		dev-qt/qtwidgets:5"
 RDEPEND="${DEPEND}"
 
 src_configure() {
