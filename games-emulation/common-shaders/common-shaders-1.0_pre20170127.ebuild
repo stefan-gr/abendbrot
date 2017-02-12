@@ -34,7 +34,7 @@ src_install() {
 			cp --parents "${f}" "${D}${LIBRETRO_DATA_DIR}"/shaders/
 		done
 		IFS="$OIFS"
-		"${EROOT}"bin/retroarch-cg2glsl "${S}" "${D}${LIBRETRO_DATA_DIR}"/shaders/
+		"${EROOT}"usr/bin/retroarch-cg2glsl "${S}" "${D}${LIBRETRO_DATA_DIR}"/shaders/ || die "Shader conversion failed!"
 		elog "Converted CG shaders to glsl"
 	fi
 }
