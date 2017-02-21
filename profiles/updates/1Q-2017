@@ -1,2 +1,1 @@
 move games-emulation/parallel-libretro games-emulation/mupen64plus-libretro
-move games-emulation/mupen64plus-libretro games-emulation/parallel-n64-libretro
