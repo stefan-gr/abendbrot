@@ -5,7 +5,7 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
-inherit flag-o-matic check-reqs libretro-core
+inherit flag-o-matic check-reqs versionator libretro-core
 
 DESCRIPTION="libretro implementation of MAME 2015. (Arcade)"
 HOMEPAGE="https://github.com/libretro/mame"
@@ -15,7 +15,7 @@ LICENSE="GPL-2+"
 SLOT="0"
 IUSE="debug"
 
-DEPEND=""
+DEPEND=">=sys-devel/gcc-5.1"
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
@@ -23,6 +23,10 @@ CHECKREQS_MEMORY="9G" # Debug build requires more see bug #47
 CHECKREQS_DISK_BUILD="25G" # Debug build requires more see bug #47
 
 pkg_pretend() {
+	if ! version_is_at_least 5.1 $(gcc-version); then
+		die "You need at least GCC 5.1.x to build mame succesfully."
+	fi
+
 	if is-flagq "-ggdb"; then
 		einfo "Checking for sufficient disk space to build ${PN} with debugging CFLAGS"
 		check-reqs_pkg_pretend
