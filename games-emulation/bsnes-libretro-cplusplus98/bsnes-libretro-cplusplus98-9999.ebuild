@@ -4,7 +4,6 @@
 
 EAPI=6
 
-LIBRETRO_COMMIT_SHA="ad401297f742f1ffdaacdac015c4b99218a0f30d"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of bSNES/higan. (Super Nintendo Entertainment System)"

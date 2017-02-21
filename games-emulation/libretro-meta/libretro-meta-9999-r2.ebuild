@@ -8,11 +8,11 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+2048 +4do +beetle-psx bnes +bsnes craft +desmume dolphin +fbalpha fbalpha2012 fceumm +gambatte +genplus \
-+handy mame mame2000 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
-mednafen-snes +mednafen-vb +mednafen-wswan meteor +mgba +mupen64plus +nestopia +nxengine \
-pcsx-rearmed +mednafen-supergrafx picodrive ppsspp +prboom +prosystem +psp1 quicknes +reicast +scummvm \
-snes9x snes9x2002 snes9x2010 +stella tgbdual +tyrquake vba-next vbam +yabause"
+IUSE="+2048 +4do +beetle-psx bnes +bsnes bsnes-cpp98 craft +desmume dolphin +fbalpha fbalpha2012 fceumm +gambatte +genplus \
++handy mame mame2000 +mame2003 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
++mednafen-saturn mednafen-snes +mednafen-vb +mednafen-wswan meteor +mgba mrboom +mupen64plus +nestopia +nxengine \
+pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive ppsspp +prboom +prosystem +psp1 quicknes +reicast +scummvm \
+snes9x snes9x2002 snes9x2010 +stella tgbdual +tyrquake vba-next vbam yabause"
 
 KEYWORDS=""
 
@@ -21,6 +21,7 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		beetle-psx? ( >=games-emulation/beetle-psx-libretro-9999 )
 		bnes? ( >=games-emulation/bnes-libretro-9999 )
 		bsnes? ( >=games-emulation/bsnes-libretro-9999 )
+		bsnes-cpp98? ( >=games-emulation/bsnes-libretro-cplusplus98-9999 )
 		craft? ( >=games-emulation/craft-libretro-9999 )
 		desmume? ( >=games-emulation/desmume-libretro-9999 )
 		dolphin? ( >=games-emulation/dolphin-libretro-9999 )
@@ -32,18 +33,22 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		handy? ( >=games-emulation/handy-libretro-9999 )
 		mame? ( >=games-emulation/mame-libretro-9999 )
 		mame2000? ( >=games-emulation/mame2000-libretro-9999 )
+		mame2003? ( >=games-emulation/mame2003-libretro-9999 )
 		mednafen-gba? ( >=games-emulation/mednafen-gba-libretro-9999 )
 		mednafen-ngp? ( >=games-emulation/mednafen-ngp-libretro-9999 )
 		mednafen-pce-fast? ( >=games-emulation/mednafen-pce-fast-libretro-9999 )
+		mednafen-saturn? ( >=games-emulation/mednafen-saturn-libretro-9999 )
 		mednafen-snes? ( >=games-emulation/mednafen-snes-libretro-9999 )
 		mednafen-supergrafx? ( >=games-emulation/mednafen-supergrafx-libretro-9999 )
 		mednafen-vb? ( >=games-emulation/mednafen-vb-libretro-9999 )
 		mednafen-wswan? ( >=games-emulation/mednafen-wswan-libretro-9999 )
 		meteor? ( >=games-emulation/meteor-libretro-9999 )
 		mgba? ( || ( >=games-emulation/mgba-libretro-9999 >=games-emulation/mgba-libretro-cheevo-9999 ) )
+		mrboom? ( >=games-emulation/mrboom-libretro-9999 )
 		mupen64plus? ( >=games-emulation/mupen64plus-libretro-9999 )
 		nestopia? ( >=games-emulation/nestopia-libretro-9999 )
 		nxengine? ( >=games-emulation/nxengine-libretro-9999 )
+		parallel-n64? ( >=games-emulation/parallel-n64-libretro-9999 )
 		pcsx-rearmed? ( >=games-emulation/pcsx-rearmed-libretro-9999 )
 		picodrive? ( >=games-emulation/picodrive-libretro-9999 )
 		snes9x2002? ( >=games-emulation/snes9x2002-libretro-9999 )
