@@ -10,11 +10,10 @@ inherit flag-o-matic check-reqs versionator libretro-core
 
 DESCRIPTION="libretro implementation of MAME 2015. (Arcade)"
 HOMEPAGE="https://github.com/libretro/mame"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="debug"
 
 DEPEND=">=sys-devel/gcc-5.1"
 RDEPEND="${DEPEND}
@@ -49,9 +48,4 @@ src_prepare(){
 			epatch "${FILESDIR}"/sdlmame-0.174-cxx14.patch || die "epatch failed!"
 		fi
 	fi
-}
-
-src_compile() {
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "") -f Makefile.libretro || die "emake failed"
 }

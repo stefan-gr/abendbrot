@@ -13,16 +13,10 @@ KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
-
-src_compile() {
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "") -f Makefile.libretro
-}
 
 pkg_preinst() {
 	if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then

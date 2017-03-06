@@ -13,7 +13,7 @@ KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug opengl"
+IUSE="opengl"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -25,6 +25,8 @@ pkg_setup() {
 }
 
 src_compile() {
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "DEBUG=0") $(usex opengl "HAVE_OPENGL=1" "HAVE_OPENGL=0") || die "emake failed"
+	myemakeargs=(
+		$(usex opengl "HAVE_OPENGL=1" "HAVE_OPENGL=0")
+	)
+	libretro-core_src_compile
 }

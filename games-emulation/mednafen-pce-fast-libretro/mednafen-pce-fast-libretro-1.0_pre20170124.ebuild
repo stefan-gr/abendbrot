@@ -10,22 +10,16 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of Mednafen PCE Fast. (PC Engine/TurboGrafx-16)"
 HOMEPAGE="https://github.com/libretro/beetle-pce-fast-libretro"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 LIBRETRO_CORE_NAME=mednafen_pce_fast
-
-src_compile() {
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "") core=pce-fast || die "emake failed"
-}
 
 pkg_preinst() {
 	if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then

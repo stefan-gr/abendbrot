@@ -10,11 +10,11 @@ inherit libretro-core
 
 DESCRIPTION="Non-shallow fork of PPSSPP for libretro exclusively."
 HOMEPAGE="https://github.com/libretro/PSP1"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug gles2"
+IUSE="gles2"
 
 DEPEND="x11-libs/libICE
 	sys-libs/zlib
@@ -42,9 +42,9 @@ src_prepare() {
 }
 
 src_compile() {
-	if use gles2; then
-		append-ldflags -lEGL
-	fi
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "") $(usex gles2 "GLES=1" "")
+	use gles2 && append-ldflags -lEGL
+	myemakeargs=(
+		$(usex gles2 "GLES=1" "")
+	)
+	libretro-core_src_compile
 }

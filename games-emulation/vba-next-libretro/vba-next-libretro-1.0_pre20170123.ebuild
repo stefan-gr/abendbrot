@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~x86 ~arm"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug neon +tiled_rendering"
+IUSE="neon +tiled_rendering"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -26,9 +26,7 @@ src_compile() {
 	myemakeargs=(
 		$(usex arm "platform=armv" "")
 		$(usex neon "HAVE_NEON=1" "")
-		$(usex debug "DEBUG=1" "")
 		$(usex tiled_rendering "TILED_RENDERING=1" "")
 	)
-	filter-flags -O*
-	emake "${myemakeargs[@]}" -f Makefile.libretro || die "emake failed"
+	libretro-core_src_compile
 }

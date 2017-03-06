@@ -10,19 +10,13 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of Mednafen PCE Fast. (SuperGrafx TG-16)"
 HOMEPAGE="https://github.com/libretro/beetle-supergrafx-libretro"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 LIBRETRO_CORE_NAME=mednafen_supergrafx
-
-src_compile() {
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "") || die "emake failed"
-}

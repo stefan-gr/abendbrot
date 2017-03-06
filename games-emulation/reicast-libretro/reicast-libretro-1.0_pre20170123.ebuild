@@ -10,11 +10,11 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of Reicast. (Sega Dreamcast )"
 HOMEPAGE="https://github.com/libretro/reicast-emulator"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug gles2 naomi"
+IUSE="gles2 naomi"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -38,13 +38,14 @@ src_prepare() {
 }
 
 src_compile() {
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "DEBUG=0") $(usex gles2 "GLES=1" "GLES=0") || die "emake failed"
+	myemakeargs=( $(usex gles2 "GLES=1" "GLES=0") )
+	libretro-core_src_compile
 	if use naomi; then
 		# Prevent the deletion of compiled core
 		mv reicast_libretro.so reicast_libretro
 		emake clean
 		mv reicast_libretro reicast_libretro.so
-		emake $(usex debug "DEBUG=1" "DEBUG=0") $(usex gles2 "GLES=1" "GLES=0") NAOMI=1 || die "emake failed"
+		myemakeargs+=( "NAOMI=1" )
+		libretro-core_src_compile
 	fi
 }

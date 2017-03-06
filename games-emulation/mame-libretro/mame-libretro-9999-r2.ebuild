@@ -13,7 +13,6 @@ KEYWORDS=""
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="debug"
 
 DEPEND=">=sys-devel/gcc-5.1"
 RDEPEND="${DEPEND}
@@ -48,9 +47,4 @@ src_prepare(){
 			epatch "${FILESDIR}"/sdlmame-0.174-cxx14.patch || die "epatch failed!"
 		fi
 	fi
-}
-
-src_compile() {
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "") -f Makefile.libretro || die "emake failed"
 }

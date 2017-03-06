@@ -10,11 +10,11 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of PCSX ReARMed. (PlayStation)"
 HOMEPAGE="https://github.com/libretro/pcsx_rearmed"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug neon"
+IUSE="neon"
 
 DEPEND="media-libs/libpng:0
 	sys-libs/zlib"
@@ -37,11 +37,6 @@ src_configure() {
 		--platform=libretro \
 		$(use_enable neon ) \
 		$(use_enable arm dynarec )
-}
-
-src_compile() {
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "") || die "emake failed"
 }
 
 src_install() {

@@ -10,7 +10,7 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of Yabause. (Sega Saturn)"
 HOMEPAGE="https://github.com/libretro/yabause"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -21,11 +21,6 @@ RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 S="${S}/libretro"
-
-src_compile() {
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "") || die "emake failed"
-}
 
 pkg_preinst() {
 	if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then

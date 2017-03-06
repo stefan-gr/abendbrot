@@ -9,11 +9,11 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of Mednafen PSX. (PlayStation, beetle version)"
 HOMEPAGE="https://github.com/libretro/beetle-psx-libretro"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug opengl vulkan"
+IUSE="opengl vulkan"
 
 DEPEND="
 	opengl? ( virtual/opengl )"
@@ -23,14 +23,12 @@ RDEPEND="${DEPEND}
 LIBRETRO_CORE_NAME=beetle_psx
 
 src_compile() {
-	filter-flags -O*
 	use opengl || use vulkan && append-cppflags -DHAVE_HW
 	local myemakeargs=(
-		$(usex debug "DEBUG=1" "DEBUG=0")
 		$(usex opengl "HAVE_OPENGL=1" "HAVE_OPENGL=0")
 		$(usex vulkan "HAVE_VULKAN=1" "HAVE_VULKAN=0")
 	)
-	emake "${myemakeargs[@]}" || die "emake failed"
+	libretro-core_src_compile
 }
 
 src_install() {

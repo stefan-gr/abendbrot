@@ -13,15 +13,9 @@ KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 S="${S}/libretro"
-
-src_compile() {
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "") || die "emake failed"
-}

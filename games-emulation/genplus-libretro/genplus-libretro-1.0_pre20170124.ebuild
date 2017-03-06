@@ -15,18 +15,12 @@ KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPGX"
 SLOT="0"
-IUSE="debug"
 
 DEPEND="sys-libs/zlib"
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 LIBRETRO_CORE_NAME=genesis_plus_gx
-
-src_compile() {
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "") -f Makefile.libretro || die "emake failed"
-}
 
 pkg_preinst() {
 	if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then

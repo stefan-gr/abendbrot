@@ -10,22 +10,16 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of NEStopia. (Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/nestopia"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 S="${S}/libretro"
-
-src_compile() {
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "") || die "emake failed"
-}
 
 pkg_preinst() {
 	if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then

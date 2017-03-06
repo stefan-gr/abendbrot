@@ -7,7 +7,7 @@ EAPI=6
 inherit libretro
 
 DESCRIPTION="RetroArch joypad autoconfig files"
-HOMEPAGE="https://github.com/libretro/retroarch-joypad-autoconfig/"
+HOMEPAGE="https://github.com/libretro/retroarch-joypad-autoconfig"
 KEYWORDS=""
 
 LICENSE="GPL-3"

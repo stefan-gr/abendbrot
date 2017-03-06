@@ -11,7 +11,7 @@ inherit libretro-core
 DESCRIPTION="libretro implementation of PicoDrive. \
 (Sega GameGear/Sega CD/32X)"
 HOMEPAGE="https://github.com/libretro/picodrive"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="PD"
 SLOT="0"
@@ -22,11 +22,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	#No need for configure, libretro does its own thing
-	true
-}
-
-src_compile() {
-	make -f Makefile.libretro || die "emake failed!"
+	:
 }
 
 src_install() {

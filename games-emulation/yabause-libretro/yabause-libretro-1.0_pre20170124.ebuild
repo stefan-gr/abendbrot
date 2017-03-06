@@ -22,11 +22,6 @@ RDEPEND="${DEPEND}
 
 S="${S}/libretro"
 
-src_compile() {
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "") || die "emake failed"
-}
-
 pkg_preinst() {
 	if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then
 		first_install="1"

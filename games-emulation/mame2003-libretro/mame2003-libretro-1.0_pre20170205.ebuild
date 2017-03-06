@@ -9,17 +9,11 @@ inherit libretro-core
 
 DESCRIPTION="MAME (0.78) for libretro."
 HOMEPAGE="https://github.com/libretro/mame2003-libretro"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="MAME-GPL"
 SLOT="0"
-IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
-
-src_compile() {
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "") || die "emake failed"
-}

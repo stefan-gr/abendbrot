@@ -13,15 +13,17 @@ KEYWORDS=""
 
 LICENSE="Craft"
 SLOT="0"
-IUSE="debug gles2"
+IUSE="gles2"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 src_compile() {
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "DEBUG=0") $(usex gles2 "GLES=1" "GLES=0") || die "emake failed"
+	myemakeargs=(
+		$(usex gles2 "GLES=1" "GLES=0")
+	)
+	libretro-core_src_compile
 }
 
 src_install() {

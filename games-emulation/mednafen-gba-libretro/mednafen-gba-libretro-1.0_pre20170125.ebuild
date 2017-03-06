@@ -14,18 +14,12 @@ KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 LIBRETRO_CORE_NAME=mednafen_gba
-
-src_compile() {
-	filter-flags -O*
-	emake $(usex debug "DEBUG=1" "") core=gba || die "emake failed"
-}
 
 pkg_preinst() {
 	if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then

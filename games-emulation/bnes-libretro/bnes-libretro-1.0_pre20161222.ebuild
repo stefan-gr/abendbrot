@@ -9,7 +9,7 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of bNES/higan. (Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/bnes-libretro"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -17,8 +17,3 @@ SLOT="0"
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
-
-src_compile() {
-	filter-flags -O*
-	default_src_compile
-}

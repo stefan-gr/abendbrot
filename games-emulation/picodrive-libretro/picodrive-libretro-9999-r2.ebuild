@@ -21,11 +21,7 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	#No need for configure, libretro does its own thing
-	true
-}
-
-src_compile() {
-	make -f Makefile.libretro || die "emake failed!"
+	:
 }
 
 src_install() {

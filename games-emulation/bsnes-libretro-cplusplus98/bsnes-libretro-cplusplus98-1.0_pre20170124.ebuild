@@ -13,7 +13,7 @@ KEYWORDS=""
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="debug profile_accuracy +profile_balanced profile_performance"
+IUSE="profile_accuracy +profile_balanced profile_performance"
 
 REQUIRED_USE="|| ( profile_accuracy profile_balanced profile_performance )"
 
@@ -33,31 +33,28 @@ src_unpack() {
 }
 
 src_compile() {
-	filter-flags -O*
+	myemakeargs=( "ui=target-libretro" )
 	if use profile_balanced; then
-		emake profile=balanced \
-			ui=target-libretro \
-			$(usex debug "DEBUG=1" "DEBUG=0") \
-			|| die "emake failed"
-	# Never forget to move the file where the ecalss expect it
+		myemakeargs+=( "profile=balanced" )
+		libretro-core_src_compile
+		myemakeargs=( ${myemakeargs[@]/profile=*/} )
+	# Never forget to move the file where the eclass expect it
 	mv out/"${PN%-libretro}"_balanced_libretro.so .
 	fi
 	if use profile_performance; then
 		emake clean
-		emake profile=performance \
-			ui=target-libretro \
-			$(usex debug "DEBUG=1" "DEBUG=0") \
-			|| die "emake failed"
-	# Never forget to move the file where the ecalss expect it
+		myemakeargs+=( "profile=performance" )
+		libretro-core_src_compile
+		myemakeargs=( ${myemakeargs[@]/profile=*/} )
+	# Never forget to move the file where the eclass expect it
 	mv out/"${PN%-libretro}"_performance_libretro.so .
 	fi
 	if use profile_accuracy; then
 		emake clean
-		emake profile=accuracy \
-			ui=target-libretro \
-			$(usex debug "DEBUG=1" "DEBUG=0") \
-			|| die "emake failed"
-	# Never forget to move the file where the ecalss expect it
+		myemakeargs+=( "profile=accuracy" )
+		libretro-core_src_compile
+		myemakeargs=( ${myemakeargs[@]/profile=*/} )
+	# Never forget to move the file where the eclass expect it
 	mv out/"${PN%-libretro}"_accuracy_libretro.so .
 	fi
 }
