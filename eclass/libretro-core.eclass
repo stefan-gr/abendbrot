@@ -19,7 +19,7 @@ else
 	inherit flag-o-matic libretro
 fi
 
-IUSE+="custom-cflags"
+IUSE+="custom-cflags debug"
 
 # @ECLASS-VARIABLE: LIBRETRO_CORE_NAME
 # @DESCRIPTION:
@@ -35,7 +35,7 @@ IUSE+="custom-cflags"
 # "${S}/${LIBRETRO_CORE_NAME}_libretro.so".
 LIBRETRO_CORE_LIB_FILE=
 
-EXPORT_FUNCTIONS src_unpack src_prepare src_install
+EXPORT_FUNCTIONS src_unpack src_prepare src_compile src_install
 
 # @FUNCTION: libretro-core_src_unpack
 # @DESCRIPTION:
@@ -71,27 +71,41 @@ libretro-core_src_prepare() {
 	if use custom-cflags; then
 		local flags_modified=0
 		ebegin "Attempting to hack Makefiles to use custom-cflags"
-		if [ -f "${S}"/Makefile ]; then
-			# Expand *FLAGS to prevent potential self-references
+		for makefile in "${S}"/?akefile* "${S}"/target-libretro/?akefile*; do
+			# * Expand *FLAGS to prevent potential self-references
+			# * Where LDFLAGS directly define the link version 
+			#   script append LDFLAGS and LIBS
+			# * Where SHARED is used to provide shared linking
+			#   flags ensure final link command includes LDFLAGS
+			#   and LIBS
+			# * Always use $(CFLAGS) when calling $(CC)
 			sed \
-				-e "s/-O[[:digit:]]/${CFLAGS}/g" \
-				-e "s/-Wl,.*-no-undefined/-Wl,--no-undefined ${LDFLAGS} ${LIBS}/g" \
-				-i "${S}"/Makefile* \
+				-e "/CFLAGS.*=/s/-O[[:digit:]]/${CFLAGS}/g" \
+				-e "/LDFLAGS.*=/s/\(-Wl,-*-version-script=link.T\)/\1 ${LDFLAGS} ${LIBS}/g" \
+				-e "/\$(CC)/s/\(\$(SHARED)\)/\1 ${LDFLAGS} ${LIBS}/" \
+				-e 's/\(\$(CC)\)/\1 \$(CFLAGS)/g' \
+				-i "${makefile}" \
 				&> /dev/null && flags_modified=1
-		fi
-		if [ -f "${S}"/target-libretro/Makefile ]; then
-			sed \
-				-e "s/-O[[:digit:]]/${CFLAGS}/g" \
-				-e "s/-Wl,.*-no-undefined/-Wl,--no-undefined ${LDFLAGS} ${LIBS}/g" \
-				-i "${S}"/target-libretro/Makefile* \
-				&> /dev/null && flags_modified=1
-		fi
+		done
 		[[ ${flags_modified} == 1 ]] && true || false
 		eend $?
 		export OPTFLAGS="${CFLAGS}"
 	fi
 
 	default_src_prepare
+}
+
+# @FUNCTION: libretro-core_src_compile
+# @DESCRIPTION:
+# The libretro-core src_compile function which is exported.
+#
+# This function compiles the shared library for this Libretro core.
+libretro-core_src_compile() {
+	use custom-cflags || filter-flags -O*
+	emake 	CC=$(tc-getCC) CXX=$(tc-getCXX) LD=$(tc-getLD) \
+		$(usex debug "DEBUG=1" "") "${myemakeargs[@]}" \
+		$([ -f makefile.libretro ] && echo '-f makefile.libretro') \
+		$([ -f Makefile.libretro ] && echo '-f Makefile.libretro')
 }
 
 # @FUNCTION: libretro-core_src_install
