@@ -41,7 +41,7 @@ if [[ ${PV} = 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/${LIBRETRO_REPO_NAME}.git"
 fi
 
-if [[ ! ${PV} = 9999 ]] && [[ ! ${PN} = retroarch ]] && [[ ! ${PN} = ppsspp-libretro ]] && [[ ! ${PN} = psp1-libretro ]] && [[ ! ${PN} = psp-assets ]] && [[ ! ${PN} = glupen64-libretro ]]; then
+if [[ ! ${PV} = 9999 ]] && [[ ! ${PN} = retroarch ]] && [[ ! ${PN} = ppsspp-libretro ]] && [[ ! ${PN} = psp1-libretro ]] && [[ ! ${PN} = psp-assets ]]; then
 	[ ${LIBRETRO_COMMIT_SHA} = die ] && die "LIBRETRO_COMMIT_SHA must be set before inherit."
 	SRC_URI="https://github.com/${LIBRETRO_REPO_NAME}/archive/${LIBRETRO_COMMIT_SHA}.tar.gz -> ${P}.tar.gz"
 	RESTRICT="primaryuri"
