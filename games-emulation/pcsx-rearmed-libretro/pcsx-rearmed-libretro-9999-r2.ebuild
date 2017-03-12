@@ -29,8 +29,7 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		--platform=libretro \
-		$(use_enable arm dynarec )
+		--platform=libretro
 }
 
 src_compile() {
