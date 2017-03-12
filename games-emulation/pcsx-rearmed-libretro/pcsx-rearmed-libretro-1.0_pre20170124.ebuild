@@ -14,7 +14,6 @@ KEYWORDS="amd64 x86 arm"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="neon"
 
 DEPEND="media-libs/libpng:0
 	sys-libs/zlib"
@@ -23,28 +22,8 @@ RDEPEND="${DEPEND}
 
 LIBRETRO_CORE_NAME=pcsx_rearmed
 
-src_prepare() {
-	#don't error out with unknown options
-	sed -i configure \
-                -e 's/*) echo "ERROR: unknown option $opt"; show_help="yes"/*) echo "unknown option $opt"/' \
-                || die
-	libretro-core_src_prepare
-}
-
 src_configure() {
-	econf \
-		--platform=libretro \
-		$(use_enable neon ) \
-		$(use_enable arm dynarec )
-}
-
-src_compile() {
-	default_src_compile
-}
-
-src_install() {
-	mv "${S}"/libretro.so "${S}"/pcsx_rearmed_libretro.so
-	libretro-core_src_install
+	:
 }
 
 pkg_preinst() {
