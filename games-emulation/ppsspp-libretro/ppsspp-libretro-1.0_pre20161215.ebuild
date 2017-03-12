@@ -30,6 +30,7 @@ RDEPEND="${DEPEND}
 S=${S}/libretro
 
 src_prepare() {
+	libretro-core_src_prepare
 	#fixing ARCH detection
 	sed -i Makefile \
 		-e 's:$(ARCH):$(REAL_ARCH):' \
@@ -38,7 +39,6 @@ src_prepare() {
 	sed -i Makefile.common \
 		-e 's:ifeq ($(WITH_DYNAREC), arm):ifneq (,$(findstring arm,$(WITH_DYNAREC))):' \
 		|| die '"sed" failed'
-	default_src_prepare
 }
 
 src_compile() {
