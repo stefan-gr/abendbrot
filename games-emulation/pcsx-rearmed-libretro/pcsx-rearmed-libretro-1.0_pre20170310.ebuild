@@ -30,17 +30,16 @@ src_prepare() {
 		-e 's:$(ARCH):$(REAL_ARCH):'
 	sed -i Makefile.libretro \
 		-e 's:ARCH:REAL_ARCH:'
+	sed -i configure \
+		-e 's/*) echo "ERROR: unknown option $opt"; show_help="yes"/*) echo "unknown option $opt"/' \
+		-e 's:ARCH:REAL_ARCH:'
 }
 
 src_configure() {
-	:
-}
-
-src_compile() {
-	myemakeargs=(
-		$(usex neon "HAVE_NEON=1" "HAVE_NEON=0")
-	)
-	libretro-core_src_compile
+	econf \
+		--platform=libretro \
+		$(use_enable neon ) \
+		$(use_enable arm dynarec )
 }
 
 pkg_preinst() {
