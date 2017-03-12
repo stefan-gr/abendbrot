@@ -23,15 +23,11 @@ RDEPEND="${DEPEND}
 LIBRETRO_CORE_NAME=pcsx_rearmed
 
 src_prepare() {
-	libretro-core_src_prepare
-	#fixing ARCH detection
-	sed -i Makefile \
-		-e 's:$(ARCH):$(REAL_ARCH):'
-	sed -i Makefile.libretro \
-		-e 's:ARCH:REAL_ARCH:'
+	#don't error out with unknown options
 	sed -i configure \
-		-e 's/*) echo "ERROR: unknown option $opt"; show_help="yes"/*) echo "unknown option $opt"/' \
-		-e 's:ARCH:REAL_ARCH:'
+                -e 's/*) echo "ERROR: unknown option $opt"; show_help="yes"/*) echo "unknown option $opt"/' \
+                || die
+	libretro-core_src_prepare
 }
 
 src_configure() {
@@ -39,6 +35,15 @@ src_configure() {
 		--platform=libretro \
 		$(use_enable neon ) \
 		$(use_enable arm dynarec )
+}
+
+src_compile() {
+	default_src_compile
+}
+
+src_install() {
+	mv "${S}"/libretro.so "${S}"/pcsx_rearmed_libretro.so
+	libretro-core_src_install
 }
 
 pkg_preinst() {
