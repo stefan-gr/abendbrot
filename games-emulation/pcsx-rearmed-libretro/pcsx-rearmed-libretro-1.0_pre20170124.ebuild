@@ -23,6 +23,15 @@ RDEPEND="${DEPEND}
 
 LIBRETRO_CORE_NAME=pcsx_rearmed
 
+src_prepare() {
+	libretro-core_src_prepare
+	#fixing ARCH detection
+	sed -i Makefile \
+		-e 's:$(ARCH):$(REAL_ARCH):'
+	sed -i Makefile.libretro \
+		-e 's:ARCH:REAL_ARCH:'
+}
+
 src_configure() {
 	:
 }
