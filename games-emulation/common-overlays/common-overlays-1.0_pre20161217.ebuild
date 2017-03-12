@@ -9,7 +9,7 @@ inherit libretro
 
 DESCRIPTION="Collection of overlay files for use with libretro frontends."
 HOMEPAGE="https://github.com/libretro/common-overlays"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 x86 arm"
 
 LICENSE="GPL-3"
 SLOT="0"

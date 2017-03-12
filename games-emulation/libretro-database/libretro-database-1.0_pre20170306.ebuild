@@ -9,7 +9,7 @@ inherit libretro
 
 DESCRIPTION="Repository containing cheatcode files, content data files, etc."
 HOMEPAGE="https://github.com/libretro/libretro-database"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~x86 ~arm"
 
 LICENSE="GPL-3"
 SLOT="0"
