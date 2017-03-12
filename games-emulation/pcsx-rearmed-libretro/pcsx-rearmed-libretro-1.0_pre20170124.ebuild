@@ -23,25 +23,15 @@ RDEPEND="${DEPEND}
 
 LIBRETRO_CORE_NAME=pcsx_rearmed
 
-src_prepare() {
-	epatch "${FILESDIR}"/include.patch
-	#don't error out with unknown options
-	sed -i configure \
-                -e 's/*) echo "ERROR: unknown option $opt"; show_help="yes"/*) echo "unknown option $opt"/' \
-                || die
-	default_src_prepare
-}
-
 src_configure() {
-	econf \
-		--platform=libretro \
-		$(use_enable neon ) \
-		$(use_enable arm dynarec )
+	:
 }
 
-src_install() {
-	mv "${S}"/libretro.so "${S}"/pcsx_rearmed_libretro.so
-	libretro-core_src_install
+src_compile() {
+	myemakeargs=(
+		$(usex neon "HAVE_NEON=1" "")
+	)
+	libretro-core_src_compile
 }
 
 pkg_preinst() {
