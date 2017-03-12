@@ -28,7 +28,7 @@ src_configure() {
 
 src_compile() {
 	myemakeargs=(
-		$(usex neon "HAVE_NEON=1" "")
+		$(usex neon "HAVE_NEON=1" "HAVE_NEON=0")
 	)
 	libretro-core_src_compile
 }
