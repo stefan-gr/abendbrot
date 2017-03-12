@@ -21,8 +21,27 @@ RDEPEND="${DEPEND}
 
 LIBRETRO_CORE_NAME=pcsx_rearmed
 
+src_prepare() {
+	libretro-core_src_prepare
+	sed -i configure \
+		-e 's/*) echo "ERROR: unknown option $opt"; show_help="yes"/*) echo "unknown option $opt"/'
+}
+
 src_configure() {
-	:
+	econf \
+		--platform=libretro \
+		$(use_enable arm dynarec )
+}
+
+src_compile() {
+	use custom-cflags || filter-flags -O*
+	emake	CC=$(tc-getCC) CXX=$(tc-getCXX) LD=$(tc-getLD) \
+		$(usex debug "DEBUG=1" "")
+}
+
+src_install() {
+	mv "${S}"/libretro.so "${S}"/pcsx_rearmed_libretro.so
+	libretro-core_src_install
 }
 
 pkg_preinst() {
