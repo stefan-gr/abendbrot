@@ -72,6 +72,7 @@ libretro-core_src_prepare() {
 		local flags_modified=0
 		ebegin "Attempting to hack Makefiles to use custom-cflags"
 		for makefile in "${S}"/?akefile* "${S}"/target-libretro/?akefile*; do
+			# * Convert CRLF to LF
 			# * Expand *FLAGS to prevent potential self-references
 			# * Where LDFLAGS directly define the link version 
 			#   script append LDFLAGS and LIBS
@@ -80,8 +81,10 @@ libretro-core_src_prepare() {
 			#   and LIBS
 			# * Always use $(CFLAGS) when calling $(CC)
 			sed \
+				-e 's/\r$//g' \
+				-e "/flags.*=/s/-O[[:digit:]]/${CFLAGS}/g" \
 				-e "/CFLAGS.*=/s/-O[[:digit:]]/${CFLAGS}/g" \
-				-e "/LDFLAGS.*=/s/\(-Wl,-*-version-script=link.T\)/\1 ${LDFLAGS} ${LIBS}/g" \
+				-e "/.*,--version-script=.*/s/$/ ${LDFLAGS} ${LIBS}/g" \
 				-e "/\$(CC)/s/\(\$(SHARED)\)/\1 ${LDFLAGS} ${LIBS}/" \
 				-e 's/\(\$(CC)\)/\1 \$(CFLAGS)/g' \
 				-i "${makefile}" \
