@@ -12,7 +12,7 @@ KEYWORDS=""
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="profile_accuracy +profile_balanced profile_performance"
+IUSE="profile_accuracy +profile_balanced profile_performance opengl"
 
 REQUIRED_USE="|| ( profile_accuracy profile_balanced profile_performance )"
 
@@ -29,6 +29,12 @@ src_unpack() {
 	use profile_balanced && LIBRETRO_CORE_NAME+=( "${PN%-libretro}"_balanced )
 	use profile_performance && LIBRETRO_CORE_NAME+=( "${PN%-libretro}"_performance )
 	libretro-core_src_unpack
+}
+
+src_prepare() {
+	# Enable OpenGL driver
+	use opengl && sed -e '/^# platform/s/$/\nflags += -DVIDEO_GLX\n/' -i Makefile
+	libretro-core_src_prepare
 }
 
 src_compile() {
