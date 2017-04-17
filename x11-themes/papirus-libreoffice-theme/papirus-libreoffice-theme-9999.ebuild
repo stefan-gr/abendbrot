@@ -18,3 +18,8 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="${DEPEND}"
+
+src_install() {
+    emake PREFIX="/usr/$(get_libdir)" DESTDIR="${D}" install
+    einstalldocs
+}
