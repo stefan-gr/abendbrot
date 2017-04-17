@@ -1,6 +1,5 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 LIBRETRO_COMMIT_SHA="5415b1b32da73cf76672f547bb01af1acd2d6e02"
