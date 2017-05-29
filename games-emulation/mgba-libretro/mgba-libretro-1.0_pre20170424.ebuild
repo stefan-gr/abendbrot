@@ -94,10 +94,10 @@ src_unpack() {
 src_configure() {
 	local mycmakeargs=(
 		# For security, install into the standard games directories.
-		-DCMAKE_INSTALL_PREFIX="${EPREFIX}${PREFIX}"
-		-DCMAKE_INSTALL_DOCDIR="${EPREFIX}${PREFIX}"/share/doc
-		-DCMAKE_INSTALL_MANDIR="${EPREFIX}${PREFIX}"/share/man/man1
-		-DCMAKE_INSTALL_LIBDIR="${EPREFIX}${PREFIX}/$(get_libdir)"/libretro
+		-DCMAKE_INSTALL_PREFIX="${EPREFIX}"/usr
+		-DCMAKE_INSTALL_DOCDIR="${EPREFIX}"/usr/share/doc
+		-DCMAKE_INSTALL_MANDIR="${EPREFIX}"/usr/share/man/man1
+		-DCMAKE_INSTALL_LIBDIR="${EPREFIX}"/usr/"$(get_libdir)"/libretro
 		-DPGO_DIR="${T}"/pgo
 
 		# Enable only mGBA's Libretro core as a statically linked library.
