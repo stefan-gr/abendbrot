@@ -55,7 +55,7 @@ inherit libretro-core cmake-utils
 
 DESCRIPTION="libretro implementation of mGBA. (Game Boy Advance)"
 HOMEPAGE="https://github.com/mgba-emu/mgba"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="MPL-2.0"
 SLOT="0"

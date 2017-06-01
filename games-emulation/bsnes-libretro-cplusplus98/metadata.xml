@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>barbudreadmon[remove_this]@gmail.com</email>
+    <name>barbudreadmon</name>
+  </maintainer>
+  <maintainer type="person">
+    <email>stefan.gert.r@gmail.com</email>
+    <description>Primary maintainer</description>
+  </maintainer>
+</pkgmetadata>

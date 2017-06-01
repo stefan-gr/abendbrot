@@ -8,7 +8,7 @@ inherit libretro
 
 DESCRIPTION="RetroArch joypad autoconfig files"
 HOMEPAGE="https://github.com/libretro/retroarch-joypad-autoconfig"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-3"
 SLOT="0"

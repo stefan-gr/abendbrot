@@ -5,7 +5,4 @@
     <email>stefan.gert.r@gmail.com</email>
     <name>stefan-gr</name>
   </maintainer>
-  <use>
-    <flag name='cg'>Install shaders in cg format, otherwise convert them to glsl</flag>
-  </use>
 </pkgmetadata>
