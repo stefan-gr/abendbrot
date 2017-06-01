@@ -7,9 +7,9 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+2048 +4do +beetle-psx bnes +bsnes bsnes-cpp98 craft +desmume dolphin +fbalpha fbalpha2012 fceumm +gambatte +genplus \
-+handy mame mame2000 +mame2003 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
-+mednafen-saturn mednafen-snes +mednafen-vb +mednafen-wswan meteor +mgba mrboom +mupen64plus +nestopia +nxengine \
+IUSE="+2048 +4do +beetle-psx bnes +bsnes bsnes-cpp98 craft +desmume dolphin easyrpg +fbalpha fbalpha2012 fceumm +gambatte +genplus \
++handy mame mame2000 +mame2003 mame2016 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
++mednafen-saturn mednafen-snes +mednafen-vb +mednafen-wswan meowpc98 meteor +mgba mrboom +mupen64plus +nestopia +nxengine \
 pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive ppsspp +prboom +prosystem +psp1 quicknes +reicast +scummvm \
 snes9x snes9x2002 snes9x2010 +stella tgbdual +tyrquake vba-next vbam yabause"
 
@@ -24,6 +24,7 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		craft? ( >=games-emulation/craft-libretro-9999 )
 		desmume? ( >=games-emulation/desmume-libretro-9999 )
 		dolphin? ( >=games-emulation/dolphin-libretro-9999 )
+		easyrpg? ( >=games-emulation/easyrpg-libretro-9999 )
 		fbalpha? ( >=games-emulation/fbalpha-libretro-9999 )
 		fbalpha2012? ( >=games-emulation/fbalpha2012-libretro-9999 )
 		fceumm? ( || ( >=games-emulation/fceumm-libretro-9999 >=games-emulation/fceu-next-libretro-9999 ) )
@@ -33,6 +34,7 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		mame? ( >=games-emulation/mame-libretro-9999 )
 		mame2000? ( >=games-emulation/mame2000-libretro-9999 )
 		mame2003? ( >=games-emulation/mame2003-libretro-9999 )
+		mame2016? ( >=games-emulation/mame2016-libretro-9999 )
 		mednafen-gba? ( >=games-emulation/mednafen-gba-libretro-9999 )
 		mednafen-ngp? ( >=games-emulation/mednafen-ngp-libretro-9999 )
 		mednafen-pce-fast? ( >=games-emulation/mednafen-pce-fast-libretro-9999 )
@@ -41,6 +43,7 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		mednafen-supergrafx? ( >=games-emulation/mednafen-supergrafx-libretro-9999 )
 		mednafen-vb? ( >=games-emulation/mednafen-vb-libretro-9999 )
 		mednafen-wswan? ( >=games-emulation/mednafen-wswan-libretro-9999 )
+		meowpc98? ( >=games-emulation/meowpc98-libretro-9999 )
 		meteor? ( >=games-emulation/meteor-libretro-9999 )
 		mgba? ( || ( >=games-emulation/mgba-libretro-9999 >=games-emulation/mgba-libretro-cheevo-9999 ) )
 		mrboom? ( >=games-emulation/mrboom-libretro-9999 )

@@ -19,4 +19,4 @@ RDEPEND="${DEPEND}
 
 S="${S}/libretro"
 
-LIBRETRO_CORE_NAME=meow_pc98
+LIBRETRO_CORE_NAME=nekop2
