@@ -5,20 +5,19 @@ EAPI=6
 
 inherit libretro
 
-DESCRIPTION="Collection of commonly used Cg shaders."
-HOMEPAGE="https://github.com/libretro/common-shaders"
+DESCRIPTION="glsl shaders converted by hand from libretro's common-shaders repo"
+HOMEPAGE="https://github.com/libretro/glsl-shaders"
 KEYWORDS=""
 
 LICENSE="GPL-3"
 SLOT="0"
 
-RDEPEND=""
+RDEPEND="!<=games-emulation/common-shaders-1.0_pre20170426"
 DEPEND="${RDEPEND}"
 
 src_install() {
-	dodir "${LIBRETRO_DATA_DIR}/${PN}/"
+	dodir "${LIBRETRO_DATA_DIR}"/shaders
 	# Remove unnecessary git files
 	[[ ! ${PV} == "1.0_pre"* ]] && rm -r .git
-	# Install plain CG shaders
-	cp -R "${S}"/* "${D}${LIBRETRO_DATA_DIR}/${PN}/"
+	cp -R "${S}"/* "${D}${LIBRETRO_DATA_DIR}"/shaders/
 }

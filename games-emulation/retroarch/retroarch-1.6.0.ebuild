@@ -5,13 +5,13 @@ EAPI=6
 
 PYTHON_COMPAT=( python{3_4,3_5,3_6} )
 
-LIBRETRO_COMMIT_SHA="256433a00b707688a0aa0ec6a837e9a2edd62236"
+LIBRETRO_COMMIT_SHA="f14473fd234e1bde8f612fff62234fc0a81e5beb"
 LIBRETRO_REPO_NAME="libretro/RetroArch"
-inherit flag-o-matic libretro python-single-r1 git-r3
+inherit flag-o-matic libretro python-single-r1
 
 DESCRIPTION="Universal frontend for libretro-based emulators"
 HOMEPAGE="http://www.libretro.com/"
-KEYWORDS="amd64 x86"
+KEYWORDS="~x86 ~amd64"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -24,7 +24,7 @@ SLOT="0"
 # To avoid fatal dependency failures for users enabling the "python" USE flag, a
 # default "python_single_target_python*" USE flag *MUST* be set below to the
 # default version of Python 3 for default Portage profiles.
-IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug dispmanx egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python +python_single_target_python3_4 python_single_target_python3_5"
+IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug dispmanx egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui miniupnpc +netplay +neon +network openal +opengl osmesa oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python +python_single_target_python3_4 python_single_target_python3_5"
 
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
@@ -62,8 +62,10 @@ RDEPEND="
 	joypad_autoconfig? ( games-emulation/retroarch-joypad-autoconfig:0= )
 	libass? ( media-libs/libass:0= )
 	libusb? ( virtual/libusb:1= )
+	miniupnpc? ( >=net-libs/miniupnpc-2.0:0= )
 	openal? ( media-libs/openal:0= )
 	opengl? ( media-libs/mesa:0=[egl?,gles2?] )
+	osmesa? ( media-libs/mesa:0=[osmesa?] )
 	overlays? ( games-emulation/common-overlays:0= )
 	pulseaudio? ( media-sound/pulseaudio:0= )
 	python? ( ${PYTHON_DEPS} )
@@ -90,8 +92,8 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 
-PDEPEND="!vulkan? ( shaders? ( !cg? ( games-emulation/common-shaders:0=[-cg] ) )
-		!vulkan? ( cg? ( games-emulation/common-shaders:0=[cg] ) ) )
+PDEPEND="!vulkan? ( shaders? ( gles2? ( games-emulation/glsl-shaders:0= ) )
+		!vulkan? ( cg? ( games-emulation/common-shaders:0= ) ) )
 "
 
 pkg_setup() {
@@ -147,9 +149,10 @@ src_prepare() {
 			-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/slang-shaders/":' \
 			|| die '"sed failed.'
 	else
-		sed -i retroarch.cfg \
-			-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/shaders/":' \
-			|| die '"sed failed.'
+		use cg && sed -i retroarch.cfg \
+			-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/common-shaders/":'
+		use gles2 && sed -i retroarch.cfg \
+			-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/shaders/":'
 	fi
 
 	default_src_prepare
@@ -169,12 +172,8 @@ src_configure() {
 			-e 's:\[ -d /opt/vc/lib \] && add_library_dirs /opt/vc/lib && add_library_dirs /opt/vc/lib/GL::' || die 'sed failed'
 	fi
 
-	#FIXME: Netplay is currently required, due to the following outstanding bug:
-	#    https://github.com/libretro/RetroArch/issues/2663
-	#When fixed, replace the "--enable-netplay" below with:
-	#    $(use_enable netplay) \
-
 	# Note that OpenVG support is hard-disabled. (See ${RDEPEND} above.)
+	# miniupnpc requires now at least version 2.0
 	econf \
 		$(use_enable 7zip) \
 		$(use_enable alsa) \
@@ -186,17 +185,19 @@ src_configure() {
 		$(use_enable egl) \
 		$(use_enable fbo) \
 		$(use_enable ffmpeg) \
-		$(use_enable gles2 gles) \
-		$(use_enable gles3) \
+		$(use_enable gles2 opengles) \
+		$(use_enable gles3 opengles3) \
 		$(use_enable jack) \
 		$(use_enable kms) \
 		$(use_enable libass ssa) \
 		$(use_enable libusb) \
 		$(use_enable materialui) \
+		$(use_enable miniupnpc) \
 		$(use_enable network networking) \
 		$(use_enable neon) \
 		$(use_enable openal al) \
 		$(use_enable opengl) \
+		$(use_enable osmesa) \
 		$(use_enable oss) \
 		$(use_enable pulseaudio pulse) \
 		$(use_enable python) \
@@ -215,12 +216,12 @@ src_configure() {
 		$(use_enable xv xvideo) \
 		$(use_enable zlib) \
 		--enable-dynamic \
-		--enable-netplay \
 		--disable-vg \
 		--with-man_dir="${EROOT}"usr/share/man/man1
 }
 
 src_compile() {
+	# Filtering all -O* flags in favor of upstream ones
 	filter-flags -O*
 	emake $(usex debug "DEBUG=1" "")
 	emake $(usex debug "build=debug" "build=release") -C gfx/video_filters/
@@ -239,9 +240,9 @@ src_install() {
 	doins "${S}"/gfx/video_filters/*.so
 	doins "${S}"/gfx/video_filters/*.filt
 
-	# Install audio filters. 
+	# Install audio filters.
 	insinto ${RETROARCH_LIB_DIR}/filters/audio/
-	#doins "${S}"/libretro-common/audio/dsp_filters/*.so
+	#doins "${S}"/audio/audio_filters/*.so
 	doins "${S}"/libretro-common/audio/dsp_filters/*.dsp
 
 	# Preserve empty directories.

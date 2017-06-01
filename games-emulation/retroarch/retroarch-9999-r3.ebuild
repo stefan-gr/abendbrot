@@ -91,8 +91,8 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 
-PDEPEND="!vulkan? ( shaders? ( !cg? ( games-emulation/common-shaders:0=[-cg] ) )
-		!vulkan? ( cg? ( games-emulation/common-shaders:0=[cg] ) ) )
+PDEPEND="!vulkan? ( shaders? ( !cg? ( games-emulation/glsl-shaders:0= ) )
+		!vulkan? ( cg? ( games-emulation/common-shaders:0= ) ) )
 "
 
 pkg_setup() {

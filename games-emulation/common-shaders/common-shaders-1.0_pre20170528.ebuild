@@ -3,11 +3,12 @@
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="fabf9a2bbf7381df5a2f036373fbb54abb8eacc4"
 inherit libretro
 
 DESCRIPTION="Collection of commonly used Cg shaders."
 HOMEPAGE="https://github.com/libretro/common-shaders"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-3"
 SLOT="0"
