@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>stefan.gert.r@gmail.com</email>
+    <name>stefan-gr</name>
+  </maintainer>
+  <use>
+    <flag name='carbon'>adds <pkg>games-emulation/es-theme-carbon</pkg> as dependency</flag>
+    <flag name='carbon-centered'>adds <pkg>games-emulation/es-theme-carbon-centered</pkg> as dependency</flag>
+    <flag name='carbon-nometa'>adds <pkg>games-emulation/es-theme-carbon-nometa</pkg> as dependency</flag>
+    <flag name='clean-look'>adds <pkg>games-emulation/es-theme-clean-look</pkg> as dependency</flag>
+    <flag name='color-pi'>adds <pkg>games-emulation/es-theme-color-pi</pkg> as dependency</flag>
+    <flag name='nbba'>adds <pkg>games-emulation/es-theme-nbba</pkg> as dependency</flag>
+    <flag name='pixel'>adds <pkg>games-emulation/es-theme-pixel</pkg> as dependency</flag>
+    <flag name='simple'>adds <pkg>games-emulation/es-theme-simple</pkg> as dependency</flag>
+    <flag name='simple-dark'>adds <pkg>games-emulation/es-theme-simple-dark</pkg> as dependency</flag>
+    <flag name='simplified-static-canela'>adds <pkg>games-emulation/es-theme-simplified-static-canela</pkg> as dependency</flag>
+    <flag name='turtle-pi'>adds <pkg>games-emulation/es-theme-turtle-pi</pkg> as dependency</flag>
+    <flag name='zoid'>adds <pkg>games-emulation/es-theme-zoid</pkg> as dependency</flag>
+  </use>
+</pkgmetadata>

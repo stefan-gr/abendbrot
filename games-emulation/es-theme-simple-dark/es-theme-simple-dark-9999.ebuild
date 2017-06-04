@@ -5,15 +5,12 @@ EAPI=6
 
 inherit git-r3
 
-# This ebuild provides the core-specific half of the default RetroPie theme
-# implemented by the "RetroPie-Setup" project's
-# "scriptmodules/supplementary/emulationstation_theme_simple.sh" script.
-DESCRIPTION="Dark-on-light RetroPie EmulationStation theme"
-HOMEPAGE="https://github.com/nolageek/simple-dark"
+DESCRIPTION="EmulationStation theme simple dark"
+HOMEPAGE="https://github.com/RetroPie/es-theme-simple-dark"
 SRC_URI=""
-EGIT_REPO_URI="https://github.com/nolageek/simple-dark.git"
+EGIT_REPO_URI="https://github.com/RetroPie/es-theme-simple-dark"
 
-LICENSE="CC-BY-NC-SA-4.0"
+LICENSE="CC-BY-NC-SA-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 IUSE=""
@@ -23,11 +20,11 @@ DEPEND="${RDEPEND}"
 
 src_install() {
 	# Install documentation.
-	dodoc README.md
+	dodoc readme.txt
 
 	# Prevent documentation and the ".git" subdirectory from being installed
 	# below.
-	rm -R README.md .git || die '"rm" failed.'
+	rm -R readme.txt .git* || die '"rm" failed.'
 
 	# Install all remaining files and subdirectories.
 	insinto /etc/emulationstation/themes/simple-dark

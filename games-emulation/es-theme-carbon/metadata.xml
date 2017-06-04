@@ -5,8 +5,4 @@
     <email>stefan.gert.r@gmail.com</email>
     <name>stefan-gr</name>
   </maintainer>
-  <use>
-    <flag name="simple"     >Install default RetroPie theme</flag>
-    <flag name="simple-dark">Install dark-on-light RetroPie theme</flag>
-  </use>
 </pkgmetadata>
