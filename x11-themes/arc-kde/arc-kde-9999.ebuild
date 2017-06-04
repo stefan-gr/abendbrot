@@ -18,11 +18,6 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}"
 
-src_install() {
-	insinto /usr/share
-	doins -r Kvantum aurorae color-schemes konsole konversation plasma wallpapers yakuake
-}
-
 pkg_postinst() {
 	elog ""
 	elog "This theme optionally supports \"x11-themes/kvantum\""
