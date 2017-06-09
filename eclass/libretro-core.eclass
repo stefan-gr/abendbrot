@@ -56,6 +56,8 @@ libretro-core_src_unpack() {
 	# Workaround for ppsspp
 	if [[ ! ${PV} == "1.0_pre"* ]] || [[ ${PN} == "psp1-libretro" ]] || [[ ${PN} == "ppsspp-libretro" ]]; then
 		git-r3_src_unpack
+		# Add used commit SHA for version information
+		LIBRETRO_COMMIT_SHA=$(git -C "${EGIT3_STORE_DIR}/${LIBRETRO_REPO_NAME//\//_}.git" rev-parse HEAD)
 	# Else, unpack this core's local tarball.
 	else
 		default_src_unpack
@@ -94,7 +96,13 @@ libretro-core_src_prepare() {
 		eend $?
 		export OPTFLAGS="${CFLAGS}"
 	fi
-
+	for makefile in "${S}"/?akefile* "${S}"/target-libretro/?akefile*; do
+		# Add short-rev to Makefile
+		sed \
+			-e "s/GIT_VERSION\s.=.*$/GIT_VERSION=\" ${LIBRETRO_COMMIT_SHA:0:7}\"/g" \
+			-i "${makefile}" \
+			&> /dev/null
+	done
 	default_src_prepare
 }
 
