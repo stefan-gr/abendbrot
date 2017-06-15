@@ -29,6 +29,7 @@
     <flag name='mednafen-supergrafx'>adds <pkg>games-emulation/mednafen-supergrafx-libretro</pkg> as dependency</flag>
     <flag name='mednafen-vb'>adds <pkg>games-emulation/mednafen-vb-libretro</pkg> as dependency</flag>
     <flag name='mednafen-wswan'>adds <pkg>games-emulation/mednafen-wswan-libretro</pkg> as dependency</flag>
+    <flag name='melonds'>adds <pkg>games-emulation/melonds-libretro</pkg> as dependency</flag>
     <flag name='meteor'>adds <pkg>games-emulation/meteor-libretro</pkg> as dependency</flag>
     <flag name='mgba'>adds <pkg>games-emulation/mgba-libretro</pkg> as dependency</flag>
     <flag name='mupen64plus'>adds <pkg>games-emulation/mupen64plus-libretro</pkg> as dependency</flag>
@@ -42,6 +43,7 @@
     <flag name='psp1'>adds <pkg>games-emulation/psp1-libretro</pkg> as dependency</flag>
     <flag name='quicknes'>adds <pkg>games-emulation/quicknes-libretro</pkg> as dependency</flag>
     <flag name='reicast'>adds <pkg>games-emulation/reicast-libretro</pkg> as dependency</flag>
+    <flag name='sameboy'>adds <pkg>games-emulation/sameboy-libretro</pkg> as dependency</flag>
     <flag name='scummvm'>adds <pkg>games-emulation/scummvm-libretro</pkg> as dependency</flag>
     <flag name='snes9x'>adds <pkg>games-emulation/snes9x-libretro</pkg> as dependency</flag>
     <flag name='snes9x2002'>adds <pkg>games-emulation/snes9x2002-libretro</pkg> as dependency</flag>

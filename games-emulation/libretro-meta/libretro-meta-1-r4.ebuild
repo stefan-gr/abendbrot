@@ -9,8 +9,8 @@ LICENSE="metapackage"
 SLOT="0"
 IUSE="+2048 +4do +beetle-psx bnes +bsnes bsnes-cpp98 craft +desmume dolphin easyrpg +fbalpha fbalpha2012 fceumm +gambatte +genplus \
 +handy mame mame2000 +mame2003 mame2016 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
-+mednafen-saturn mednafen-snes +mednafen-vb +mednafen-wswan meteor meowpc98 +mgba mrboom +mupen64plus +nestopia +nxengine \
-pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive ppsspp +prboom +prosystem +psp1 quicknes +reicast +scummvm \
++mednafen-saturn mednafen-snes +mednafen-vb +mednafen-wswan melonds meteor meowpc98 +mgba mrboom +mupen64plus +nestopia +nxengine \
+pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive ppsspp +prboom +prosystem +psp1 quicknes +reicast sameboy +scummvm \
 snes9x snes9x2002 snes9x2010 +stella tgbdual +tyrquake vba-next vbam yabause"
 
 KEYWORDS="amd64 x86 arm"
@@ -43,6 +43,7 @@ RDEPEND="2048? ( games-emulation/2048-libretro )
 		mednafen-supergrafx? ( games-emulation/mednafen-supergrafx-libretro )
 		mednafen-vb? ( games-emulation/mednafen-vb-libretro )
 		mednafen-wswan? ( games-emulation/mednafen-wswan-libretro )
+		melonds? ( games-emulation/melonds-libretro )
 		meowpc98? ( games-emulation/meowpc98-libretro )
 		meteor? ( games-emulation/meteor-libretro )
 		mgba? ( || ( games-emulation/mgba-libretro games-emulation/mgba-libretro-cheevo ) )
@@ -59,6 +60,7 @@ RDEPEND="2048? ( games-emulation/2048-libretro )
 		psp1? ( games-emulation/psp1-libretro )
 		quicknes? ( games-emulation/quicknes-libretro )
 		reicast? ( games-emulation/reicast-libretro )
+		sameboy? ( games-emulation/sameboy-libretro )
 		scummvm? ( games-emulation/scummvm-libretro )
 		snes9x2002? ( games-emulation/snes9x2002-libretro )
 		snes9x2010? ( games-emulation/snes9x2010-libretro )
