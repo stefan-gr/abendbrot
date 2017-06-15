@@ -3,12 +3,12 @@
 
 EAPI=6
 
-LIBRETRO_COMMIT_SHA="16133bd9657d8470acaed555fd509813e9501bc3"
+LIBRETRO_COMMIT_SHA="675a8385b366afce86a7f04603e216e24779ac9e"
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of VBA-M. (Game Boy Advance)"
-HOMEPAGE="https://github.com/libretro/vbam-libretro"
-KEYWORDS="amd64 x86"
+DESCRIPTION="libretro implementation of Gambatte. (Game Boy/Game Boy Color)"
+HOMEPAGE="https://github.com/libretro/gambatte-libretro"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -16,5 +16,3 @@ SLOT="0"
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
-
-S="${S}/src/libretro"

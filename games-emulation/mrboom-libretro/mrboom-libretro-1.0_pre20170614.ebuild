@@ -3,12 +3,12 @@
 
 EAPI=6
 
-LIBRETRO_COMMIT_SHA="ab0cf3f1b47c3c4edd3d3311c339347a49f933d2"
+LIBRETRO_COMMIT_SHA="9ea032c46b0bf3d9ffa80d3bb69412922a100941"
 inherit libretro-core
 
 DESCRIPTION="Multiplayer Bomberman clone for RetroArch/Libretro"
 HOMEPAGE="https://github.com/libretro/mrboom-libretro"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="MIT"
 SLOT="0"

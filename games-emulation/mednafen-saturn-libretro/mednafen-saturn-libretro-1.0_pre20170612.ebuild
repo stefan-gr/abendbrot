@@ -4,12 +4,12 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/${PN/mednafen-saturn/beetle-saturn}"
-LIBRETRO_COMMIT_SHA="262d5b13788566c43c30db4eb0da394968ade39f"
+LIBRETRO_COMMIT_SHA="8d70f01370185c9097faa708c5e92fb6d78067ab"
 inherit libretro-core
 
 DESCRIPTION="Standalone port of Mednafen Saturn to the libretro"
 HOMEPAGE="https://github.com/libretro/beetle-saturn-libretro"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
 SLOT="0"

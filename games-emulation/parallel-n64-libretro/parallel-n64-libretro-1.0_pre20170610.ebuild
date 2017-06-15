@@ -5,12 +5,12 @@ EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/parallel-n64"
 LIBRETRO_CORE_NAME="parallel_n64"
-LIBRETRO_COMMIT_SHA="571a477b79d57c10846fbfbdba9c6447f8d54cb9"
+LIBRETRO_COMMIT_SHA="19486a5a2241b214401707500e166b0b0b73aaa6"
 inherit libretro-core
 
 DESCRIPTION="Rewritten Nintendo 64 emulator made specifically for Libretro."
 HOMEPAGE="https://github.com/libretro/parallel-n64"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
 SLOT="0"

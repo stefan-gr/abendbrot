@@ -3,12 +3,12 @@
 
 EAPI=6
 
-LIBRETRO_COMMIT_SHA="d907d13fbf47a07e25030ee6372d367eab3af4a8"
+LIBRETRO_COMMIT_SHA="ab52442fd2de366337d126fe4b698408653ecab0"
 inherit libretro
 
 DESCRIPTION="RetroArch joypad autoconfig files"
 HOMEPAGE="https://github.com/libretro/retroarch-joypad-autoconfig"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-3"
 SLOT="0"

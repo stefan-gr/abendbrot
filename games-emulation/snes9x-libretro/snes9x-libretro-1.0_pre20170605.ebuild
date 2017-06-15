@@ -4,12 +4,12 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
-LIBRETRO_COMMIT_SHA="024027625c4520785a10be09e593118a0af50112"
+LIBRETRO_COMMIT_SHA="bc8c0d57f954d0505c503d4cb10d6f79bb8445e8"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of SNES9x. (Super Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/snes9x"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="snes9x"
 SLOT="0"

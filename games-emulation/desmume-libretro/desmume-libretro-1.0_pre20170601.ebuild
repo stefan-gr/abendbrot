@@ -4,12 +4,12 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
-LIBRETRO_COMMIT_SHA="d41bac851af1e03a42c5d7f8c66624fd235c90dd"
+LIBRETRO_COMMIT_SHA="ce1f93abb4c3aa55099f56298e5438a03a3c2bbd"
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of ScummVM"
-HOMEPAGE="https://github.com/libretro/scummvm"
-KEYWORDS="amd64 x86"
+DESCRIPTION="libretro implementation of DeSmuME. (Nintendo DS)"
+HOMEPAGE="https://github.com/libretro/desmume"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -18,4 +18,4 @@ DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
-S="${S}/backends/platform/libretro/build"
+S="${S}/desmume"

@@ -3,12 +3,12 @@
 
 EAPI=6
 
-LIBRETRO_COMMIT_SHA="47e7583af85d78f4abd557de0e2b65170aed9d0b"
+LIBRETRO_COMMIT_SHA="f0bcd4ad503f4ebbaec786a1bba4c3824f14c3b3"
 inherit libretro
 
 DESCRIPTION="Collection of slang shaders for vulkan backends."
 HOMEPAGE="https://github.com/libretro/slang-shaders"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-3"
 SLOT="0"

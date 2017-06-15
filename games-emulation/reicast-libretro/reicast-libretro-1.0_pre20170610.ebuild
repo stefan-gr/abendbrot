@@ -4,12 +4,12 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/reicast-emulator"
-LIBRETRO_COMMIT_SHA="148638c654a61aa32df7023498f261c4fb23c9aa"
+LIBRETRO_COMMIT_SHA="3ea9f940c87bf6b1e58fafa6b1a7bac0e4d2dcdc"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of Reicast. (Sega Dreamcast )"
 HOMEPAGE="https://github.com/libretro/reicast-emulator"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
 SLOT="0"
