@@ -23,6 +23,7 @@
     <flag name='jack'>Enable JACK audio support</flag>
     <flag name='joypad_autoconfig'>adds <pkg>games-emulation/retroarch-joypad-autoconfig</pkg> as dependency</flag>
     <flag name='kms'>Enable KMS context support (for OpenGL-based execution from a virtual terminal outside of a display server)</flag>
+    <flag name='lakka'>Enable settings like in Retroarchs Linux distrubtion Lakka</flag>
     <flag name='libass'>Enable libass SSA/ASS FFmpeg-based subtitle support</flag>
     <flag name='libusb'>Enable libusb gamepad support</flag>
     <flag name='materialui'>Enable materialui menu (named glui in driver selection)</flag>
