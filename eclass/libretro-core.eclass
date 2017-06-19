@@ -13,7 +13,7 @@
 # ebuilds for low-level Libretro core ebuilds.
 
 # Workaround for ppsspp
-if [[ ! ${PV} == "1.0_pre"* ]] || [[ ${PN} == "psp1-libretro" ]] || [[ ${PN} == "ppsspp-libretro" ]]; then
+if [[ ! ${PV} == "1.0_pre"* ]] || [[ ${PN} == "psp1-libretro" ]] || [[ ${PN} == "ppsspp-libretro" ]] || [[ ${PN} == "citra-libretro" ]]; then
 	inherit flag-o-matic git-r3 libretro
 else
 	inherit flag-o-matic libretro
@@ -54,7 +54,7 @@ libretro-core_src_unpack() {
 
 	# If this is a live ebuild, retrieve this core's remote repository.
 	# Workaround for ppsspp
-	if [[ ! ${PV} == "1.0_pre"* ]] || [[ ${PN} == "psp1-libretro" ]] || [[ ${PN} == "ppsspp-libretro" ]]; then
+	if [[ ! ${PV} == "1.0_pre"* ]] || [[ ${PN} == "psp1-libretro" ]] || [[ ${PN} == "ppsspp-libretro" ]] || [[ ${PN} == "citra-libretro" ]]; then
 		git-r3_src_unpack
 		# Add used commit SHA for version information
 		LIBRETRO_COMMIT_SHA=$(git -C "${EGIT3_STORE_DIR}/${LIBRETRO_REPO_NAME//\//_}.git" rev-parse HEAD)

@@ -7,10 +7,10 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+2048 +4do +beetle-psx bnes +bsnes bsnes-cpp98 craft +desmume dolphin easyrpg +fbalpha fbalpha2012 fceumm +gambatte +genplus \
+IUSE="+2048 +4do +beetle-psx bnes +bsnes bsnes-cpp98 citra craft +desmume dolphin easyrpg +fbalpha fbalpha2012 fceumm +gambatte +genplus \
 +handy mame mame2000 +mame2003 mame2016 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
 +mednafen-saturn mednafen-snes +mednafen-vb +mednafen-wswan melonds meteor meowpc98 +mgba mrboom +mupen64plus +nestopia +nxengine \
-pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive ppsspp +prboom +prosystem +psp1 quicknes +reicast sameboy +scummvm \
+openlara pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive ppsspp +prboom +prosystem +psp1 px68k quicknes redream +reicast sameboy +scummvm \
 snes9x snes9x2002 snes9x2010 +stella tgbdual +tyrquake vba-next vbam yabause"
 
 KEYWORDS="amd64 x86 arm"
@@ -21,6 +21,7 @@ RDEPEND="2048? ( games-emulation/2048-libretro )
 		bnes? ( games-emulation/bnes-libretro )
 		bsnes-cpp98? ( games-emulation/bsnes-libretro-cplusplus98 )
 		bsnes? ( games-emulation/bsnes-libretro )
+		citra? ( games-emulation/citra-libretro )
 		craft? ( games-emulation/craft-libretro )
 		desmume? ( games-emulation/desmume-libretro )
 		dolphin? ( games-emulation/dolphin-libretro )
@@ -51,6 +52,7 @@ RDEPEND="2048? ( games-emulation/2048-libretro )
 		mupen64plus? ( games-emulation/mupen64plus-libretro )
 		nestopia? ( games-emulation/nestopia-libretro )
 		nxengine? ( games-emulation/nxengine-libretro )
+		openlara? ( games-emulation/openlara-libretro )
 		parallel-n64? ( games-emulation/parallel-n64-libretro )
 		pcsx-rearmed? ( games-emulation/pcsx-rearmed-libretro )
 		picodrive? ( games-emulation/picodrive-libretro )
@@ -58,7 +60,9 @@ RDEPEND="2048? ( games-emulation/2048-libretro )
 		prboom? ( games-emulation/prboom-libretro )
 		prosystem? ( games-emulation/prosystem-libretro )
 		psp1? ( games-emulation/psp1-libretro )
+		px68k? ( games-emulation/px68k-libretro )
 		quicknes? ( games-emulation/quicknes-libretro )
+		redream? ( games-emulation/redream-libretro )
 		reicast? ( games-emulation/reicast-libretro )
 		sameboy? ( games-emulation/sameboy-libretro )
 		scummvm? ( games-emulation/scummvm-libretro )

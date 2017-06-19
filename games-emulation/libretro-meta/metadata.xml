@@ -11,6 +11,7 @@
     <flag name='beetle-psx'>adds <pkg>games-emulation/beetle-psx-libretro</pkg> as dependency</flag>
     <flag name='bnes'>adds <pkg>games-emulation/bnes-libretro</pkg> as dependency</flag>
     <flag name='bsnes'>adds <pkg>games-emulation/bsnes-libretro</pkg> as dependency</flag>
+    <flag name='citra'>adds <pkg>games-emulation/citra-libretro</pkg> as dependency</flag>
     <flag name='craft'>adds <pkg>games-emulation/craft-libretro</pkg> as dependency</flag>
     <flag name='desmume'>adds <pkg>games-emulation/desmume-libretro</pkg> as dependency</flag>
     <flag name='dolphin'>adds <pkg>games-emulation/dolphin-libretro</pkg> as dependency</flag>
@@ -35,13 +36,16 @@
     <flag name='mupen64plus'>adds <pkg>games-emulation/mupen64plus-libretro</pkg> as dependency</flag>
     <flag name='nestopia'>adds <pkg>games-emulation/nestopia-libretro</pkg> as dependency</flag>
     <flag name='nxengine'>adds <pkg>games-emulation/nxengine-libretro</pkg> as dependency</flag>
+    <flag name='openlara'>adds <pkg>games-emulation/openlara-libretro</pkg> as dependency</flag>
     <flag name='pcsx-rearmed'>adds <pkg>games-emulation/pcsx-rearmed-libretro</pkg> as dependency</flag>
     <flag name='picodrive'>adds <pkg>games-emulation/picodrive-libretro</pkg> as dependency</flag>
     <flag name='ppsspp'>adds <pkg>games-emulation/ppsspp-libretro</pkg> as dependency</flag>
     <flag name='prboom'>adds <pkg>games-emulation/prboom-libretro</pkg> as dependency</flag>
     <flag name='prosystem'>adds <pkg>games-emulation/prosystem-libretro</pkg> as dependency</flag>
     <flag name='psp1'>adds <pkg>games-emulation/psp1-libretro</pkg> as dependency</flag>
+    <flag name='px68k'>adds <pkg>games-emulation/px68k-libretro</pkg> as dependency</flag>
     <flag name='quicknes'>adds <pkg>games-emulation/quicknes-libretro</pkg> as dependency</flag>
+    <flag name='redream'>adds <pkg>games-emulation/redream-libretro</pkg> as dependency</flag>
     <flag name='reicast'>adds <pkg>games-emulation/reicast-libretro</pkg> as dependency</flag>
     <flag name='sameboy'>adds <pkg>games-emulation/sameboy-libretro</pkg> as dependency</flag>
     <flag name='scummvm'>adds <pkg>games-emulation/scummvm-libretro</pkg> as dependency</flag>
