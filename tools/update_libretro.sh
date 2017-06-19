@@ -48,8 +48,6 @@ core_update() {
 		[[ $n == *"9999"* ]] && continue
 		echo "$n"
 	done | sort | tail -1)
-	echo "${EGIT_CURRENT_DATE}"
-	exit 1
 	if [[ -z "${EGIT_CURRENT_DATE}" ]]
 	then
 		local LATEST_COMMIT_CURL=$(curl -i "${EGIT_COMMITS_URI}")
