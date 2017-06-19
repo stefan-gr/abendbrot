@@ -4,12 +4,12 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
-LIBRETRO_COMMIT_SHA="ecfa170a582e5b8ec11225ca645843fa064955ca"
+LIBRETRO_COMMIT_SHA="147ed7ea4e73931a0f2bdd44d7b6dd983b587d5d"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of NEStopia. (Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/nestopia"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
 SLOT="0"

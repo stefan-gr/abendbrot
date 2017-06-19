@@ -3,12 +3,12 @@
 
 EAPI=6
 
-LIBRETRO_COMMIT_SHA="1ce0f2a651948c17eabf329012f85d26dec156db"
+LIBRETRO_COMMIT_SHA="7c60c2a2b5ab793061ee8a8f3f04db1e2132d303"
 inherit libretro
 
 DESCRIPTION="Repository containing cheatcode files, content data files, etc."
 HOMEPAGE="https://github.com/libretro/libretro-database"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-3"
 SLOT="0"

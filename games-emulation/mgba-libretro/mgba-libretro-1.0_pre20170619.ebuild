@@ -50,12 +50,12 @@ CMAKE_WARN_UNUSED_CLI=1
 
 LIBRETRO_REPO_NAME="mgba-emu/mgba"
 
-LIBRETRO_COMMIT_SHA="6fe1f44351b82f85210260ab2425f8aaecb774a4"
+LIBRETRO_COMMIT_SHA="bd9a9e445e782e2bf623f5212060db5fbe60cc4b"
 inherit libretro-core cmake-utils
 
 DESCRIPTION="libretro implementation of mGBA. (Game Boy Advance)"
 HOMEPAGE="https://github.com/mgba-emu/mgba"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="MPL-2.0"
 SLOT="0"

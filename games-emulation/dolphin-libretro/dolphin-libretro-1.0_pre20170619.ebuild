@@ -4,12 +4,12 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
-LIBRETRO_COMMIT_SHA="a34037af0ce2b6bccf4dcca9bd5e8b98681f5f0f"
+LIBRETRO_COMMIT_SHA="bb782dc6837237fb5f9d7806b81ef4ed1c2150e6"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of Dolphin. (Nintendo GC/Wii)"
 HOMEPAGE="https://github.com/libretro/dolphin"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
 SLOT="0"

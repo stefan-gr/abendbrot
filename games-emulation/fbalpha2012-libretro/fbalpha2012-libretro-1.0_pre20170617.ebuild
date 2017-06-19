@@ -4,12 +4,12 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
-LIBRETRO_COMMIT_SHA="8f1173ddfc8c0f4265badf5b51540146fa556d79"
+LIBRETRO_COMMIT_SHA="10c76f714a71280912a60a71adfb87fbf770079a"
 inherit libretro-core
 
 DESCRIPTION="Final Burn Alpha 2012. Port of Final Burn Alpha to Libretro (0.2.97.24)"
 HOMEPAGE="https://github.com/libretro/fbalpha2012"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 S="${S}/svn-current/trunk"
 

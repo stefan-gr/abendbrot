@@ -4,12 +4,12 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/libretro-meowPC98"
-LIBRETRO_COMMIT_SHA="3a80e2c1b1b47043b8b93b9fe736dd9bf716ef9d"
+LIBRETRO_COMMIT_SHA="5154661dc89c357ff1dd2c5ee1def3fa38afd10c"
 inherit libretro-core
 
 DESCRIPTION="Neko Project 2 (PC98 emulator) port for libretro/RetroArch (XNP2)"
 HOMEPAGE="https://github.com/libretro/libretro-meowPC98"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="BSD"
 SLOT="0"

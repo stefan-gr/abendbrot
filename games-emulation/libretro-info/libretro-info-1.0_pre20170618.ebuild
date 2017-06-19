@@ -4,12 +4,12 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/libretro-super"
-LIBRETRO_COMMIT_SHA="0e2cd0018fd7980cbdd1cf18cb777c75dbdf7804"
+LIBRETRO_COMMIT_SHA="936ecf6896bf9f0f5189bbef343b1faf9bcdece5"
 inherit libretro
 
 DESCRIPTION="Libretro info files required for libretro cores"
 HOMEPAGE="https://github.com/libretro/libretro-super"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-3"
 SLOT="0"

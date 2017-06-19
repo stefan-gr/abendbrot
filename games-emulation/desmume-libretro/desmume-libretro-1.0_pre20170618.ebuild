@@ -4,12 +4,12 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
-LIBRETRO_COMMIT_SHA="1c0d3fca8a0647487a1902cc6bca80fda810ed36"
+LIBRETRO_COMMIT_SHA="09e0f16bf2ab6ffb3267ab27a9135867cf6320f3"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of DeSmuME. (Nintendo DS)"
 HOMEPAGE="https://github.com/libretro/desmume"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
 SLOT="0"
