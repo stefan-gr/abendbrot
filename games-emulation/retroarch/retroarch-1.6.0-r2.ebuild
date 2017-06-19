@@ -1,6 +1,8 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
+# TODO: Rewrite src_prepare() and src_configure()
+
 EAPI=6
 
 PYTHON_COMPAT=( python{3_4,3_5,3_6} )
@@ -24,7 +26,7 @@ SLOT="0"
 # To avoid fatal dependency failures for users enabling the "python" USE flag, a
 # default "python_single_target_python*" USE flag *MUST* be set below to the
 # default version of Python 3 for default Portage profiles.
-IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug dispmanx egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms lakka libass libusb +materialui miniupnpc +netplay +neon +network openal +opengl osmesa oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python +python_single_target_python3_4 python_single_target_python3_5"
+IUSE="+7zip alsa +armvfp +assets cg cheevos +cores +database debug dispmanx egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms lakka libass libusb +materialui miniupnpc +netplay +neon +network openal +opengl osmesa oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python +python_single_target_python3_4 python_single_target_python3_5"
 
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
@@ -48,7 +50,7 @@ REQUIRED_USE="
 	xinerama? ( X )
 	xmb? ( assets opengl )
 	xv? ( X )
-        lakka? ( assets cores database joypad_autoconfig overlays shaders xmb )
+	lakka? ( assets cores database joypad_autoconfig overlays shaders xmb )
 "
 
 RDEPEND="
@@ -93,8 +95,8 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 
-PDEPEND="!vulkan? ( shaders? ( gles2? ( games-emulation/glsl-shaders:0= ) )
-		!vulkan? ( cg? ( games-emulation/common-shaders:0= ) ) )
+PDEPEND="!vulkan? ( shaders? ( games-emulation/glsl-shaders:0= ) )
+		!vulkan? ( cg? ( games-emulation/common-shaders:0= ) )
 "
 
 pkg_setup() {
@@ -152,7 +154,7 @@ src_prepare() {
 	else
 		use cg && sed -i retroarch.cfg \
 			-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/common-shaders/":'
-		use gles2 && sed -i retroarch.cfg \
+		use cg || use shaders && sed -i retroarch.cfg \
 			-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/shaders/":'
 	fi
 
