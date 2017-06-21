@@ -58,7 +58,7 @@ RDEPEND="
 	database? ( games-emulation/libretro-database:0= )
 	arm? ( dispmanx? ( || ( media-libs/raspberrypi-userland:0 media-libs/raspberrypi-userland-bin:0 ) ) )
 	ffmpeg? ( >=media-video/ffmpeg-2.1.3:0= )
-	jack? ( >=media-sound/jack-audio-connection-kit-0.120.1:0= )
+	jack? ( virtual/jack:= )
 	joypad_autoconfig? ( games-emulation/retroarch-joypad-autoconfig:0= )
 	libass? ( media-libs/libass:0= )
 	libusb? ( virtual/libusb:1= )
