@@ -113,7 +113,7 @@ libretro-core_src_prepare() {
 # This function compiles the shared library for this Libretro core.
 libretro-core_src_compile() {
 	use custom-cflags || filter-flags -O*
-	emake 	CC=$(tc-getCC) CXX=$(tc-getCXX) LD=$(tc-getLD) \
+	emake CC=$(tc-getCC) CXX=$(tc-getCXX) \
 		$(usex debug "DEBUG=1" "") "${myemakeargs[@]}" \
 		$([ -f makefile.libretro ] && echo '-f makefile.libretro') \
 		$([ -f Makefile.libretro ] && echo '-f Makefile.libretro')
