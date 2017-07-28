@@ -7,12 +7,13 @@ EAPI=6
 
 PYTHON_COMPAT=( python{3_4,3_5,3_6} )
 
+LIBRETRO_COMMIT_SHA="adae0656eb4185706c31e5176d73d9215d0856fe"
 LIBRETRO_REPO_NAME="libretro/RetroArch"
 inherit flag-o-matic libretro python-single-r1
 
 DESCRIPTION="Universal frontend for libretro-based emulators"
 HOMEPAGE="http://www.retroarch.com"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 
 LICENSE="GPL-3"
 SLOT="0"

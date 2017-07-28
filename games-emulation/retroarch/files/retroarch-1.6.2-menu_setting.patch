@@ -1,0 +1,139 @@
+--- menu/menu_setting.c	2017-07-02 10:16:12.662798664 +0000
++++ menu_setting.c	2017-07-02 09:55:23.850741061 +0000
+@@ -2335,13 +2335,6 @@
+                parent_group);
+ 
+ #ifdef HAVE_LAKKA
+-         CONFIG_ACTION(
+-               list, list_info,
+-               MENU_ENUM_LABEL_UPDATE_LAKKA,
+-               MENU_ENUM_LABEL_VALUE_UPDATE_LAKKA,
+-               &group_info,
+-               &subgroup_info,
+-               parent_group);
+ #else
+          CONFIG_ACTION(
+                list, list_info,
+@@ -2461,23 +2454,6 @@
+ #endif
+ 
+ #if defined(HAVE_LAKKA)
+-         CONFIG_ACTION(
+-               list, list_info,
+-               MENU_ENUM_LABEL_REBOOT,
+-               MENU_ENUM_LABEL_VALUE_REBOOT,
+-               &group_info,
+-               &subgroup_info,
+-               parent_group);
+-         menu_settings_list_current_add_cmd(list, list_info, CMD_EVENT_REBOOT);
+-
+-         CONFIG_ACTION(
+-               list, list_info,
+-               MENU_ENUM_LABEL_SHUTDOWN,
+-               MENU_ENUM_LABEL_VALUE_SHUTDOWN,
+-               &group_info,
+-               &subgroup_info,
+-               parent_group);
+-         menu_settings_list_current_add_cmd(list, list_info, CMD_EVENT_SHUTDOWN);
+ #endif
+ 
+          CONFIG_ACTION(
+@@ -2629,17 +2653,6 @@
+                parent_group);
+          settings_data_list_current_add_flags(list, list_info, SD_FLAG_ADVANCED);
+ 
+-         if (string_is_not_equal_fast(settings->arrays.wifi_driver, "null", 4))
+-         {
+-            CONFIG_ACTION(
+-                  list, list_info,
+-                  MENU_ENUM_LABEL_WIFI_SETTINGS,
+-                  MENU_ENUM_LABEL_VALUE_WIFI_SETTINGS,
+-                  &group_info,
+-                  &subgroup_info,
+-                  parent_group);
+-         }
+-
+          CONFIG_ACTION(
+                list, list_info,
+                MENU_ENUM_LABEL_NETWORK_SETTINGS,
+@@ -2663,13 +2650,6 @@
+          settings_data_list_current_add_flags(list, list_info, SD_FLAG_LAKKA_ADVANCED);
+ 
+ #ifdef HAVE_LAKKA
+-         CONFIG_ACTION(
+-               list, list_info,
+-               MENU_ENUM_LABEL_LAKKA_SERVICES,
+-               MENU_ENUM_LABEL_VALUE_LAKKA_SERVICES,
+-               &group_info,
+-               &subgroup_info,
+-               parent_group);
+ #endif
+ 
+          CONFIG_ACTION(
+@@ -6278,66 +6258,6 @@
+       case SETTINGS_LIST_LAKKA_SERVICES:
+          {
+ #if defined(HAVE_LAKKA)
+-            START_GROUP(list, list_info, &group_info,
+-                  msg_hash_to_str(MENU_ENUM_LABEL_VALUE_LAKKA_SERVICES),
+-                  parent_group);
+-
+-            parent_group = msg_hash_to_str(MENU_ENUM_LABEL_SETTINGS);
+-
+-            START_SUB_GROUP(list, list_info,
+-                  msg_hash_to_str(MENU_ENUM_LABEL_VALUE_LAKKA_SERVICES),
+-                  &group_info, &subgroup_info, parent_group);
+-
+-            CONFIG_BOOL(
+-                  list, list_info,
+-                  &settings->bools.ssh_enable,
+-                  MENU_ENUM_LABEL_SSH_ENABLE,
+-                  MENU_ENUM_LABEL_VALUE_SSH_ENABLE,
+-                  true,
+-                  MENU_ENUM_LABEL_VALUE_OFF,
+-                  MENU_ENUM_LABEL_VALUE_ON,
+-                  &group_info,
+-                  &subgroup_info,
+-                  parent_group,
+-                  general_write_handler,
+-                  general_read_handler,
+-                  SD_FLAG_NONE);
+-            (*list)[list_info->index - 1].change_handler = ssh_enable_toggle_change_handler;
+-
+-            CONFIG_BOOL(
+-                  list, list_info,
+-                  &settings->bools.samba_enable,
+-                  MENU_ENUM_LABEL_SAMBA_ENABLE,
+-                  MENU_ENUM_LABEL_VALUE_SAMBA_ENABLE,
+-                  true,
+-                  MENU_ENUM_LABEL_VALUE_OFF,
+-                  MENU_ENUM_LABEL_VALUE_ON,
+-                  &group_info,
+-                  &subgroup_info,
+-                  parent_group,
+-                  general_write_handler,
+-                  general_read_handler,
+-                  SD_FLAG_NONE);
+-            (*list)[list_info->index - 1].change_handler = samba_enable_toggle_change_handler;
+-
+-            CONFIG_BOOL(
+-                  list, list_info,
+-                  &settings->bools.bluetooth_enable,
+-                  MENU_ENUM_LABEL_BLUETOOTH_ENABLE,
+-                  MENU_ENUM_LABEL_VALUE_BLUETOOTH_ENABLE,
+-                  true,
+-                  MENU_ENUM_LABEL_VALUE_OFF,
+-                  MENU_ENUM_LABEL_VALUE_ON,
+-                  &group_info,
+-                  &subgroup_info,
+-                  parent_group,
+-                  general_write_handler,
+-                  general_read_handler,
+-                  SD_FLAG_NONE);
+-            (*list)[list_info->index - 1].change_handler = bluetooth_enable_toggle_change_handler;
+-
+-            END_SUB_GROUP(list, list_info, parent_group);
+-            END_GROUP(list, list_info, parent_group);
+ #endif
+          }
+          break;
