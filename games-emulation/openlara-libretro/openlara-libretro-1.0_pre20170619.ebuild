@@ -9,7 +9,7 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of OpenLara. (Classic Tomb Raider Engine)"
 HOMEPAGE="https://github.com/libretro/OpenLara"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="BSD-2"
 SLOT="0"

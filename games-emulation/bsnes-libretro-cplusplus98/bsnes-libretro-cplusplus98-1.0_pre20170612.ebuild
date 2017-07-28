@@ -8,7 +8,7 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of bSNES/higan. (Super Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/bsnes-libretro-cplusplus98"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-3"
 SLOT="0"

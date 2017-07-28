@@ -8,7 +8,7 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of NXEngine. (Cave Story)"
 HOMEPAGE="https://github.com/libretro/nxengine-libretro"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-3"
 SLOT="0"

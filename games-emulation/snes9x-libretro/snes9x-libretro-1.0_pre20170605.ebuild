@@ -9,7 +9,7 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of SNES9x. (Super Nintendo Entertainment System)"
 HOMEPAGE="https://github.com/libretro/snes9x"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="snes9x"
 SLOT="0"
