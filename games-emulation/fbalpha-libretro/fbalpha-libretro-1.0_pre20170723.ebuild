@@ -9,7 +9,7 @@ inherit libretro-core
 
 DESCRIPTION="Port of Final Burn Alpha to Libretro"
 HOMEPAGE="https://github.com/libretro/fbalpha"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="FBA"
 SLOT="0"
