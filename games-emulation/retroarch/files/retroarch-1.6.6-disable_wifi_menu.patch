@@ -1,0 +1,21 @@
+diff -U 3 -dHrN -- RetroArch_orig/menu/menu_setting.c RetroArch/menu/menu_setting.c
+--- RetroArch_orig/menu/menu_setting.c	2017-08-17 11:14:25.000000000 +0200
++++ RetroArch/menu/menu_setting.c	2017-08-17 11:46:37.338013060 +0200
+@@ -2651,17 +2651,6 @@
+                parent_group);
+          settings_data_list_current_add_flags(list, list_info, SD_FLAG_ADVANCED);
+ 
+-         if (string_is_not_equal_fast(settings->arrays.wifi_driver, "null", 4))
+-         {
+-            CONFIG_ACTION(
+-                  list, list_info,
+-                  MENU_ENUM_LABEL_WIFI_SETTINGS,
+-                  MENU_ENUM_LABEL_VALUE_WIFI_SETTINGS,
+-                  &group_info,
+-                  &subgroup_info,
+-                  parent_group);
+-         }
+-
+          CONFIG_ACTION(
+                list, list_info,
+                MENU_ENUM_LABEL_NETWORK_SETTINGS,
