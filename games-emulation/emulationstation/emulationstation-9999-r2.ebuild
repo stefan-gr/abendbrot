@@ -19,9 +19,9 @@ if [[ ${PV} == 9999 ]]; then
 	SRC_URI=""
 	KEYWORDS=""
 else
-	SRC_URI="https://github.com/RetroPie/EmulationStation/archive/v${PV}rp.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/RetroPie/EmulationStation/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86 ~arm"
-	S="${WORKDIR}/EmulationStation-${PV}rp"
+	S="${WORKDIR}/EmulationStation-${PV}"
 fi
 
 COMMON_DEPEND="
@@ -40,9 +40,11 @@ RDEPEND="${COMMON_DEPEND}
 DEPEND="${COMMON_DEPEND}"
 
 src_prepare() {
-	sed -i external/CMakeLists.txt -e 's:add_subdirectory("pugixml")::' || die '"sed" failed.'
+	epatch \
+		"${FILESDIR}/${P}-include-fix.patch"
 	cmake-utils_src_prepare
 }
+
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}"/usr
