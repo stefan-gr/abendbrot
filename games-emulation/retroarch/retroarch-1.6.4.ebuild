@@ -13,7 +13,7 @@ inherit flag-o-matic libretro python-single-r1
 
 DESCRIPTION="Universal frontend for libretro-based emulators"
 HOMEPAGE="http://www.retroarch.com"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="x86 amd64"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -181,9 +181,9 @@ src_configure() {
 			-e 's:\[ -d /opt/vc/lib \] && add_library_dirs /opt/vc/lib && add_library_dirs /opt/vc/lib/GL::' || die 'sed failed'
 	fi
 
-        if use lakka; then
-                export HAVE_LAKKA="1"
-        fi
+	if use lakka; then
+		export HAVE_LAKKA="1"
+	fi
 
 	# Note that OpenVG support is hard-disabled. (See ${RDEPEND} above.)
 	# miniupnpc requires now at least version 2.0

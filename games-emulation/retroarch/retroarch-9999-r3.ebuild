@@ -180,9 +180,9 @@ src_configure() {
 			-e 's:\[ -d /opt/vc/lib \] && add_library_dirs /opt/vc/lib && add_library_dirs /opt/vc/lib/GL::' || die 'sed failed'
 	fi
 
-        if use lakka; then
-                export HAVE_LAKKA="1"
-        fi
+	if use lakka; then
+		export HAVE_LAKKA="1"
+	fi
 
 	# Note that OpenVG support is hard-disabled. (See ${RDEPEND} above.)
 	# miniupnpc requires now at least version 2.0

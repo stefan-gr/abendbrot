@@ -7,7 +7,7 @@ EAPI=6
 
 PYTHON_COMPAT=( python{3_4,3_5,3_6} )
 
-LIBRETRO_COMMIT_SHA="681351c5810c8dd86fed10c9993453c10bd3cd57"
+LIBRETRO_COMMIT_SHA="8e8bdaaab3dc4686ce39e59da922f79a76ba4496"
 LIBRETRO_REPO_NAME="libretro/RetroArch"
 inherit flag-o-matic libretro python-single-r1
 
@@ -106,7 +106,8 @@ pkg_setup() {
 src_prepare() {
 	epatch \
 		"${FILESDIR}/${P}-build.patch" \
-		"${FILESDIR}/${P}-python.patch"
+		"${FILESDIR}/${P}-python.patch" \
+		"${FILESDIR}/${P}-disable_wifi_menu.patch"
 
 	# If Python support is enabled, use the currently enabled "python" binary.
 	if use python; then
@@ -147,6 +148,11 @@ src_prepare() {
 		-e 's:# \(rgui_browser_directory =\):\1 "~/":' \
 		|| die '"sed" failed.'
 
+	if use cores; then
+		sed -i retroarch.cfg \
+			-e 's:# \(menu_show_core_updater =\) true:\1 "false":'
+	fi
+
 	if use vulkan; then
 		sed -i retroarch.cfg \
 			-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/slang-shaders/":' \
@@ -175,9 +181,9 @@ src_configure() {
 			-e 's:\[ -d /opt/vc/lib \] && add_library_dirs /opt/vc/lib && add_library_dirs /opt/vc/lib/GL::' || die 'sed failed'
 	fi
 
-        if use lakka; then
-                export HAVE_LAKKA="1"
-        fi
+	if use lakka; then
+		export HAVE_LAKKA="1"
+	fi
 
 	# Note that OpenVG support is hard-disabled. (See ${RDEPEND} above.)
 	# miniupnpc requires now at least version 2.0
