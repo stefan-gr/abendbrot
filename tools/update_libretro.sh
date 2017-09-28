@@ -29,6 +29,9 @@ then
 	exit 1
 fi
 
+# Put them arm tested ebuilds here
+ARM_LIST=( ppsspp-libretro psp1-libretro vba-next-libretro common-overlays )
+
 core_update() {
 	CORE_DIR="${@%/*}"
 	CORE_NAME="${@##*/}"
@@ -85,7 +88,17 @@ core_update() {
 		cd "${CORE_DIR}"
 		sudo cp "${CORE_NAME}" "${NEW_EBUILD##*/}"
 		sudo sed -i 's,^inherit,LIBRETRO_COMMIT_SHA="'${LATEST_COMMIT_SHA}'"\ninherit,g' "${NEW_EBUILD##*/}" || exit 1
-		sudo sed -i 's,^KEYWORDS="",KEYWORDS="~amd64 ~x86",g' "${NEW_EBUILD##*/}" || exit 1
+		local ARM_ENABLED=0
+		for i in ${ARM_LIST[@]}; do
+			[ "$i" == "$(basename ${CORE_DIR})" ] && ARM_ENABLED=1
+		done
+
+		if [ "${ARM_ENABLED}" == "1" ]; then
+			sudo sed -i 's,^KEYWORDS="",KEYWORDS="~amd64 ~x86 ~arm",g' "${NEW_EBUILD##*/}" || exit 1
+		else
+			sudo sed -i 's,^KEYWORDS="",KEYWORDS="~amd64 ~x86",g' "${NEW_EBUILD##*/}" || exit 1
+		fi
+		
 		# Never forget the manifest
 		sudo ebuild --force "${NEW_EBUILD##*/}" manifest
 	fi
