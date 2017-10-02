@@ -17,7 +17,8 @@ SLOT="0"
 IUSE="gles2 vulkan"
 
 DEPEND="media-libs/mesa:0=
-		gles2? ( media-libs/mesa[gles2] )"
+		gles2? ( media-libs/mesa[gles2] )
+		media-libs/libpng:0="
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
