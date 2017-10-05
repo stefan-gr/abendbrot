@@ -6,7 +6,7 @@ EAPI=6
 inherit cmake-utils git-r3 kde5
 
 DESCRIPTION="A maclike style for qt4/qt5/kde4/kde5"
-HOMEPAGE="http://sourceforge.net/p/styleproject"
+HOMEPAGE="https://sourceforge.net/p/styleproject"
 SRC_URI=""
 EGIT_REPO_URI="https://git.code.sf.net/p/styleproject/code.git"
 

@@ -21,6 +21,6 @@ RDEPEND="${DEPEND}"
 pkg_postinst() {
 	elog ""
 	elog "This theme optionally supports \"x11-themes/kvantum\""
-	elog "See also \"x11-themes/gtk-themes-arc\" for gtk support"
+	elog "See also \"x11-themes/arc-theme\" for gtk support"
 	elog ""
 }
