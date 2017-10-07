@@ -36,6 +36,7 @@ REQUIRED_USE="
 	cg? ( opengl )
 	dispmanx? ( videocore arm )
 	egl? ( opengl )
+	fbo? ( opengl )
 	gles2? ( !cg opengl )
 	gles3? ( gles2 )
 	kms? ( egl )
