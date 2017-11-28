@@ -41,7 +41,7 @@ pkg_postinst() {
 		elog "bios_J.sms (MasterSystem JP BIOS)"
 		elog "bios.gg (GameGear BIOS)"
 		elog "sk.bin (Sonic & Knuckles (2 MiB) ROM)"
-		elog "s2k.bin (Sonic & Knuckles UPMEM (256 KiB) ROM) = b4e76e416b887f4e7413ba76fa735f16"
+		elog "sk2chip.bin (Sonic & Knuckles UPMEM (256 KiB) ROM) = b4e76e416b887f4e7413ba76fa735f16"
 		elog "areplay.bin (Action Replay (Pro) ROM)"
 		elog "ggenie.bin (Game Genie ROM)"
 		elog ""
