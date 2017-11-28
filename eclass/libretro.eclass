@@ -49,7 +49,7 @@ if [[ ! ${PV} = 9999 ]] && [[ ! ${PN} = retroarch ]] && [[ ! ${PN} = ppsspp-libr
 fi
 
 # Workaround for ebuilds needing submodules
-if [[ ${PN} = retroarch ]] || [[ ${PN} = ppsspp-libretro ]] || [[ ${PN} = psp1-libretro ]]  || [[ ${PN} = citra-libretro ]] && [[ ! ${PV} = 9999 ]]; then
+if [[ ${PN} = ppsspp-libretro ]] || [[ ${PN} = psp1-libretro ]]  || [[ ${PN} = citra-libretro ]] && [[ ! ${PV} = 9999 ]]; then
 	inherit git-r3
 	
 	SRC_URI=""
