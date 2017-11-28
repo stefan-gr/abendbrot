@@ -22,6 +22,7 @@ fi
 
 # Put them arm tested ebuilds here
 ARM_LIST=( ppsspp-libretro psp1-libretro vba-next-libretro common-overlays )
+AMD64_LIST=( dolphin-libretro )
 
 
 make_stable() {
@@ -32,12 +33,18 @@ make_stable() {
 	local KEEP_EBUILDS=( $({ [ "${#EBUILDS[@]}" -eq 0 ] || printf '%s\n' "${EBUILDS[@]}"; } | tail -n 2) )
 	local DELETE_EBUILDS=( $({ [ "${#EBUILDS[@]}" -eq 0 ] || printf '%s\n' "${EBUILDS[@]}"; } | head -n $((${#EBUILDS[@]}-2))) )
 	local ARM_ENABLED=0
+	local AMD64_ENABLED=0
 	for i in ${ARM_LIST[@]}; do
 		[ "$i" == "$(basename ${@})" ] && ARM_ENABLED=1
+	done
+	for i in ${AMD64_LIST[@]}; do
+		[ "$i" == "$(basename ${@})" ] && AMD64_ENABLED=1
 	done
 
 	if [ "${ARM_ENABLED}" == "1" ]; then
 		sudo sed -i 's,^KEYWORDS=".*",KEYWORDS="amd64 x86 arm",g' "${KEEP_EBUILDS[0]}"
+	elif [ "${AMD64_ENABLED}" == "1" ]; then
+		sudo sed -i 's,^KEYWORDS=".*",KEYWORDS="amd64",g' "${KEEP_EBUILDS[0]}"
 	else
 		sudo sed -i 's,^KEYWORDS=".*",KEYWORDS="amd64 x86",g' "${KEEP_EBUILDS[0]}"
 	fi
