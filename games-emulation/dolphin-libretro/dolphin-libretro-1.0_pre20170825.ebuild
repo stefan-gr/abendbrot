@@ -9,7 +9,7 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of Dolphin. (Nintendo GC/Wii)"
 HOMEPAGE="https://github.com/libretro/dolphin"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
 LICENSE="GPL-2"
 SLOT="0"

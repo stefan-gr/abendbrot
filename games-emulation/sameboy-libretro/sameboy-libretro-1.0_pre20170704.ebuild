@@ -9,7 +9,7 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of SameBoy (Gameboy / Gameboy Color)"
 HOMEPAGE="https://github.com/libretro/SameBoy"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-3"
 SLOT="0"

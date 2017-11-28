@@ -3,11 +3,11 @@
 
 EAPI=6
 
-LIBRETRO_REPO_NAME="libretro/PSP1"
+LIBRETRO_REPO_NAME="libretro-mirrors/PSP1"
 inherit libretro-core
 
 DESCRIPTION="Non-shallow fork of PPSSPP for libretro exclusively."
-HOMEPAGE="https://github.com/libretro/PSP1"
+HOMEPAGE="https://github.com/libretro-mirrors/PSP1"
 KEYWORDS=""
 
 LICENSE="GPL-2"

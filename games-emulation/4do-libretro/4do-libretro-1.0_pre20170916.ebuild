@@ -8,7 +8,7 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of 4DO/libfreedo. (Panasonic 3DO)"
 HOMEPAGE="https://github.com/libretro/4do-libretro"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"

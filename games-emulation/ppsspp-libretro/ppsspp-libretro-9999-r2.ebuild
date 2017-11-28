@@ -3,11 +3,11 @@
 
 EAPI=6
 
-LIBRETRO_REPO_NAME="libretro/libretro-${PN//-libretro}"
+LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of PPSSPP. (PlayStation Portable/PSP)"
-HOMEPAGE="https://github.com/libretro/libretro-ppsspp"
+HOMEPAGE="https://github.com/libretro/ppsspp"
 KEYWORDS=""
 
 LICENSE="GPL-2"

@@ -9,7 +9,7 @@ inherit libretro-core
 
 DESCRIPTION="Snes9x 2002. Port of SNES9x 1.39 for libretro (previously PocketSNES)"
 HOMEPAGE="https://github.com/libretro/snes9x2002"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 LICENSE="PS"
 SLOT="0"
