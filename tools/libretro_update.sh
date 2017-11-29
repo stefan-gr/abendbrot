@@ -31,6 +31,7 @@ fi
 
 # Put them arm tested ebuilds here
 ARM_LIST=( ppsspp-libretro psp1-libretro vba-next-libretro common-overlays )
+AMD64_LIST=( dolphin-libretro )
 
 core_update() {
 	CORE_DIR="${@%/*}"
@@ -89,12 +90,18 @@ core_update() {
 		sudo cp "${CORE_NAME}" "${NEW_EBUILD##*/}"
 		sudo sed -i 's,^inherit,LIBRETRO_COMMIT_SHA="'${LATEST_COMMIT_SHA}'"\ninherit,g' "${NEW_EBUILD##*/}" || exit 1
 		local ARM_ENABLED=0
+		local AMD64_ENABLED=0
 		for i in ${ARM_LIST[@]}; do
 			[ "$i" == "$(basename ${CORE_DIR})" ] && ARM_ENABLED=1
+		done
+		for i in ${AMD64_LIST[@]}; do
+			[ "$i" == "$(basename ${CORE_DIR})" ] && AMD64_ENABLED=1
 		done
 
 		if [ "${ARM_ENABLED}" == "1" ]; then
 			sudo sed -i 's,^KEYWORDS="",KEYWORDS="~amd64 ~x86 ~arm",g' "${NEW_EBUILD##*/}" || exit 1
+		elif [ "${AMD64_ENABLED}" == "1" ]; then
+			sudo sed -i 's,^KEYWORDS="",KEYWORDS="~amd64",g' "${NEW_EBUILD##*/}" || exit 1
 		else
 			sudo sed -i 's,^KEYWORDS="",KEYWORDS="~amd64 ~x86",g' "${NEW_EBUILD##*/}" || exit 1
 		fi
