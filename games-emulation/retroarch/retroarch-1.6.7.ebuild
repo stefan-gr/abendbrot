@@ -13,19 +13,20 @@ inherit flag-o-matic libretro python-single-r1
 
 DESCRIPTION="Universal frontend for libretro-based emulators"
 HOMEPAGE="http://www.retroarch.com"
+SRC_URI="https://github.com/${LIBRETRO_REPO_NAME}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+RESTRICT="primaryuri"
 KEYWORDS="x86 amd64"
 
 LICENSE="GPL-3"
 SLOT="0"
+
+S="${WORKDIR}/RetroArch-${PV}"
 
 #FIXME: Revaluate the "wayland? ( egl )" entry below. Due to unresolved upstream
 #issues, Wayland support erroneously requires EGL support. Ideally, it
 #shouldn't. When upstream resolves this, remove this entry. See also:
 #    https://github.com/stefan-gr/abendbrot/issues/7#issuecomment-204541979
 
-# To avoid fatal dependency failures for users enabling the "python" USE flag, a
-# default "python_single_target_python*" USE flag *MUST* be set below to the
-# default version of Python 3 for default Portage profiles.
 IUSE="+7zip alsa +armvfp +assets cg cheevos +cores +database debug dispmanx egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms lakka libass libusb +materialui miniupnpc +netplay +neon +network openal +opengl osmesa oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python"
 
 REQUIRED_USE="
