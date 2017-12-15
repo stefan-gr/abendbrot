@@ -17,6 +17,7 @@ that *other* [disreputable fellow](http://paludis.exherbo.org)):
 The portage way:
 
 * Install `dev-vcs/git`
+
         * Execute the following with root rights (`su -l` or `sudo -i`)
         $ curl --create-dirs -o /etc/portage/repos.conf/abendbrot.conf https://raw.githubusercontent.com/stefan-gr/abendbrot/master/tools/abendbrot.conf
         $ emerge --sync
