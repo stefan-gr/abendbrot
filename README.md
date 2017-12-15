@@ -33,6 +33,10 @@ The layman way:
         * For >=app-portage/layman-2.3.0-r1[sync-plugin-portage]
         $ Nothing
 
+* Fetch overlay list.
+
+        $ layman -f
+
 * Add the `abendbrot` overlay.
 
         $ layman -a abendbrot
