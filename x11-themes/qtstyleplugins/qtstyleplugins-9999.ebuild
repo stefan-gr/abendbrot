@@ -15,8 +15,8 @@ KEYWORDS=""
 
 DEPEND="
 	x11-libs/gtk+:2
-	dev-qt/qtgui:5
-	dev-qt/qtdbus:5
+	dev-qt/qtgui:5=
+	dev-qt/qtdbus:5=
 	x11-libs/libX11"
 RDEPEND="${DEPEND}"
 
