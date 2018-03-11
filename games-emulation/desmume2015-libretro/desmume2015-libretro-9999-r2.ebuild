@@ -6,8 +6,8 @@ EAPI=6
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of DeSmuME. (Nintendo DS)"
-HOMEPAGE="https://github.com/libretro/desmume"
+DESCRIPTION="libretro implementation of DeSmuME 2015. (Nintendo DS)"
+HOMEPAGE="https://github.com/libretro/desmume2015"
 KEYWORDS=""
 
 LICENSE="GPL-2"
