@@ -7,7 +7,7 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+2048 +4do +beetle-psx bnes +bsnes bsnes-cpp98 citra craft +desmume dolphin easyrpg +fbalpha fbalpha2012 fceumm +gambatte +genplus \
+IUSE="+2048 +4do +beetle-psx bnes +bsnes bsnes-cpp98 citra craft +desmume2015 dolphin easyrpg +fbalpha fbalpha2012 fceumm +gambatte +genplus \
 +handy mame mame2000 +mame2003 mame2016 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
 +mednafen-saturn mednafen-snes +mednafen-vb +mednafen-wswan melonds meowpc98 meteor +mgba mrboom +mupen64plus +nestopia +nxengine \
 openlara pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive ppsspp +prboom +prosystem +psp1 px68k quicknes redream +reicast sameboy +scummvm \
@@ -23,7 +23,7 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		bsnes-cpp98? ( >=games-emulation/bsnes-libretro-cplusplus98-9999 )
 		citra? ( >=games-emulation/citra-libretro-9999 )
 		craft? ( >=games-emulation/craft-libretro-9999 )
-		desmume? ( >=games-emulation/desmume-libretro-9999 )
+		desmume2015? ( >=games-emulation/desmume2015-libretro-9999 )
 		dolphin? ( >=games-emulation/dolphin-libretro-9999 )
 		easyrpg? ( >=games-emulation/easyrpg-libretro-9999 )
 		fbalpha? ( >=games-emulation/fbalpha-libretro-9999 )
