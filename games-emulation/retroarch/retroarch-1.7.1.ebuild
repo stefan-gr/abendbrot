@@ -21,7 +21,7 @@ else
 	SRC_URI="https://github.com/${LIBRETRO_REPO_NAME}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	RESTRICT="primaryuri"
 	S="${WORKDIR}/RetroArch-${PV}"
-	KEYWORDS=""
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3"
