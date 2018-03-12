@@ -14,15 +14,11 @@ KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-3"
 SLOT="0"
 
-DEPEND="dev-lang/rgbds"
+DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
-src_prepare() {
-    # Disable -Werror
-    sed 's/-Werror //' -i Makefile
-    libretro-core_src_prepare
-}
+S="${S}/libretro"
 
 pkg_preinst() {
 	if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then
