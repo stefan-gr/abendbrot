@@ -17,4 +17,4 @@ DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
-S="${S}/desmume"
+S="${S}/desmume/src/frontend/libretro"

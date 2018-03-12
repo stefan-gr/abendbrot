@@ -4,7 +4,7 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
-LIBRETRO_COMMIT_SHA="94645824e96a425a642d9dfee8f9c1e2fa134e4f"
+LIBRETRO_COMMIT_SHA="52aa8b77ef0ad358cb265c48a489bb77e98be457"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of DeSmuME. (Nintendo DS)"
@@ -18,4 +18,4 @@ DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
-S="${S}/desmume"
+S="${S}/desmume/src/frontend/libretro"
