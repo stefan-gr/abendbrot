@@ -18,6 +18,12 @@ DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
+src_prepare() {
+    # Disable -Werror
+    sed 's/-Werror //' -i Makefile
+    libretro-core_src_prepare
+}
+
 pkg_preinst() {
 	if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then
 		first_install="1"
