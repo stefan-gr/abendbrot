@@ -21,6 +21,7 @@ RDEPEND="${DEPEND}
 
 src_prepare() {
 	use opengl && sed 's/TARGET_NAME := mednafen_saturn_hw/TARGET_NAME := mednafen_saturn/' -i Makefile
+	libretro-core_src_prepare
 }
 
 pkg_setup() {
