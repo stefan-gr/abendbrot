@@ -19,9 +19,12 @@ DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
+src_prepare() {
+	use opengl && sed 's/TARGET_NAME := mednafen_saturn_hw/TARGET_NAME := mednafen_saturn/' -i Makefile
+}
+
 pkg_setup() {
-	! use opengl && LIBRETRO_CORE_NAME="mednafen_saturn"
-	use opengl && LIBRETRO_CORE_NAME="mednafen_saturn_hw"
+	LIBRETRO_CORE_NAME="mednafen_saturn"
 }
 
 src_compile() {
