@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-3"
 SLOT="0"
 
-DEPEND=""
+DEPEND="dev-lang/rgbds"
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
