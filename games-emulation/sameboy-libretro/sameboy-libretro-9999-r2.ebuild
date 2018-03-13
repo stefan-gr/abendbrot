@@ -22,6 +22,7 @@ S="${S}/libretro"
 src_prepare() {
 	# Update build path
 	sed 's|BootROMs/prebuilt/%_boot.bin|build/bin/BootROMs/%_boot.bin|' -i Makefile
+	libretro-core_src_prepare
 }
 
 src_install() {
