@@ -13,7 +13,7 @@ KEYWORDS="amd64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="opengl"
+IUSE=""
 
 DEPEND=""
 RDEPEND="${DEPEND}
