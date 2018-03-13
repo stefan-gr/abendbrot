@@ -12,24 +12,12 @@ KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="opengl"
+IUSE=""
 
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
-src_prepare() {
-	use opengl && sed 's/TARGET_NAME := mednafen_saturn_hw/TARGET_NAME := mednafen_saturn/' -i Makefile
-	libretro-core_src_prepare
-}
-
 pkg_setup() {
 	LIBRETRO_CORE_NAME="mednafen_saturn"
-}
-
-src_compile() {
-	myemakeargs=(
-		$(usex opengl "HAVE_OPENGL=1" "HAVE_OPENGL=0")
-	)
-	libretro-core_src_compile
 }
