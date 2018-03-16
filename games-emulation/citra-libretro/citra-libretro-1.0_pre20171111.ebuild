@@ -4,7 +4,7 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
-LIBRETRO_COMMIT_SHA="4b0ec7ec21b2c3fdaa2b9a32426d44ade6926539"
+LIBRETRO_COMMIT_SHA="bb356d9395a98ce044eeba8f89eec8a147025798"
 inherit libretro-core cmake-utils
 
 DESCRIPTION="libretro implementation of Citra. (Nintendo 3DS)"
