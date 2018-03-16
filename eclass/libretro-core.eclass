@@ -56,8 +56,13 @@ libretro-core_src_unpack() {
 	# Workaround for ppsspp
 	if [[ ! ${PV} == "1.0_pre"* ]] || [[ ${PN} == "psp1-libretro" ]] || [[ ${PN} == "ppsspp-libretro" ]] || [[ ${PN} == "citra-libretro" ]]; then
 		git-r3_src_unpack
-		# Add used commit SHA for version information
-		LIBRETRO_COMMIT_SHA=$(git -C "${EGIT3_STORE_DIR}/${LIBRETRO_REPO_NAME//\//_}.git" rev-parse HEAD)
+		if [[ ${PN} == "ppsspp-libretro" ]]; then
+			# Add ppsspp-libretro specific version information
+			CUSTOM_LIBRETRO_COMMIT_SHA=$(git -C "${EGIT3_STORE_DIR}/${LIBRETRO_REPO_NAME//\//_}.git" describe --always)
+		else
+			# Add used commit SHA for version information, the above could also work. Needs proper testing with all cores
+			LIBRETRO_COMMIT_SHA=$(git -C "${EGIT3_STORE_DIR}/${LIBRETRO_REPO_NAME//\//_}.git" rev-parse HEAD)
+		fi
 	# Else, unpack this core's local tarball.
 	else
 		default_src_unpack
@@ -96,10 +101,16 @@ libretro-core_src_prepare() {
 		eend $?
 		export OPTFLAGS="${CFLAGS}"
 	fi
+
+	# Populate COMMIT for GIT_VERSION
+	if [[ -z "${CUSTOM_LIBRETRO_COMMIT_SHA}" ]]; then
+		CUSTOM_LIBRETRO_COMMIT_SHA=" ${LIBRETRO_COMMIT_SHA:0:7}"
+	fi
+
 	for makefile in "${S}"/?akefile* "${S}"/target-libretro/?akefile*; do
 		# Add short-rev to Makefile
 		sed \
-			-e "s/GIT_VERSION\s.=.*$/GIT_VERSION=\" ${LIBRETRO_COMMIT_SHA:0:7}\"/g" \
+			-e "s/GIT_VERSION\s.=.*$/GIT_VERSION=\"${CUSTOM_LIBRETRO_COMMIT_SHA}\"/g" \
 			-i "${makefile}" \
 			&> /dev/null
 	done
