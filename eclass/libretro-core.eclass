@@ -56,7 +56,7 @@ libretro-core_src_unpack() {
 	# Workaround for ppsspp
 	if [[ ! ${PV} == "1.0_pre"* ]] || [[ ${PN} == "psp1-libretro" ]] || [[ ${PN} == "ppsspp-libretro" ]] || [[ ${PN} == "citra-libretro" ]]; then
 		git-r3_src_unpack
-		if [[ ${P} == "ppsspp-libretro-9999" ]]; then
+		if [[ ${PN} == "ppsspp-libretro" ]]; then
 			# Add ppsspp-libretro specific version information
 			CUSTOM_LIBRETRO_COMMIT_SHA=$(git -C "${EGIT3_STORE_DIR}/${LIBRETRO_REPO_NAME//\//_}.git" describe --always)
 		else
