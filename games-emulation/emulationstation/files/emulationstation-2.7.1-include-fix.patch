@@ -1,0 +1,56 @@
+diff -U 3 -dHrN -- EmulationStation-2.7.1_orig/es-app/src/MetaData.h EmulationStation-2.7.1/es-app/src/MetaData.h
+--- EmulationStation-2.7.1_orig/es-app/src/MetaData.h	2017-11-08 18:52:49.000000000 +0100
++++ EmulationStation-2.7.1/es-app/src/MetaData.h	2018-03-17 15:00:47.427115595 +0100
+@@ -4,7 +4,7 @@
+ 
+ #include <boost/date_time/posix_time/ptime.hpp>
+ #include <boost/filesystem/path.hpp>
+-#include <pugixml/src/pugixml.hpp>
++#include <pugixml.hpp>
+ 
+ enum MetaDataType
+ {
+diff -U 3 -dHrN -- EmulationStation-2.7.1_orig/es-core/src/InputConfig.h EmulationStation-2.7.1/es-core/src/InputConfig.h
+--- EmulationStation-2.7.1_orig/es-core/src/InputConfig.h	2017-11-08 18:52:49.000000000 +0100
++++ EmulationStation-2.7.1/es-core/src/InputConfig.h	2018-03-17 15:00:55.147175881 +0100
+@@ -2,7 +2,7 @@
+ #ifndef ES_CORE_INPUT_CONFIG_H
+ #define ES_CORE_INPUT_CONFIG_H
+ 
+-#include <pugixml/src/pugixml.hpp>
++#include <pugixml.hpp>
+ #include <SDL_joystick.h>
+ #include <SDL_keyboard.h>
+ #include <map>
+diff -U 3 -dHrN -- EmulationStation-2.7.1_orig/es-core/src/Settings.cpp EmulationStation-2.7.1/es-core/src/Settings.cpp
+--- EmulationStation-2.7.1_orig/es-core/src/Settings.cpp	2017-11-08 18:52:49.000000000 +0100
++++ EmulationStation-2.7.1/es-core/src/Settings.cpp	2018-03-17 15:00:38.769047912 +0100
+@@ -3,7 +3,7 @@
+ #include "Log.h"
+ #include "platform.h"
+ #include <boost/filesystem/operations.hpp>
+-#include <pugixml/src/pugixml.hpp>
++#include <pugixml.hpp>
+ 
+ Settings* Settings::sInstance = NULL;
+ 
+diff -U 3 -dHrN -- EmulationStation-2.7.1_orig/es-core/src/ThemeData.h EmulationStation-2.7.1/es-core/src/ThemeData.h
+--- EmulationStation-2.7.1_orig/es-core/src/ThemeData.h	2017-11-08 18:52:49.000000000 +0100
++++ EmulationStation-2.7.1/es-core/src/ThemeData.h	2018-03-17 15:00:58.876204980 +0100
+@@ -6,7 +6,7 @@
+ #include <boost/filesystem/path.hpp>
+ #include <boost/variant/get.hpp>
+ #include <boost/variant/variant.hpp>
+-#include <pugixml/src/pugixml.hpp>
++#include <pugixml.hpp>
+ #include <deque>
+ #include <map>
+ #include <sstream>
+diff -U 3 -dHrN -- EmulationStation-2.7.1_orig/external/CMakeLists.txt EmulationStation-2.7.1/external/CMakeLists.txt
+--- EmulationStation-2.7.1_orig/external/CMakeLists.txt	2017-11-08 18:52:49.000000000 +0100
++++ EmulationStation-2.7.1/external/CMakeLists.txt	2018-03-17 15:01:17.810352526 +0100
+@@ -2,4 +2,3 @@
+ # package managers are included with the project (in the 'external' folder)
+ 
+ add_subdirectory("nanosvg")
+-add_subdirectory("pugixml")
