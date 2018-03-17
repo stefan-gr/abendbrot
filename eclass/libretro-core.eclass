@@ -104,13 +104,13 @@ libretro-core_src_prepare() {
 
 	# Populate COMMIT for GIT_VERSION
 	if [[ -z "${CUSTOM_LIBRETRO_COMMIT_SHA}" ]]; then
-		CUSTOM_LIBRETRO_COMMIT_SHA=" ${LIBRETRO_COMMIT_SHA:0:7}"
+		CUSTOM_LIBRETRO_COMMIT_SHA="\" ${LIBRETRO_COMMIT_SHA:0:7}\""
 	fi
 
 	for makefile in "${S}"/?akefile* "${S}"/target-libretro/?akefile*; do
 		# Add short-rev to Makefile
 		sed \
-			-e "s/GIT_VERSION\s.=.*$/GIT_VERSION=\"${CUSTOM_LIBRETRO_COMMIT_SHA}\"/g" \
+			-e "s/GIT_VERSION\s.=.*$/GIT_VERSION=${CUSTOM_LIBRETRO_COMMIT_SHA}/g" \
 			-i "${makefile}" \
 			&> /dev/null
 	done
