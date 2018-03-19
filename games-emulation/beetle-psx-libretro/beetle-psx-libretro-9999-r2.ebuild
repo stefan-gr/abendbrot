@@ -18,7 +18,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
-LIBRETRO_CORE_NAME=beetle_psx
+LIBRETRO_CORE_NAME=mednafen_psx
 
 src_compile() {
 	use opengl || use vulkan && append-cppflags -DHAVE_HW
@@ -30,7 +30,7 @@ src_compile() {
 }
 
 src_install() {
-	mv "${S}"/mednafen_psx*_libretro.so "${S}"/beetle_psx_libretro.so
+	mv "${S}"/mednafen_psx*_libretro.so "${S}"/mednafen_psx_libretro.so
 	libretro-core_src_install
 }
 
