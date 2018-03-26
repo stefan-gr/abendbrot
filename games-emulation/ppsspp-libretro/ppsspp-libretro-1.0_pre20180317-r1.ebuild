@@ -21,7 +21,8 @@ DEPEND="x11-libs/libICE
 	x11-libs/libXext
 	media-libs/mesa
 	gles2? ( media-libs/mesa[gles2] )
-	gles2? ( dev-libs/wayland )"
+	gles2? ( dev-libs/wayland )
+	!games-emulation/psp-assets"
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
@@ -57,15 +58,14 @@ src_install() {
 
 pkg_postinst() {
 	ewarn ""
-	ewarn "You need to symlink the content of \"${ASSETS_DIR}\""
-	ewarn "to the \"system_directory/PPSSPP/\" directory of your user."
+	ewarn "You need to symlink \"${ASSETS_DIR}\""
+	ewarn "to the \"system_directory/\" directory of your user."
 	ewarn "As retroarch user:"
 	ewarn "When upgrading from old assets:"
-	ewarn "Backup ~/.local/share/retroarch/system/PPSSPP/memstick/ to keep savegames"
 	ewarn "\$ rm -r ~/.local/share/retroarch/system/PPSSPP/"
 	ewarn "To symlink the assets:"
-	ewarn "\$ mkdir -p ~/.local/share/retroarch/system/PPSSPP/"
-	ewarn "\$ ln -s ${ASSETS_DIR}/* ~/.local/share/retroarch/system/PPSSPP/"
+	ewarn "\$ mkdir -p ~/.local/share/retroarch/system"
+	ewarn "\$ ln -s ${ASSETS_DIR} ~/.local/share/retroarch/system/"
 	ewarn ""
 	ewarn ""
 }
