@@ -9,7 +9,7 @@ inherit libretro-core
 
 DESCRIPTION="libretro implementation of PPSSPP. (PlayStation Portable/PSP)"
 HOMEPAGE="https://github.com/libretro/ppsspp"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"

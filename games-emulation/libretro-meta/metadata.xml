@@ -42,7 +42,6 @@
     <flag name='ppsspp'>adds <pkg>games-emulation/ppsspp-libretro</pkg> as dependency</flag>
     <flag name='prboom'>adds <pkg>games-emulation/prboom-libretro</pkg> as dependency</flag>
     <flag name='prosystem'>adds <pkg>games-emulation/prosystem-libretro</pkg> as dependency</flag>
-    <flag name='psp1'>adds <pkg>games-emulation/psp1-libretro</pkg> as dependency</flag>
     <flag name='px68k'>adds <pkg>games-emulation/px68k-libretro</pkg> as dependency</flag>
     <flag name='quicknes'>adds <pkg>games-emulation/quicknes-libretro</pkg> as dependency</flag>
     <flag name='redream'>adds <pkg>games-emulation/redream-libretro</pkg> as dependency</flag>

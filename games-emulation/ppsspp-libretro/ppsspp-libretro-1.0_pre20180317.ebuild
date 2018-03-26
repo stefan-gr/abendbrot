@@ -21,12 +21,13 @@ DEPEND="x11-libs/libICE
 	x11-libs/libXext
 	media-libs/mesa
 	gles2? ( media-libs/mesa[gles2] )
-	gles2? ( dev-libs/wayland )
-	games-emulation/psp-assets"
+	gles2? ( dev-libs/wayland )"
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
 S=${S}/libretro
+
+ASSETS_DIR=${LIBRETRO_DATA_DIR}/PPSSPP
 
 src_prepare() {
 	libretro-core_src_prepare
@@ -46,4 +47,25 @@ src_compile() {
 		$(usex gles2 "GLES=1" "")
 	)
 	libretro-core_src_compile
+}
+
+src_install() {
+	dodir ${ASSETS_DIR}
+	cp -R "${S}"/../assets/* "${D}${ASSETS_DIR}" || die "Install failed!"
+	libretro-core_src_install
+}
+
+pkg_postinst() {
+	ewarn ""
+	ewarn "You need to symlink the content of \"${ASSETS_DIR}\""
+	ewarn "to the \"system_directory/PPSSPP/\" directory of your user."
+	ewarn "As retroarch user:"
+	ewarn "When upgrading from old assets:"
+	ewarn "Backup ~/.local/share/retroarch/system/PPSSPP/memstick/ to keep savegames"
+	ewarn "\$ rm -r ~/.local/share/retroarch/system/PPSSPP/"
+	ewarn "To symlink the assets:"
+	ewarn "\$ mkdir -p ~/.local/share/retroarch/system/PPSSPP/"
+	ewarn "\$ ln -s ${ASSETS_DIR}/* ~/.local/share/retroarch/system/PPSSPP/"
+	ewarn ""
+	ewarn ""
 }

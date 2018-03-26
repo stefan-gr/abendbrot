@@ -10,7 +10,7 @@ SLOT="0"
 IUSE="+2048 +4do +beetle-psx bnes +bsnes bsnes-cpp98 citra craft +desmume dolphin easyrpg +fbalpha fbalpha2012 fceumm +gambatte +genplus \
 +handy mame mame2000 +mame2003 mame2016 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
 +mednafen-saturn mednafen-snes +mednafen-vb +mednafen-wswan melonds meowpc98 meteor +mgba mrboom +mupen64plus +nestopia +nxengine \
-openlara pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive ppsspp +prboom +prosystem +psp1 px68k quicknes redream +reicast sameboy +scummvm \
+openlara pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive +ppsspp +prboom +prosystem px68k quicknes redream +reicast sameboy +scummvm \
 snes9x snes9x2002 snes9x2010 +stella tgbdual +tyrquake vba-next vbam yabause"
 
 KEYWORDS=""
@@ -60,7 +60,6 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		ppsspp? ( >=games-emulation/ppsspp-libretro-9999 )
 		prboom? ( >=games-emulation/prboom-libretro-9999 )
 		prosystem? ( >=games-emulation/prosystem-libretro-9999 )
-		psp1? ( >=games-emulation/psp1-libretro-9999 )
 		px68k? ( >=games-emulation/px68k-libretro-9999 )
 		quicknes? ( >=games-emulation/quicknes-libretro-9999 )
 		redream? ( >=games-emulation/redream-libretro-9999 )

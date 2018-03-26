@@ -9,7 +9,7 @@ inherit libretro-core
 
 DESCRIPTION="Non-shallow fork of PPSSPP for libretro exclusively."
 HOMEPAGE="https://github.com/libretro-mirrors/PSP1"
-KEYWORDS="amd64 x86"
+KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"
