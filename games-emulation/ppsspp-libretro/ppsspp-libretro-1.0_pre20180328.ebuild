@@ -4,7 +4,7 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
-LIBRETRO_COMMIT_SHA="0366e05c44410d3e38f2311865564c15b514e31b"
+LIBRETRO_COMMIT_SHA="01be9ff8cf6e10a693e806c63bc23d500f3df290"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of PPSSPP. (PlayStation Portable/PSP)"
