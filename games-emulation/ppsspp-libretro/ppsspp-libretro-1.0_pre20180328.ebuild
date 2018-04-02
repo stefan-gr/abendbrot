@@ -30,18 +30,6 @@ S=${S}/libretro
 
 ASSETS_DIR=${LIBRETRO_DATA_DIR}/PPSSPP
 
-src_prepare() {
-	libretro-core_src_prepare
-	#fixing ARCH detection
-	sed -i Makefile \
-		-e 's:$(ARCH):$(REAL_ARCH):' \
-		-e 's:ARCH = $(shell uname -m):REAL_ARCH = $(shell uname -m):' \
-		|| die '"sed" failed'
-	sed -i Makefile.common \
-		-e 's:ifeq ($(WITH_DYNAREC), arm):ifneq (,$(findstring arm,$(WITH_DYNAREC))):' \
-		|| die '"sed" failed'
-}
-
 src_compile() {
 	use gles2 && append-ldflags -lEGL
 	myemakeargs=(
