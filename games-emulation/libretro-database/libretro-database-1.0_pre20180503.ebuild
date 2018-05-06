@@ -1,14 +1,14 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-LIBRETRO_COMMIT_SHA="8bf287f4bc9dc7f0ab9b2d7f340b8c825fb65c2c"
+LIBRETRO_COMMIT_SHA="0ed1e38c56899a73d74e064dd1ae9bdcc4f4af23"
 inherit libretro
 
 DESCRIPTION="Repository containing cheatcode files, content data files, etc."
 HOMEPAGE="https://github.com/libretro/libretro-database"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-3"
 SLOT="0"

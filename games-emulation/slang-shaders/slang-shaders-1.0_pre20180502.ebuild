@@ -1,14 +1,14 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-LIBRETRO_COMMIT_SHA="44c0a731de28cdd4addf0c01f11a28a0fce4b2ef"
+LIBRETRO_COMMIT_SHA="36db5c17cbcb06ce6634a796d482b57fec7cef43"
 inherit libretro
 
 DESCRIPTION="Collection of slang shaders for vulkan backends."
 HOMEPAGE="https://github.com/libretro/slang-shaders"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-3"
 SLOT="0"

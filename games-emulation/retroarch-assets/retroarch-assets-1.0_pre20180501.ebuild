@@ -3,11 +3,12 @@
 
 EAPI=6
 
+LIBRETRO_COMMIT_SHA="467a0ccf48b6d507ce4fd3b61eac3936c46d2a20"
 inherit libretro
 
 DESCRIPTION="RetroArch Assets files"
 HOMEPAGE="https://github.com/libretro/retroarch-assets"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-3"
 SLOT="0"

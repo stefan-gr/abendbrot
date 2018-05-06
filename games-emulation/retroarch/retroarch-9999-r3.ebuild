@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 # TODO: Rewrite src_prepare() and src_configure()
@@ -116,7 +116,6 @@ src_prepare() {
 	epatch \
 		"${FILESDIR}/${P}-build.patch" \
 		"${FILESDIR}/${P}-python.patch" \
-		"${FILESDIR}/${P}-disable_wifi_menu.patch" \
 		"${FILESDIR}/${P}-custom_fpu.patch"
 
 	# If Python support is enabled, use the currently enabled "python" binary.

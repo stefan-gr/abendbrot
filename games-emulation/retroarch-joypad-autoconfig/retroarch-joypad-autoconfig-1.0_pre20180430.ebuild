@@ -1,14 +1,14 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-LIBRETRO_COMMIT_SHA="35651df95dd3c72f6db57cc73d065c441e6523ea"
+LIBRETRO_COMMIT_SHA="5a9a7e9b26d7e3ec0c6abb5024b074bc5846dc6d"
 inherit libretro
 
 DESCRIPTION="RetroArch joypad autoconfig files"
 HOMEPAGE="https://github.com/libretro/retroarch-joypad-autoconfig"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-3"
 SLOT="0"

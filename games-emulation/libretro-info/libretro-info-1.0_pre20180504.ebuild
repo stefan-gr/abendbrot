@@ -1,15 +1,15 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/libretro-super"
-LIBRETRO_COMMIT_SHA="98030ace935085a04c4d310d22a383dbaa70ab0b"
+LIBRETRO_COMMIT_SHA="9d0001f53748a3871eb266453e17bed7ab3a0701"
 inherit libretro
 
 DESCRIPTION="Libretro info files required for libretro cores"
 HOMEPAGE="https://github.com/libretro/libretro-super"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-3"
 SLOT="0"
