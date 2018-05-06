@@ -5,6 +5,8 @@ EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
 LIBRETRO_COMMIT_SHA="7f983fe78a8db1b5845e9508689375f5600c92d8"
+# These are used by citra and externals/dynarmic which seems to break with git-r3.eclass
+EGIT_SUBMODULES=("*" "-externals/fmt" "-externals/xbyak")
 inherit libretro-core cmake-utils
 
 DESCRIPTION="libretro implementation of Citra. (Nintendo 3DS)"

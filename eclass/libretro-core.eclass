@@ -63,6 +63,13 @@ libretro-core_src_unpack() {
 			# Add used commit SHA for version information, the above could also work. Needs proper testing with all cores
 			LIBRETRO_COMMIT_SHA=$(git -C "${EGIT3_STORE_DIR}/${LIBRETRO_REPO_NAME//\//_}.git" rev-parse HEAD)
 		fi
+		# Workaround for broken submodule
+		# Needs EGIT_SUBMODULES=("*" "-externals/fmt" "-externals/xbyak")
+		if [[ ${PN} == "citra-libretro" ]]; then
+			for i in fmt xbyak; do
+				cp -a "${S}/externals/$i" "${S}/externals/dynarmic/externals/" || die
+			done
+		fi
 	# Else, unpack this core's local tarball.
 	else
 		default_src_unpack
