@@ -32,7 +32,7 @@ SLOT="0"
 #shouldn't. When upstream resolves this, remove this entry. See also:
 #    https://github.com/stefan-gr/abendbrot/issues/7#issuecomment-204541979
 
-IUSE="+7zip alsa +armvfp +assets cg cheevos +cores +database debug dispmanx egl ffmpeg gles2 gles3 jack +joypad_autoconfig kms lakka libass libusb +materialui miniupnpc +neon +network openal +opengl osmesa oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python"
+IUSE="+7zip alsa +armvfp +assets cg cheevos +cores +database debug dispmanx egl ffmpeg gles2 gles3 jack +joypad_autoconfig kms lakka libass libusb +materialui miniupnpc +neon +network openal +opengl osmesa oss +overlays pulseaudio qt5 sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python"
 
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
@@ -81,6 +81,12 @@ RDEPEND="
 	overlays? ( games-emulation/common-overlays:0= )
 	pulseaudio? ( media-sound/pulseaudio:0= )
 	python? ( ${PYTHON_DEPS} )
+	qt5? ( 
+	        dev-qt/qtcore:5 
+		    dev-qt/qtgui:5
+		    dev-qt/qtopengl:5
+		    dev-qt/qtwidgets:5
+	)
 	sdl? ( >=media-libs/libsdl-1.2.10:0=[joystick] )
 	sdl2? ( media-libs/libsdl2:0=[joystick] )
 	shaders? ( vulkan? ( games-emulation/slang-shaders ) )
@@ -222,6 +228,7 @@ src_configure() {
 		$(use_enable oss) \
 		$(use_enable pulseaudio pulse) \
 		$(use_enable python) \
+		$(use_enable qt5 qt) \
 		$(use_enable sdl) \
 		$(use_enable sdl2) \
 		$(use_enable threads) \
