@@ -41,7 +41,7 @@ if [[ ${PV} = 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/${LIBRETRO_REPO_NAME}.git"
 fi
 
-if [[ ! ${PV} = 9999 ]] && [[ ! ${PN} = retroarch ]] && [[ ! ${PN} = ppsspp-libretro ]] && [[ ! ${PN} = psp1-libretro ]] && [[ ! ${PN} = psp-assets ]]; then
+if [[ ! ${PV} = 9999 ]] && [[ ! ${PN} = retroarch ]] && [[ ! ${PN} = ppsspp-libretro ]] && [[ ! ${PN} = psp1-libretro ]] && [[ ! ${PN} = psp-assets ]] && [[ ! ${PN} = citra-libretro ]]; then
 	[ ${LIBRETRO_COMMIT_SHA} = die ] && die "LIBRETRO_COMMIT_SHA must be set before inherit."
 	SRC_URI="https://github.com/${LIBRETRO_REPO_NAME}/archive/${LIBRETRO_COMMIT_SHA}.tar.gz -> ${P}.tar.gz"
 	RESTRICT="primaryuri"
@@ -49,7 +49,7 @@ if [[ ! ${PV} = 9999 ]] && [[ ! ${PN} = retroarch ]] && [[ ! ${PN} = ppsspp-libr
 fi
 
 # Workaround for ebuilds needing submodules
-if [[ ${PN} = retroarch ]] || [[ ${PN} = ppsspp-libretro ]] || [[ ${PN} = psp1-libretro ]] && [[ ! ${PV} = 9999 ]]; then
+if [[ ${PN} = ppsspp-libretro ]] || [[ ${PN} = psp1-libretro ]]  || [[ ${PN} = citra-libretro ]] && [[ ! ${PV} = 9999 ]]; then
 	inherit git-r3
 	
 	SRC_URI=""

@@ -1,6 +1,5 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
@@ -13,34 +12,20 @@ KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"
+IUSE="opengl vulkan"
 
-DEPEND=">=media-libs/libsfml-2.1
-	>=net-libs/enet-1.3.7
-	>=net-libs/mbedtls-2.1.1
-	dev-libs/lzo
-	media-libs/libpng:=
-	sys-libs/glibc
-	sys-libs/readline:=
-	sys-libs/zlib
-	x11-libs/libXext
-	x11-libs/libXi
-	x11-libs/libXrandr
-	virtual/libusb:1
-	virtual/opengl
-	>=sys-devel/gcc-4.9.3:*
-	app-arch/zip
-	media-libs/freetype
-	sys-devel/gettext"
+DEPEND="opengl? ( virtual/opengl )
+	vulkan? ( media-libs/vulkan-loader:0= )"
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
-S="${S}"/libretro
+S="${S}"/Source/Core/DolphinLibretro
 
-src_prepare() {
-	default_src_prepare
-	#fixing ARCH detection
-	sed -i Makefile \
-		-e 's:$(ARCH):$(REAL_ARCH):' || die
-	sed -i Makefile \
-		-e 's:ARCH = $(shell uname -m):REAL_ARCH = $(shell uname -m):' || die
+src_compile() {
+	myemakeargs=(
+		$(usex opengl "HAVE_OPENGL_CORE=1" "HAVE_OPENGL_CORE=0")
+		$(usex vulkan "HAVE_VULKAN=1" "HAVE_VULKAN=0")
+		STATIC_LINKING=0
+	)
+	libretro-core_src_compile
 }

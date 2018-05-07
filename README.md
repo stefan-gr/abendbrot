@@ -11,10 +11,20 @@ abendbrot
 
 ## Installation
 
-`abendbrot` is installable in the usual way. Assuming `emerge` (and not
+`abendbrot` is installable in two ways. Assuming `emerge` (and not
 that *other* [disreputable fellow](http://paludis.exherbo.org)):
 
-* Install [`layman`](https://wiki.gentoo.org/wiki/Layman), Gentoo's official
+The portage way:
+
+* Install `dev-vcs/git`
+
+        * Execute the following with root rights (`su -l` or `sudo -i`)
+        $ curl --create-dirs -o /etc/portage/repos.conf/abendbrot.conf https://raw.githubusercontent.com/stefan-gr/abendbrot/master/tools/abendbrot.conf
+        $ emerge --sync
+
+The layman way:
+
+* Install [`layman`](https://wiki.gentoo.org/wiki/Layman) with USE=git, Gentoo's official
   overlay manager.
 
         $ emerge --ask layman
@@ -22,6 +32,10 @@ that *other* [disreputable fellow](http://paludis.exherbo.org)):
         $ echo 'source /var/lib/layman/make.conf' >> /etc/portage/make.conf
         * For >=app-portage/layman-2.3.0-r1[sync-plugin-portage]
         $ Nothing
+
+* Fetch overlay list.
+
+        $ layman -f
 
 * Add the `abendbrot` overlay.
 

@@ -1,0 +1,147 @@
+diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/CollectionSystemManager.cpp EmulationStation/es-app/src/CollectionSystemManager.cpp
+--- EmulationStation_orig/es-app/src/CollectionSystemManager.cpp	2018-03-17 14:43:58.000000000 +0100
++++ EmulationStation/es-app/src/CollectionSystemManager.cpp	2018-03-17 14:50:00.194380072 +0100
+@@ -11,7 +11,7 @@
+ #include "Settings.h"
+ #include "SystemData.h"
+ #include "ThemeData.h"
+-#include <pugixml/src/pugixml.hpp>
++#include <pugixml.hpp>
+ #include <fstream>
+ 
+ std::string myCollectionsName = "collections";
+@@ -1049,4 +1049,4 @@
+ 	std::string name1 = Utils::String::toUpper(sys1->getName());
+ 	std::string name2 = Utils::String::toUpper(sys2->getName());
+ 	return name1.compare(name2) < 0;
+-}
+\ Kein Zeilenumbruch am Dateiende.
++}
+diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/Gamelist.cpp EmulationStation/es-app/src/Gamelist.cpp
+--- EmulationStation_orig/es-app/src/Gamelist.cpp	2018-03-17 14:43:58.000000000 +0100
++++ EmulationStation/es-app/src/Gamelist.cpp	2018-03-17 14:49:56.999356979 +0100
+@@ -6,7 +6,7 @@
+ #include "Log.h"
+ #include "Settings.h"
+ #include "SystemData.h"
+-#include <pugixml/src/pugixml.hpp>
++#include <pugixml.hpp>
+ 
+ FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType type)
+ {
+diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/MetaData.cpp EmulationStation/es-app/src/MetaData.cpp
+--- EmulationStation_orig/es-app/src/MetaData.cpp	2018-03-17 14:43:58.000000000 +0100
++++ EmulationStation/es-app/src/MetaData.cpp	2018-03-17 14:49:54.338337746 +0100
+@@ -2,7 +2,7 @@
+ 
+ #include "utils/FileSystemUtil.h"
+ #include "Log.h"
+-#include <pugixml/src/pugixml.hpp>
++#include <pugixml.hpp>
+ 
+ MetaDataDecl gameDecls[] = {
+ 	// key,         type,                   default,            statistic,  name in GuiMetaDataEd,  prompt in GuiMetaDataEd
+diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/scrapers/GamesDBScraper.cpp EmulationStation/es-app/src/scrapers/GamesDBScraper.cpp
+--- EmulationStation_orig/es-app/src/scrapers/GamesDBScraper.cpp	2018-03-17 14:43:58.000000000 +0100
++++ EmulationStation/es-app/src/scrapers/GamesDBScraper.cpp	2018-03-17 14:49:21.491100341 +0100
+@@ -6,7 +6,7 @@
+ #include "PlatformId.h"
+ #include "Settings.h"
+ #include "SystemData.h"
+-#include <pugixml/src/pugixml.hpp>
++#include <pugixml.hpp>
+ 
+ using namespace PlatformIds;
+ const std::map<PlatformId, const char*> gamesdb_platformid_map {
+diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/SystemData.cpp EmulationStation/es-app/src/SystemData.cpp
+--- EmulationStation_orig/es-app/src/SystemData.cpp	2018-03-17 14:43:58.000000000 +0100
++++ EmulationStation/es-app/src/SystemData.cpp	2018-03-17 14:49:49.076299714 +0100
+@@ -9,7 +9,7 @@
+ #include "platform.h"
+ #include "Settings.h"
+ #include "ThemeData.h"
+-#include <pugixml/src/pugixml.hpp>
++#include <pugixml.hpp>
+ #include <fstream>
+ #ifdef WIN32
+ #include <Windows.h>
+diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/SystemScreenSaver.cpp EmulationStation/es-app/src/SystemScreenSaver.cpp
+--- EmulationStation_orig/es-app/src/SystemScreenSaver.cpp	2018-03-17 14:43:58.000000000 +0100
++++ EmulationStation/es-app/src/SystemScreenSaver.cpp	2018-03-17 14:49:44.716268201 +0100
+@@ -14,7 +14,7 @@
+ #include "Renderer.h"
+ #include "Sound.h"
+ #include "SystemData.h"
+-#include <pugixml/src/pugixml.hpp>
++#include <pugixml.hpp>
+ #include <unordered_map>
+ #include <time.h>
+ 
+diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/InputConfig.cpp EmulationStation/es-core/src/InputConfig.cpp
+--- EmulationStation_orig/es-core/src/InputConfig.cpp	2018-03-17 14:43:58.000000000 +0100
++++ EmulationStation/es-core/src/InputConfig.cpp	2018-03-17 14:49:41.723246569 +0100
+@@ -1,7 +1,7 @@
+ #include "InputConfig.h"
+ 
+ #include "Log.h"
+-#include <pugixml/src/pugixml.hpp>
++#include <pugixml.hpp>
+ 
+ //some util functions
+ std::string inputTypeToString(InputType type)
+diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/InputManager.cpp EmulationStation/es-core/src/InputManager.cpp
+--- EmulationStation_orig/es-core/src/InputManager.cpp	2018-03-17 14:43:58.000000000 +0100
++++ EmulationStation/es-core/src/InputManager.cpp	2018-03-17 14:49:38.180220961 +0100
+@@ -5,7 +5,7 @@
+ #include "Log.h"
+ #include "platform.h"
+ #include "Window.h"
+-#include <pugixml/src/pugixml.hpp>
++#include <pugixml.hpp>
+ #include <SDL.h>
+ #include <iostream>
+ #include <assert.h>
+diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/MameNames.cpp EmulationStation/es-core/src/MameNames.cpp
+--- EmulationStation_orig/es-core/src/MameNames.cpp	2018-03-17 14:43:58.000000000 +0100
++++ EmulationStation/es-core/src/MameNames.cpp	2018-03-17 14:49:34.363193374 +0100
+@@ -3,7 +3,7 @@
+ #include "resources/ResourceManager.h"
+ #include "utils/FileSystemUtil.h"
+ #include "Log.h"
+-#include <pugixml/src/pugixml.hpp>
++#include <pugixml.hpp>
+ #include <string.h>
+ 
+ MameNames* MameNames::sInstance = nullptr;
+diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/Settings.cpp EmulationStation/es-core/src/Settings.cpp
+--- EmulationStation_orig/es-core/src/Settings.cpp	2018-03-17 14:43:58.000000000 +0100
++++ EmulationStation/es-core/src/Settings.cpp	2018-03-17 14:49:29.859160820 +0100
+@@ -3,7 +3,7 @@
+ #include "utils/FileSystemUtil.h"
+ #include "Log.h"
+ #include "platform.h"
+-#include <pugixml/src/pugixml.hpp>
++#include <pugixml.hpp>
+ #include <algorithm>
+ #include <vector>
+ 
+diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/ThemeData.cpp EmulationStation/es-core/src/ThemeData.cpp
+--- EmulationStation_orig/es-core/src/ThemeData.cpp	2018-03-17 14:43:58.000000000 +0100
++++ EmulationStation/es-core/src/ThemeData.cpp	2018-03-17 14:49:26.075133471 +0100
+@@ -6,7 +6,7 @@
+ #include "Log.h"
+ #include "platform.h"
+ #include "Settings.h"
+-#include <pugixml/src/pugixml.hpp>
++#include <pugixml.hpp>
+ #include <algorithm>
+ 
+ std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "video" } };
+diff -U 3 -dHrN -- EmulationStation_orig/external/CMakeLists.txt EmulationStation/external/CMakeLists.txt
+--- EmulationStation_orig/external/CMakeLists.txt	2018-03-17 14:43:58.000000000 +0100
++++ EmulationStation/external/CMakeLists.txt	2018-03-17 14:50:35.494635218 +0100
+@@ -2,4 +2,3 @@
+ # package managers are included with the project (in the 'external' folder)
+ 
+ add_subdirectory("nanosvg")
+-add_subdirectory("pugixml")

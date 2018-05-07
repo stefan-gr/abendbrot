@@ -1,0 +1,21 @@
+diff -Naur a/menu/menu_setting.c b/menu/menu_setting.c
+--- a/menu/menu_setting.c	2018-01-31 22:28:35.060458882 +0000
++++ b/menu/menu_setting.c	2018-01-31 22:29:15.519111268 +0000
+@@ -2706,17 +2706,6 @@
+                parent_group);
+          settings_data_list_current_add_flags(list, list_info, SD_FLAG_ADVANCED);
+ 
+-         if (string_is_not_equal(settings->arrays.wifi_driver, "null"))
+-         {
+-            CONFIG_ACTION(
+-                  list, list_info,
+-                  MENU_ENUM_LABEL_WIFI_SETTINGS,
+-                  MENU_ENUM_LABEL_VALUE_WIFI_SETTINGS,
+-                  &group_info,
+-                  &subgroup_info,
+-                  parent_group);
+-         }
+-
+          CONFIG_ACTION(
+                list, list_info,
+                MENU_ENUM_LABEL_NETWORK_SETTINGS,

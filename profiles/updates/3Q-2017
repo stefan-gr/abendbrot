@@ -1,0 +1,3 @@
+move x11-themes/gtk-themes-arc x11-themes/arc-theme
+move x11-themes/gtk-themes-vertex x11-themes/vertex-theme
+

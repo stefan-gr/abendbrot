@@ -1,0 +1,3 @@
+move games-emulation/emulationstation-theme-simple-dark games-emulation/es-theme-simple-dark
+move games-emulation/emulationstation-theme-simple games-emulation/es-theme-simple
+move games-emulation/emulationstation-themes games-emulation/emulationstation-themes-meta

@@ -13,7 +13,7 @@
 # ebuilds for low-level Libretro core ebuilds.
 
 # Workaround for ppsspp
-if [[ ! ${PV} == "1.0_pre"* ]] || [[ ${PN} == "psp1-libretro" ]] || [[ ${PN} == "ppsspp-libretro" ]]; then
+if [[ ! ${PV} == "1.0_pre"* ]] || [[ ${PN} == "ppsspp-libretro" ]] || [[ ${PN} == "psp1-libretro" ]] || [[ ${PN} == "citra-libretro" ]]; then
 	inherit flag-o-matic git-r3 libretro
 else
 	inherit flag-o-matic libretro
@@ -54,8 +54,22 @@ libretro-core_src_unpack() {
 
 	# If this is a live ebuild, retrieve this core's remote repository.
 	# Workaround for ppsspp
-	if [[ ! ${PV} == "1.0_pre"* ]] || [[ ${PN} == "psp1-libretro" ]] || [[ ${PN} == "ppsspp-libretro" ]]; then
+	if [[ ! ${PV} == "1.0_pre"* ]] || [[ ${PN} == "ppsspp-libretro" ]] || [[ ${PN} == "psp1-libretro" ]] || [[ ${PN} == "citra-libretro" ]]; then
 		git-r3_src_unpack
+		if [[ ${PN} == "ppsspp-libretro" ]]; then
+			# Add ppsspp-libretro specific version information
+			CUSTOM_LIBRETRO_COMMIT_SHA=$(git -C "${EGIT3_STORE_DIR}/${LIBRETRO_REPO_NAME//\//_}.git" describe --always)
+		else
+			# Add used commit SHA for version information, the above could also work. Needs proper testing with all cores
+			LIBRETRO_COMMIT_SHA=$(git -C "${EGIT3_STORE_DIR}/${LIBRETRO_REPO_NAME//\//_}.git" rev-parse HEAD)
+		fi
+		# Workaround for broken submodule
+		# Needs EGIT_SUBMODULES=("*" "-externals/fmt" "-externals/xbyak")
+		if [[ ${PN} == "citra-libretro" ]]; then
+			for i in fmt xbyak; do
+				cp -a "${S}/externals/$i" "${S}/externals/dynarmic/externals/" || die
+			done
+		fi
 	# Else, unpack this core's local tarball.
 	else
 		default_src_unpack
@@ -72,6 +86,7 @@ libretro-core_src_prepare() {
 		local flags_modified=0
 		ebegin "Attempting to hack Makefiles to use custom-cflags"
 		for makefile in "${S}"/?akefile* "${S}"/target-libretro/?akefile*; do
+			# * Convert CRLF to LF
 			# * Expand *FLAGS to prevent potential self-references
 			# * Where LDFLAGS directly define the link version 
 			#   script append LDFLAGS and LIBS
@@ -80,8 +95,10 @@ libretro-core_src_prepare() {
 			#   and LIBS
 			# * Always use $(CFLAGS) when calling $(CC)
 			sed \
+				-e 's/\r$//g' \
+				-e "/flags.*=/s/-O[[:digit:]]/${CFLAGS}/g" \
 				-e "/CFLAGS.*=/s/-O[[:digit:]]/${CFLAGS}/g" \
-				-e "/LDFLAGS.*=/s/\(-Wl,-*-version-script=link.T\)/\1 ${LDFLAGS} ${LIBS}/g" \
+				-e "/.*,--version-script=.*/s/$/ ${LDFLAGS} ${LIBS}/g" \
 				-e "/\$(CC)/s/\(\$(SHARED)\)/\1 ${LDFLAGS} ${LIBS}/" \
 				-e 's/\(\$(CC)\)/\1 \$(CFLAGS)/g' \
 				-i "${makefile}" \
@@ -92,6 +109,18 @@ libretro-core_src_prepare() {
 		export OPTFLAGS="${CFLAGS}"
 	fi
 
+	# Populate COMMIT for GIT_VERSION
+	if [[ -z "${CUSTOM_LIBRETRO_COMMIT_SHA}" ]]; then
+		CUSTOM_LIBRETRO_COMMIT_SHA="\" ${LIBRETRO_COMMIT_SHA:0:7}\""
+	fi
+
+	for makefile in "${S}"/?akefile* "${S}"/target-libretro/?akefile*; do
+		# Add short-rev to Makefile
+		sed \
+			-e "s/GIT_VERSION\s.=.*$/GIT_VERSION=${CUSTOM_LIBRETRO_COMMIT_SHA}/g" \
+			-i "${makefile}" \
+			&> /dev/null
+	done
 	default_src_prepare
 }
 
@@ -102,7 +131,7 @@ libretro-core_src_prepare() {
 # This function compiles the shared library for this Libretro core.
 libretro-core_src_compile() {
 	use custom-cflags || filter-flags -O*
-	emake 	CC=$(tc-getCC) CXX=$(tc-getCXX) LD=$(tc-getLD) \
+	emake CC=$(tc-getCC) CXX=$(tc-getCXX) \
 		$(usex debug "DEBUG=1" "") "${myemakeargs[@]}" \
 		$([ -f makefile.libretro ] && echo '-f makefile.libretro') \
 		$([ -f Makefile.libretro ] && echo '-f Makefile.libretro')

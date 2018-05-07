@@ -1,14 +1,13 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
-LIBRETRO_REPO_NAME="libretro/PSP1"
+LIBRETRO_REPO_NAME="libretro-mirrors/PSP1"
 inherit libretro-core
 
 DESCRIPTION="Non-shallow fork of PPSSPP for libretro exclusively."
-HOMEPAGE="https://github.com/libretro/PSP1"
+HOMEPAGE="https://github.com/libretro-mirrors/PSP1"
 KEYWORDS=""
 
 LICENSE="GPL-2"
@@ -29,6 +28,7 @@ RDEPEND="${DEPEND}
 S=${S}/libretro
 
 src_prepare() {
+	libretro-core_src_prepare
 	#fixing ARCH detection
 	sed -i Makefile \
 		-e 's:$(ARCH):$(REAL_ARCH):' \
@@ -37,7 +37,6 @@ src_prepare() {
 	sed -i Makefile.common \
 		-e 's:ifeq ($(WITH_DYNAREC), arm):ifneq (,$(findstring arm,$(WITH_DYNAREC))):' \
 		|| die '"sed" failed'
-	default_src_prepare
 }
 
 src_compile() {

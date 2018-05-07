@@ -1,20 +1,20 @@
-diff -U 3 -H -d -r -N a/qb/qb.params.sh b/qb/qb.params.sh
---- a/qb/qb.params.sh	2015-11-19 13:56:31.000000000 +0100
-+++ b/qb/qb.params.sh	2015-11-19 13:59:57.405766759 +0100
-@@ -48,7 +48,7 @@
- opt_exists() # $opt is returned if exists in OPTS
- {	opt=$(echo "$1" | tr '[a-z]' '[A-Z]')
- 	for OPT in $OPTS; do [ "$opt" = "$OPT" ] && return; done
--	echo "Unknown option $2"; exit 1
-+	echo "Unknown option $2"
+diff -U 3 -dHrN -- qb.orig/qb.params.sh qb/qb.params.sh
+--- qb.orig/qb.params.sh	2017-11-28 19:31:09.000000000 +0100
++++ qb/qb.params.sh	2017-11-28 19:38:44.612303119 +0100
+@@ -69,7 +69,7 @@
+ 	err="$2"
+ 	eval "set -- $OPTS"
+ 	for OPT do [ "$opt" = "$OPT" ] && return; done
+-	die 1 "Unknown option $err"
++	echo "Unknown option $err"
  }
  
  parse_input() # Parse stuff :V
-@@ -76,7 +76,7 @@
+@@ -102,7 +102,7 @@
  				eval "$opt=\"$val\""
  			;;
  			-h|--help) print_help; exit 0;;
--			*) echo "Unknown option $1"; exit 1;;
+-			*) die 1 "Unknown option $1";;
 +			*) echo "Unknown option $1";;
  		esac
  		shift

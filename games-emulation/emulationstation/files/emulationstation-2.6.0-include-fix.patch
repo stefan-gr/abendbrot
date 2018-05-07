@@ -1,0 +1,119 @@
+diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/CollectionSystemManager.cpp EmulationStation/es-app/src/CollectionSystemManager.cpp
+--- EmulationStation_orig/es-app/src/CollectionSystemManager.cpp	2017-08-18 11:52:21.000000000 +0200
++++ EmulationStation/es-app/src/CollectionSystemManager.cpp	2017-08-18 12:03:38.213641589 +0200
+@@ -13,7 +13,7 @@
+ #include "InputManager.h"
+ #include <iostream>
+ #include "Settings.h"
+-#include "pugixml/src/pugixml.hpp"
++#include "pugixml.hpp"
+ #include "guis/GuiInfoPopup.h"
+ 
+ namespace fs = boost::filesystem;
+@@ -1021,4 +1021,4 @@
+ 	transform(name1.begin(), name1.end(), name1.begin(), ::toupper);
+ 	transform(name2.begin(), name2.end(), name2.begin(), ::toupper);
+ 	return name1.compare(name2) < 0;
+-}
+\ Kein Zeilenumbruch am Dateiende.
++}
+diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/Gamelist.cpp EmulationStation/es-app/src/Gamelist.cpp
+--- EmulationStation_orig/es-app/src/Gamelist.cpp	2017-08-18 11:52:21.000000000 +0200
++++ EmulationStation/es-app/src/Gamelist.cpp	2017-08-18 12:03:47.997603108 +0200
+@@ -1,6 +1,6 @@
+ #include "Gamelist.h"
+ #include "SystemData.h"
+-#include "pugixml/src/pugixml.hpp"
++#include "pugixml.hpp"
+ #include <boost/filesystem.hpp>
+ #include "Log.h"
+ #include "Settings.h"
+diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/MetaData.h EmulationStation/es-app/src/MetaData.h
+--- EmulationStation_orig/es-app/src/MetaData.h	2017-08-18 11:52:21.000000000 +0200
++++ EmulationStation/es-app/src/MetaData.h	2017-08-18 12:03:55.469573721 +0200
+@@ -1,6 +1,6 @@
+ #pragma once
+ 
+-#include "pugixml/src/pugixml.hpp"
++#include "pugixml.hpp"
+ #include <string>
+ #include <map>
+ #include "GuiComponent.h"
+diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/scrapers/GamesDBScraper.cpp EmulationStation/es-app/src/scrapers/GamesDBScraper.cpp
+--- EmulationStation_orig/es-app/src/scrapers/GamesDBScraper.cpp	2017-08-18 11:52:21.000000000 +0200
++++ EmulationStation/es-app/src/scrapers/GamesDBScraper.cpp	2017-08-18 12:04:12.694505982 +0200
+@@ -1,6 +1,6 @@
+ #include "scrapers/GamesDBScraper.h"
+ #include "Log.h"
+-#include "pugixml/src/pugixml.hpp"
++#include "pugixml.hpp"
+ #include "MetaData.h"
+ #include "Settings.h"
+ #include "Util.h"
+diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/InputConfig.h EmulationStation/es-core/src/InputConfig.h
+--- EmulationStation_orig/es-core/src/InputConfig.h	2017-08-18 11:52:21.000000000 +0200
++++ EmulationStation/es-core/src/InputConfig.h	2017-08-18 11:53:36.981013292 +0200
+@@ -6,7 +6,7 @@
+ #include <string>
+ #include <SDL.h>
+ #include <sstream>
+-#include "pugixml/src/pugixml.hpp"
++#include "pugixml.hpp"
+ 
+ #define DEVICE_KEYBOARD -1
+ 
+diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/InputManager.cpp EmulationStation/es-core/src/InputManager.cpp
+--- EmulationStation_orig/es-core/src/InputManager.cpp	2017-08-18 11:52:21.000000000 +0200
++++ EmulationStation/es-core/src/InputManager.cpp	2017-08-18 12:01:27.981154055 +0200
+@@ -3,7 +3,7 @@
+ #include "Settings.h"
+ #include "Window.h"
+ #include "Log.h"
+-#include "pugixml/src/pugixml.hpp"
++#include "pugixml.hpp"
+ #include <boost/filesystem.hpp>
+ #include "platform.h"
+ 
+diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/Settings.cpp EmulationStation/es-core/src/Settings.cpp
+--- EmulationStation_orig/es-core/src/Settings.cpp	2017-08-18 11:52:21.000000000 +0200
++++ EmulationStation/es-core/src/Settings.cpp	2017-08-18 12:02:39.263873498 +0200
+@@ -1,6 +1,6 @@
+ #include "Settings.h"
+ #include "Log.h"
+-#include "pugixml/src/pugixml.hpp"
++#include "pugixml.hpp"
+ #include "platform.h"
+ #include <boost/filesystem.hpp>
+ #include <boost/assign.hpp>
+diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/ThemeData.cpp EmulationStation/es-core/src/ThemeData.cpp
+--- EmulationStation_orig/es-core/src/ThemeData.cpp	2017-08-18 11:52:21.000000000 +0200
++++ EmulationStation/es-core/src/ThemeData.cpp	2017-08-18 12:04:04.284539054 +0200
+@@ -5,7 +5,7 @@
+ #include "resources/TextureResource.h"
+ #include "Log.h"
+ #include "Settings.h"
+-#include "pugixml/src/pugixml.hpp"
++#include "pugixml.hpp"
+ #include <boost/assign.hpp>
+ #include <boost/xpressive/xpressive.hpp>
+ 
+diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/ThemeData.h EmulationStation/es-core/src/ThemeData.h
+--- EmulationStation_orig/es-core/src/ThemeData.h	2017-08-18 11:52:21.000000000 +0200
++++ EmulationStation/es-core/src/ThemeData.h	2017-08-18 11:53:52.446952031 +0200
+@@ -10,7 +10,7 @@
+ #include <boost/variant.hpp>
+ #include <boost/xpressive/xpressive.hpp>
+ #include <Eigen/Dense>
+-#include "pugixml/src/pugixml.hpp"
++#include "pugixml.hpp"
+ #include "GuiComponent.h"
+ 
+ template<typename T>
+diff -U 3 -dHrN -- EmulationStation_orig/external/CMakeLists.txt EmulationStation/external/CMakeLists.txt
+--- EmulationStation_orig/external/CMakeLists.txt	2017-08-18 11:52:21.000000000 +0200
++++ EmulationStation/external/CMakeLists.txt	2017-08-18 11:59:48.474545974 +0200
+@@ -2,4 +2,3 @@
+ # package managers are included with the project (in the 'external' folder)
+ 
+ add_subdirectory("nanosvg")
+-add_subdirectory("pugixml")

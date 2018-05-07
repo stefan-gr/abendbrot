@@ -1,31 +1,31 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
-PYTHON_COMPAT=( python{3_4,3_5} )
+PYTHON_COMPAT=( python{3_4,3_5,3_6} )
 
 LIBRETRO_COMMIT_SHA="d8855caae9fe3e249a2aab358480e2fe16c4ef0e"
 LIBRETRO_REPO_NAME="libretro/RetroArch"
-inherit flag-o-matic libretro python-single-r1 git-r3
+inherit flag-o-matic libretro python-single-r1
 
 DESCRIPTION="Universal frontend for libretro-based emulators"
 HOMEPAGE="http://www.libretro.com/"
-KEYWORDS="~amd64 ~x86"
+SRC_URI="https://github.com/${LIBRETRO_REPO_NAME}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+RESTRICT="primaryuri"
+KEYWORDS="x86 amd64"
 
 LICENSE="GPL-3"
 SLOT="0"
+
+S="${WORKDIR}/RetroArch-${PV}"
 
 #FIXME: Revaluate the "wayland? ( egl )" entry below. Due to unresolved upstream
 #issues, Wayland support erroneously requires EGL support. Ideally, it
 #shouldn't. When upstream resolves this, remove this entry. See also:
 #    https://github.com/stefan-gr/abendbrot/issues/7#issuecomment-204541979
 
-# To avoid fatal dependency failures for users enabling the "python" USE flag, a
-# default "python_single_target_python*" USE flag *MUST* be set below to the
-# default version of Python 3 for default Portage profiles.
-IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug dispmanx egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python +python_single_target_python3_4 python_single_target_python3_5"
+IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug dispmanx egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui +netplay +neon +network openal +opengl oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python"
 
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
@@ -59,7 +59,7 @@ RDEPEND="
 	database? ( games-emulation/libretro-database:0= )
 	arm? ( dispmanx? ( || ( media-libs/raspberrypi-userland:0 media-libs/raspberrypi-userland-bin:0 ) ) )
 	ffmpeg? ( >=media-video/ffmpeg-2.1.3:0= )
-	jack? ( >=media-sound/jack-audio-connection-kit-0.120.1:0= )
+	jack? ( virtual/jack:= )
 	joypad_autoconfig? ( games-emulation/retroarch-joypad-autoconfig:0= )
 	libass? ( media-libs/libass:0= )
 	libusb? ( virtual/libusb:1= )

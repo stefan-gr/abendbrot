@@ -1,17 +1,28 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
+
+# TODO: Rewrite src_prepare() and src_configure()
 
 EAPI=6
 
-PYTHON_COMPAT=( python{3_4,3_5} )
+PYTHON_COMPAT=( python{3_4,3_5,3_6} )
 
 LIBRETRO_REPO_NAME="libretro/RetroArch"
 inherit flag-o-matic libretro python-single-r1
 
 DESCRIPTION="Universal frontend for libretro-based emulators"
-HOMEPAGE="http://www.libretro.com/"
-KEYWORDS=""
+HOMEPAGE="http://www.retroarch.com"
+
+if [[ ${PV} = 9999 ]]; then
+	# Inherit and EGIT_REPO_URI already set by eclass
+	SRC_URI=""
+	KEYWORDS=""
+else
+	SRC_URI="https://github.com/${LIBRETRO_REPO_NAME}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	RESTRICT="primaryuri"
+	S="${WORKDIR}/RetroArch-${PV}"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -21,10 +32,7 @@ SLOT="0"
 #shouldn't. When upstream resolves this, remove this entry. See also:
 #    https://github.com/stefan-gr/abendbrot/issues/7#issuecomment-204541979
 
-# To avoid fatal dependency failures for users enabling the "python" USE flag, a
-# default "python_single_target_python*" USE flag *MUST* be set below to the
-# default version of Python 3 for default Portage profiles.
-IUSE="+7zip alsa +armvfp +assets +cg cheevos +cores +database debug dispmanx egl +fbo ffmpeg gles2 gles3 jack +joypad_autoconfig kms libass libusb +materialui miniupnpc +netplay +neon +network openal +opengl osmesa oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python +python_single_target_python3_4 python_single_target_python3_5"
+IUSE="+7zip alsa +armvfp +assets cg cheevos +cores +database debug dispmanx egl ffmpeg gles2 gles3 jack +joypad_autoconfig kms lakka libass libusb +materialui miniupnpc +neon +network openal +opengl osmesa oss +overlays pulseaudio sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python"
 
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
@@ -32,22 +40,26 @@ REQUIRED_USE="
 	|| ( kms X wayland videocore )
 	alsa? ( threads )
 	arm? ( gles2? ( egl ) )
+	!arm? (
+		egl? ( opengl )
+		gles2? ( opengl )
+		xmb? ( opengl )
+	)
 	cg? ( opengl )
 	dispmanx? ( videocore arm )
-	egl? ( opengl )
-	gles2? ( !cg opengl )
+	gles2? ( !cg )
 	gles3? ( gles2 )
 	kms? ( egl )
 	libass? ( ffmpeg )
-	netplay? ( network )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	sdl2? ( !sdl )
 	videocore? ( arm )
 	vulkan? ( amd64 )
 	wayland? ( egl )
 	xinerama? ( X )
-	xmb? ( assets opengl )
+	xmb? ( assets )
 	xv? ( X )
+	lakka? ( assets cores database joypad_autoconfig overlays shaders xmb )
 "
 
 RDEPEND="
@@ -58,7 +70,7 @@ RDEPEND="
 	database? ( games-emulation/libretro-database:0= )
 	arm? ( dispmanx? ( || ( media-libs/raspberrypi-userland:0 media-libs/raspberrypi-userland-bin:0 ) ) )
 	ffmpeg? ( >=media-video/ffmpeg-2.1.3:0= )
-	jack? ( >=media-sound/jack-audio-connection-kit-0.120.1:0= )
+	jack? ( virtual/jack:= )
 	joypad_autoconfig? ( games-emulation/retroarch-joypad-autoconfig:0= )
 	libass? ( media-libs/libass:0= )
 	libusb? ( virtual/libusb:1= )
@@ -92,8 +104,8 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 
-PDEPEND="!vulkan? ( shaders? ( !cg? ( games-emulation/common-shaders:0=[-cg] ) )
-		!vulkan? ( cg? ( games-emulation/common-shaders:0=[cg] ) ) )
+PDEPEND="!vulkan? ( shaders? ( games-emulation/glsl-shaders:0= ) )
+		!vulkan? ( cg? ( games-emulation/common-shaders:0= ) )
 "
 
 pkg_setup() {
@@ -103,7 +115,8 @@ pkg_setup() {
 src_prepare() {
 	epatch \
 		"${FILESDIR}/${P}-build.patch" \
-		"${FILESDIR}/${P}-python.patch"
+		"${FILESDIR}/${P}-python.patch" \
+		"${FILESDIR}/${P}-custom_fpu.patch"
 
 	# If Python support is enabled, use the currently enabled "python" binary.
 	if use python; then
@@ -144,14 +157,20 @@ src_prepare() {
 		-e 's:# \(rgui_browser_directory =\):\1 "~/":' \
 		|| die '"sed" failed.'
 
+	if use cores; then
+		sed -i retroarch.cfg \
+			-e 's:# \(menu_show_core_updater =\) true:\1 "false":'
+	fi
+
 	if use vulkan; then
 		sed -i retroarch.cfg \
 			-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/slang-shaders/":' \
 			|| die '"sed failed.'
 	else
-		sed -i retroarch.cfg \
-			-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/shaders/":' \
-			|| die '"sed failed.'
+		use cg && sed -i retroarch.cfg \
+			-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/common-shaders/":'
+		use cg || use shaders && sed -i retroarch.cfg \
+			-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/shaders/":'
 	fi
 
 	default_src_prepare
@@ -171,6 +190,10 @@ src_configure() {
 			-e 's:\[ -d /opt/vc/lib \] && add_library_dirs /opt/vc/lib && add_library_dirs /opt/vc/lib/GL::' || die 'sed failed'
 	fi
 
+	if use lakka; then
+		export HAVE_LAKKA="1"
+	fi
+
 	# Note that OpenVG support is hard-disabled. (See ${RDEPEND} above.)
 	# miniupnpc requires now at least version 2.0
 	econf \
@@ -182,7 +205,6 @@ src_configure() {
 		$(use_enable cpu_flags_x86_sse2 sse) \
 		$(use_enable dispmanx) \
 		$(use_enable egl) \
-		$(use_enable fbo) \
 		$(use_enable ffmpeg) \
 		$(use_enable gles2 opengles) \
 		$(use_enable gles3 opengles3) \

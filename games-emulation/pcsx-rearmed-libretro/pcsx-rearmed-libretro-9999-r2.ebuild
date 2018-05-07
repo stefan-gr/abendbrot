@@ -1,6 +1,5 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
@@ -13,7 +12,6 @@ KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="neon"
 
 DEPEND="media-libs/libpng:0
 	sys-libs/zlib"
@@ -23,19 +21,20 @@ RDEPEND="${DEPEND}
 LIBRETRO_CORE_NAME=pcsx_rearmed
 
 src_prepare() {
-	epatch "${FILESDIR}"/include.patch
-	#don't error out with unknown options
+	libretro-core_src_prepare
 	sed -i configure \
-                -e 's/*) echo "ERROR: unknown option $opt"; show_help="yes"/*) echo "unknown option $opt"/' \
-                || die
-	default_src_prepare
+		-e 's/*) echo "ERROR: unknown option $opt"; show_help="yes"/*) echo "unknown option $opt"/'
 }
 
 src_configure() {
 	econf \
-		--platform=libretro \
-		$(use_enable neon ) \
-		$(use_enable arm dynarec )
+		--platform=libretro
+}
+
+src_compile() {
+	use custom-cflags || filter-flags -O*
+	emake	CC=$(tc-getCC) CXX=$(tc-getCXX) LD=$(tc-getLD) \
+		$(usex debug "DEBUG=1" "")
 }
 
 src_install() {
