@@ -83,9 +83,9 @@ RDEPEND="
 	python? ( ${PYTHON_DEPS} )
 	qt5? ( 
 	        dev-qt/qtcore:5 
-		    dev-qt/qtgui:5
-		    dev-qt/qtopengl:5
-		    dev-qt/qtwidgets:5
+	        dev-qt/qtgui:5
+	        dev-qt/qtopengl:5
+	        dev-qt/qtwidgets:5
 	)
 	sdl? ( >=media-libs/libsdl-1.2.10:0=[joystick] )
 	sdl2? ( media-libs/libsdl2:0=[joystick] )
