@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -41,15 +41,14 @@ DEPEND="
 		>=sys-apps/util-linux-2.25.2-r2
 		>=sys-devel/gcc-4.6.4:*[cxx]
 		>=sys-libs/gdbm-1.11
-		>=sys-libs/glibc-2.20-r2
-		>=sys-libs/glibc-2.20-r2
+		>=sys-libs/glibc-2.23-r4
 		>=sys-libs/libcap-2.22-r2
 		>=sys-libs/zlib-1.2.8-r1
 		>=x11-libs/libX11-1.6.2
 		>=x11-libs/libXcursor-1.1.14
 		>=x11-libs/libXinerama-1.1.3
 		freetype? ( >=media-libs/freetype-2.5.3-r1:2 )
-		llvm? ( >=sys-devel/llvm-3.6.0[clang] )
+		llvm? ( >=sys-devel/llvm-5.0.1:=[clang(+)] )
 		openssl? ( >=dev-libs/openssl-1.0.1j:0 )
 		png? ( >=media-libs/libpng-1.6.16:0= )
 		pulseaudio? ( >=media-sound/pulseaudio-5.0-r7 )
