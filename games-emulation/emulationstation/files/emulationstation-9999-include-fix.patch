@@ -1,4 +1,4 @@
-diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/CollectionSystemManager.cpp EmulationStation/es-app/src/CollectionSystemManager.cpp
+diff -Naur EmulationStation_orig/es-app/src/CollectionSystemManager.cpp EmulationStation/es-app/src/CollectionSystemManager.cpp
 --- EmulationStation_orig/es-app/src/CollectionSystemManager.cpp	2018-05-18 01:01:11.615955829 +0200
 +++ EmulationStation/es-app/src/CollectionSystemManager.cpp	2018-05-18 00:55:33.864250204 +0200
 @@ -13,7 +13,7 @@
@@ -17,7 +17,7 @@ diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/CollectionSystemManager.cpp 
 -}
 \ Pas de fin de ligne à la fin du fichier
 +}
-diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/Gamelist.cpp EmulationStation/es-app/src/Gamelist.cpp
+diff -Naur EmulationStation_orig/es-app/src/Gamelist.cpp EmulationStation/es-app/src/Gamelist.cpp
 --- EmulationStation_orig/es-app/src/Gamelist.cpp	2018-05-18 01:01:11.615955829 +0200
 +++ EmulationStation/es-app/src/Gamelist.cpp	2018-05-18 00:56:15.417793888 +0200
 @@ -8,7 +8,7 @@
@@ -29,7 +29,7 @@ diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/Gamelist.cpp EmulationStatio
  
  namespace fs = boost::filesystem;
  
-diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/MetaData.cpp EmulationStation/es-app/src/MetaData.cpp
+diff -Naur EmulationStation_orig/es-app/src/MetaData.cpp EmulationStation/es-app/src/MetaData.cpp
 --- EmulationStation_orig/es-app/src/MetaData.cpp	2018-05-18 01:01:11.622622529 +0200
 +++ EmulationStation/es-app/src/MetaData.cpp	2018-05-18 00:55:19.167509097 +0200
 @@ -3,7 +3,7 @@
@@ -41,7 +41,7 @@ diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/MetaData.cpp EmulationStatio
  
  namespace fs = boost::filesystem;
  
-diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/scrapers/GamesDBScraper.cpp EmulationStation/es-app/src/scrapers/GamesDBScraper.cpp
+diff -Naur EmulationStation_orig/es-app/src/scrapers/GamesDBScraper.cpp EmulationStation/es-app/src/scrapers/GamesDBScraper.cpp
 --- EmulationStation_orig/es-app/src/scrapers/GamesDBScraper.cpp	2018-05-18 01:01:11.625955878 +0200
 +++ EmulationStation/es-app/src/scrapers/GamesDBScraper.cpp	2018-05-18 00:56:03.711067978 +0200
 @@ -6,7 +6,7 @@
@@ -53,7 +53,7 @@ diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/scrapers/GamesDBScraper.cpp 
  
  using namespace PlatformIds;
  const std::map<PlatformId, const char*> gamesdb_platformid_map {
-diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/SystemData.cpp EmulationStation/es-app/src/SystemData.cpp
+diff -Naur EmulationStation_orig/es-app/src/SystemData.cpp EmulationStation/es-app/src/SystemData.cpp
 --- EmulationStation_orig/es-app/src/SystemData.cpp	2018-05-18 01:01:11.625955878 +0200
 +++ EmulationStation/es-app/src/SystemData.cpp	2018-05-18 00:55:48.120989060 +0200
 @@ -9,7 +9,7 @@
@@ -65,7 +65,7 @@ diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/SystemData.cpp EmulationStat
  #include <fstream>
  #ifdef WIN32
  #include <Windows.h>
-diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/SystemScreenSaver.cpp EmulationStation/es-app/src/SystemScreenSaver.cpp
+diff -Naur EmulationStation_orig/es-app/src/SystemScreenSaver.cpp EmulationStation/es-app/src/SystemScreenSaver.cpp
 --- EmulationStation_orig/es-app/src/SystemScreenSaver.cpp	2018-05-18 01:01:11.625955878 +0200
 +++ EmulationStation/es-app/src/SystemScreenSaver.cpp	2018-05-18 00:56:30.584537288 +0200
 @@ -15,7 +15,7 @@
@@ -77,7 +77,7 @@ diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/SystemScreenSaver.cpp Emulat
  #include <unordered_map>
  
  #define FADE_TIME 			300
-diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/InputConfig.cpp EmulationStation/es-core/src/InputConfig.cpp
+diff -Naur EmulationStation_orig/es-core/src/InputConfig.cpp EmulationStation/es-core/src/InputConfig.cpp
 --- EmulationStation_orig/es-core/src/InputConfig.cpp	2018-05-18 01:01:11.629289230 +0200
 +++ EmulationStation/es-core/src/InputConfig.cpp	2018-05-18 00:57:46.508254437 +0200
 @@ -1,7 +1,7 @@
@@ -89,7 +89,7 @@ diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/InputConfig.cpp EmulationSt
  
  //some util functions
  std::string inputTypeToString(InputType type)
-diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/InputManager.cpp EmulationStation/es-core/src/InputManager.cpp
+diff -Naur EmulationStation_orig/es-core/src/InputManager.cpp EmulationStation/es-core/src/InputManager.cpp
 --- EmulationStation_orig/es-core/src/InputManager.cpp	2018-05-18 01:01:11.629289230 +0200
 +++ EmulationStation/es-core/src/InputManager.cpp	2018-05-18 00:57:13.544754526 +0200
 @@ -5,7 +5,7 @@
@@ -101,7 +101,7 @@ diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/InputManager.cpp EmulationS
  #include <SDL.h>
  #include <iostream>
  
-diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/Settings.cpp EmulationStation/es-core/src/Settings.cpp
+diff -Naur EmulationStation_orig/es-core/src/Settings.cpp EmulationStation/es-core/src/Settings.cpp
 --- EmulationStation_orig/es-core/src/Settings.cpp	2018-05-18 01:01:11.629289230 +0200
 +++ EmulationStation/es-core/src/Settings.cpp	2018-05-18 00:57:35.404865004 +0200
 @@ -3,7 +3,7 @@
@@ -113,7 +113,7 @@ diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/Settings.cpp EmulationStati
  
  Settings* Settings::sInstance = NULL;
  
-diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/ThemeData.cpp EmulationStation/es-core/src/ThemeData.cpp
+diff -Naur EmulationStation_orig/es-core/src/ThemeData.cpp EmulationStation/es-core/src/ThemeData.cpp
 --- EmulationStation_orig/es-core/src/ThemeData.cpp	2018-05-18 01:01:11.629289230 +0200
 +++ EmulationStation/es-core/src/ThemeData.cpp	2018-05-18 00:57:24.971478947 +0200
 @@ -7,7 +7,7 @@
@@ -125,7 +125,7 @@ diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/ThemeData.cpp EmulationStat
  
  std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "video" } };
  std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "z-index" } };
-diff -U 3 -dHrN -- EmulationStation_orig/external/CMakeLists.txt EmulationStation/external/CMakeLists.txt
+diff -Naur EmulationStation_orig/external/CMakeLists.txt EmulationStation/external/CMakeLists.txt
 --- EmulationStation_orig/external/CMakeLists.txt	2018-05-18 01:01:11.632622579 +0200
 +++ EmulationStation/external/CMakeLists.txt	2018-05-18 00:56:52.327980593 +0200
 @@ -2,4 +2,3 @@
