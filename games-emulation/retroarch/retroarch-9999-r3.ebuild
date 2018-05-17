@@ -243,6 +243,7 @@ src_configure() {
 		$(use_enable xml libxml2) \
 		$(use_enable xv xvideo) \
 		$(use_enable zlib) \
+		$(use_enable videocore) \
 		--enable-dynamic \
 		--disable-vg \
 		--with-man_dir="${EROOT}"usr/share/man/man1
