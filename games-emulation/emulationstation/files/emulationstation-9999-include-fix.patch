@@ -1,78 +1,85 @@
 diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/CollectionSystemManager.cpp EmulationStation/es-app/src/CollectionSystemManager.cpp
---- EmulationStation_orig/es-app/src/CollectionSystemManager.cpp	2018-05-17 20:47:31.433344221 +0200
-+++ EmulationStation/es-app/src/CollectionSystemManager.cpp	2018-05-17 20:48:43.843633703 +0200
-@@ -11,7 +11,7 @@
- #include "Settings.h"
- #include "SystemData.h"
- #include "ThemeData.h"
+--- EmulationStation_orig/es-app/src/CollectionSystemManager.cpp	2018-05-18 01:01:11.615955829 +0200
++++ EmulationStation/es-app/src/CollectionSystemManager.cpp	2018-05-18 00:55:33.864250204 +0200
+@@ -13,7 +13,7 @@
+ #include <boost/algorithm/string/predicate.hpp>
+ #include <boost/filesystem/operations.hpp>
+ #include <boost/xpressive/xpressive.hpp>
 -#include <pugixml/src/pugixml.hpp>
 +#include <pugixml.hpp>
  #include <fstream>
+ #include <unordered_map>
  
- std::string myCollectionsName = "collections";
+@@ -1023,4 +1023,4 @@
+ 	transform(name1.cbegin(), name1.cend(), name1.begin(), ::toupper);
+ 	transform(name2.cbegin(), name2.cend(), name2.begin(), ::toupper);
+ 	return name1.compare(name2) < 0;
+-}
+\ Pas de fin de ligne à la fin du fichier
++}
 diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/Gamelist.cpp EmulationStation/es-app/src/Gamelist.cpp
---- EmulationStation_orig/es-app/src/Gamelist.cpp	2018-05-17 20:47:31.436677568 +0200
-+++ EmulationStation/es-app/src/Gamelist.cpp	2018-05-17 20:49:40.563867216 +0200
-@@ -6,7 +6,7 @@
- #include "Log.h"
- #include "Settings.h"
- #include "SystemData.h"
+--- EmulationStation_orig/es-app/src/Gamelist.cpp	2018-05-18 01:01:11.615955829 +0200
++++ EmulationStation/es-app/src/Gamelist.cpp	2018-05-18 00:56:15.417793888 +0200
+@@ -8,7 +8,7 @@
+ #include "Util.h"
+ #include <boost/filesystem/operations.hpp>
+ #include <boost/filesystem/path.hpp>
 -#include <pugixml/src/pugixml.hpp>
 +#include <pugixml.hpp>
  
- FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType type)
- {
+ namespace fs = boost::filesystem;
+ 
 diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/MetaData.cpp EmulationStation/es-app/src/MetaData.cpp
---- EmulationStation_orig/es-app/src/MetaData.cpp	2018-05-17 20:47:31.436677568 +0200
-+++ EmulationStation/es-app/src/MetaData.cpp	2018-05-17 20:48:30.013577631 +0200
-@@ -2,7 +2,7 @@
- 
- #include "utils/FileSystemUtil.h"
+--- EmulationStation_orig/es-app/src/MetaData.cpp	2018-05-18 01:01:11.622622529 +0200
++++ EmulationStation/es-app/src/MetaData.cpp	2018-05-18 00:55:19.167509097 +0200
+@@ -3,7 +3,7 @@
  #include "Log.h"
+ #include "Util.h"
+ #include <boost/date_time/posix_time/time_formatters.hpp>
 -#include <pugixml/src/pugixml.hpp>
 +#include <pugixml.hpp>
  
- MetaDataDecl gameDecls[] = {
- 	// key,         type,                   default,            statistic,  name in GuiMetaDataEd,  prompt in GuiMetaDataEd
+ namespace fs = boost::filesystem;
+ 
 diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/scrapers/GamesDBScraper.cpp EmulationStation/es-app/src/scrapers/GamesDBScraper.cpp
---- EmulationStation_orig/es-app/src/scrapers/GamesDBScraper.cpp	2018-05-17 20:47:31.436677568 +0200
-+++ EmulationStation/es-app/src/scrapers/GamesDBScraper.cpp	2018-05-17 20:49:23.730464006 +0200
+--- EmulationStation_orig/es-app/src/scrapers/GamesDBScraper.cpp	2018-05-18 01:01:11.625955878 +0200
++++ EmulationStation/es-app/src/scrapers/GamesDBScraper.cpp	2018-05-18 00:56:03.711067978 +0200
 @@ -6,7 +6,7 @@
- #include "PlatformId.h"
  #include "Settings.h"
  #include "SystemData.h"
+ #include "Util.h"
 -#include <pugixml/src/pugixml.hpp>
 +#include <pugixml.hpp>
  
  using namespace PlatformIds;
  const std::map<PlatformId, const char*> gamesdb_platformid_map {
 diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/SystemData.cpp EmulationStation/es-app/src/SystemData.cpp
---- EmulationStation_orig/es-app/src/SystemData.cpp	2018-05-17 20:47:31.436677568 +0200
-+++ EmulationStation/es-app/src/SystemData.cpp	2018-05-17 20:49:11.380413043 +0200
-@@ -10,7 +10,7 @@
+--- EmulationStation_orig/es-app/src/SystemData.cpp	2018-05-18 01:01:11.625955878 +0200
++++ EmulationStation/es-app/src/SystemData.cpp	2018-05-18 00:55:48.120989060 +0200
+@@ -9,7 +9,7 @@
  #include "Settings.h"
  #include "ThemeData.h"
- #include "views/UIModeController.h"
+ #include <boost/filesystem/operations.hpp>
 -#include <pugixml/src/pugixml.hpp>
 +#include <pugixml.hpp>
  #include <fstream>
  #ifdef WIN32
  #include <Windows.h>
 diff -U 3 -dHrN -- EmulationStation_orig/es-app/src/SystemScreenSaver.cpp EmulationStation/es-app/src/SystemScreenSaver.cpp
---- EmulationStation_orig/es-app/src/SystemScreenSaver.cpp	2018-05-17 20:47:31.436677568 +0200
-+++ EmulationStation/es-app/src/SystemScreenSaver.cpp	2018-05-17 20:49:50.947243884 +0200
-@@ -14,7 +14,7 @@
- #include "Renderer.h"
- #include "Sound.h"
+--- EmulationStation_orig/es-app/src/SystemScreenSaver.cpp	2018-05-18 01:01:11.625955878 +0200
++++ EmulationStation/es-app/src/SystemScreenSaver.cpp	2018-05-18 00:56:30.584537288 +0200
+@@ -15,7 +15,7 @@
  #include "SystemData.h"
+ #include "Util.h"
+ #include <boost/filesystem/operations.hpp>
 -#include <pugixml/src/pugixml.hpp>
 +#include <pugixml.hpp>
  #include <unordered_map>
- #include <time.h>
  
+ #define FADE_TIME 			300
 diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/InputConfig.cpp EmulationStation/es-core/src/InputConfig.cpp
---- EmulationStation_orig/es-core/src/InputConfig.cpp	2018-05-17 20:47:31.436677568 +0200
-+++ EmulationStation/es-core/src/InputConfig.cpp	2018-05-17 20:52:24.441236181 +0200
+--- EmulationStation_orig/es-core/src/InputConfig.cpp	2018-05-18 01:01:11.629289230 +0200
++++ EmulationStation/es-core/src/InputConfig.cpp	2018-05-18 00:57:46.508254437 +0200
 @@ -1,7 +1,7 @@
  #include "InputConfig.h"
  
@@ -83,56 +90,44 @@ diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/InputConfig.cpp EmulationSt
  //some util functions
  std::string inputTypeToString(InputType type)
 diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/InputManager.cpp EmulationStation/es-core/src/InputManager.cpp
---- EmulationStation_orig/es-core/src/InputManager.cpp	2018-05-17 20:47:31.436677568 +0200
-+++ EmulationStation/es-core/src/InputManager.cpp	2018-05-17 20:51:28.647659611 +0200
+--- EmulationStation_orig/es-core/src/InputManager.cpp	2018-05-18 01:01:11.629289230 +0200
++++ EmulationStation/es-core/src/InputManager.cpp	2018-05-18 00:57:13.544754526 +0200
 @@ -5,7 +5,7 @@
- #include "Log.h"
  #include "platform.h"
  #include "Window.h"
+ #include <boost/filesystem/operations.hpp>
 -#include <pugixml/src/pugixml.hpp>
 +#include <pugixml.hpp>
  #include <SDL.h>
  #include <iostream>
- #include <assert.h>
-diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/MameNames.cpp EmulationStation/es-core/src/MameNames.cpp
---- EmulationStation_orig/es-core/src/MameNames.cpp	2018-05-17 20:47:31.436677568 +0200
-+++ EmulationStation/es-core/src/MameNames.cpp	2018-05-17 20:51:46.407736612 +0200
-@@ -3,7 +3,7 @@
- #include "resources/ResourceManager.h"
- #include "utils/FileSystemUtil.h"
- #include "Log.h"
--#include <pugixml/src/pugixml.hpp>
-+#include <pugixml.hpp>
- #include <string.h>
  
- MameNames* MameNames::sInstance = nullptr;
 diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/Settings.cpp EmulationStation/es-core/src/Settings.cpp
---- EmulationStation_orig/es-core/src/Settings.cpp	2018-05-17 20:47:31.436677568 +0200
-+++ EmulationStation/es-core/src/Settings.cpp	2018-05-17 20:52:09.414503624 +0200
+--- EmulationStation_orig/es-core/src/Settings.cpp	2018-05-18 01:01:11.629289230 +0200
++++ EmulationStation/es-core/src/Settings.cpp	2018-05-18 00:57:35.404865004 +0200
 @@ -3,7 +3,7 @@
- #include "utils/FileSystemUtil.h"
  #include "Log.h"
  #include "platform.h"
+ #include <boost/filesystem/operations.hpp>
 -#include <pugixml/src/pugixml.hpp>
 +#include <pugixml.hpp>
- #include <algorithm>
- #include <vector>
+ 
+ Settings* Settings::sInstance = NULL;
  
 diff -U 3 -dHrN -- EmulationStation_orig/es-core/src/ThemeData.cpp EmulationStation/es-core/src/ThemeData.cpp
---- EmulationStation_orig/es-core/src/ThemeData.cpp	2018-05-17 20:47:31.436677568 +0200
-+++ EmulationStation/es-core/src/ThemeData.cpp	2018-05-17 20:51:59.864461891 +0200
-@@ -6,7 +6,7 @@
- #include "Log.h"
- #include "platform.h"
+--- EmulationStation_orig/es-core/src/ThemeData.cpp	2018-05-18 01:01:11.629289230 +0200
++++ EmulationStation/es-core/src/ThemeData.cpp	2018-05-18 00:57:24.971478947 +0200
+@@ -7,7 +7,7 @@
  #include "Settings.h"
+ #include <boost/filesystem/operations.hpp>
+ #include <boost/xpressive/xpressive_static.hpp>
 -#include <pugixml/src/pugixml.hpp>
 +#include <pugixml.hpp>
- #include <algorithm>
  
- std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" } };
+ std::vector<std::string> ThemeData::sSupportedViews { { "system" }, { "basic" }, { "detailed" }, { "video" } };
+ std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "z-index" } };
 diff -U 3 -dHrN -- EmulationStation_orig/external/CMakeLists.txt EmulationStation/external/CMakeLists.txt
---- EmulationStation_orig/external/CMakeLists.txt	2018-05-17 20:47:31.440010914 +0200
-+++ EmulationStation/external/CMakeLists.txt	2018-05-17 20:50:30.820745197 +0200
+--- EmulationStation_orig/external/CMakeLists.txt	2018-05-18 01:01:11.632622579 +0200
++++ EmulationStation/external/CMakeLists.txt	2018-05-18 00:56:52.327980593 +0200
 @@ -2,4 +2,3 @@
  # package managers are included with the project (in the 'external' folder)
  
