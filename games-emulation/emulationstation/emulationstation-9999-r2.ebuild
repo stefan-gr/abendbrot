@@ -10,12 +10,13 @@ HOMEPAGE="https://github.com/RetroPie/EmulationStation"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="+themes"
+IUSE="cec gles opengl +themes"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 
 	EGIT_REPO_URI="https://github.com/RetroPie/EmulationStation.git"
+	EGIT_BRANCH="stable"
 	SRC_URI=""
 	KEYWORDS=""
 else
@@ -33,6 +34,7 @@ COMMON_DEPEND="
 	net-misc/curl
 	media-video/vlc
 	dev-libs/pugixml
+	cec? ( dev-libs/libcec )
 "
 RDEPEND="${COMMON_DEPEND}
 	themes? ( games-emulation/emulationstation-themes-meta )
@@ -48,6 +50,8 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}"/usr
+		-DGLES=$(usex gles ON OFF)
+		-DGL=$(usex opengl ON OFF)
 	)
 	cmake-utils_src_configure
 }
