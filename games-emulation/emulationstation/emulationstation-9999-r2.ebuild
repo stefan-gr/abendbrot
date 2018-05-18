@@ -10,7 +10,9 @@ HOMEPAGE="https://github.com/RetroPie/EmulationStation"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="cec gles opengl +themes"
+IUSE="cec gles opengl +themes videocore"
+
+REQUIRED_USE="^^ ( gles opengl videocore )"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -35,6 +37,7 @@ COMMON_DEPEND="
 	media-video/vlc
 	dev-libs/pugixml
 	cec? ( dev-libs/libcec )
+	arm? ( videocore? ( || ( media-libs/raspberrypi-userland:0 media-libs/raspberrypi-userland-bin:0 ) ) )
 "
 RDEPEND="${COMMON_DEPEND}
 	themes? ( games-emulation/emulationstation-themes-meta )

@@ -188,14 +188,6 @@ src_configure() {
 		append-cflags  -I"${EROOT}"opt/nvidia-cg-toolkit/include
 	fi
 
-	if use videocore; then
-		export HAVE_VIDEOCORE="yes"
-	else
-		export HAVE_VIDEOCORE="no"
-		sed -i qb/config.libs.sh \
-			-e 's:\[ -d /opt/vc/lib \] && add_library_dirs /opt/vc/lib && add_library_dirs /opt/vc/lib/GL::' || die 'sed failed'
-	fi
-
 	if use lakka; then
 		export HAVE_LAKKA="1"
 	fi
