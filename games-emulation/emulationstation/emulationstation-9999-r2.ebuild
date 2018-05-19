@@ -63,6 +63,7 @@ src_install() {
 	cmake-utils_src_install
 
 	insinto /usr/bin
+	insopts -m0755
 	doins emulationstation.sh
 }
 
