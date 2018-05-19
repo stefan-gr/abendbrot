@@ -59,6 +59,13 @@ src_configure() {
 	cmake-utils_src_configure
 }
 
+src_install() {
+	cmake-utils_src_install
+
+	insinto /usr/bin
+	doins emulationstation.sh
+}
+
 pkg_preinst() {
 	if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then
 		first_install="1"
