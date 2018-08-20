@@ -22,6 +22,7 @@ src_unpack() {
 	# We need to add the different core names to the array
 	# in order to let the eclass handle the install
 	LIBRETRO_CORE_NAME+=( "${PN%-libretro}" )
+	use oit && LIBRETRO_CORE_NAME+=( "${PN%-libretro}"_oit )
 	libretro-core_src_unpack
 }
 
