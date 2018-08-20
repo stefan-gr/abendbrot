@@ -7,9 +7,9 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+2048 +4do +beetle-psx bnes +bsnes bsnes-cpp98 citra craft +desmume dolphin easyrpg +fbalpha fbalpha2012 fceumm +gambatte +genplus \
+IUSE="+2048 +4do +beetle-psx bnes +bsnes bsnes-cpp98 bsnes-mercury citra craft +desmume dolphin easyrpg +fbalpha fbalpha2012 fceumm +gambatte +genplus \
 +handy mame mame2000 +mame2003 mame2003-plus mame2016 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
-+mednafen-saturn mednafen-snes +mednafen-vb +mednafen-wswan melonds meowpc98 meteor +mgba mrboom +mupen64plus +nestopia +nxengine \
++mednafen-saturn mednafen-snes +mednafen-vb +mednafen-wswan melonds meowpc98 mesen meteor +mgba mrboom +mupen64plus +nestopia +nxengine \
 openlara pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive +ppsspp +prboom +prosystem px68k quicknes redream +reicast sameboy +scummvm \
 snes9x snes9x2002 snes9x2010 +stella tgbdual +tyrquake vba-next vbam yabause"
 
@@ -21,6 +21,7 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		bnes? ( >=games-emulation/bnes-libretro-9999 )
 		bsnes? ( >=games-emulation/bsnes-libretro-9999 )
 		bsnes-cpp98? ( >=games-emulation/bsnes-libretro-cplusplus98-9999 )
+		bsnes-mercury? ( >=games-emulation/bsnes-mercury-libretro-9999 )
 		citra? ( >=games-emulation/citra-libretro-9999 )
 		craft? ( >=games-emulation/craft-libretro-9999 )
 		desmume? ( >=games-emulation/desmume-libretro-9999 )
@@ -37,6 +38,7 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		mame2003? ( >=games-emulation/mame2003-libretro-9999 )
 		mame2003-plus? ( >=games-emulation/mame2003-plus-libretro-9999 )
 		mame2016? ( >=games-emulation/mame2016-libretro-9999 )
+		mesen? ( >=games-emulation/mesen-libretro-9999 )
 		mednafen-gba? ( >=games-emulation/mednafen-gba-libretro-9999 )
 		mednafen-ngp? ( >=games-emulation/mednafen-ngp-libretro-9999 )
 		mednafen-pce-fast? ( >=games-emulation/mednafen-pce-fast-libretro-9999 )
