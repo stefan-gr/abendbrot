@@ -12,7 +12,6 @@ KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="opengl vulkan"
 
 DEPEND=""
 RDEPEND="${DEPEND}
