@@ -9,7 +9,4 @@
     <email>stefan.gert.r@gmail.com</email>
     <description>Primary maintainer</description>
   </maintainer>
-  <use>
-    <flag name='vulkan'>Enable vulkan support</flag>
-  </use>
 </pkgmetadata>
