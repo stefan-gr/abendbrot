@@ -12,17 +12,27 @@ KEYWORDS=""
 
 LICENSE="GPL-3"
 SLOT="0"
+IUSE="clang lto"
 
-DEPEND=""
+DEPEND="clang? ( sys-devel/clang )"
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
-
-S="${S}/Libretro"
 
 pkg_preinst() {
 	if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then
 		first_install="1"
 	fi
+}
+
+src_compile() {
+	myemakeargs+=(
+		$(usex x86 "MESENPLATFORM=x86" "")
+		$(usex amd64 "MESENPLATFORM=x86_64" "")
+		$(usex lto "LTO=true" "")
+		$(usex clang "" "USE_GCC=true")
+	)
+	emake "${myemakeargs[@]}" -f makefile libretro
+	mv bin mesen_libretro.so
 }
 
 pkg_postinst() {
