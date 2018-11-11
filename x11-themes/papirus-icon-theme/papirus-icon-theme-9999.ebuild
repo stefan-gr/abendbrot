@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit git-r3
+inherit git-r3 gnome2-utils
 
 DESCRIPTION="Papirus icon theme for GTK and KDE"
 HOMEPAGE="https://github.com/PapirusDevelopmentTeam/papirus-icon-theme"
@@ -17,3 +17,11 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="${DEPEND}"
+
+pkg_postinst() {
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	gnome2_icon_cache_update
+}
