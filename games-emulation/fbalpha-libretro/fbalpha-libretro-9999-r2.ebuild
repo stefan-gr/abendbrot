@@ -12,7 +12,15 @@ KEYWORDS=""
 
 LICENSE="FBA"
 SLOT="0"
+IUSE="neon"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
+
+src_compile() {
+	myemakeargs=(
+		$(usex neon "HAVE_NEON=1" "")
+	)
+	libretro-core_src_compile
+}
