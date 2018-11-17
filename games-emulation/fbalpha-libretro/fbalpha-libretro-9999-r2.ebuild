@@ -21,6 +21,7 @@ RDEPEND="${DEPEND}
 src_compile() {
 	myemakeargs=(
 		$(usex neon "HAVE_NEON=1" "")
+		$(usex arm "platform=armv" "")
 	)
 	libretro-core_src_compile
 }
