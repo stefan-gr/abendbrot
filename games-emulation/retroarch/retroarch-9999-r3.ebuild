@@ -121,7 +121,6 @@ pkg_setup() {
 src_prepare() {
 	epatch \
 		"${FILESDIR}/${P}-build.patch" \
-		"${FILESDIR}/${P}-python.patch" \
 		"${FILESDIR}/${P}-custom_fpu.patch"
 
 	# If Python support is enabled, use the currently enabled "python" binary.
