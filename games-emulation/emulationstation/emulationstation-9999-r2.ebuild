@@ -36,6 +36,7 @@ COMMON_DEPEND="
 	net-misc/curl
 	media-video/vlc
 	dev-libs/pugixml
+	dev-libs/rapidjson
 	cec? ( dev-libs/libcec )
 	arm? ( videocore? ( || ( media-libs/raspberrypi-userland:0 media-libs/raspberrypi-userland-bin:0 ) ) )
 "
