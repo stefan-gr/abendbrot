@@ -1,34 +1,20 @@
---- retroarch-9999/qb/config.libs.sh	2017-10-08 14:42:40.465717207 +0200
-+++ retroarch-9999-patched/qb/config.libs.sh	2017-10-08 14:46:09.285485229 +0200
-@@ -62,12 +62,6 @@
-    fi
- fi
- 
--if [ "$HAVE_NEON" = "yes" ]; then
--   CFLAGS="$CFLAGS -mfpu=neon -marm"
--   CXXFLAGS="$CXXFLAGS -mfpu=neon -marm"
--   ASFLAGS="$ASFLAGS -mfpu=neon"
--fi
--
- if [ "$HAVE_7ZIP" = "yes" ]; then
-    add_include_dirs ./deps/7zip/
- fi
-@@ -90,9 +84,16 @@
+diff --git a/qb/config.libs.sh b/qb/config.libs.sh
+index a4a1406363..8bf4d609d7 100644
+--- a/qb/config.libs.sh
++++ b/qb/config.libs.sh
+@@ -86,8 +86,14 @@ if [ "$HAVE_PRESERVE_DYLIB" = "yes" ]; then
  fi
  
  if [ "$HAVE_NEON" = "yes" ]; then
--   CFLAGS="$CFLAGS -mfpu=neon -marm"
--   CXXFLAGS="$CXXFLAGS -mfpu=neon -marm"
--   ASFLAGS="$ASFLAGS -mfpu=neon"
+-   add_define MAKEFILE NEON_CFLAGS '-mfpu=neon -marm'
+-   add_define MAKEFILE NEON_ASFLAGS -mfpu=neon
 +   cust_fpu="$(echo ${CFLAGS} | grep -o "mfpu\=.[^ ]*" | sed 's/mfpu=//')"
 +   if [ "x$cust_fpu" != "x" ]; then
-+      CFLAGS="$CFLAGS -mfpu=$cust_fpu -marm"
-+      CXXFLAGS="$CXXFLAGS -mfpu=$cust_fpu -marm"
-+      ASFLAGS="$ASFLAGS -mfpu=$cust_fpu"
++      add_define MAKEFILE NEON_CFLAGS '-mfpu=$cust_fpu -marm'
++      add_define MAKEFILE NEON_ASFLAGS '-mfpu=$cust_fpu'
 +   else
-+      CFLAGS="$CFLAGS -mfpu=neon -marm"
-+      CXXFLAGS="$CXXFLAGS -mfpu=neon -marm"
-+      ASFLAGS="$ASFLAGS -mfpu=neon"
++     add_define MAKEFILE NEON_CFLAGS '-mfpu=neon -marm'
++     add_define MAKEFILE NEON_ASFLAGS -mfpu=neon
 +   fi
  fi
  

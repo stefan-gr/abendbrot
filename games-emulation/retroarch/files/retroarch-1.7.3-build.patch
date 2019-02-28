@@ -1,1 +1,21 @@
-retroarch-9999-build.patch
+diff -U 3 -dHrN -- qb.orig/qb.params.sh qb/qb.params.sh
+--- qb.orig/qb.params.sh	2017-11-28 19:31:09.000000000 +0100
++++ qb/qb.params.sh	2017-11-28 19:38:44.612303119 +0100
+@@ -69,7 +69,7 @@
+ 	err="$2"
+ 	eval "set -- $OPTS"
+ 	for OPT do [ "$opt" = "$OPT" ] && return; done
+-	die 1 "Unknown option $err"
++	echo "Unknown option $err"
+ }
+ 
+ parse_input() # Parse stuff :V
+@@ -102,7 +102,7 @@
+ 				eval "$opt=\"$val\""
+ 			;;
+ 			-h|--help) print_help; exit 0;;
+-			*) die 1 "Unknown option $1";;
++			*) echo "Unknown option $1";;
+ 		esac
+ 		shift
+ 	done
