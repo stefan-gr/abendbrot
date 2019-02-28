@@ -1,13 +1,13 @@
 diff --git a/qb/config.libs.sh b/qb/config.libs.sh
-index a9dcd3c..b39e5be 100644
+index a4a1406363..f841df4bc4 100644
 --- a/qb/config.libs.sh
 +++ b/qb/config.libs.sh
-@@ -131,7 +131,7 @@ fi
+@@ -481,7 +481,7 @@ else
+    check_lib '' VULKAN -lvulkan vkCreateInstance
+ fi
  
- check_lib STRL -lc strlcpy
- 
--check_pkgconf PYTHON python3
+-check_pkgconf PYTHON 'python3 python3 python-3.7 python-3.6 python-3.5 python-3.4 python-3.3 python-3.2'
 +check_pkgconf PYTHON python-%PYTHON_VER%
  
- add_define_make OS $OS
- 
+ if [ "$HAVE_MENU" != 'no' ]; then
+    if [ "$HAVE_OPENGL" = 'no' ] && [ "$HAVE_OPENGLES" = 'no' ] && [ "$HAVE_VULKAN" = 'no' ]; then
