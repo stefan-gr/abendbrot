@@ -42,7 +42,6 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	themes? ( games-emulation/emulationstation-themes-meta )
-	gles? ( media-libs/mesa:0=[gles1?] )
 "
 DEPEND="${COMMON_DEPEND}"
 
