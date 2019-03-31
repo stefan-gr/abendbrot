@@ -3,7 +3,8 @@
 
 EAPI=6
 
-LIBRETRO_REPO_NAME="libretro-mirrors/${PN//-libretro}"
+LIBRETRO_REPO_NAME="libretro/yabause"
+EGIT_BRANCH="kronos"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of Kronos. (Sega Saturn)"
@@ -17,7 +18,7 @@ DEPEND=""
 RDEPEND="${DEPEND}
                 games-emulation/libretro-info"
 
-S="${S}/libretro"
+S="${S}/yabause/src/libretro"
 
 pkg_preinst() {
         if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then
