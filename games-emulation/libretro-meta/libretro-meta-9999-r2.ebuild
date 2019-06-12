@@ -7,7 +7,7 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+2048 +4do +beetle-psx bnes +bsnes bsnes-cpp98 bsnes-mercury citra craft +desmume dolphin easyrpg +fbalpha fbalpha2012 fceumm +gambatte +genplus \
+IUSE="+2048 +4do +beetle-psx bnes +bsnes bsnes-cpp98 bsnes-mercury citra craft +desmume dolphin easyrpg +fbneo fbalpha2012 fceumm +gambatte +genplus \
 +handy mame mame2000 +mame2003 mame2003-plus mame2016 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
 +mednafen-saturn mednafen-snes +mednafen-vb +mednafen-wswan melonds meowpc98 mesen meteor +mgba mrboom +mupen64plus +nestopia +nxengine \
 openlara pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive +ppsspp +prboom +prosystem px68k quicknes redream +reicast sameboy +scummvm \
@@ -27,7 +27,7 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		desmume? ( >=games-emulation/desmume-libretro-9999 )
 		dolphin? ( >=games-emulation/dolphin-libretro-9999 )
 		easyrpg? ( >=games-emulation/easyrpg-libretro-9999 )
-		fbalpha? ( >=games-emulation/fbalpha-libretro-9999 )
+		fbneo? ( >=games-emulation/fbneo-libretro-9999 )
 		fbalpha2012? ( >=games-emulation/fbalpha2012-libretro-9999 )
 		fceumm? ( || ( >=games-emulation/fceumm-libretro-9999 >=games-emulation/fceu-next-libretro-9999 ) )
 		gambatte? ( >=games-emulation/gambatte-libretro-9999 )
