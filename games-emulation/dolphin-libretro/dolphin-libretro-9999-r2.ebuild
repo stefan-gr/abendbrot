@@ -19,7 +19,9 @@ RDEPEND="${DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		-DLIBRETRO="ON"
+		-DLIBRETRO=ON
+		-DLIBRETRO_STATIC=1
+		-DCMAKE_BUILD_TYPE=Release
 	)
 	cmake-utils_src_configure
 }
