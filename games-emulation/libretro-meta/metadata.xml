@@ -15,7 +15,7 @@
     <flag name='craft'>adds <pkg>games-emulation/craft-libretro</pkg> as dependency</flag>
     <flag name='desmume'>adds <pkg>games-emulation/desmume-libretro</pkg> as dependency</flag>
     <flag name='dolphin'>adds <pkg>games-emulation/dolphin-libretro</pkg> as dependency</flag>
-    <flag name='fbalpha'>adds <pkg>games-emulation/fbalpha-libretro</pkg> as dependency</flag>
+    <flag name='fbneo'>adds <pkg>games-emulation/fbneo-libretro</pkg> as dependency</flag>
     <flag name='fbalpha2012'>adds <pkg>games-emulation/fbalpha2012-libretro</pkg> as dependency</flag>
     <flag name='fceumm'>adds <pkg>games-emulation/fceumm-libretro</pkg> or <pkg>games-emulation/fceu-next-libretro</pkg> as dependency</flag>
     <flag name='gambatte'>adds <pkg>games-emulation/gambatte-libretro</pkg> as dependency</flag>
