@@ -51,7 +51,7 @@
     <flag name='snes9x'>adds <pkg>games-emulation/snes9x-libretro</pkg> as dependency</flag>
     <flag name='snes9x2002'>adds <pkg>games-emulation/snes9x2002-libretro</pkg> as dependency</flag>
     <flag name='snes9x2010'>adds <pkg>games-emulation/snes9x2010-libretro</pkg> as dependency</flag>
-    <flag name='stella'>adds <pkg>games-emulation/stella-libretro</pkg> as dependency</flag>
+    <flag name='stella2014'>adds <pkg>games-emulation/stella2014-libretro</pkg> as dependency</flag>
     <flag name='tgbdual'>adds <pkg>games-emulation/tgbdual-libretro</pkg> as dependency</flag>
     <flag name='tyrquake'>adds <pkg>games-emulation/tyrquake-libretro</pkg> as dependency</flag>
     <flag name='vba-next'>adds <pkg>games-emulation/vba-next-libretro</pkg> as dependency</flag>

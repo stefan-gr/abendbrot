@@ -3,12 +3,11 @@
 
 EAPI=6
 
-LIBRETRO_COMMIT_SHA="dfe86f9434266fb11cb073762e4998d35f262aac"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of Stella. (Atari 2600)"
-HOMEPAGE="https://github.com/libretro/stella-libretro"
-KEYWORDS="~amd64 ~x86"
+HOMEPAGE="https://github.com/libretro/stella2014-libretro"
+KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"
