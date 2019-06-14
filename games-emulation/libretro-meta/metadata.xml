@@ -45,7 +45,7 @@
     <flag name='px68k'>adds <pkg>games-emulation/px68k-libretro</pkg> as dependency</flag>
     <flag name='quicknes'>adds <pkg>games-emulation/quicknes-libretro</pkg> as dependency</flag>
     <flag name='redream'>adds <pkg>games-emulation/redream-libretro</pkg> as dependency</flag>
-    <flag name='reicast'>adds <pkg>games-emulation/reicast-libretro</pkg> as dependency</flag>
+    <flag name='flycast'>adds <pkg>games-emulation/flycast-libretro</pkg> as dependency</flag>
     <flag name='sameboy'>adds <pkg>games-emulation/sameboy-libretro</pkg> as dependency</flag>
     <flag name='scummvm'>adds <pkg>games-emulation/scummvm-libretro</pkg> as dependency</flag>
     <flag name='snes9x'>adds <pkg>games-emulation/snes9x-libretro</pkg> as dependency</flag>
