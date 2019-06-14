@@ -11,7 +11,7 @@ IUSE="+2048 +4do +beetle-psx bnes +bsnes bsnes-cpp98 bsnes-mercury citra craft +
 +handy mame mame2000 +mame2003 mame2003-plus mame2016 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
 +mednafen-saturn mednafen-snes +mednafen-vb +mednafen-wswan melonds meowpc98 mesen meteor +mgba mrboom +mupen64plus +nestopia +nxengine \
 openlara pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive +ppsspp +prboom +prosystem px68k quicknes redream +reicast sameboy +scummvm \
-snes9x snes9x2002 snes9x2010 +stella tgbdual +tyrquake vba-next vbam yabause"
+snes9x snes9x2002 snes9x2010 +stella2014 tgbdual +tyrquake vba-next vbam yabause"
 
 KEYWORDS=""
 
