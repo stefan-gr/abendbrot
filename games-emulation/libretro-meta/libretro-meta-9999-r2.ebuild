@@ -11,7 +11,7 @@ IUSE="+2048 +4do +beetle-psx bnes +bsnes bsnes-cpp98 bsnes-mercury citra craft +
 +handy mame mame2000 +mame2003 mame2003-plus mame2016 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
 +mednafen-saturn mednafen-snes +mednafen-vb +mednafen-wswan melonds meowpc98 mesen meteor +mgba mrboom +mupen64plus +nestopia +nxengine \
 openlara pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive +ppsspp +prboom +prosystem px68k quicknes redream +flycast sameboy +scummvm \
-snes9x snes9x2002 snes9x2010 +stella2014 tgbdual +tyrquake vba-next vbam yabause"
+snes9x snes9x2002 snes9x2010 stella2014 +stella tgbdual +tyrquake vba-next vbam yabause"
 
 KEYWORDS=""
 
@@ -72,6 +72,7 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		snes9x? ( >=games-emulation/snes9x-libretro-9999 )
 		snes9x2010? ( >=games-emulation/snes9x2010-libretro-9999 )
 		stella2014? ( >=games-emulation/stella2014-libretro-9999 )
+		stella? ( >=games-emulation/stella-libretro-9999 )
 		tgbdual? ( >=games-emulation/tgbdual-libretro-9999 )
 		tyrquake? ( >=games-emulation/tyrquake-libretro-9999 )
 		vba-next? ( >=games-emulation/vba-next-libretro-9999 )
