@@ -29,13 +29,13 @@ pkg_preinst() {
 
 pkg_postinst() {
 	if [[ "${first_install}" == "1" ]]; then
-		ewarn ""
-		ewarn "You need to have the following files in your 'system_directory' folder:"
-		ewarn "sega_101.bin md5sum = 85ec9ca47d8f6807718151cbcca8b964"
-		ewarn "mpr-17933.bin md5sum = 3240872c70984b6cbfda1586cab68dbe"
-		ewarn "mpr-18811-mx.ic1 md5sum = 255113ba943c92a54facd25a10fd780c"
-		ewarn "mpr-19367-mx.ic1 md5sum = 1cd19988d1d72a3e7caa0b73234c96b4"
-		ewarn ""
+		elog ""
+		elog "You should put the following optional files in your 'system_directory' folder:"
+		elog "sega_101.bin (Saturn JP BIOS)"
+		elog "mpr-17933.bin (Saturn US/EU BIOS)"
+		elog "mpr-18811-mx.ic1 (The King of Fighters '95 ROM Cartridge)"
+		elog "mpr-19367-mx.ic1 (Ultraman: Hikari no Kyojin Densetsu ROM Cartridge)"
+		elog ""
 		ewarn ""
 	fi
 }

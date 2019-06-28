@@ -4,9 +4,10 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/flycast"
+EGIT_BRANCH="fh/wince"
 inherit libretro-core
 
-DESCRIPTION="libretro implementation of Flycast, a fork of Reicast. (Sega Dreamcast/NAOMI/Atomiswave)"
+DESCRIPTION="libretro implementation of Flycast WinCE, a fork of Reicast. (Sega Dreamcast/NAOMI/Atomiswave)"
 HOMEPAGE="https://github.com/libretro/flycast"
 KEYWORDS=""
 
@@ -18,7 +19,7 @@ DEPEND=""
 RDEPEND="${DEPEND}
 	games-emulation/libretro-info"
 
-LIBRETRO_CORE_NAME=flycast
+LIBRETRO_CORE_NAME=flycast_wince
 
 pkg_preinst() {
 	if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then

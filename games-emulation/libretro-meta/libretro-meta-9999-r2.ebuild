@@ -7,7 +7,7 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+2048 +4do +beetle-psx +beetle-saturn bnes +bsnes bsnes-cpp98 bsnes-mercury citra craft +desmume +dolphin easyrpg fbalpha2012 +fbneo fceumm +flycast \
+IUSE="+2048 +4do +beetle-psx +beetle-saturn bnes +bsnes bsnes-cpp98 bsnes-mercury citra craft +desmume +dolphin easyrpg fbalpha2012 +fbneo fceumm +flycast flycast-wince \
 +gambatte +genplus +handy kronos mame mame2000 mame2003 +mame2003-plus mame2016 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
 mednafen-snes +mednafen-vb +mednafen-wswan melonds meowpc98 mesen meteor +mgba mrboom +mupen64plus +nestopia +nxengine \
 openlara pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive +ppsspp +prboom +prosystem px68k quicknes redream sameboy +scummvm \
@@ -32,6 +32,7 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		fbneo? ( >=games-emulation/fbneo-libretro-9999 )
 		fceumm? ( || ( >=games-emulation/fceumm-libretro-9999 >=games-emulation/fceu-next-libretro-9999 ) )
 		flycast? ( >=games-emulation/flycast-libretro-9999 )
+		flycast-wince? ( >=games-emulation/flycast-wince-libretro-9999 )
 		gambatte? ( >=games-emulation/gambatte-libretro-9999 )
 		genplus? ( >=games-emulation/genplus-libretro-9999 )
 		handy? ( >=games-emulation/handy-libretro-9999 )

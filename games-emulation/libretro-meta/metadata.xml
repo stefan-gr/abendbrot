@@ -20,6 +20,7 @@
     <flag name='fbneo'>adds <pkg>games-emulation/fbneo-libretro</pkg> as dependency</flag>
     <flag name='fceumm'>adds <pkg>games-emulation/fceumm-libretro</pkg> or <pkg>games-emulation/fceu-next-libretro</pkg> as dependency</flag>
     <flag name='flycast'>adds <pkg>games-emulation/flycast-libretro</pkg> as dependency</flag>
+    <flag name='flycast-wince'>adds <pkg>games-emulation/flycast-wince-libretro</pkg> as dependency</flag>
     <flag name='gambatte'>adds <pkg>games-emulation/gambatte-libretro</pkg> as dependency</flag>
     <flag name='genplus'>adds <pkg>games-emulation/genplus-libretro</pkg> as dependency</flag>
     <flag name='kronos'>adds <pkg>games-emulation/kronos-libretro</pkg> as dependency</flag>
