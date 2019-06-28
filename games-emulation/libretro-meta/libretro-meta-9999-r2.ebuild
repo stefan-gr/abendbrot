@@ -7,7 +7,7 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+2048 +4do +beetle-psx +mednafen-saturn bnes +bsnes bsnes-cpp98 bsnes-mercury citra craft +desmume +dolphin easyrpg fbalpha2012 +fbneo fceumm +flycast \
+IUSE="+2048 +4do +beetle-psx +beetle-saturn bnes +bsnes bsnes-cpp98 bsnes-mercury citra craft +desmume +dolphin easyrpg fbalpha2012 +fbneo fceumm +flycast \
 +gambatte +genplus +handy kronos mame mame2000 mame2003 +mame2003-plus mame2016 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
 mednafen-snes +mednafen-vb +mednafen-wswan melonds meowpc98 mesen meteor +mgba mrboom +mupen64plus +nestopia +nxengine \
 openlara pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive +ppsspp +prboom +prosystem px68k quicknes redream sameboy +scummvm \
