@@ -12,11 +12,13 @@ KEYWORDS=""
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="clang lto"
+IUSE="+clang +lto"
 
 DEPEND="clang? ( sys-devel/clang )"
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
+
+LIBRETRO_CORE_NAME=mesen_s
 
 src_compile() {
 	myemakeargs+=(

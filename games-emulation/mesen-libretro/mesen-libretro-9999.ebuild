@@ -12,7 +12,7 @@ KEYWORDS=""
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="clang lto"
+IUSE="+clang +lto"
 
 DEPEND="clang? ( sys-devel/clang )"
 RDEPEND="${DEPEND}
