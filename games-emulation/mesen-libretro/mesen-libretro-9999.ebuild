@@ -27,12 +27,16 @@ pkg_preinst() {
 src_compile() {
 	myemakeargs+=(
 		$(usex x86 "MESENPLATFORM=x86" "")
-		$(usex amd64 "MESENPLATFORM=x86_64" "")
+		$(usex amd64 "MESENPLATFORM=x64" "")
 		$(usex lto "LTO=true" "")
 		$(usex clang "" "USE_GCC=true")
 	)
 	emake "${myemakeargs[@]}" -f makefile libretro
-	mv bin mesen_libretro.so
+	if use amd64; then
+		mv mesen_libretro.so/mesen_libretro.x64.so mesen_libretro.so
+	else
+		mv mesen_libretro.so/mesen_libretro.x86.so mesen_libretro.so
+	fi
 }
 
 pkg_postinst() {
