@@ -33,9 +33,9 @@ src_compile() {
 	)
 	emake "${myemakeargs[@]}" -f makefile libretro
 	if use amd64; then
-		mv mesen_libretro.so/mesen_libretro.x64.so mesen_libretro.so
+		mv bin/mesen_libretro.x64.so mesen_libretro.so
 	else
-		mv mesen_libretro.so/mesen_libretro.x86.so mesen_libretro.so
+		mv bin/mesen_libretro.x86.so mesen_libretro.so
 	fi
 }
 
