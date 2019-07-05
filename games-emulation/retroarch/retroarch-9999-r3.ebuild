@@ -32,7 +32,7 @@ SLOT="0"
 #shouldn't. When upstream resolves this, remove this entry. See also:
 #    https://github.com/stefan-gr/abendbrot/issues/7#issuecomment-204541979
 
-IUSE="+7zip alsa +armvfp +assets cg cheevos +cores +database debug dispmanx egl ffmpeg gles2 gles3 jack +joypad_autoconfig kms lakka libass libusb +materialui miniupnpc +neon +network openal +opengl osmesa oss +overlays pulseaudio qt5 sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python"
+IUSE="+7zip alsa +armvfp +assets +cdrom cg cheevos +cores +database debug dispmanx egl ffmpeg gles2 gles3 jack +joypad_autoconfig kms lakka libass libusb +materialui miniupnpc +neon +network openal +opengl osmesa oss +overlays pulseaudio qt5 sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python"
 
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
@@ -189,6 +189,10 @@ src_configure() {
 
 	if use lakka; then
 		export HAVE_LAKKA="1"
+	fi
+
+	if use cdrom; then
+		export HAVE_CDROM="1"
 	fi
 
 	# Note that OpenVG support is hard-disabled. (See ${RDEPEND} above.)
