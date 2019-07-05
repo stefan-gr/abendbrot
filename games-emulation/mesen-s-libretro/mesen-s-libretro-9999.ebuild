@@ -14,7 +14,10 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE="+clang +lto"
 
-DEPEND="clang? ( sys-devel/clang )"
+DEPEND="
+	clang? ( sys-devel/clang )
+	lto? ( sys-devel/llvm[gold] )
+"
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
