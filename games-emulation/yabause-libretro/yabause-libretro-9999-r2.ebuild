@@ -17,7 +17,7 @@ DEPEND=""
 RDEPEND="${DEPEND}
                 games-emulation/libretro-info"
 
-S="${S}/libretro"
+S="${S}/yabause/src/libretro"
 
 pkg_preinst() {
         if ! has_version "=${CATEGORY}/${PN}-${PVR}"; then
