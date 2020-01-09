@@ -32,7 +32,7 @@ SLOT="0"
 #shouldn't. When upstream resolves this, remove this entry. See also:
 #    https://github.com/stefan-gr/abendbrot/issues/7#issuecomment-204541979
 
-IUSE="+7zip alsa +armvfp +assets +cdrom cg cheevos +cores +database debug dispmanx egl ffmpeg gles2 gles3 jack +joypad_autoconfig kms lakka libass libusb +materialui miniupnpc +neon +network openal +opengl osmesa oss +overlays pulseaudio qt5 sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python"
+IUSE="+7zip alsa +armvfp +assets +cdrom cg cheevos +cores +database debug dispmanx egl ffmpeg gl1 gles2 gles3 jack +joypad_autoconfig kms lakka libass libusb +materialui miniupnpc +neon +network openal +opengl osmesa oss +overlays pulseaudio qt5 sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python"
 
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
@@ -207,6 +207,7 @@ src_configure() {
 		$(use_enable dispmanx) \
 		$(use_enable egl) \
 		$(use_enable ffmpeg) \
+		$(use_enable gl1 opengl1) \
 		$(use_enable gles2 opengles) \
 		$(use_enable gles3 opengles3) \
 		$(use_enable jack) \
