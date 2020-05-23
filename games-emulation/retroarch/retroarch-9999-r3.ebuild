@@ -47,7 +47,7 @@ REQUIRED_USE="
 	)
 	cg? ( opengl )
 	dispmanx? ( videocore arm )
-	gles2? ( !cg )
+	gles2? ( !cg egl )
 	gles3? ( gles2 )
 	kms? ( egl )
 	libass? ( ffmpeg )
