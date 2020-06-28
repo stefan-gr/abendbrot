@@ -1,11 +1,11 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 # TODO: Rewrite src_prepare() and src_configure()
 
 EAPI=6
 
-PYTHON_COMPAT=( python{3_4,3_5,3_6} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
 LIBRETRO_REPO_NAME="libretro/RetroArch"
 inherit flag-o-matic libretro python-single-r1
@@ -32,7 +32,7 @@ SLOT="0"
 #shouldn't. When upstream resolves this, remove this entry. See also:
 #    https://github.com/stefan-gr/abendbrot/issues/7#issuecomment-204541979
 
-IUSE="+7zip alsa +armvfp +assets +cdrom cg cheevos +cores +database debug dispmanx egl ffmpeg gl1 gles2 gles3 jack +joypad_autoconfig kms lakka libass libusb +materialui miniupnpc +neon +network openal +opengl osmesa oss +overlays pulseaudio qt5 sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python"
+IUSE="+7zip alsa armvfp +assets +cdrom cg cheevos +cores +database debug dispmanx egl ffmpeg gl1 gles2 gles3 jack +joypad_autoconfig kms lakka libass libusb +materialui miniupnpc +neon +network openal +opengl osmesa oss +overlays pulseaudio qt5 sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python"
 
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
@@ -45,6 +45,7 @@ REQUIRED_USE="
 		gles2? ( opengl )
 		xmb? ( opengl )
 	)
+	armvfp? ( arm )
 	cg? ( opengl )
 	dispmanx? ( videocore arm )
 	gles2? ( !cg egl )
@@ -54,7 +55,6 @@ REQUIRED_USE="
 	python? ( ${PYTHON_REQUIRED_USE} )
 	sdl2? ( !sdl )
 	videocore? ( arm )
-	vulkan? ( amd64 )
 	wayland? ( egl )
 	xinerama? ( X )
 	xmb? ( assets )
