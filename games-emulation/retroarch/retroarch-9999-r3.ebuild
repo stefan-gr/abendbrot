@@ -94,7 +94,7 @@ RDEPEND="
 	udev? ( virtual/udev:0=
 		X? ( x11-drivers/xf86-input-evdev:0= )
 	)
-	amd64? ( vulkan? ( media-libs/vulkan-loader:0= ) )
+	vulkan? ( media-libs/vulkan-loader:0= )
 	v4l2? ( media-libs/libv4l:0= )
 	wayland? ( media-libs/mesa:0=[wayland?] )
 	X? (
