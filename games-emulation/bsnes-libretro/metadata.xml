@@ -5,7 +5,4 @@
     <email>stefan.gert.r@gmail.com</email>
     <name>stefan-gr</name>
   </maintainer>
-  <use>
-    <flag name="oit">Additionally build order independent transparency enabled core</flag>
-  </use>
 </pkgmetadata>
