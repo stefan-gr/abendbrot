@@ -7,24 +7,24 @@
   </maintainer>
   <use>
     <flag name='2048'>adds <pkg>games-emulation/2048-libretro</pkg> as dependency</flag>
-    <flag name='4do'>adds <pkg>games-emulation/4do-libretro</pkg> as dependency</flag>
     <flag name='beetle-psx'>adds <pkg>games-emulation/beetle-psx-libretro</pkg> as dependency</flag>
     <flag name='beetle-saturn'>adds <pkg>games-emulation/beetle-saturn-libretro</pkg> as dependency</flag>
     <flag name='bnes'>adds <pkg>games-emulation/bnes-libretro</pkg> as dependency</flag>
     <flag name='bsnes'>adds <pkg>games-emulation/bsnes-libretro</pkg> as dependency</flag>
+    <flag name='bsnes2014'>adds <pkg>games-emulation/bsnes2014-libretro</pkg> as dependency</flag>
     <flag name='citra'>adds <pkg>games-emulation/citra-libretro</pkg> as dependency</flag>
     <flag name='craft'>adds <pkg>games-emulation/craft-libretro</pkg> as dependency</flag>
     <flag name='desmume'>adds <pkg>games-emulation/desmume-libretro</pkg> as dependency</flag>
     <flag name='dolphin'>adds <pkg>games-emulation/dolphin-libretro</pkg> as dependency</flag>
+    <flag name='easyrpg'>adds <pkg>games-emulation/easyrpg-libretro</pkg> as dependency</flag>
     <flag name='fbalpha2012'>adds <pkg>games-emulation/fbalpha2012-libretro</pkg> as dependency</flag>
     <flag name='fbneo'>adds <pkg>games-emulation/fbneo-libretro</pkg> as dependency</flag>
     <flag name='fceumm'>adds <pkg>games-emulation/fceumm-libretro</pkg> as dependency</flag>
     <flag name='flycast'>adds <pkg>games-emulation/flycast-libretro</pkg> as dependency</flag>
-    <flag name='flycast-wince'>adds <pkg>games-emulation/flycast-wince-libretro</pkg> as dependency</flag>
     <flag name='gambatte'>adds <pkg>games-emulation/gambatte-libretro</pkg> as dependency</flag>
     <flag name='genplus'>adds <pkg>games-emulation/genplus-libretro</pkg> as dependency</flag>
-    <flag name='kronos'>adds <pkg>games-emulation/kronos-libretro</pkg> as dependency</flag>
     <flag name='handy'>adds <pkg>games-emulation/handy-libretro</pkg> as dependency</flag>
+    <flag name='kronos'>adds <pkg>games-emulation/kronos-libretro</pkg> as dependency</flag>
     <flag name='mame'>adds <pkg>games-emulation/mame-libretro</pkg> as dependency</flag>
     <flag name='mame2000'>adds <pkg>games-emulation/mame2000-libretro</pkg> as dependency</flag>
     <flag name='mednafen-gba'>adds <pkg>games-emulation/mednafen-gba-libretro</pkg> as dependency</flag>
@@ -41,6 +41,7 @@
     <flag name='nestopia'>adds <pkg>games-emulation/nestopia-libretro</pkg> as dependency</flag>
     <flag name='nxengine'>adds <pkg>games-emulation/nxengine-libretro</pkg> as dependency</flag>
     <flag name='openlara'>adds <pkg>games-emulation/openlara-libretro</pkg> as dependency</flag>
+    <flag name='opera'>adds <pkg>games-emulation/opera-libretro</pkg> as dependency</flag>
     <flag name='pcsx-rearmed'>adds <pkg>games-emulation/pcsx-rearmed-libretro</pkg> as dependency</flag>
     <flag name='picodrive'>adds <pkg>games-emulation/picodrive-libretro</pkg> as dependency</flag>
     <flag name='ppsspp'>adds <pkg>games-emulation/ppsspp-libretro</pkg> as dependency</flag>

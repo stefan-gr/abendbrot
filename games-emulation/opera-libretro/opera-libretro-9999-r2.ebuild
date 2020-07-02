@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -6,7 +6,7 @@ EAPI=6
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of 4DO/libfreedo. (Panasonic 3DO)"
-HOMEPAGE="https://github.com/libretro/4do-libretro"
+HOMEPAGE="https://github.com/libretro/opera-libretro"
 KEYWORDS=""
 
 LICENSE="GPL-2"

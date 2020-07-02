@@ -7,16 +7,15 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+2048 +4do +beetle-psx +beetle-saturn bnes +bsnes bsnes2014 bsnes-cpp98 bsnes-mercury citra craft +desmume +dolphin easyrpg fbalpha2012 +fbneo fceumm +flycast \
+IUSE="+2048 +beetle-psx +beetle-saturn bnes +bsnes bsnes2014 bsnes-cpp98 bsnes-mercury citra craft +desmume +dolphin easyrpg fbalpha2012 +fbneo fceumm +flycast \
 +gambatte +genplus +handy kronos mame mame2000 mame2003 +mame2003-plus mame2016 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
 mednafen-snes +mednafen-vb +mednafen-wswan melonds meowpc98 mesen mesen-s meteor +mgba mrboom +mupen64plus +nestopia +nxengine \
-openlara pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive +ppsspp +prboom +prosystem px68k quicknes redream sameboy +scummvm \
+openlara +opera pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive +ppsspp +prboom +prosystem px68k quicknes redream sameboy +scummvm \
 snes9x snes9x2002 snes9x2010 stella2014 +stella tgbdual +tyrquake vba-next vbam yabasanshiro yabause"
 
 KEYWORDS=""
 
 RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
-		4do? ( >=games-emulation/4do-libretro-9999 )
 		beetle-psx? ( >=games-emulation/beetle-psx-libretro-9999 )
 		beetle-saturn? ( >=games-emulation/beetle-saturn-libretro-9999 )
 		bnes? ( >=games-emulation/bnes-libretro-9999 )
@@ -60,6 +59,7 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		nestopia? ( >=games-emulation/nestopia-libretro-9999 )
 		nxengine? ( >=games-emulation/nxengine-libretro-9999 )
 		openlara? ( >=games-emulation/openlara-libretro-9999 )
+		opera? ( >=games-emulation/opera-libretro-9999 )
 		parallel-n64? ( >=games-emulation/parallel-n64-libretro-9999 )
 		pcsx-rearmed? ( >=games-emulation/pcsx-rearmed-libretro-9999 )
 		picodrive? ( >=games-emulation/picodrive-libretro-9999 )
@@ -80,6 +80,6 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		tyrquake? ( >=games-emulation/tyrquake-libretro-9999 )
 		vba-next? ( >=games-emulation/vba-next-libretro-9999 )
 		vbam? ( >=games-emulation/vbam-libretro-9999 )
-		yabause? ( >=games-emulation/yabause-libretro-9999 )
-		yabasanshiro? ( >=games-emulation/yabasanshiro-libretro-9999 )"
+		yabasanshiro? ( >=games-emulation/yabasanshiro-libretro-9999 )
+		yabause? ( >=games-emulation/yabause-libretro-9999 )"
 DEPEND=""
