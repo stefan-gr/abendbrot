@@ -7,11 +7,11 @@ DESCRIPTION="Meta package for various libretro implementations"
 HOMEPAGE="http://www.libretro.com/"
 LICENSE="metapackage"
 SLOT="0"
-IUSE="+2048 +beetle-psx +beetle-saturn bnes +bsnes bsnes2014 bsnes-cpp98 bsnes-mercury citra craft +desmume +dolphin easyrpg fbalpha2012 +fbneo fceumm +flycast \
-+gambatte +genplus +handy kronos mame mame2000 mame2003 +mame2003-plus mame2016 mednafen-gba +mednafen-ngp +mednafen-pce-fast \
-mednafen-snes +mednafen-vb +mednafen-wswan melonds meowpc98 mesen mesen-s meteor +mgba mrboom +mupen64plus +nestopia +nxengine \
-openlara +opera pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive +ppsspp +prboom +prosystem px68k quicknes redream sameboy +scummvm \
-snes9x snes9x2002 snes9x2010 stella2014 +stella tgbdual +tyrquake vba-next vbam yabasanshiro yabause"
+IUSE="+2048 +beetle-psx +beetle-saturn bnes +bsnes bsnes2014 bsnes-cpp98 bsnes-mercury citra craft +desmume +dolphin duckstation \
+easyrpg fbalpha2012 +fbneo fceumm +flycast +gambatte +genplus +handy kronos mame mame2000 mame2003 +mame2003-plus mame2016 mednafen-gba \
++mednafen-ngp +mednafen-pce-fast mednafen-snes +mednafen-vb +mednafen-wswan melonds meowpc98 mesen mesen-s meteor +mgba mrboom +mupen64plus \
++nestopia +nxengine openlara +opera pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive +ppsspp +prboom +prosystem px68k quicknes \
+redream sameboy +scummvm snes9x snes9x2002 snes9x2010 stella2014 +stella tgbdual +tyrquake vba-next vbam yabasanshiro yabause"
 
 KEYWORDS=""
 
@@ -27,6 +27,7 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		craft? ( >=games-emulation/craft-libretro-9999 )
 		desmume? ( >=games-emulation/desmume-libretro-9999 )
 		dolphin? ( >=games-emulation/dolphin-libretro-9999 )
+		duckstation? ( >=games-emulation/duckstation-libretro-9999 )
 		easyrpg? ( >=games-emulation/easyrpg-libretro-9999 )
 		fbalpha2012? ( >=games-emulation/fbalpha2012-libretro-9999 )
 		fbneo? ( >=games-emulation/fbneo-libretro-9999 )
