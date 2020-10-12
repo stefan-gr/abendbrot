@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -30,7 +30,8 @@ pkg_preinst() {
 src_compile() {
 	myemakeargs=(
 		$(usex gles3 "FORCE_GLES=1" "")
-		$(usex arm "platform=armv" "")
+		$(usex arm "HAVE_SSE=0" "")
+		$(usex arm64 "HAVE_SSE=0" "")
 	)
 	libretro-core_src_compile
 }

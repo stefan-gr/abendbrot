@@ -1,9 +1,9 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
+LIBRETRO_REPO_NAME="hrydgard/ppsspp"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of PPSSPP. (PlayStation Portable/PSP)"
@@ -32,7 +32,7 @@ ASSETS_DIR=${LIBRETRO_DATA_DIR}/PPSSPP
 src_compile() {
 	use gles2 && append-ldflags -lEGL
 	myemakeargs=(
-		$(usex gles2 "GLES=1" "")
+		$(usex gles2 "platform=unix-gles" "")
 	)
 	libretro-core_src_compile
 }

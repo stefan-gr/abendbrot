@@ -9,7 +9,7 @@ LICENSE="metapackage"
 SLOT="0"
 IUSE="+2048 +beetle-psx +beetle-saturn bnes +bsnes bsnes2014 bsnes-cpp98 bsnes-mercury citra craft +desmume +dolphin duckstation \
 easyrpg fbalpha2012 +fbneo fceumm +flycast +gambatte +genplus +handy kronos mame mame2000 mame2003 +mame2003-plus mame2016 mednafen-gba \
-+mednafen-ngp +mednafen-pce-fast mednafen-snes +mednafen-vb +mednafen-wswan melonds meowpc98 mesen mesen-s meteor +mgba mrboom +mupen64plus \
++mednafen-ngp +mednafen-pce-fast mednafen-snes +mednafen-vb +mednafen-wswan melonds meowpc98 mesen mesen-s meteor +mgba mrboom +mupen64plus-next \
 +nestopia +nxengine openlara +opera pcsx-rearmed +mednafen-supergrafx parallel-n64 picodrive +ppsspp +prboom +prosystem px68k quicknes \
 redream sameboy +scummvm snes9x snes9x2002 snes9x2010 stella2014 +stella tgbdual +tyrquake vba-next vbam yabasanshiro yabause"
 
@@ -56,7 +56,7 @@ RDEPEND="2048? ( >=games-emulation/2048-libretro-9999 )
 		meteor? ( >=games-emulation/meteor-libretro-9999 )
 		mgba? ( || ( >=games-emulation/mgba-libretro-9999 >=games-emulation/mgba-libretro-cheevo-9999 ) )
 		mrboom? ( >=games-emulation/mrboom-libretro-9999 )
-		mupen64plus? ( >=games-emulation/mupen64plus-libretro-9999 )
+		mupen64plus-next? ( >=games-emulation/mupen64plus-next-libretro-9999 )
 		nestopia? ( >=games-emulation/nestopia-libretro-9999 )
 		nxengine? ( >=games-emulation/nxengine-libretro-9999 )
 		openlara? ( >=games-emulation/openlara-libretro-9999 )

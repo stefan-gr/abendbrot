@@ -38,7 +38,7 @@
     <flag name='melonds'>adds <pkg>games-emulation/melonds-libretro</pkg> as dependency</flag>
     <flag name='meteor'>adds <pkg>games-emulation/meteor-libretro</pkg> as dependency</flag>
     <flag name='mgba'>adds <pkg>games-emulation/mgba-libretro</pkg> as dependency</flag>
-    <flag name='mupen64plus'>adds <pkg>games-emulation/mupen64plus-libretro</pkg> as dependency</flag>
+    <flag name='mupen64plus-next'>adds <pkg>games-emulation/mupen64plus-next-libretro</pkg> as dependency</flag>
     <flag name='nestopia'>adds <pkg>games-emulation/nestopia-libretro</pkg> as dependency</flag>
     <flag name='nxengine'>adds <pkg>games-emulation/nxengine-libretro</pkg> as dependency</flag>
     <flag name='openlara'>adds <pkg>games-emulation/openlara-libretro</pkg> as dependency</flag>

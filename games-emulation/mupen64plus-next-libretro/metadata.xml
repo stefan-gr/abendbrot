@@ -6,7 +6,7 @@
     <name>stefan-gr</name>
   </maintainer>
   <use>
-    <flag name='gles2'>Use GLESv2 instead of OpenGL</flag>
+    <flag name='gles3'>Use GLESv3 instead of OpenGL</flag>
     <flag name='vulkan'>Enable vulkan support</flag>
   </use>
 </pkgmetadata>
