@@ -7,5 +7,6 @@
   </maintainer>
   <use>
     <flag name="oit">Additionally build order independent transparency enabled core</flag>
+    <flag name="vulkan">Enable vulkan support</flag>
   </use>
 </pkgmetadata>

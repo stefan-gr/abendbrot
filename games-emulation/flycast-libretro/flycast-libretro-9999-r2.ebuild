@@ -12,7 +12,7 @@ KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+oit"
+IUSE="+oit vulkan"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -36,9 +36,14 @@ src_prepare() {
 }
 
 src_compile() {
-	if use oit; then
-		myemakeargs+=( "HAVE_OIT=1" )
-	fi
+	myemakeargs=(
+		$(usex vulkan "HAVE_VULKAN=1" "")
+		$(usex oit "HAVE_OIT=1" "")
+		$(usex amd64 "WITH_DYNAREC=x86_64" "")
+		$(usex x86 "WITH_DYNAREC=x86" "")
+		$(usex arm "WITH_DYNAREC=arm" "")
+		$(usex arm64 "WITH_DYNAREC=aarch64" "")
+	)
 	libretro-core_src_compile
 }
 
