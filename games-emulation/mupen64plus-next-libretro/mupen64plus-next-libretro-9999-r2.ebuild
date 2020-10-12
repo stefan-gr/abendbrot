@@ -4,6 +4,7 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/mupen64plus-libretro-nx"
+LIBRETRO_CORE_NAME="mupen64plus_next"
 inherit libretro-core
 
 DESCRIPTION="libretro implementation of mupen64plus (Nintendo64)"
@@ -28,7 +29,7 @@ src_compile() {
 		$(usex arm "WITH_DYNAREC=arm" "")
 		$(usex arm64 "WITH_DYNAREC=aarch64" "")
 		$(usex gles3 "GLES3=1" "GLES3=0")
-		$(usex vulkan "HAVE_PARALLEL_RDP=1" "HAVE_PARALLEL_RDP=0")
+		$(usex vulkan "HAVE_PARALLEL_RDP=1 HAVE_PARALLEL_RSP=1" "HAVE_PARALLEL_RDP=0 HAVE_PARALLEL_RSP=0")
 		"HAVE_THR_AL=1"
 		"LLE=1"
 	)
