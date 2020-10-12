@@ -30,6 +30,7 @@ pkg_preinst() {
 src_compile() {
 	myemakeargs=(
 		$(usex gles3 "FORCE_GLES=1" "")
+		$(usex arm64 "platform=arm64" "")
 		$(usex arm "platform=armv" "")
 	)
 	libretro-core_src_compile

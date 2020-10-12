@@ -14,6 +14,10 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="+oit vulkan gles"
 
+REQUIRED_USE="
+	oit? ( !gles )
+"
+
 DEPEND=""
 RDEPEND="${DEPEND}
 	games-emulation/libretro-info"
@@ -36,7 +40,7 @@ src_prepare() {
 }
 
 src_compile() {
-	use arm64 && append-cflags -frename-registers
+	use arm64 && append-cflags $(test-flags-CC -frename-registers)
 	myemakeargs=(
 		$(usex vulkan "HAVE_VULKAN=1" "HAVE_VULKAN=0")
 		$(usex oit "HAVE_OIT=1" "")
