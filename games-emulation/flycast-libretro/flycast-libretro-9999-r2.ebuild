@@ -12,7 +12,7 @@ KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+oit vulkan"
+IUSE="+oit vulkan gles"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -36,13 +36,11 @@ src_prepare() {
 }
 
 src_compile() {
+	use arm64 && append-cflags -frename-registers
 	myemakeargs=(
-		$(usex vulkan "HAVE_VULKAN=1" "")
+		$(usex vulkan "HAVE_VULKAN=1" "HAVE_VULKAN=0")
 		$(usex oit "HAVE_OIT=1" "")
-		$(usex amd64 "WITH_DYNAREC=x86_64" "")
-		$(usex x86 "WITH_DYNAREC=x86" "")
-		$(usex arm "WITH_DYNAREC=arm" "")
-		$(usex arm64 "WITH_DYNAREC=aarch64" "")
+		$(usex gles "FORCE_GLES=1" "")
 	)
 	libretro-core_src_compile
 }

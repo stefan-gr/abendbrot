@@ -8,5 +8,6 @@
   <use>
     <flag name="oit">Additionally build order independent transparency enabled core</flag>
     <flag name="vulkan">Enable vulkan support</flag>
+    <flag name="gles">Use GLES instead of OpenGL</flag>
   </use>
 </pkgmetadata>
