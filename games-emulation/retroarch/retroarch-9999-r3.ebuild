@@ -5,10 +5,8 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python3_{6,7,8} )
-
 LIBRETRO_REPO_NAME="libretro/RetroArch"
-inherit flag-o-matic libretro python-single-r1
+inherit flag-o-matic libretro
 
 DESCRIPTION="Universal frontend for libretro-based emulators"
 HOMEPAGE="http://www.retroarch.com"
@@ -32,7 +30,7 @@ SLOT="0"
 #shouldn't. When upstream resolves this, remove this entry. See also:
 #    https://github.com/stefan-gr/abendbrot/issues/7#issuecomment-204541979
 
-IUSE="+7zip alsa armvfp +assets +cdrom cg cheevos +cores +database debug dispmanx egl ffmpeg gl1 gles2 gles3 jack +joypad_autoconfig kms lakka libass libusb +materialui miniupnpc +neon +network openal +opengl osmesa oss +overlays pulseaudio qt5 sdl sdl2 +shaders +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb +xml xv zlib cpu_flags_x86_sse2 python"
+IUSE="+7zip alsa armvfp +assets +cdrom cg cheevos +cores +database debug dispmanx egl ffmpeg +glcore gl1 gles2 gles3 jack +joypad_autoconfig kms lakka libass libusb +materialui miniupnpc +neon +network openal +opengl osmesa oss +overlays pulseaudio qt5 sdl sdl2 +shaders systemd +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb xv zlib cpu_flags_x86_sse2"
 
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
@@ -50,9 +48,9 @@ REQUIRED_USE="
 	dispmanx? ( videocore arm )
 	gles2? ( !cg egl )
 	gles3? ( gles2 )
+	glcore? ( opengl )
 	kms? ( egl )
 	libass? ( ffmpeg )
-	python? ( ${PYTHON_REQUIRED_USE} )
 	sdl2? ( !sdl )
 	videocore? ( arm )
 	wayland? ( egl )
@@ -80,7 +78,6 @@ RDEPEND="
 	osmesa? ( media-libs/mesa:0=[osmesa?] )
 	overlays? ( games-emulation/common-overlays:0= )
 	pulseaudio? ( media-sound/pulseaudio:0= )
-	python? ( ${PYTHON_DEPS} )
 	qt5? ( 
 	        dev-qt/qtcore:5 
 	        dev-qt/qtgui:5
@@ -89,7 +86,13 @@ RDEPEND="
 	)
 	sdl? ( >=media-libs/libsdl-1.2.10:0=[joystick] )
 	sdl2? ( media-libs/libsdl2:0=[joystick] )
-	shaders? ( vulkan? ( games-emulation/slang-shaders ) )
+	shaders? (
+		opengl? ( games-emulation/glsl-shaders:0= )
+		cg? ( games-emulation/common-shaders:0= )
+		vulkan? ( games-emulation/slang-shaders:0= )
+		glcore? ( games-emulation/slang-shaders:0= )
+	)
+	systemd? ( sys-apps/systemd:0= )
 	truetype? ( media-libs/freetype:2= )
 	udev? ( virtual/udev:0=
 		X? ( x11-drivers/xf86-input-evdev:0= )
@@ -102,7 +105,6 @@ RDEPEND="
 		>=x11-libs/libxkbcommon-0.4.0:0=
 	)
 	xinerama? ( x11-libs/libXinerama:0= )
-	xml? ( dev-libs/libxml2:2= )
 	xv? ( x11-libs/libXv:0= )
 	zlib? ( sys-libs/zlib:0= )
 "
@@ -110,25 +112,12 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 
-PDEPEND="!vulkan? ( shaders? ( games-emulation/glsl-shaders:0= ) )
-		!vulkan? ( cg? ( games-emulation/common-shaders:0= ) )
-"
-
-pkg_setup() {
-	use python && python-single-r1_pkg_setup
-}
+PDEPEND=""
 
 src_prepare() {
 	epatch \
 		"${FILESDIR}/${P}-build.patch" \
 		"${FILESDIR}/${P}-custom_fpu.patch"
-
-	# If Python support is enabled, use the currently enabled "python" binary.
-	if use python; then
-		sed -i qb/config.libs.sh \
-			-e "s:%PYTHON_VER%:${EPYTHON/python/}:" \
-			|| die '"sed" failed.'
-	fi
 
 	# Install application data and pixmaps to standard directories.
 	sed -i Makefile \
@@ -167,16 +156,8 @@ src_prepare() {
 			-e 's:# \(menu_show_core_updater =\) true:\1 "false":'
 	fi
 
-	if use vulkan; then
-		sed -i retroarch.cfg \
-			-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/slang-shaders/":' \
-			|| die '"sed failed.'
-	else
-		use cg && sed -i retroarch.cfg \
-			-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/common-shaders/":'
-		use cg || use shaders && sed -i retroarch.cfg \
-			-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/shaders/":'
-	fi
+	use shaders && sed -i retroarch.cfg \
+		-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/shaders/":'
 
 	default_src_prepare
 }
@@ -207,6 +188,7 @@ src_configure() {
 		$(use_enable dispmanx) \
 		$(use_enable egl) \
 		$(use_enable ffmpeg) \
+		$(use_enable glcore opengl_core) \
 		$(use_enable gl1 opengl1) \
 		$(use_enable gles2 opengles) \
 		$(use_enable gles3 opengles3) \
@@ -223,10 +205,10 @@ src_configure() {
 		$(use_enable osmesa) \
 		$(use_enable oss) \
 		$(use_enable pulseaudio pulse) \
-		$(use_enable python) \
 		$(use_enable qt5 qt) \
 		$(use_enable sdl) \
 		$(use_enable sdl2) \
+		$(use_enable systemd) \
 		$(use_enable threads) \
 		$(use_enable truetype freetype) \
 		$(use_enable udev) \
@@ -236,7 +218,6 @@ src_configure() {
 		$(use_enable X x11) \
 		$(use_enable xinerama) \
 		$(use_enable xmb) \
-		$(use_enable xml libxml2) \
 		$(use_enable xv xvideo) \
 		$(use_enable zlib) \
 		$(use_enable videocore) \
