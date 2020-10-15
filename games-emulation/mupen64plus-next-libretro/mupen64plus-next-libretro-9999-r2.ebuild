@@ -22,12 +22,17 @@ DEPEND="media-libs/mesa:0=
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
+src_prepare() {
+	libretro-core_src_prepare
+	#fixing ARCH detection
+	sed -i Makefile \
+		-e 's:$(ARCH):$(REAL_ARCH):' \
+		-e 's:ARCH = $(shell uname -m):REAL_ARCH = $(shell uname -m):' \
+		|| die '"sed" failed'
+}
+
 src_compile() {
 	myemakeargs=(
-		$(usex amd64 "WITH_DYNAREC=x86_64" "")
-		$(usex x86 "WITH_DYNAREC=x86" "")
-		$(usex arm "WITH_DYNAREC=arm" "")
-		$(usex arm64 "WITH_DYNAREC=aarch64" "")
 		$(usex gles3 "GLES3=1" "GLES3=0")
 		$(usex vulkan "HAVE_PARALLEL_RDP=1 HAVE_PARALLEL_RSP=1" "HAVE_PARALLEL_RDP=0 HAVE_PARALLEL_RSP=0")
 		"HAVE_THR_AL=1"
