@@ -22,6 +22,6 @@ S="${S}/libretro"
 
 src_install() {
 	insinto "${LIBRETRO_DATA_DIR}"/snes9x_libretro
-	doins "${MY_S}"/docs/snes9x-license.txt
+	doins "${MY_S}"/LICENSE
 	libretro-core_src_install
 }

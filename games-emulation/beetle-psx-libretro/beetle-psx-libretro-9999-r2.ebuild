@@ -35,6 +35,7 @@ src_compile() {
 		myemakeargs=(
 			"HAVE_OPENGL=0"
 			"HAVE_VULKAN=0"
+			"HAVE_LIGHTREC=1"
 			)
 		libretro-core_src_compile
 		# Move $TARGET to prevent emake clean deletion
@@ -48,6 +49,7 @@ src_compile() {
 		myemakeargs=(
 			$(usex opengl "HAVE_OPENGL=1" "HAVE_OPENGL=0")
 			$(usex vulkan "HAVE_VULKAN=1" "HAVE_VULKAN=0")
+			"HAVE_LIGHTREC=1"
 			)
 		libretro-core_src_compile
 	fi

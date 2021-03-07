@@ -4,7 +4,7 @@
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
-inherit libretro-core
+inherit libretro-core cmake-utils
 
 DESCRIPTION="libretro implementation of Dolphin. (Nintendo GC/Wii)"
 HOMEPAGE="https://github.com/libretro/dolphin"
@@ -12,20 +12,21 @@ KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="opengl vulkan"
 
-DEPEND="opengl? ( virtual/opengl )
-	vulkan? ( media-libs/vulkan-loader:0= )"
+DEPEND=""
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 
-S="${S}"/Source/Core/DolphinLibretro
-
-src_compile() {
-	myemakeargs=(
-		$(usex opengl "HAVE_OPENGL_CORE=1" "HAVE_OPENGL_CORE=0")
-		$(usex vulkan "HAVE_VULKAN=1" "HAVE_VULKAN=0")
-		STATIC_LINKING=0
+src_configure() {
+	local mycmakeargs=(
+		-DLIBRETRO=ON
+		-DLIBRETRO_STATIC=1
+		-DCMAKE_BUILD_TYPE=Release
 	)
-	libretro-core_src_compile
+	cmake-utils_src_configure
+}
+
+src_install() {
+	LIBRETRO_CORE_LIB_FILE="${WORKDIR}/${P}_build/${LIBRETRO_CORE_NAME}_libretro.so"
+	libretro-core_src_install
 }

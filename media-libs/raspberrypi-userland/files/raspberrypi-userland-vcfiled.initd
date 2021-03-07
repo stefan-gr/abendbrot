@@ -1,0 +1,12 @@
+#!/sbin/openrc-run
+# Distributed under the terms of the BSD License
+
+command="/usr/sbin/vcfiled"
+#command_args="--debug --foreground --root dir --lock prefix"
+pidfile="/var/run/vcfiled.pid"
+#start_stop_daemon_args="-p ${pidfile}"
+description="VideoCore file server daemon"
+
+depend() {
+	use dev
+}

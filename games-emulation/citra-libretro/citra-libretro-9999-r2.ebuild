@@ -1,11 +1,11 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
 # These are used by citra and externals/dynarmic which seems to break with git-r3.eclass
-EGIT_SUBMODULES=("*" "-externals/fmt" "-externals/xbyak")
+EGIT_SUBMODULES=("*" "-externals/dynarmic/externals/fmt" "-externals/dynarmic/externals/xbyak")
 inherit libretro-core cmake-utils
 
 DESCRIPTION="libretro implementation of Citra. (Nintendo 3DS)"
@@ -29,9 +29,11 @@ DEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		-DENABLE_LIBRETRO="ON"
-		-DENABLE_QT="OFF"
-		-DENABLE_SDL2="OFF"
+		-DENABLE_LIBRETRO=1
+		-DENABLE_QT=0
+		-DENABLE_SDL2=0
+		-DCMAKE_BUILD_TYPE="Release"
+		-DENABLE_WEB_SERVICE=0
 	)
 	cmake-utils_src_configure
 }
