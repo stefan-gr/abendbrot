@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 # TODO: Rewrite src_prepare() and src_configure()
@@ -30,7 +30,7 @@ SLOT="0"
 #shouldn't. When upstream resolves this, remove this entry. See also:
 #    https://github.com/stefan-gr/abendbrot/issues/7#issuecomment-204541979
 
-IUSE="+7zip alsa armvfp +assets +cdrom cg cheevos +cores +database debug dispmanx egl ffmpeg +glcore gl1 gles2 gles3 jack +joypad_autoconfig kms lakka libass libusb +materialui miniupnpc +neon +network openal +opengl osmesa oss +overlays pulseaudio qt5 sdl sdl2 +shaders systemd +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb xv zlib cpu_flags_x86_sse2"
+IUSE="+7zip alsa armvfp +assets +cdrom cg cheevos +cores +database debug dispmanx egl ffmpeg gamemode +glcore gl1 gles2 gles3 jack +joypad_autoconfig kms lakka libass libusb +materialui miniupnpc +neon +network openal +opengl osmesa oss +overlays pulseaudio qt5 sdl sdl2 +shaders systemd +truetype +threads +udev v4l2 videocore vulkan wayland X xinerama +xmb xv zlib cpu_flags_x86_sse2"
 
 REQUIRED_USE="
 	|| ( alsa jack openal oss pulseaudio )
@@ -64,6 +64,7 @@ RDEPEND="
 	database? ( games-emulation/libretro-database:0= )
 	arm? ( dispmanx? ( || ( media-libs/raspberrypi-userland:0 media-libs/raspberrypi-userland-bin:0 ) ) )
 	ffmpeg? ( >=media-video/ffmpeg-2.1.3:0= )
+	gamemode? ( games-util/gamemode:0= )
 	jack? ( virtual/jack:= )
 	joypad_autoconfig? ( games-emulation/retroarch-joypad-autoconfig:0= )
 	libass? ( media-libs/libass:0= )
@@ -150,6 +151,11 @@ src_prepare() {
 	if use cores; then
 		sed -i retroarch.cfg \
 			-e 's:# \(menu_show_core_updater =\) true:\1 "false":'
+	fi
+
+	if not use gamemode; then
+		sed -i retroarch.cfg \
+			-e 's:# \(gamemode_enable =\) true:\1 "false":'
 	fi
 
 	use shaders && sed -i retroarch.cfg \
