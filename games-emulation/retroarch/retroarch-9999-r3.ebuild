@@ -148,15 +148,11 @@ src_prepare() {
 		-e 's:# \(rgui_browser_directory =\):\1 "~/":' \
 		|| die '"sed" failed.'
 
-	if use cores; then
-		sed -i retroarch.cfg \
-			-e 's:# \(menu_show_core_updater =\) true:\1 "false":'
-	fi
+	use cores && sed -i retroarch.cfg \
+		-e 's:# \(menu_show_core_updater =\) true:\1 "false":'
 
-	if not use gamemode; then
-		sed -i retroarch.cfg \
-			-e 's:# \(gamemode_enable =\) true:\1 "false":'
-	fi
+	use gamemode || sed -i retroarch.cfg \
+		-e 's:# \(gamemode_enable =\) true:\1 "false":'
 
 	use shaders && sed -i retroarch.cfg \
 		-e 's:# \(video_shader_dir =\):\1 "'${LIBRETRO_DATA_DIR}'/shaders/":'
