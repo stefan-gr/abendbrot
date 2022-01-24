@@ -71,15 +71,15 @@ RDEPEND="
 	libusb? ( virtual/libusb:1= )
 	miniupnpc? ( >=net-libs/miniupnpc-2.0:0= )
 	openal? ( media-libs/openal:0= )
-	opengl? ( media-libs/mesa:0=[egl?,gles2?] )
+	opengl? ( media-libs/mesa:0=[gles2?] )
 	osmesa? ( media-libs/mesa:0=[osmesa?] )
 	overlays? ( games-emulation/common-overlays:0= )
 	pulseaudio? ( media-sound/pulseaudio:0= )
 	qt5? ( 
-	        dev-qt/qtcore:5 
-	        dev-qt/qtgui:5
-	        dev-qt/qtopengl:5
-	        dev-qt/qtwidgets:5
+		dev-qt/qtcore:5 
+		dev-qt/qtgui:5
+		dev-qt/qtopengl:5
+		dev-qt/qtwidgets:5
 	)
 	sdl? ( >=media-libs/libsdl-1.2.10:0=[joystick] )
 	sdl2? ( media-libs/libsdl2:0=[joystick] )
