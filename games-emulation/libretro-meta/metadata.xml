@@ -16,7 +16,6 @@
     <flag name='craft'>adds <pkg>games-emulation/craft-libretro</pkg> as dependency</flag>
     <flag name='desmume'>adds <pkg>games-emulation/desmume-libretro</pkg> as dependency</flag>
     <flag name='dolphin'>adds <pkg>games-emulation/dolphin-libretro</pkg> as dependency</flag>
-    <flag name='duckstation'>adds <pkg>games-emulation/duckstation-libretro</pkg> as dependency</flag>
     <flag name='easyrpg'>adds <pkg>games-emulation/easyrpg-libretro</pkg> as dependency</flag>
     <flag name='fbalpha2012'>adds <pkg>games-emulation/fbalpha2012-libretro</pkg> as dependency</flag>
     <flag name='fbneo'>adds <pkg>games-emulation/fbneo-libretro</pkg> as dependency</flag>
@@ -58,6 +57,7 @@
     <flag name='snes9x2010'>adds <pkg>games-emulation/snes9x2010-libretro</pkg> as dependency</flag>
     <flag name='stella2014'>adds <pkg>games-emulation/stella2014-libretro</pkg> as dependency</flag>
     <flag name='stella'>adds <pkg>games-emulation/stella-libretro</pkg> as dependency</flag>
+    <flag name='swanstation'>adds <pkg>games-emulation/swanstation-libretro</pkg> as dependency</flag>
     <flag name='tgbdual'>adds <pkg>games-emulation/tgbdual-libretro</pkg> as dependency</flag>
     <flag name='tyrquake'>adds <pkg>games-emulation/tyrquake-libretro</pkg> as dependency</flag>
     <flag name='vba-next'>adds <pkg>games-emulation/vba-next-libretro</pkg> as dependency</flag>

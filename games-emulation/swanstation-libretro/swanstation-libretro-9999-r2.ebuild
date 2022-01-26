@@ -3,11 +3,11 @@
 
 EAPI=6
 
-LIBRETRO_REPO_NAME="stenzek/${PN//-libretro}"
+LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
 inherit libretro-core cmake-utils
 
-DESCRIPTION="libretro implementation of Duckstation. (PlayStation)"
-HOMEPAGE="https://github.com/stenzek/duckstation"
+DESCRIPTION="libretro implementation of Swanstation, a fork of duckstation. (PlayStation)"
+HOMEPAGE="https://github.com/libretro/swanstation"
 KEYWORDS=""
 
 LICENSE="GPL-3"
