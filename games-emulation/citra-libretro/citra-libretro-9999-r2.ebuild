@@ -6,7 +6,7 @@ EAPI=6
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
 # These are used by citra and externals/dynarmic which seems to break with git-r3.eclass
 EGIT_SUBMODULES=("*" "-externals/dynarmic/externals/fmt" "-externals/dynarmic/externals/xbyak")
-inherit libretro-core cmake-utils
+inherit libretro-core
 
 DESCRIPTION="libretro implementation of Citra. (Nintendo 3DS)"
 HOMEPAGE="https://github.com/libretro/citra"
@@ -14,31 +14,20 @@ KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"
+IUSE="+system-ffmpeg"
 
 DEPEND=""
 RDEPEND="${DEPEND}
-		games-emulation/libretro-info"
+	games-emulation/libretro-info
+	system-ffmpeg? ( media-video/ffmpeg:0= )"
 
-RDEPEND="virtual/opengl
-	media-libs/libpng:=
-	sys-libs/zlib
-	media-libs/libsdl2
-	"
+RDEPEND="virtual/opengl"
 DEPEND="${DEPEND}"
 
 
-src_configure() {
-	local mycmakeargs=(
-		-DENABLE_LIBRETRO=1
-		-DENABLE_QT=0
-		-DENABLE_SDL2=0
-		-DCMAKE_BUILD_TYPE="Release"
-		-DENABLE_WEB_SERVICE=0
+src_compile() {
+	myemakeargs=(
+		$(usex system-ffmpeg "HAVE_FFMPEG_STATIC=0" "HAVE_FFMPEG_STATIC=1")
 	)
-	cmake-utils_src_configure
-}
-
-src_install() {
-	LIBRETRO_CORE_LIB_FILE="${WORKDIR}/${P}_build/src/${LIBRETRO_CORE_NAME}_libretro/${LIBRETRO_CORE_NAME}_libretro.so"
-	libretro-core_src_install
+	libretro-core_src_compile
 }
