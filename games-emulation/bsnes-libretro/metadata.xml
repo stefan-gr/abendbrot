@@ -5,9 +5,4 @@
     <email>stefan.gert.r@gmail.com</email>
     <name>stefan-gr</name>
   </maintainer>
-  <use>
-    <flag name='profile_accuracy'>Enable the accuracy profile</flag>
-    <flag name='profile_balanced'>Enable the balanced profile</flag>
-    <flag name='profile_performance'>Enable the performance profile</flag>
-  </use>
 </pkgmetadata>

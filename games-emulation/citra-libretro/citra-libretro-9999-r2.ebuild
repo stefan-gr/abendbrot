@@ -1,12 +1,10 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2022 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 LIBRETRO_REPO_NAME="libretro/${PN//-libretro}"
-# These are used by citra and externals/dynarmic which seems to break with git-r3.eclass
-EGIT_SUBMODULES=("*" "-externals/fmt" "-externals/xbyak")
-inherit libretro-core cmake-utils
+inherit libretro-core
 
 DESCRIPTION="libretro implementation of Citra. (Nintendo 3DS)"
 HOMEPAGE="https://github.com/libretro/citra"
@@ -17,26 +15,17 @@ SLOT="0"
 
 DEPEND=""
 RDEPEND="${DEPEND}
-		games-emulation/libretro-info"
+	games-emulation/libretro-info
+	media-video/ffmpeg"
 
-RDEPEND="virtual/opengl
-	media-libs/libpng:=
-	sys-libs/zlib
-	media-libs/libsdl2
-	"
+RDEPEND="virtual/opengl"
 DEPEND="${DEPEND}"
 
 
-src_configure() {
-	local mycmakeargs=(
-		-DENABLE_LIBRETRO="ON"
-		-DENABLE_QT="OFF"
-		-DENABLE_SDL2="OFF"
+src_compile() {
+	# 2022-02-25: doesn't build successfully with static ffmpeg, don't bother and enforce dynamic linking 
+	myemakeargs=(
+		"HAVE_FFMPEG_STATIC=0"
 	)
-	cmake-utils_src_configure
-}
-
-src_install() {
-	LIBRETRO_CORE_LIB_FILE="${WORKDIR}/${P}_build/src/${LIBRETRO_CORE_NAME}_libretro/${LIBRETRO_CORE_NAME}_libretro.so"
-	libretro-core_src_install
+	libretro-core_src_compile
 }

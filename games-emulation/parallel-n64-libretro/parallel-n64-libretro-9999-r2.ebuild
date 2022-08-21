@@ -26,10 +26,11 @@ src_compile() {
 	myemakeargs=(
 		$(usex amd64 "WITH_DYNAREC=x86_64" "")
 		$(usex x86 "WITH_DYNAREC=x86" "")
-		$(usex arm "platform=rpi WITH_DYNAREC=arm" "")
-		$(usex arm64 "platform=rpi WITH_DYNAREC=arm" "")
+		$(usex arm "WITH_DYNAREC=arm" "")
+		$(usex arm64 "WITH_DYNAREC=aarch64" "")
 		$(usex gles2 "FORCE_GLES=1" "FORCE_GLES=0")
-		$(usex vulkan "HAVE_PARALLEL=1" "HAVE_PARALLEL=0")
+		$(usex vulkan "HAVE_PARALLEL=1 HAVE_PARALLEL_RSP=1" "HAVE_PARALLEL=0 HAVE_PARALLEL_RSP=0")
+		"HAVE_THR_AL=1"
 	)
 	libretro-core_src_compile
 }

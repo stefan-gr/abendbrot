@@ -13,7 +13,7 @@ KEYWORDS=""
 LICENSE="GPL-2"
 SLOT="0"
 
-DEPEND=""
+DEPEND=">=net-libs/libpcap-1.9.0"
 RDEPEND="${DEPEND}
 		games-emulation/libretro-info"
 

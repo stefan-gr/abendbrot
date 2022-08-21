@@ -12,6 +12,7 @@ KEYWORDS=""
 
 LICENSE="GPL-2"
 SLOT="0"
+IUSE="neon"
 
 DEPEND="media-libs/libpng:0
 	sys-libs/zlib"
@@ -28,7 +29,8 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		--platform=libretro
+		--platform=libretro \
+		$(use_enable neon)
 }
 
 src_compile() {
